@@ -2,7 +2,7 @@
 
 ## **Purpose**
 
-This lab deploys an EC2 instance and an RDS MySQL database using AWS Secrets Manager to store and retrieve credentials. This is a basic workflow that covers security group, private databases, IAM least-privilege access, and basic web app validation.
+This runbook deploys an EC2 instance and an RDS MySQL database using AWS Secrets Manager to store and retrieve credentials. This is a basic workflow that covers security group, private databases, IAM least-privilege access, and basic web app validation.
 
 ---
 
