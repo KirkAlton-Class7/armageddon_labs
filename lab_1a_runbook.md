@@ -20,10 +20,17 @@ This runbook deploys an EC2 instance and an RDS MySQL database using AWS Secrets
 ### **Step 1.1: Create EC2 Security Group (`ec2-lab-sg`)**
 
 Inbound Rules:
+- Type: HTTP
+- Protocol: TCP
+- Port: 80
+- Source: All (0.0.0.0/0)
+<br>
 - Type: SSH
 - Protocol: TCP
 - Port: 22
 - Source: Trusted IPv4 address (`My IP` in console)
+
+
 
 Outbound Rules:
 - Leave default (Allow all)
