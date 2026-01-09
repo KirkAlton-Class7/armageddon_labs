@@ -372,7 +372,7 @@ ls -l
 
 - **Expected result:** Read/write permissions for owner only.
 
-<img src="./images/confirm_key_permissions_1.png" alt="Confirm SSH Key Permissions" width="90%">
+<img src="./images/confirm_key_permissions.png" alt="Confirm SSH Key Permissions" width="90%">
 
 ---
 
