@@ -172,7 +172,7 @@ IAM → Policies → Create Policy → JSON editor
 - Replace `<REGION>` and `<ACCOUNT_ID>` using values from your secret ARN.
 - Policy name: `read-specific-secret`
 
-<img src="./images/create_policy_2.png" alt="Create Policy Step 2" width="90%">
+<img src="./images/create_policy.png" alt="Create Policy Step 2" width="90%">
 
 ---
 
