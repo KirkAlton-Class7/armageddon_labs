@@ -24,7 +24,7 @@ Inbound Rules:
 - Protocol: TCP
 - Port: 80
 - Source: All (0.0.0.0/0)
-<br>
+
 - Type: SSH
 - Protocol: TCP
 - Port: 22
