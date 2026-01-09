@@ -153,7 +153,7 @@ IAM → Policies → Create Policy → JSON editor
 
 <img src="./images/policy_editor.png" alt="IAM Policy JSON Editor" width="90%">
 
-- Copy and paste the [inline policy from Theo's repo](<https://github.com/KirkAlton-Class7/armageddon/blob/main/SEIR_Foundations/LAB1/1a_inline_policy.json>) into the JSON editor:
+- Copy and paste [Theo's inline policy](1a_inline_policy.json) into the JSON editor:
 
 ```json
 {
