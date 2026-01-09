@@ -202,8 +202,7 @@ IAM → Roles → Create Role
 
 <img src="./images/make_script_file.png" alt="Create User Data Script File" width="90%">
 
-- Copy [Theo's user data script](<https://github.com/KirkAlton-Class7/armageddon/blob/main/SEIR_Foundations/LAB1/1a_user_data.sh>) from:
-    - `LAB1/1a_user_data.sh`
+- Copy [Theo's user data script](1a_user_data.sh)
 - Update region value to match your VPC region (e.g. `us-west-2`)
 - Save the file
 
