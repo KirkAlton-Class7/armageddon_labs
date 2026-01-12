@@ -137,7 +137,7 @@ Navigate to **Secrets Manager → Store a new secret**
 
 - Secret name: `lab/rds/mysql`
 - Description: DB credentials for lab-mysql
-- If using self managed, disable automatic rotation
+- **Use self managed credentials and input the password in the master password field**
 - Store the secret
 - Record the **Secret Name and ARN**
 
