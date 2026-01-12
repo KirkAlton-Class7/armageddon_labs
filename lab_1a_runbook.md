@@ -84,11 +84,16 @@ Subnets:
 
 - DB instance identifier: `lab-mysql`
 - Master username: `admin`
-- Credential management: Self-managed OR AWS Secrets Manager
-- If using self managed credentials:
+- Credential management: Self-managed
   - Master password:
     - Generate a strong password
     - Store in a secure password vault
+
+> **Important:** For the database credentials, **Self Managed** is simpler and more reliable.  
+> Choosing "Managed in AWS Secrets Manager" enables automatic password rotation, but it **requires advanced setup** to work (Lambda function, VPC networking, security group rules, etc).
+> If not properly ocnfigured, the database password won't be synced and will cause connection errors.
+
+<br>
 
 <img src="./images/create_database_3.png" alt="Create Database Step 3" width="90%">
 
@@ -137,7 +142,6 @@ Navigate to **Secrets Manager → Store a new secret**
 
 - Secret name: `lab/rds/mysql`
 - Description: DB credentials for lab-mysql
-- **Use self managed credentials and input the password in the master password field**
 - Store the secret
 - Record the **Secret Name and ARN**
 
