@@ -1,3 +1,7 @@
+variable "application_name" {
+    type = string
+}
+
 variable "env" {
     type = string
     description = "Input environment name (dev, test, prod)."
@@ -35,10 +39,6 @@ variable "region_map" {
         "5" = "ap-northeast-1"
         "6" = "ap-southeast-2"
     }
-}
-
-variable "application_name" {
-    type = string
 }
 
 variable "trusted_ip" {
