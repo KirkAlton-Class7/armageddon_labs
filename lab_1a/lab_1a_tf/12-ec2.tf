@@ -6,7 +6,7 @@ resource "aws_instance" "public_app" {
   vpc_security_group_ids = [local.ec2_sg_id]
 
   iam_instance_profile = aws_iam_instance_profile.get_db_secret.name
-  key_name = aws_key_pair.tf_armageddon_key.key_name
+  # key_name = aws_key_pair.tf_armageddon_key.key_name
   # Replace with your key aws_key_pair resource to test EC2 via SSH
 
   user_data               = templatefile(
