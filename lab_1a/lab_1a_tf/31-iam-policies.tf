@@ -7,7 +7,7 @@ resource "aws_iam_policy" "read_db_secret" {
   policy = data.aws_iam_policy_document.read_db_secret.json
 
   tags = {
-    Name = "read-db-secret"
+    Name      = "read-db-secret"
     Component = "iam"
     DataClass = "confidential"
   }
@@ -16,13 +16,13 @@ resource "aws_iam_policy" "read_db_secret" {
 # IAM Policy Data - Read-DB-Secret
 data "aws_iam_policy_document" "read_db_secret" {
   statement {
-    sid = "ReadDBSecret"
-    effect    = "Allow"
-    actions   = [
-        "secretsmanager:GetSecretValue"
-        ]
+    sid    = "ReadDBSecret"
+    effect = "Allow"
+    actions = [
+      "secretsmanager:GetSecretValue"
+    ]
     resources = [
-        aws_secretsmanager_secret.lab_rds_mysql.arn
-        ]
+      aws_secretsmanager_secret.lab_rds_mysql.arn
+    ]
   }
 }

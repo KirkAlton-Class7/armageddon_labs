@@ -6,7 +6,7 @@ terraform {
       version = "~> 6.18.0"
     }
     random = {
-      source = "hashicorp/random"
+      source  = "hashicorp/random"
       version = "3.7.2"
     }
   }
@@ -16,12 +16,12 @@ terraform {
 
 provider "aws" {
   # Configuration options
-  region = local.region
+  region  = local.region
   profile = "default" # Uses AWS credentials from [default] profile in ~/.aws/credentials
 
   default_tags {
     tags = {
-      ManagedBy = "terraform"
+      ManagedBy   = "terraform"
       Environment = "${local.environment}"
       Application = "${local.application}"
     }

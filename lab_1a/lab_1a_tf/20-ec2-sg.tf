@@ -5,7 +5,7 @@ resource "aws_security_group" "ec2_public_app" {
   vpc_id      = aws_vpc.main.id
 
   tags = {
-    Name = "ec2-public-app-sg"
+    Name      = "ec2-public-app-sg"
     Component = "security"
   }
 }

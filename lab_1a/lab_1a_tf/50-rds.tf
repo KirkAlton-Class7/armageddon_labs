@@ -7,26 +7,26 @@ resource "random_password" "db_password" {
 
 # DB - Lab-MyySQL
 resource "aws_db_instance" "lab_mysql" {
-  identifier = "lab-mysql-${local.name_suffix}"
-  db_subnet_group_name = aws_db_subnet_group.armageddon_1a_db.name
+  identifier             = "lab-mysql-${local.name_suffix}"
+  db_subnet_group_name   = aws_db_subnet_group.armageddon_1a_db.name
   vpc_security_group_ids = [local.private_db_sg_id]
 
-  engine               = "mysql"
-  engine_version       = "8.0"
-  instance_class       = "db.t3.micro"
-  allocated_storage    = 10
+  engine            = "mysql"
+  engine_version    = "8.0"
+  instance_class    = "db.t3.micro"
+  allocated_storage = 10
 
-  username             = local.db_credentials.username
-  password             = local.db_credentials.password
-  
+  username = local.db_credentials.username
+  password = local.db_credentials.password
+
   parameter_group_name = "default.mysql8.0"
   skip_final_snapshot  = true
 
   tags = {
-    Name = "lab-mysql"
-    Component = "data"
+    Name         = "lab-mysql"
+    Component    = "data"
     AppComponent = "db"
-    Engine = "mysql"
+    Engine       = "mysql"
     # DataStore = "relational"
     DataClass = "confidential"
   }

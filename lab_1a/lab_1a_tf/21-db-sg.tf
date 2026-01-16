@@ -5,7 +5,7 @@ resource "aws_security_group" "private_db" {
   vpc_id      = aws_vpc.main.id
 
   tags = {
-    Name = "private-db-sg"
+    Name      = "private-db-sg"
     Component = "security"
   }
 }
@@ -21,7 +21,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_inbound_http_from_ec2_publ
 
 # SG Rule: Allow Outbound IPv4 for Private DB SG
 resource "aws_vpc_security_group_egress_rule" "allow_all_outbound_ipv4_private_db" {
- security_group_id = aws_security_group.private_db.id
- cidr_ipv4         = "0.0.0.0/0"
- ip_protocol       = "-1" # semantically equivalent to all ports
+  security_group_id = aws_security_group.private_db.id
+  cidr_ipv4         = "0.0.0.0/0"
+  ip_protocol       = "-1" # semantically equivalent to all ports
 }

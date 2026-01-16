@@ -9,7 +9,7 @@ resource "aws_nat_gateway" "main" {
   subnet_id     = aws_subnet.public_c.id
 
   tags = {
-    Name = "main-nat-gw"
+    Name      = "main-nat-gw"
     Component = "network"
   }
   depends_on = [aws_internet_gateway.main]

@@ -9,19 +9,19 @@ resource "aws_instance" "public_app" {
   # key_name = aws_key_pair.tf_armageddon_key.key_name
   # Replace with your key aws_key_pair resource to test EC2 via SSH
 
-  user_data               = templatefile(
+  user_data = templatefile(
     "${path.module}/templates/1a_user_data.sh.tpl",
     {
-      region = local.region,
+      region    = local.region,
       secret_id = local.secret_id
-      }
-    )
+    }
+  )
 
   associate_public_ip_address = true
 
   tags = {
-    Name = "public-app-ec2"
-    Component = "compute"
+    Name         = "public-app-ec2"
+    Component    = "compute"
     AppComponent = "frontend"
   }
 }

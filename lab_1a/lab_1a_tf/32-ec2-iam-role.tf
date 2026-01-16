@@ -2,12 +2,12 @@
 resource "aws_iam_role" "get_db_secret" {
   name               = "get-db-secret-${local.name_suffix}"
   assume_role_policy = data.aws_iam_policy_document.get_db_secret.json
-  description = "EC2 role that retrieves db secret."
+  description        = "EC2 role that retrieves db secret."
 
- tags = {
-    Name = "get-db-secret"
-    Component = "iam"
-    DataClass = "confidential"
+  tags = {
+    Name        = "get-db-secret"
+    Component   = "iam"
+    DataClass   = "confidential"
     AccessLevel = "read-only"
   }
 }
@@ -17,8 +17,8 @@ data "aws_iam_policy_document" "get_db_secret" {
   statement {
     effect = "Allow"
     actions = [
-        "sts:AssumeRole"
-        ]
+      "sts:AssumeRole"
+    ]
 
     principals {
       type        = "Service"

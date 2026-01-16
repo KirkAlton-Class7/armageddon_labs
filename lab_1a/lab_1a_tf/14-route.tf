@@ -8,7 +8,7 @@ resource "aws_route_table" "public" {
   }
 
   tags = {
-    Name = "public-route-table"
+    Name      = "public-route-table"
     Component = "network"
   }
 
@@ -41,7 +41,7 @@ resource "aws_route_table" "private" {
   }
 
   tags = {
-    Name = "private-route-table"
+    Name      = "private-route-table"
     Component = "network"
   }
 
@@ -74,7 +74,7 @@ resource "aws_route_table" "local" {
   }
 
   tags = {
-    Name = "local-route-table"
+    Name      = "local-route-table"
     Component = "network"
   }
 
