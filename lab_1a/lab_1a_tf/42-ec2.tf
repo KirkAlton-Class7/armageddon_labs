@@ -10,7 +10,7 @@ resource "aws_instance" "public_app" {
   # Replace with your key aws_key_pair resource to test EC2 via SSH
 
   user_data               = templatefile(
-    "${path.module}/999-1a_user_data.sh.tpl",
+    "${path.module}/templates/1a_user_data.sh.tpl",
     {
       region = local.region,
       secret_id = local.secret_id
