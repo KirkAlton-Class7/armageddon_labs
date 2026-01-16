@@ -1,9 +1,11 @@
 variable "application_name" {
     type = string
+    default = "armageddon"
 }
 
 variable "env" {
     type = string
+    default = "test"
     description = "Input environment name (dev, test, prod)."
     
     validation {
@@ -14,6 +16,7 @@ variable "env" {
 
 variable "region_choice" {
     type = string
+    default = "2"
     description = <<EOT
 Choose an Availability Zone by number:
     1   =   us-east-1
