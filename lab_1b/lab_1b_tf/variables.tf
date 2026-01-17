@@ -1,6 +1,6 @@
 variable "application_name" {
   type    = string
-  default = "armageddon"
+  default = "armageddon-lab-1b"
 }
 
 variable "env" {
