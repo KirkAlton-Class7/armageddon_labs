@@ -8,6 +8,11 @@ locals {
   region = var.region_map[var.region_choice]
   azs    = data.aws_availability_zones.available.names
 
+  # Base Tags
+  base_tags = {
+    Environment = "${local.environment}"
+  }
+
   # Naming helpers
   name_prefix = "${local.application}-${local.environment}"
   name_suffix = lower(random_string.suffix.result)
