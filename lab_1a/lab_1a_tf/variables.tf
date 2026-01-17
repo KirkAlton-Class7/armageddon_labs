@@ -1,11 +1,11 @@
 variable "application_name" {
   type    = string
-  default = "armageddon"
+  default = "armageddon-lab-1a"
 }
 
 variable "env" {
   type        = string
-  default     = "test"
+  default     = "dev"
   description = "Input environment name (dev, test, prod)."
 
   validation {
@@ -16,7 +16,7 @@ variable "env" {
 
 variable "region_choice" {
   type        = string
-  default     = "2"
+  default     = "4" # Defaults region to eu-west-1
   description = <<EOT
 Choose an Availability Zone by number:
     1   =   us-east-1
@@ -46,7 +46,9 @@ variable "region_map" {
 
 variable "trusted_ip" {
   type        = string
-  default     = "0.0.0.0/0" # 0.0.0.0/0 for temporary testing. For production, use your private IP CIDR block
+  default     = "0.0.0.0/0" # 0.0.0.0/0 only for temporary testing.
+  # For proeuction, enter your private IP CIDR block or manually add Instance Connect Region Prefix in conosole.
+  # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-tutorial.html#eic-tut1-task2
   description = "Enter trusted IPv4 address as CIDR block (/32):"
 
   validation {
