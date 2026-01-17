@@ -6,4 +6,8 @@
 <br>
 
 ## **[Lab 1a - Terraform Code](/lab_1a/lab_1a_tf)**
-*Variables for application, environment and region default to "armageddon", test and us-west-2.*
+
+*Variables defaults:*
+- Application = armageddon-lab-1a
+- Environment = dev
+- Region = us-west-2
