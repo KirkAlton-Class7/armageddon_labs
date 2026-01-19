@@ -39,9 +39,3 @@ resource "aws_db_instance" "lab_mysql" {
     DataClass   = "confidential"
   }
 }
-
-# DB Data
-# ENI - Lab-MySQL
-data "aws_network_interface" "rds_eni" {
-  id = tolist(data.aws_db_instance.lab_mysql.network_interface_ids)[0] # ENI value is a set. Convert to a list to safely index it.
-}

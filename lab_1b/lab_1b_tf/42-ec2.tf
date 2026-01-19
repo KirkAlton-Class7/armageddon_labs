@@ -38,5 +38,5 @@ resource "aws_iam_instance_profile" "get_db_secret" {
 # EC2 Data
 # EC2 ENI - Public App EC2
 data "aws_network_interface" "public_app_eni" {
-  id = tolist(aws_instance.public_app.network_interface_ids)[0] # ENI value is a set. Convert to a list to safely index it.
+  id = aws_instance.public_app.primary_network_interface_id
 }
