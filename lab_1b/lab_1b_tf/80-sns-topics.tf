@@ -8,7 +8,7 @@ resource "aws_sns_topic" "rds_failure_alert" {
     Environment = "${local.environment}"
     Component   = "alert-db"
     Scope       = "monitoring-availability"
-    Severity   = "high"
+    Severity    = "high"
   }
 }
 
@@ -23,7 +23,7 @@ resource "aws_sns_topic" "app_to_rds_connection_failure_alert" {
     Environment = "${local.environment}"
     Component   = "alert-db"
     Scope       = "monitoring-connectivity"
-    Severity   = "medium"
+    Severity    = "medium"
   }
 }
 
@@ -38,6 +38,6 @@ resource "aws_sns_topic" "lab_mysql_auth_failure_alert" {
     Environment = "${local.environment}"
     Component   = "alert-db"
     Scope       = "monitoring-login"
-    Severity   = "medium"
+    Severity    = "medium"
   }
 }

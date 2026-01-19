@@ -4,8 +4,8 @@ resource "aws_cloudwatch_log_metric_filter" "public_app_to_lab_mysql_connection_
   name           = "public-app-to-lab-mysql-connection-failure"
   log_group_name = aws_cloudwatch_log_group.vpc_flow_log.name
 
-  pattern = "${data.aws_network_interface.public_app_eni.id} * * * 3306 * REJECT OK"
-  # Wildcard on these fields: $${srcaddr} $${dstaddr} $${srcport} $${protocol} (value doesn't matter)
+  pattern = "[version, account_id, interface_id, srcaddr, dstaddr, srcport, dstport, protocol, packets, bytes, start, end, action, log_status] * * ${data.aws_network_interface.public_app_eni.id} * * * 3306 * * * * * REJECT OK"
+  # Wildcard on fields you aren't matching.
 
   metric_transformation {
     name      = "PublicAppToLabMySqlConnectionFailure"
@@ -33,7 +33,7 @@ resource "aws_cloudwatch_metric_alarm" "public_app_to_lab_mysql_connection_failu
     Environment = "${local.environment}"
     Component   = "alarm-db"
     Scope       = "monitoring-connectivity"
-    Severity   = "medium"
+    Severity    = "medium"
   }
 }
 
@@ -72,6 +72,6 @@ resource "aws_cloudwatch_metric_alarm" "alarm_lab_mysql_auth_failure" {
     Environment = "${local.environment}"
     Component   = "alarm-db"
     Scope       = "monitoring-login"
-    Severity   = "medium"
+    Severity    = "medium"
   }
 }
