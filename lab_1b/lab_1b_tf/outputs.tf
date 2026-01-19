@@ -60,3 +60,7 @@ output "rds_info" {
 output "rds_subnets" {
   value = aws_db_subnet_group.armageddon_1a_db.subnet_ids
 }
+
+output "resolved_metric_filter_pattern" {
+  value = "[version, account_id, interface_id, srcaddr, dstaddr, srcport, dstport, protocol, packets, bytes, start, end, action, log_status] * * \"${data.aws_network_interface.public_app_eni.id}\" * * * 3306 * * * * * REJECT OK"
+}

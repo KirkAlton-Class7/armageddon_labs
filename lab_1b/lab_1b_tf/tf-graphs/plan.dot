@@ -4,7 +4,6 @@ digraph {
 	subgraph "root" {
 		"[root] aws_cloudwatch_log_group.lab_mysql_auth_failure_logs (expand)" [label = "aws_cloudwatch_log_group.lab_mysql_auth_failure_logs", shape = "box"]
 		"[root] aws_cloudwatch_log_group.vpc_flow_log (expand)" [label = "aws_cloudwatch_log_group.vpc_flow_log", shape = "box"]
-		"[root] aws_cloudwatch_log_metric_filter.lab_mysql_auth_failure" [label = "aws_cloudwatch_log_metric_filter.lab_mysql_auth_failure", shape = "box"]
 		"[root] aws_cloudwatch_log_metric_filter.lab_mysql_auth_failure (expand)" [label = "aws_cloudwatch_log_metric_filter.lab_mysql_auth_failure", shape = "box"]
 		"[root] aws_cloudwatch_log_metric_filter.public_app_to_lab_mysql_connection_failure" [label = "aws_cloudwatch_log_metric_filter.public_app_to_lab_mysql_connection_failure", shape = "box"]
 		"[root] aws_cloudwatch_log_metric_filter.public_app_to_lab_mysql_connection_failure (expand)" [label = "aws_cloudwatch_log_metric_filter.public_app_to_lab_mysql_connection_failure", shape = "box"]
@@ -15,8 +14,6 @@ digraph {
 		"[root] aws_db_parameter_group.lab_mysql_parameters (expand)" [label = "aws_db_parameter_group.lab_mysql_parameters", shape = "box"]
 		"[root] aws_db_subnet_group.armageddon_1a_db (expand)" [label = "aws_db_subnet_group.armageddon_1a_db", shape = "box"]
 		"[root] aws_eip.main (expand)" [label = "aws_eip.main", shape = "box"]
-		"[root] aws_flow_log.vpc" [label = "aws_flow_log.vpc", shape = "box"]
-		"[root] aws_flow_log.vpc (destroy)" [label = "aws_flow_log.vpc", shape = "box"]
 		"[root] aws_flow_log.vpc (expand)" [label = "aws_flow_log.vpc", shape = "box"]
 		"[root] aws_iam_instance_profile.get_db_secret (expand)" [label = "aws_iam_instance_profile.get_db_secret", shape = "box"]
 		"[root] aws_iam_policy.rds_enhanced_monitoring_role (expand)" [label = "aws_iam_policy.rds_enhanced_monitoring_role", shape = "box"]
@@ -88,7 +85,6 @@ digraph {
 		"[root] aws_cloudwatch_log_group.vpc_flow_log (expand)" -> "[root] local.name_suffix (expand)"
 		"[root] aws_cloudwatch_log_group.vpc_flow_log (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] aws_cloudwatch_log_metric_filter.lab_mysql_auth_failure (expand)" -> "[root] aws_db_instance.lab_mysql (expand)"
-		"[root] aws_cloudwatch_log_metric_filter.lab_mysql_auth_failure" -> "[root] aws_cloudwatch_log_metric_filter.lab_mysql_auth_failure (expand)"
 		"[root] aws_cloudwatch_log_metric_filter.public_app_to_lab_mysql_connection_failure (expand)" -> "[root] aws_cloudwatch_log_group.vpc_flow_log (expand)"
 		"[root] aws_cloudwatch_log_metric_filter.public_app_to_lab_mysql_connection_failure (expand)" -> "[root] data.aws_network_interface.public_app_eni (expand)"
 		"[root] aws_cloudwatch_log_metric_filter.public_app_to_lab_mysql_connection_failure" -> "[root] aws_cloudwatch_log_metric_filter.public_app_to_lab_mysql_connection_failure (expand)"
@@ -104,12 +100,9 @@ digraph {
 		"[root] aws_db_parameter_group.lab_mysql_parameters (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] aws_db_subnet_group.armageddon_1a_db (expand)" -> "[root] local.private_data_subnets (expand)"
 		"[root] aws_eip.main (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
-		"[root] aws_flow_log.vpc (destroy)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] aws_flow_log.vpc (expand)" -> "[root] aws_cloudwatch_log_group.vpc_flow_log (expand)"
 		"[root] aws_flow_log.vpc (expand)" -> "[root] aws_iam_role.vpc_flow_log_role (expand)"
 		"[root] aws_flow_log.vpc (expand)" -> "[root] aws_vpc.main (expand)"
-		"[root] aws_flow_log.vpc" -> "[root] aws_flow_log.vpc (destroy)"
-		"[root] aws_flow_log.vpc" -> "[root] aws_flow_log.vpc (expand)"
 		"[root] aws_iam_instance_profile.get_db_secret (expand)" -> "[root] aws_iam_role.read_db_secret (expand)"
 		"[root] aws_iam_policy.rds_enhanced_monitoring_role (expand)" -> "[root] data.aws_iam_policy_document.rds_enhanced_monitoring_role (expand)"
 		"[root] aws_iam_policy.rds_enhanced_monitoring_role (expand)" -> "[root] local.name_suffix (expand)"
@@ -250,12 +243,12 @@ digraph {
 		"[root] output.trusted_ip (expand)" -> "[root] local.trusted_ip (expand)"
 		"[root] output.vpc_info (expand)" -> "[root] aws_vpc.main (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudwatch_log_group.lab_mysql_auth_failure_logs (expand)"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudwatch_log_metric_filter.lab_mysql_auth_failure"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudwatch_log_metric_filter.lab_mysql_auth_failure (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudwatch_log_metric_filter.public_app_to_lab_mysql_connection_failure"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudwatch_metric_alarm.alarm_lab_mysql_auth_failure (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudwatch_metric_alarm.public_app_to_lab_mysql_connection_failure (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_db_event_subscription.rds_failure_events (expand)"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_flow_log.vpc"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_flow_log.vpc (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_iam_role_policy_attachment.attach_ (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_iam_role_policy_attachment.attach_read_db_secret (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role (expand)"
