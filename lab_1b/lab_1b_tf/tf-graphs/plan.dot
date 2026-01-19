@@ -2,36 +2,38 @@ digraph {
 	compound = "true"
 	newrank = "true"
 	subgraph "root" {
-		"[root] aws_cloudwatch_log_group.private_data_subnet_flow_log" [label = "aws_cloudwatch_log_group.private_data_subnet_flow_log", shape = "box"]
-		"[root] aws_cloudwatch_log_group.private_data_subnet_flow_log (expand)" [label = "aws_cloudwatch_log_group.private_data_subnet_flow_log", shape = "box"]
+		"[root] aws_cloudwatch_log_group.lab_mysql_auth_failure_logs" [label = "aws_cloudwatch_log_group.lab_mysql_auth_failure_logs", shape = "box"]
+		"[root] aws_cloudwatch_log_group.lab_mysql_auth_failure_logs (expand)" [label = "aws_cloudwatch_log_group.lab_mysql_auth_failure_logs", shape = "box"]
 		"[root] aws_cloudwatch_log_group.vpc_flow_log" [label = "aws_cloudwatch_log_group.vpc_flow_log", shape = "box"]
 		"[root] aws_cloudwatch_log_group.vpc_flow_log (expand)" [label = "aws_cloudwatch_log_group.vpc_flow_log", shape = "box"]
+		"[root] aws_cloudwatch_log_metric_filter.lab_mysql_auth_failure" [label = "aws_cloudwatch_log_metric_filter.lab_mysql_auth_failure", shape = "box"]
+		"[root] aws_cloudwatch_log_metric_filter.lab_mysql_auth_failure (expand)" [label = "aws_cloudwatch_log_metric_filter.lab_mysql_auth_failure", shape = "box"]
+		"[root] aws_cloudwatch_log_metric_filter.public_app_to_lab_mysql_connection_failure" [label = "aws_cloudwatch_log_metric_filter.public_app_to_lab_mysql_connection_failure", shape = "box"]
+		"[root] aws_cloudwatch_log_metric_filter.public_app_to_lab_mysql_connection_failure (expand)" [label = "aws_cloudwatch_log_metric_filter.public_app_to_lab_mysql_connection_failure", shape = "box"]
+		"[root] aws_cloudwatch_metric_alarm.alarm_lab_mysql_auth_failure" [label = "aws_cloudwatch_metric_alarm.alarm_lab_mysql_auth_failure", shape = "box"]
+		"[root] aws_cloudwatch_metric_alarm.alarm_lab_mysql_auth_failure (expand)" [label = "aws_cloudwatch_metric_alarm.alarm_lab_mysql_auth_failure", shape = "box"]
+		"[root] aws_cloudwatch_metric_alarm.public_app_to_lab_mysql_connection_failure" [label = "aws_cloudwatch_metric_alarm.public_app_to_lab_mysql_connection_failure", shape = "box"]
+		"[root] aws_cloudwatch_metric_alarm.public_app_to_lab_mysql_connection_failure (expand)" [label = "aws_cloudwatch_metric_alarm.public_app_to_lab_mysql_connection_failure", shape = "box"]
+		"[root] aws_db_event_subscription.rds_failure_events" [label = "aws_db_event_subscription.rds_failure_events", shape = "box"]
+		"[root] aws_db_event_subscription.rds_failure_events (expand)" [label = "aws_db_event_subscription.rds_failure_events", shape = "box"]
 		"[root] aws_db_instance.lab_mysql" [label = "aws_db_instance.lab_mysql", shape = "box"]
 		"[root] aws_db_instance.lab_mysql (expand)" [label = "aws_db_instance.lab_mysql", shape = "box"]
+		"[root] aws_db_parameter_group.lab_mysql_parameters" [label = "aws_db_parameter_group.lab_mysql_parameters", shape = "box"]
+		"[root] aws_db_parameter_group.lab_mysql_parameters (expand)" [label = "aws_db_parameter_group.lab_mysql_parameters", shape = "box"]
 		"[root] aws_db_subnet_group.armageddon_1a_db" [label = "aws_db_subnet_group.armageddon_1a_db", shape = "box"]
 		"[root] aws_db_subnet_group.armageddon_1a_db (expand)" [label = "aws_db_subnet_group.armageddon_1a_db", shape = "box"]
 		"[root] aws_eip.main" [label = "aws_eip.main", shape = "box"]
 		"[root] aws_eip.main (expand)" [label = "aws_eip.main", shape = "box"]
-		"[root] aws_flow_log.private_data_a_subnet" [label = "aws_flow_log.private_data_a_subnet", shape = "box"]
-		"[root] aws_flow_log.private_data_a_subnet (expand)" [label = "aws_flow_log.private_data_a_subnet", shape = "box"]
-		"[root] aws_flow_log.private_data_b_subnet" [label = "aws_flow_log.private_data_b_subnet", shape = "box"]
-		"[root] aws_flow_log.private_data_b_subnet (expand)" [label = "aws_flow_log.private_data_b_subnet", shape = "box"]
-		"[root] aws_flow_log.private_data_c_subnet" [label = "aws_flow_log.private_data_c_subnet", shape = "box"]
-		"[root] aws_flow_log.private_data_c_subnet (expand)" [label = "aws_flow_log.private_data_c_subnet", shape = "box"]
 		"[root] aws_flow_log.vpc" [label = "aws_flow_log.vpc", shape = "box"]
 		"[root] aws_flow_log.vpc (expand)" [label = "aws_flow_log.vpc", shape = "box"]
 		"[root] aws_iam_instance_profile.get_db_secret" [label = "aws_iam_instance_profile.get_db_secret", shape = "box"]
 		"[root] aws_iam_instance_profile.get_db_secret (expand)" [label = "aws_iam_instance_profile.get_db_secret", shape = "box"]
-		"[root] aws_iam_policy.private_data_subnet_flow_log_role" [label = "aws_iam_policy.private_data_subnet_flow_log_role", shape = "box"]
-		"[root] aws_iam_policy.private_data_subnet_flow_log_role (expand)" [label = "aws_iam_policy.private_data_subnet_flow_log_role", shape = "box"]
 		"[root] aws_iam_policy.rds_enhanced_monitoring_role" [label = "aws_iam_policy.rds_enhanced_monitoring_role", shape = "box"]
 		"[root] aws_iam_policy.rds_enhanced_monitoring_role (expand)" [label = "aws_iam_policy.rds_enhanced_monitoring_role", shape = "box"]
 		"[root] aws_iam_policy.read_db_secret" [label = "aws_iam_policy.read_db_secret", shape = "box"]
 		"[root] aws_iam_policy.read_db_secret (expand)" [label = "aws_iam_policy.read_db_secret", shape = "box"]
 		"[root] aws_iam_policy.vpc_flow_log_role" [label = "aws_iam_policy.vpc_flow_log_role", shape = "box"]
 		"[root] aws_iam_policy.vpc_flow_log_role (expand)" [label = "aws_iam_policy.vpc_flow_log_role", shape = "box"]
-		"[root] aws_iam_role.private_data_subnet_flow_log_role" [label = "aws_iam_role.private_data_subnet_flow_log_role", shape = "box"]
-		"[root] aws_iam_role.private_data_subnet_flow_log_role (expand)" [label = "aws_iam_role.private_data_subnet_flow_log_role", shape = "box"]
 		"[root] aws_iam_role.rds_enhanced_monitoring_role" [label = "aws_iam_role.rds_enhanced_monitoring_role", shape = "box"]
 		"[root] aws_iam_role.rds_enhanced_monitoring_role (expand)" [label = "aws_iam_role.rds_enhanced_monitoring_role", shape = "box"]
 		"[root] aws_iam_role.read_db_secret" [label = "aws_iam_role.read_db_secret", shape = "box"]
@@ -40,8 +42,6 @@ digraph {
 		"[root] aws_iam_role.vpc_flow_log_role (expand)" [label = "aws_iam_role.vpc_flow_log_role", shape = "box"]
 		"[root] aws_iam_role_policy_attachment.attach_" [label = "aws_iam_role_policy_attachment.attach_", shape = "box"]
 		"[root] aws_iam_role_policy_attachment.attach_ (expand)" [label = "aws_iam_role_policy_attachment.attach_", shape = "box"]
-		"[root] aws_iam_role_policy_attachment.attach_private_data_subnet_flow_log_assume_role" [label = "aws_iam_role_policy_attachment.attach_private_data_subnet_flow_log_assume_role", shape = "box"]
-		"[root] aws_iam_role_policy_attachment.attach_private_data_subnet_flow_log_assume_role (expand)" [label = "aws_iam_role_policy_attachment.attach_private_data_subnet_flow_log_assume_role", shape = "box"]
 		"[root] aws_iam_role_policy_attachment.attach_read_db_secret" [label = "aws_iam_role_policy_attachment.attach_read_db_secret", shape = "box"]
 		"[root] aws_iam_role_policy_attachment.attach_read_db_secret (expand)" [label = "aws_iam_role_policy_attachment.attach_read_db_secret", shape = "box"]
 		"[root] aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role" [label = "aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role", shape = "box"]
@@ -50,8 +50,6 @@ digraph {
 		"[root] aws_instance.public_app (expand)" [label = "aws_instance.public_app", shape = "box"]
 		"[root] aws_internet_gateway.main" [label = "aws_internet_gateway.main", shape = "box"]
 		"[root] aws_internet_gateway.main (expand)" [label = "aws_internet_gateway.main", shape = "box"]
-		"[root] aws_key_pair.tf_armageddon_key" [label = "aws_key_pair.tf_armageddon_key", shape = "box"]
-		"[root] aws_key_pair.tf_armageddon_key (expand)" [label = "aws_key_pair.tf_armageddon_key", shape = "box"]
 		"[root] aws_nat_gateway.main" [label = "aws_nat_gateway.main", shape = "box"]
 		"[root] aws_nat_gateway.main (expand)" [label = "aws_nat_gateway.main", shape = "box"]
 		"[root] aws_route_table.local" [label = "aws_route_table.local", shape = "box"]
@@ -86,6 +84,12 @@ digraph {
 		"[root] aws_security_group.ec2_public_app (expand)" [label = "aws_security_group.ec2_public_app", shape = "box"]
 		"[root] aws_security_group.private_db" [label = "aws_security_group.private_db", shape = "box"]
 		"[root] aws_security_group.private_db (expand)" [label = "aws_security_group.private_db", shape = "box"]
+		"[root] aws_sns_topic.app_to_rds_connection_failure_alert" [label = "aws_sns_topic.app_to_rds_connection_failure_alert", shape = "box"]
+		"[root] aws_sns_topic.app_to_rds_connection_failure_alert (expand)" [label = "aws_sns_topic.app_to_rds_connection_failure_alert", shape = "box"]
+		"[root] aws_sns_topic.lab_mysql_auth_failure_alert" [label = "aws_sns_topic.lab_mysql_auth_failure_alert", shape = "box"]
+		"[root] aws_sns_topic.lab_mysql_auth_failure_alert (expand)" [label = "aws_sns_topic.lab_mysql_auth_failure_alert", shape = "box"]
+		"[root] aws_sns_topic.rds_failure_alert" [label = "aws_sns_topic.rds_failure_alert", shape = "box"]
+		"[root] aws_sns_topic.rds_failure_alert (expand)" [label = "aws_sns_topic.rds_failure_alert", shape = "box"]
 		"[root] aws_subnet.private_data_a" [label = "aws_subnet.private_data_a", shape = "box"]
 		"[root] aws_subnet.private_data_a (expand)" [label = "aws_subnet.private_data_a", shape = "box"]
 		"[root] aws_subnet.private_data_b" [label = "aws_subnet.private_data_b", shape = "box"]
@@ -118,9 +122,6 @@ digraph {
 		"[root] aws_vpc_security_group_ingress_rule.allow_trusted_inbound_ssh_ipv4_ec2_public_app (expand)" [label = "aws_vpc_security_group_ingress_rule.allow_trusted_inbound_ssh_ipv4_ec2_public_app", shape = "box"]
 		"[root] data.aws_ami.amazon_linux_2023 (expand)" [label = "data.aws_ami.amazon_linux_2023", shape = "box"]
 		"[root] data.aws_availability_zones.available (expand)" [label = "data.aws_availability_zones.available", shape = "box"]
-		"[root] data.aws_iam_policy_document.private_data_subnet_flow_log_assume_role (expand)" [label = "data.aws_iam_policy_document.private_data_subnet_flow_log_assume_role", shape = "box"]
-		"[root] data.aws_iam_policy_document.private_data_subnet_flow_log_role" [label = "data.aws_iam_policy_document.private_data_subnet_flow_log_role", shape = "box"]
-		"[root] data.aws_iam_policy_document.private_data_subnet_flow_log_role (expand)" [label = "data.aws_iam_policy_document.private_data_subnet_flow_log_role", shape = "box"]
 		"[root] data.aws_iam_policy_document.rds_enhanced_monitoring_assume_role (expand)" [label = "data.aws_iam_policy_document.rds_enhanced_monitoring_assume_role", shape = "box"]
 		"[root] data.aws_iam_policy_document.rds_enhanced_monitoring_role (expand)" [label = "data.aws_iam_policy_document.rds_enhanced_monitoring_role", shape = "box"]
 		"[root] data.aws_iam_policy_document.read_db_secret" [label = "data.aws_iam_policy_document.read_db_secret", shape = "box"]
@@ -129,6 +130,8 @@ digraph {
 		"[root] data.aws_iam_policy_document.vpc_flow_log_assume_role (expand)" [label = "data.aws_iam_policy_document.vpc_flow_log_assume_role", shape = "box"]
 		"[root] data.aws_iam_policy_document.vpc_flow_log_role" [label = "data.aws_iam_policy_document.vpc_flow_log_role", shape = "box"]
 		"[root] data.aws_iam_policy_document.vpc_flow_log_role (expand)" [label = "data.aws_iam_policy_document.vpc_flow_log_role", shape = "box"]
+		"[root] data.aws_network_interface.public_app_eni" [label = "data.aws_network_interface.public_app_eni", shape = "box"]
+		"[root] data.aws_network_interface.public_app_eni (expand)" [label = "data.aws_network_interface.public_app_eni", shape = "box"]
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
 		"[root] provider[\"registry.terraform.io/hashicorp/random\"]" [label = "provider[\"registry.terraform.io/hashicorp/random\"]", shape = "diamond"]
 		"[root] random_integer.subnet_picker" [label = "random_integer.subnet_picker", shape = "box"]
@@ -142,39 +145,41 @@ digraph {
 		"[root] var.region_choice" [label = "var.region_choice", shape = "note"]
 		"[root] var.region_map" [label = "var.region_map", shape = "note"]
 		"[root] var.trusted_ip" [label = "var.trusted_ip", shape = "note"]
-		"[root] aws_cloudwatch_log_group.private_data_subnet_flow_log (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
-		"[root] aws_cloudwatch_log_group.private_data_subnet_flow_log" -> "[root] aws_cloudwatch_log_group.private_data_subnet_flow_log (expand)"
+		"[root] aws_cloudwatch_log_group.lab_mysql_auth_failure_logs (expand)" -> "[root] local.name_suffix (expand)"
+		"[root] aws_cloudwatch_log_group.lab_mysql_auth_failure_logs (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_cloudwatch_log_group.lab_mysql_auth_failure_logs" -> "[root] aws_cloudwatch_log_group.lab_mysql_auth_failure_logs (expand)"
 		"[root] aws_cloudwatch_log_group.vpc_flow_log (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] aws_cloudwatch_log_group.vpc_flow_log" -> "[root] aws_cloudwatch_log_group.vpc_flow_log (expand)"
+		"[root] aws_cloudwatch_log_metric_filter.lab_mysql_auth_failure (expand)" -> "[root] aws_db_instance.lab_mysql"
+		"[root] aws_cloudwatch_log_metric_filter.lab_mysql_auth_failure" -> "[root] aws_cloudwatch_log_metric_filter.lab_mysql_auth_failure (expand)"
+		"[root] aws_cloudwatch_log_metric_filter.public_app_to_lab_mysql_connection_failure (expand)" -> "[root] aws_cloudwatch_log_group.vpc_flow_log"
+		"[root] aws_cloudwatch_log_metric_filter.public_app_to_lab_mysql_connection_failure (expand)" -> "[root] data.aws_network_interface.public_app_eni"
+		"[root] aws_cloudwatch_log_metric_filter.public_app_to_lab_mysql_connection_failure" -> "[root] aws_cloudwatch_log_metric_filter.public_app_to_lab_mysql_connection_failure (expand)"
+		"[root] aws_cloudwatch_metric_alarm.alarm_lab_mysql_auth_failure (expand)" -> "[root] aws_sns_topic.lab_mysql_auth_failure_alert"
+		"[root] aws_cloudwatch_metric_alarm.alarm_lab_mysql_auth_failure" -> "[root] aws_cloudwatch_metric_alarm.alarm_lab_mysql_auth_failure (expand)"
+		"[root] aws_cloudwatch_metric_alarm.public_app_to_lab_mysql_connection_failure (expand)" -> "[root] aws_sns_topic.app_to_rds_connection_failure_alert"
+		"[root] aws_cloudwatch_metric_alarm.public_app_to_lab_mysql_connection_failure" -> "[root] aws_cloudwatch_metric_alarm.public_app_to_lab_mysql_connection_failure (expand)"
+		"[root] aws_db_event_subscription.rds_failure_events (expand)" -> "[root] aws_db_instance.lab_mysql"
+		"[root] aws_db_event_subscription.rds_failure_events (expand)" -> "[root] aws_sns_topic.rds_failure_alert"
+		"[root] aws_db_event_subscription.rds_failure_events" -> "[root] aws_db_event_subscription.rds_failure_events (expand)"
+		"[root] aws_db_instance.lab_mysql (expand)" -> "[root] aws_db_parameter_group.lab_mysql_parameters"
 		"[root] aws_db_instance.lab_mysql (expand)" -> "[root] aws_db_subnet_group.armageddon_1a_db"
+		"[root] aws_db_instance.lab_mysql (expand)" -> "[root] aws_iam_role.rds_enhanced_monitoring_role"
 		"[root] aws_db_instance.lab_mysql (expand)" -> "[root] local.db_credentials (expand)"
-		"[root] aws_db_instance.lab_mysql (expand)" -> "[root] local.name_suffix (expand)"
 		"[root] aws_db_instance.lab_mysql (expand)" -> "[root] local.private_db_sg_id (expand)"
 		"[root] aws_db_instance.lab_mysql" -> "[root] aws_db_instance.lab_mysql (expand)"
+		"[root] aws_db_parameter_group.lab_mysql_parameters (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_db_parameter_group.lab_mysql_parameters" -> "[root] aws_db_parameter_group.lab_mysql_parameters (expand)"
 		"[root] aws_db_subnet_group.armageddon_1a_db (expand)" -> "[root] local.private_data_subnets (expand)"
 		"[root] aws_db_subnet_group.armageddon_1a_db" -> "[root] aws_db_subnet_group.armageddon_1a_db (expand)"
 		"[root] aws_eip.main (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] aws_eip.main" -> "[root] aws_eip.main (expand)"
-		"[root] aws_flow_log.private_data_a_subnet (expand)" -> "[root] aws_cloudwatch_log_group.private_data_subnet_flow_log"
-		"[root] aws_flow_log.private_data_a_subnet (expand)" -> "[root] aws_iam_role.private_data_subnet_flow_log_role"
-		"[root] aws_flow_log.private_data_a_subnet (expand)" -> "[root] aws_subnet.private_data_a"
-		"[root] aws_flow_log.private_data_a_subnet" -> "[root] aws_flow_log.private_data_a_subnet (expand)"
-		"[root] aws_flow_log.private_data_b_subnet (expand)" -> "[root] aws_cloudwatch_log_group.private_data_subnet_flow_log"
-		"[root] aws_flow_log.private_data_b_subnet (expand)" -> "[root] aws_iam_role.private_data_subnet_flow_log_role"
-		"[root] aws_flow_log.private_data_b_subnet (expand)" -> "[root] aws_subnet.private_data_b"
-		"[root] aws_flow_log.private_data_b_subnet" -> "[root] aws_flow_log.private_data_b_subnet (expand)"
-		"[root] aws_flow_log.private_data_c_subnet (expand)" -> "[root] aws_cloudwatch_log_group.private_data_subnet_flow_log"
-		"[root] aws_flow_log.private_data_c_subnet (expand)" -> "[root] aws_iam_role.private_data_subnet_flow_log_role"
-		"[root] aws_flow_log.private_data_c_subnet (expand)" -> "[root] aws_subnet.private_data_c"
-		"[root] aws_flow_log.private_data_c_subnet" -> "[root] aws_flow_log.private_data_c_subnet (expand)"
 		"[root] aws_flow_log.vpc (expand)" -> "[root] aws_cloudwatch_log_group.vpc_flow_log"
 		"[root] aws_flow_log.vpc (expand)" -> "[root] aws_iam_role.vpc_flow_log_role"
 		"[root] aws_flow_log.vpc (expand)" -> "[root] aws_vpc.main"
 		"[root] aws_flow_log.vpc" -> "[root] aws_flow_log.vpc (expand)"
 		"[root] aws_iam_instance_profile.get_db_secret (expand)" -> "[root] aws_iam_role.read_db_secret"
 		"[root] aws_iam_instance_profile.get_db_secret" -> "[root] aws_iam_instance_profile.get_db_secret (expand)"
-		"[root] aws_iam_policy.private_data_subnet_flow_log_role (expand)" -> "[root] data.aws_iam_policy_document.private_data_subnet_flow_log_role"
-		"[root] aws_iam_policy.private_data_subnet_flow_log_role" -> "[root] aws_iam_policy.private_data_subnet_flow_log_role (expand)"
 		"[root] aws_iam_policy.rds_enhanced_monitoring_role (expand)" -> "[root] data.aws_iam_policy_document.rds_enhanced_monitoring_role (expand)"
 		"[root] aws_iam_policy.rds_enhanced_monitoring_role (expand)" -> "[root] local.name_suffix (expand)"
 		"[root] aws_iam_policy.rds_enhanced_monitoring_role" -> "[root] aws_iam_policy.rds_enhanced_monitoring_role (expand)"
@@ -182,24 +187,18 @@ digraph {
 		"[root] aws_iam_policy.read_db_secret" -> "[root] aws_iam_policy.read_db_secret (expand)"
 		"[root] aws_iam_policy.vpc_flow_log_role (expand)" -> "[root] data.aws_iam_policy_document.vpc_flow_log_role"
 		"[root] aws_iam_policy.vpc_flow_log_role" -> "[root] aws_iam_policy.vpc_flow_log_role (expand)"
-		"[root] aws_iam_role.private_data_subnet_flow_log_role (expand)" -> "[root] data.aws_iam_policy_document.private_data_subnet_flow_log_assume_role (expand)"
-		"[root] aws_iam_role.private_data_subnet_flow_log_role (expand)" -> "[root] local.name_suffix (expand)"
-		"[root] aws_iam_role.private_data_subnet_flow_log_role" -> "[root] aws_iam_role.private_data_subnet_flow_log_role (expand)"
 		"[root] aws_iam_role.rds_enhanced_monitoring_role (expand)" -> "[root] data.aws_iam_policy_document.rds_enhanced_monitoring_assume_role (expand)"
 		"[root] aws_iam_role.rds_enhanced_monitoring_role (expand)" -> "[root] local.name_suffix (expand)"
 		"[root] aws_iam_role.rds_enhanced_monitoring_role" -> "[root] aws_iam_role.rds_enhanced_monitoring_role (expand)"
 		"[root] aws_iam_role.read_db_secret (expand)" -> "[root] data.aws_iam_policy_document.read_db_secret_assume_role (expand)"
 		"[root] aws_iam_role.read_db_secret (expand)" -> "[root] local.name_suffix (expand)"
 		"[root] aws_iam_role.read_db_secret" -> "[root] aws_iam_role.read_db_secret (expand)"
-		"[root] aws_iam_role.vpc_flow_log_role (expand)" -> "[root] data.aws_iam_policy_document.private_data_subnet_flow_log_assume_role (expand)"
+		"[root] aws_iam_role.vpc_flow_log_role (expand)" -> "[root] data.aws_iam_policy_document.vpc_flow_log_assume_role (expand)"
 		"[root] aws_iam_role.vpc_flow_log_role (expand)" -> "[root] local.name_suffix (expand)"
 		"[root] aws_iam_role.vpc_flow_log_role" -> "[root] aws_iam_role.vpc_flow_log_role (expand)"
 		"[root] aws_iam_role_policy_attachment.attach_ (expand)" -> "[root] aws_iam_policy.rds_enhanced_monitoring_role"
 		"[root] aws_iam_role_policy_attachment.attach_ (expand)" -> "[root] aws_iam_role.rds_enhanced_monitoring_role"
 		"[root] aws_iam_role_policy_attachment.attach_" -> "[root] aws_iam_role_policy_attachment.attach_ (expand)"
-		"[root] aws_iam_role_policy_attachment.attach_private_data_subnet_flow_log_assume_role (expand)" -> "[root] aws_iam_policy.private_data_subnet_flow_log_role"
-		"[root] aws_iam_role_policy_attachment.attach_private_data_subnet_flow_log_assume_role (expand)" -> "[root] aws_iam_role.private_data_subnet_flow_log_role"
-		"[root] aws_iam_role_policy_attachment.attach_private_data_subnet_flow_log_assume_role" -> "[root] aws_iam_role_policy_attachment.attach_private_data_subnet_flow_log_assume_role (expand)"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_secret (expand)" -> "[root] aws_iam_policy.read_db_secret"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_secret (expand)" -> "[root] aws_iam_role.read_db_secret"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_secret" -> "[root] aws_iam_role_policy_attachment.attach_read_db_secret (expand)"
@@ -207,7 +206,6 @@ digraph {
 		"[root] aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role (expand)" -> "[root] aws_iam_role.vpc_flow_log_role"
 		"[root] aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role" -> "[root] aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role (expand)"
 		"[root] aws_instance.public_app (expand)" -> "[root] aws_iam_instance_profile.get_db_secret"
-		"[root] aws_instance.public_app (expand)" -> "[root] aws_key_pair.tf_armageddon_key"
 		"[root] aws_instance.public_app (expand)" -> "[root] data.aws_ami.amazon_linux_2023 (expand)"
 		"[root] aws_instance.public_app (expand)" -> "[root] local.ec2_sg_id (expand)"
 		"[root] aws_instance.public_app (expand)" -> "[root] local.random_public_subnet (expand)"
@@ -215,11 +213,9 @@ digraph {
 		"[root] aws_instance.public_app" -> "[root] aws_instance.public_app (expand)"
 		"[root] aws_internet_gateway.main (expand)" -> "[root] aws_vpc.main"
 		"[root] aws_internet_gateway.main" -> "[root] aws_internet_gateway.main (expand)"
-		"[root] aws_key_pair.tf_armageddon_key (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
-		"[root] aws_key_pair.tf_armageddon_key" -> "[root] aws_key_pair.tf_armageddon_key (expand)"
 		"[root] aws_nat_gateway.main (expand)" -> "[root] aws_eip.main"
 		"[root] aws_nat_gateway.main (expand)" -> "[root] aws_internet_gateway.main"
-		"[root] aws_nat_gateway.main (expand)" -> "[root] local.random_public_subnet (expand)"
+		"[root] aws_nat_gateway.main (expand)" -> "[root] aws_subnet.public_a"
 		"[root] aws_nat_gateway.main" -> "[root] aws_nat_gateway.main (expand)"
 		"[root] aws_route_table.local (expand)" -> "[root] aws_vpc.main"
 		"[root] aws_route_table.local" -> "[root] aws_route_table.local (expand)"
@@ -264,6 +260,12 @@ digraph {
 		"[root] aws_security_group.ec2_public_app" -> "[root] aws_security_group.ec2_public_app (expand)"
 		"[root] aws_security_group.private_db (expand)" -> "[root] aws_vpc.main"
 		"[root] aws_security_group.private_db" -> "[root] aws_security_group.private_db (expand)"
+		"[root] aws_sns_topic.app_to_rds_connection_failure_alert (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_sns_topic.app_to_rds_connection_failure_alert" -> "[root] aws_sns_topic.app_to_rds_connection_failure_alert (expand)"
+		"[root] aws_sns_topic.lab_mysql_auth_failure_alert (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_sns_topic.lab_mysql_auth_failure_alert" -> "[root] aws_sns_topic.lab_mysql_auth_failure_alert (expand)"
+		"[root] aws_sns_topic.rds_failure_alert (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_sns_topic.rds_failure_alert" -> "[root] aws_sns_topic.rds_failure_alert (expand)"
 		"[root] aws_subnet.private_data_a (expand)" -> "[root] aws_vpc.main"
 		"[root] aws_subnet.private_data_a (expand)" -> "[root] local.azs (expand)"
 		"[root] aws_subnet.private_data_a (expand)" -> "[root] local.private_data_subnet_tags (expand)"
@@ -316,9 +318,6 @@ digraph {
 		"[root] aws_vpc_security_group_ingress_rule.allow_trusted_inbound_ssh_ipv4_ec2_public_app" -> "[root] aws_vpc_security_group_ingress_rule.allow_trusted_inbound_ssh_ipv4_ec2_public_app (expand)"
 		"[root] data.aws_ami.amazon_linux_2023 (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] data.aws_availability_zones.available (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
-		"[root] data.aws_iam_policy_document.private_data_subnet_flow_log_assume_role (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
-		"[root] data.aws_iam_policy_document.private_data_subnet_flow_log_role (expand)" -> "[root] aws_cloudwatch_log_group.private_data_subnet_flow_log"
-		"[root] data.aws_iam_policy_document.private_data_subnet_flow_log_role" -> "[root] data.aws_iam_policy_document.private_data_subnet_flow_log_role (expand)"
 		"[root] data.aws_iam_policy_document.rds_enhanced_monitoring_assume_role (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] data.aws_iam_policy_document.rds_enhanced_monitoring_role (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] data.aws_iam_policy_document.read_db_secret (expand)" -> "[root] aws_secretsmanager_secret.lab_rds_mysql"
@@ -327,6 +326,8 @@ digraph {
 		"[root] data.aws_iam_policy_document.vpc_flow_log_assume_role (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] data.aws_iam_policy_document.vpc_flow_log_role (expand)" -> "[root] aws_cloudwatch_log_group.vpc_flow_log"
 		"[root] data.aws_iam_policy_document.vpc_flow_log_role" -> "[root] data.aws_iam_policy_document.vpc_flow_log_role (expand)"
+		"[root] data.aws_network_interface.public_app_eni (expand)" -> "[root] aws_instance.public_app"
+		"[root] data.aws_network_interface.public_app_eni" -> "[root] data.aws_network_interface.public_app_eni (expand)"
 		"[root] local.application (expand)" -> "[root] var.application_name"
 		"[root] local.azs (expand)" -> "[root] data.aws_availability_zones.available (expand)"
 		"[root] local.base_tags (expand)" -> "[root] local.environment (expand)"
@@ -366,15 +367,16 @@ digraph {
 		"[root] output.region_choice (expand)" -> "[root] var.region_choice (validation)"
 		"[root] output.trusted_ip (expand)" -> "[root] local.trusted_ip (expand)"
 		"[root] output.vpc_info (expand)" -> "[root] aws_vpc.main"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_flow_log.private_data_a_subnet"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_flow_log.private_data_b_subnet"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_flow_log.private_data_c_subnet"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudwatch_log_group.lab_mysql_auth_failure_logs"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudwatch_log_metric_filter.lab_mysql_auth_failure"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudwatch_log_metric_filter.public_app_to_lab_mysql_connection_failure"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudwatch_metric_alarm.alarm_lab_mysql_auth_failure"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudwatch_metric_alarm.public_app_to_lab_mysql_connection_failure"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_db_event_subscription.rds_failure_events"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_flow_log.vpc"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_iam_role_policy_attachment.attach_"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_iam_role_policy_attachment.attach_private_data_subnet_flow_log_assume_role"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_iam_role_policy_attachment.attach_read_db_secret"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_instance.public_app"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.private_data_a"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.private_data_b"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.private_data_c"
@@ -390,7 +392,6 @@ digraph {
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_ec2_public_app"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_public_app"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_ingress_rule.allow_trusted_inbound_ssh_ipv4_ec2_public_app"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] data.aws_iam_policy_document.vpc_flow_log_assume_role (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" -> "[root] local.application (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" -> "[root] local.environment (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" -> "[root] local.region (expand)"
