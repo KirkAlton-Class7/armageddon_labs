@@ -5,7 +5,8 @@ resource "random_password" "db_password" {
   override_special = "!#$%&*()-_=+[]{}<>:?"
 }
 
-# DB - Lab-MyySQL
+
+# DB - Lab-MySQL
 resource "aws_db_instance" "lab_mysql" {
   identifier             = "lab-mysql-${local.name_suffix}"
   db_subnet_group_name   = aws_db_subnet_group.armageddon_1a_db.name
@@ -39,3 +40,8 @@ resource "aws_db_instance" "lab_mysql" {
   }
 }
 
+# DB Data
+# ENI - Lab-MySQL
+data "aws_network_interface" "rds_eni" {
+  id = tolist(data.aws_db_instance.lab_mysql.network_interface_ids)[0] # ENI value is a set. Convert to a list to safely index it.
+}
