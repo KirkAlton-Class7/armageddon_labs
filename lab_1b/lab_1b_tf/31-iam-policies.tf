@@ -82,7 +82,7 @@ resource "aws_iam_policy" "vpc_flow_log_role" {
 # IAM Policy Data - VPC Flow Log
 data "aws_iam_policy_document" "vpc_flow_log_role" {
   statement {
-    sid = "AllowVPCFlowLogWrites"
+    sid    = "AllowVPCFlowLogWrites"
     effect = "Allow"
 
     actions = [
@@ -95,32 +95,4 @@ data "aws_iam_policy_document" "vpc_flow_log_role" {
 
     resources = ["${aws_cloudwatch_log_group.vpc_flow_log.arn}", "${aws_cloudwatch_log_group.vpc_flow_log.arn}:log-stream:*"]
   }
-}
-
-
-
-# IAM Policy Object - Private Data Subnet Flow Log
-resource "aws_iam_policy" "private_data_subnet_flow_log_role" {
-  name   = "private-data-subnet-flow-log-role-policy"
-  policy = data.aws_iam_policy_document.private_data_subnet_flow_log_role.json
-}
-
-
-# IAM Policy Data - Private Data Subnet Flow Log
-data "aws_iam_policy_document" "private_data_subnet_flow_log_role" {
-  
-    statement {
-    sid = "AllowPrivateSubnetFlowLogWrites"
-    effect = "Allow"
-
-    actions = [
-      "logs:CreateLogGroup",
-      "logs:CreateLogStream",
-      "logs:PutLogEvents",
-      "logs:DescribeLogGroups",
-      "logs:DescribeLogStreams",
-    ]
-
-    resources = ["${aws_cloudwatch_log_group.private_data_subnet_flow_log.arn}", "${aws_cloudwatch_log_group.private_data_subnet_flow_log.arn}:log-stream:*"]
-    }
 }

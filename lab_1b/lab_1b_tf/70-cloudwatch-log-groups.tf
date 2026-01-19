@@ -4,20 +4,24 @@ resource "aws_cloudwatch_log_group" "vpc_flow_log" {
 
   tags = {
     Name        = "vpc-flow-log"
+    App         = "${local.application}"
     Environment = "${local.environment}"
     Component   = "logs-vpc"
-    Scope       = "monitoring"
-    }
+    Scope       = "logging-conectivity"
+    DataClass   = "confidential"
+  }
 }
 
-# CWL Group - Private Data Subnet Traffic
-resource "aws_cloudwatch_log_group" "private_data_subnet_flow_log" {
-  name = "private-data-subnet-flow-log"
+# CWL Group - LabMySQL Auth Failures
+resource "aws_cloudwatch_log_group" "lab_mysql_auth_failure_logs" {
+  name = "/aws/rds/instance/lab-mysql-${local.name_suffix}/error"
 
   tags = {
-    Name        = "private-data-subnet-flow-log"
+    Name        = "auth-failure-flow-log"
+    App         = "${local.application}"
     Environment = "${local.environment}"
-    Component   = "logs-subnet"
-    Scope       = "monitoring"
-    }
+    Component   = "logs-db"
+    Scope       = "logging-login"
+    DataClass   = "confidential"
+  }
 }

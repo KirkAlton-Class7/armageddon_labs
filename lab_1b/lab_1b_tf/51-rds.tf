@@ -22,10 +22,9 @@ resource "aws_db_instance" "lab_mysql" {
 
   enabled_cloudwatch_logs_exports = ["audit", "error", "general", "iam-db-auth-error"] # Sends logs to CloudWatch for monitoring
   monitoring_interval             = 60
-  monitoring_role_arn = aws_iam_role.rds_enhanced_monitoring_role.arn # Don't forget monitoring role ARN if using a monitring interval other than 0
+  monitoring_role_arn             = aws_iam_role.rds_enhanced_monitoring_role.arn # Don't forget monitoring role ARN if using a monitring interval other than 0
 
-
-  parameter_group_name = "default.mysql8.0"
+  parameter_group_name = aws_db_parameter_group.lab_mysql_parameters.name
   skip_final_snapshot  = true
 
   tags = {

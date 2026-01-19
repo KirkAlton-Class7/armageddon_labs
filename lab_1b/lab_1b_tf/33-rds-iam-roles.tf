@@ -9,14 +9,14 @@ resource "aws_iam_role" "rds_enhanced_monitoring_role" {
     Component   = "iam"
     AccessLevel = "read-only"
     Service     = "rds"
-    Scope       = "monitoring"
+    Scope       = "monitoring-db"
   }
 }
 
 
 data "aws_iam_policy_document" "rds_enhanced_monitoring_assume_role" {
   statement {
-    effect = "Allow"
+    effect  = "Allow"
     actions = ["sts:AssumeRole"]
     principals {
       type        = "Service"
