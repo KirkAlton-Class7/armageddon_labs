@@ -32,6 +32,39 @@ data "aws_iam_policy_document" "read_db_secret" {
 }
 
 
+# IAM Policy Object - Read DB Connection Parameters
+resource "aws_iam_policy" "read_db_connection_parameters" {
+  name        = "read-db-connection-parameters-${local.name_suffix}"
+  path        = "/"
+  description = "Allows EC2 to read DB connection info (host, port, username) from SSM Parameter Store"
+
+  policy = data.aws_iam_policy_document.read_db_connection_parameters.json
+
+  tags = {
+    Name         = "read-db-connection-parameters"
+    Component    = "iam"
+    AppComponent = "credentials"
+    DataClass    = "internal"
+    AccessLevel  = "read-only"
+  }
+}
+
+# IAM Policy Data - Read DB Connection Parameters
+data "aws_iam_policy_document" "read_db_connection_parameters" {
+  statement {
+    sid    = "ReadDBConnectionParameters"
+    effect = "Allow"
+    actions = [
+      "ssm:GetParameter",
+      "ssm:GetParametersByPath"
+    ]
+    resources = [
+      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/lab/rds/mysql/*"
+    ]
+  }
+}
+
+
 # -------------------------------------------------------------------------------
 # RDS Policies
 # -------------------------------------------------------------------------------

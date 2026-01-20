@@ -42,7 +42,7 @@ resource "aws_cloudwatch_metric_alarm" "public_app_to_lab_mysql_connection_failu
 # Metric
 resource "aws_cloudwatch_log_metric_filter" "lab_mysql_auth_failure" {
   name           = "lab-mysql-auth-failure"
-  log_group_name = "/aws/rds/instance/${aws_db_instance.lab_mysql.id}/error"
+  log_group_name = aws_cloudwatch_log_group.lab_mysql_auth_failure_logs.name
 
   pattern = "\"Access denied for user\"" # Escape quotes to use full pattern with quotes included.
 

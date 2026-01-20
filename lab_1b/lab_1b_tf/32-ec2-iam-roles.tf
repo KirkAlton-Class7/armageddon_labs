@@ -32,3 +32,9 @@ resource "aws_iam_role_policy_attachment" "attach_read_db_secret" {
   role       = aws_iam_role.read_db_secret.name
   policy_arn = aws_iam_policy.read_db_secret.arn
 }
+
+# Policy Attachment - Read DB Connection Parameters --> Read DB Secret role
+resource "aws_iam_role_policy_attachment" "attach_read_db_connection_parameters" {
+  role       = aws_iam_role.read_db_secret.name
+  policy_arn = aws_iam_policy.read_db_connection_parameters.arn
+}

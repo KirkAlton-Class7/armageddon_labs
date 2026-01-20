@@ -42,3 +42,8 @@ provider "random" {
 # }
 # Terraform backend block sets up configuration to store the state file remotely.
 # The bucket can be configured in a different region than the Terraform deployment.
+
+# Data for Current Account ID
+data "aws_caller_identity" "current_account" {
+
+}
