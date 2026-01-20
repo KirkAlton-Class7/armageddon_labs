@@ -17,7 +17,7 @@ resource "aws_secretsmanager_secret_version" "lab_rds_mysql" {
   secret_string = jsonencode({
     username = local.db_credentials.username
     password = local.db_credentials.password
-    #host     = aws_db_instance.lab_mysql.address
-    #port     = 3306
+    host     = aws_db_instance.lab_mysql.address
+    port     = 3306
   })
 }
