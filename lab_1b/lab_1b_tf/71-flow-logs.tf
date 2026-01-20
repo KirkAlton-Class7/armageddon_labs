@@ -6,7 +6,7 @@ resource "aws_flow_log" "vpc" {
   # Default fields for AWS Flow Logs.
   # Version, Account ID, ENI, Source Adress, Destination Address, Source Port, Destination Port, Protcol, Packets, Bytes, Start, End, Action, Log Status
   log_destination = aws_cloudwatch_log_group.vpc_flow_log.arn # CloudWatch as a destination doesn't require log_destination_type (other destinations require it).
-  
+
   traffic_type = "ALL"
   vpc_id       = aws_vpc.main.id
 }

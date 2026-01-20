@@ -4,7 +4,7 @@ resource "aws_cloudwatch_log_metric_filter" "public_app_to_lab_mysql_connection_
   name           = "public-app-to-lab-mysql-connection-failure"
   log_group_name = aws_cloudwatch_log_group.vpc_flow_log.name
 
-pattern = <<PATTERN
+  pattern = <<PATTERN
   [version="*", account_id="*", interface_id="${data.aws_network_interface.public_app_eni.id}", srcaddr="*", dstaddr="*", srcport="*", dstport="3306", protocol="*", packets="*", bytes="*", start="*", end="*", action="REJECT", log_status="OK"]
   PATTERN 
   metric_transformation {

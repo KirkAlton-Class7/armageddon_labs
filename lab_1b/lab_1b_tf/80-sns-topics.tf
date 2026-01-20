@@ -11,6 +11,12 @@ resource "aws_sns_topic" "rds_failure_alert" {
     Severity    = "high"
   }
 }
+# Email Subscription - RDS Failure Alert
+resource "aws_sns_topic_subscription" "rds_failure_email_alert" {
+  topic_arn = aws_sns_topic.rds_failure_alert.arn
+  protocol  = "email"
+  endpoint  = "youremail@mail.com" # Replace with your email address
+}
 
 
 # App to RDS Connection Failure Alert
@@ -26,6 +32,12 @@ resource "aws_sns_topic" "app_to_rds_connection_failure_alert" {
     Severity    = "medium"
   }
 }
+# Email Subscription - App to RDS Connection Failure Alert
+resource "aws_sns_topic_subscription" "app_to_rds_connection_failure_email_alert" {
+  topic_arn = aws_sns_topic.app_to_rds_connection_failure_alert.arn
+  protocol  = "email"
+  endpoint  = "youremail@mail.com" # Replace with your email address
+}
 
 
 # Lab MySQL DB Auth Failure Alert
@@ -40,4 +52,10 @@ resource "aws_sns_topic" "lab_mysql_auth_failure_alert" {
     Scope       = "monitoring-login"
     Severity    = "medium"
   }
+}
+# Email Subscription - Lab MySQL DB Auth Failure Alert
+resource "aws_sns_topic_subscription" "lab_mysql_auth_failure_email_alert" {
+  topic_arn = aws_sns_topic.lab_mysql_auth_failure_alert.arn
+  protocol  = "email"
+  endpoint  = "youremail@mail.com" # Replace with your email address
 }
