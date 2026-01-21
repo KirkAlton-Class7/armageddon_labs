@@ -15,7 +15,7 @@ resource "aws_sns_topic" "rds_failure_alert" {
 resource "aws_sns_topic_subscription" "rds_failure_email_alert" {
   topic_arn = aws_sns_topic.rds_failure_alert.arn
   protocol  = "email"
-  endpoint  = "youremail@mail.com" # Replace with your email address
+  endpoint  = "kirk.devsecops@icloud.com" # Replace with your email address
 }
 
 
@@ -36,7 +36,7 @@ resource "aws_sns_topic" "app_to_rds_connection_failure_alert" {
 resource "aws_sns_topic_subscription" "app_to_rds_connection_failure_email_alert" {
   topic_arn = aws_sns_topic.app_to_rds_connection_failure_alert.arn
   protocol  = "email"
-  endpoint  = "youremail@mail.com" # Replace with your email address
+  endpoint  = "kirk.devsecops@icloud.com" # Replace with your email address
 }
 
 
@@ -57,5 +57,5 @@ resource "aws_sns_topic" "lab_mysql_auth_failure_alert" {
 resource "aws_sns_topic_subscription" "lab_mysql_auth_failure_email_alert" {
   topic_arn = aws_sns_topic.lab_mysql_auth_failure_alert.arn
   protocol  = "email"
-  endpoint  = "youremail@mail.com" # Replace with your email address
+  endpoint  = "kirk.devsecops@icloud.com" # Replace with your email address
 }

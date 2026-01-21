@@ -12,6 +12,22 @@ resource "aws_ssm_parameter" "lab_mysql_db_username" {
   }
 }
 
+# SSM Parameter Store - Username for LabMySQL DB
+resource "aws_ssm_parameter" "lab_mysql_db_name" {
+  name  = "/lab/rds/mysql/db-name"
+  type  = "String"
+  value = aws_db_instance.lab_mysql.identifier
+
+  tags = {
+    Name         = "lab-rds-mysql-db-name"
+    Component    = "security"
+    AppComponent = "login-parameters"
+    DataClass    = "internal"
+  }
+}
+
+
+
 # SSM Parameter Store - Host Address for LabMySQL DB
 resource "aws_ssm_parameter" "lab_mysql_db_host" {
   name  = "/lab/rds/mysql/host"

@@ -6,7 +6,6 @@ resource "aws_db_event_subscription" "rds_failure_events" {
   source_ids  = [aws_db_instance.lab_mysql.identifier]
 
   event_categories = [
-    "failure",
     "failure"
   ]
   enabled = true

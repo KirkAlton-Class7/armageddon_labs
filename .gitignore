@@ -56,3 +56,6 @@ venv/
 
 # Ignore backup folder
 backup/
+
+# Ignore audit folder
+audit/

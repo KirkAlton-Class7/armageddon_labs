@@ -5,7 +5,7 @@ resource "aws_cloudwatch_log_metric_filter" "public_app_to_lab_mysql_connection_
   log_group_name = aws_cloudwatch_log_group.vpc_flow_log.name
 
   pattern = <<PATTERN
-  [version="*", account_id="*", interface_id="${data.aws_network_interface.public_app_eni.id}", srcaddr="*", dstaddr="*", srcport="*", dstport="3306", protocol="*", packets="*", bytes="*", start="*", end="*", action="REJECT", log_status="OK"]
+  [version, account_id, interface_id, srcaddr, dstaddr, srcport, dstport="3306", protocol, packets, bytes, start, end, action="REJECT", log_status]
   PATTERN 
   metric_transformation {
     name      = "PublicAppToLabMySqlConnectionFailure"
@@ -17,14 +17,14 @@ resource "aws_cloudwatch_log_metric_filter" "public_app_to_lab_mysql_connection_
 resource "aws_cloudwatch_metric_alarm" "public_app_to_lab_mysql_connection_failure" {
   alarm_name          = "public-app-to-lab-mysql-connection-failure"
   comparison_operator = "GreaterThanThreshold"
-  evaluation_periods  = 2
+  evaluation_periods  = 1
   metric_name         = "PublicAppToLabMySqlConnectionFailure"
   namespace           = "Custom/VPC"
-  period              = 300
+  period              = 60
   statistic           = "Sum"
-  threshold           = 20
+  threshold           = 3
 
-  alarm_description = "Triggers when EC2 to RDS REJECT traffic exceeds 20 in 10 minutes"
+  alarm_description = "Triggers when EC2 to RDS REJECT traffic exceeds 3 in 1 minute"
   alarm_actions     = [aws_sns_topic.app_to_rds_connection_failure_alert.arn]
 
   tags = {
@@ -42,10 +42,9 @@ resource "aws_cloudwatch_metric_alarm" "public_app_to_lab_mysql_connection_failu
 # Metric
 resource "aws_cloudwatch_log_metric_filter" "lab_mysql_auth_failure" {
   name           = "lab-mysql-auth-failure"
-  log_group_name = aws_cloudwatch_log_group.lab_mysql_auth_failure_logs.name
+  log_group_name = "/aws/rds/instance/${aws_db_instance.lab_mysql.identifier}/error" # RDS creates and manages this log group, so use a direct string reference (or a data source), not a Terraform resource.
 
-  pattern = "\"Access denied for user\"" # Escape quotes to use full pattern with quotes included.
-
+  pattern = "Access denied for user"
   metric_transformation {
     name      = "MySQLAuthFailure"
     namespace = "Custom/RDS"
@@ -56,14 +55,14 @@ resource "aws_cloudwatch_log_metric_filter" "lab_mysql_auth_failure" {
 resource "aws_cloudwatch_metric_alarm" "alarm_lab_mysql_auth_failure" {
   alarm_name          = "alarm-lab-mysql-auth-failure"
   comparison_operator = "GreaterThanThreshold"
-  evaluation_periods  = 2
+  evaluation_periods  = 1
   metric_name         = "MySQLAuthFailure"
   namespace           = "Custom/RDS"
-  period              = 300
+  period              = 60
   statistic           = "Sum"
-  threshold           = 20
+  threshold           = 3
 
-  alarm_description = "Triggers when MySQL db auth failures exceed 20 in 10 minutes"
+  alarm_description = "Triggers when MySQL db auth failures exceed 3 in 1 minute"
   alarm_actions     = [aws_sns_topic.lab_mysql_auth_failure_alert.arn]
 
   tags = {
