@@ -6,8 +6,10 @@
 <br>
 
 ## **[Lab 1a - Terraform Code](/lab_1a/lab_1a_tf)**
+*All evidence saved locally for audits.*
 
 *Variables defaults:*
 - Application = armageddon-lab-1a
 - Environment = dev
 - Region = us-west-2
+
