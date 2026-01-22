@@ -20,7 +20,7 @@ resource "aws_db_instance" "lab_mysql" {
   username = local.db_credentials.username
   password = local.db_credentials.password
 
-  enabled_cloudwatch_logs_exports = ["audit", "error", "general", "iam-db-auth-error"] # Sends logs to CloudWatch for monitoring
+  enabled_cloudwatch_logs_exports = ["audit", "error", "general", "iam-db-auth-error"] # Sends logs to CloudWatch for monitoring. RDS creates and manages the log groups.
   monitoring_interval             = 60
   monitoring_role_arn             = aws_iam_role.rds_enhanced_monitoring_role.arn # Don't forget monitoring role ARN if using a monitring interval other than 0
 

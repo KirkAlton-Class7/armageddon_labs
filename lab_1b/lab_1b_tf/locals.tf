@@ -1,7 +1,7 @@
 locals {
   # Account ID
   account_id = data.aws_caller_identity.current_account.account_id
-  
+
   # Environment setup
   environment = lower(var.env)
   application = var.application_name

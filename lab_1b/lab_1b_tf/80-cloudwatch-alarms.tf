@@ -17,14 +17,14 @@ resource "aws_cloudwatch_log_metric_filter" "public_app_to_lab_mysql_connection_
 resource "aws_cloudwatch_metric_alarm" "public_app_to_lab_mysql_connection_failure" {
   alarm_name          = "public-app-to-lab-mysql-connection-failure"
   comparison_operator = "GreaterThanThreshold"
-  evaluation_periods  = 1
+  evaluation_periods  = 2
   metric_name         = "PublicAppToLabMySqlConnectionFailure"
   namespace           = "Custom/VPC"
   period              = 60
   statistic           = "Sum"
   threshold           = 3
 
-  alarm_description = "Triggers when EC2 to RDS REJECT traffic exceeds 3 in 1 minute"
+  alarm_description = "Triggers when EC2 to RDS REJECT traffic exceeds 6 in 2 minutes"
   alarm_actions     = [aws_sns_topic.app_to_rds_connection_failure_alert.arn]
 
   tags = {
@@ -55,14 +55,14 @@ resource "aws_cloudwatch_log_metric_filter" "lab_mysql_auth_failure" {
 resource "aws_cloudwatch_metric_alarm" "alarm_lab_mysql_auth_failure" {
   alarm_name          = "alarm-lab-mysql-auth-failure"
   comparison_operator = "GreaterThanThreshold"
-  evaluation_periods  = 1
+  evaluation_periods  = 2
   metric_name         = "MySQLAuthFailure"
   namespace           = "Custom/RDS"
   period              = 60
   statistic           = "Sum"
   threshold           = 3
 
-  alarm_description = "Triggers when MySQL db auth failures exceed 3 in 1 minute"
+  alarm_description = "Triggers when MySQL db auth failures exceed 6 in 2 minutes"
   alarm_actions     = [aws_sns_topic.lab_mysql_auth_failure_alert.arn]
 
   tags = {
