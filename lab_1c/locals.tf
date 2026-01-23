@@ -1,8 +1,13 @@
 locals {
+  # Account ID
+  account_id = data.aws_caller_identity.current_account.account_id
+
+  # VPC CIDR
+  vpc_cidr = var.vpc_cidr
+
   # Environment setup
   environment = lower(var.env)
   application = var.application_name
-  trusted_ip  = var.trusted_ip
 
   # Region and AZ
   region = var.region_map[var.region_choice]
@@ -61,5 +66,15 @@ locals {
   }
 
   # Other Locals
-  # Add here
+  ec2_sg_id = aws_security_group.ec2_internal_app.id
+
+  private_db_sg_id = aws_security_group.private_db.id
+
+  db_credentials = {
+    username = "admin"
+    password = random_password.db_password.result
+  }
+
+  secret_id = aws_secretsmanager_secret.lab_rds_mysql.arn
+
 }

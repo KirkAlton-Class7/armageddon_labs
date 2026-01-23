@@ -58,7 +58,7 @@ resource "aws_route_table" "local" {
   vpc_id = aws_vpc.main.id
 
   route {
-    cidr_block = "10.10.0.0/16"
+    cidr_block = local.vpc_cidr
     gateway_id = "local"
   }
 
