@@ -33,8 +33,26 @@ resource "aws_iam_role_policy_attachment" "attach_read_db_secret" {
   policy_arn = aws_iam_policy.read_db_secret.arn
 }
 
-# Policy Attachment - Read DB Connection Parameters --> Read DB Secret role
-resource "aws_iam_role_policy_attachment" "attach_read_db_connection_parameters" {
+# Policy Attachment - Read DB Name Parameter --> Read DB Secret role
+resource "aws_iam_role_policy_attachment" "attach_read_db_name_parameter" {
   role       = aws_iam_role.read_db_secret.name
-  policy_arn = aws_iam_policy.read_db_connection_parameters.arn
+  policy_arn = aws_iam_policy.read_db_name_parameter.arn
+}
+
+# Policy Attachment - Read DB Username Parameter --> Read DB Secret role
+resource "aws_iam_role_policy_attachment" "attach_read_db_username_parameter" {
+  role       = aws_iam_role.read_db_secret.name
+  policy_arn = aws_iam_policy.read_db_username_parameter.arn
+}
+
+# Policy Attachment - Read DB Host Parameter --> Read DB Secret role
+resource "aws_iam_role_policy_attachment" "attach_read_db_host_parameter" {
+  role       = aws_iam_role.read_db_secret.name
+  policy_arn = aws_iam_policy.read_db_host_parameter.arn
+}
+
+# Policy Attachment - Read DB Port Parameter --> Read DB Secret role
+resource "aws_iam_role_policy_attachment" "attach_read_db_port_parameter" {
+  role       = aws_iam_role.read_db_secret.name
+  policy_arn = aws_iam_policy.read_db_port_parameter.arn
 }

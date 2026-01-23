@@ -1,6 +1,6 @@
 # SSM Parameter Store - Username for LabMySQL DB
 resource "aws_ssm_parameter" "lab_mysql_db_username" {
-  name  = "/lab/rds/mysql/username"
+  name  = "/lab/rds/mysql/db-username-${local.name_suffix}"
   type  = "String"
   value = local.db_credentials.username
 
@@ -12,9 +12,9 @@ resource "aws_ssm_parameter" "lab_mysql_db_username" {
   }
 }
 
-# SSM Parameter Store - Username for LabMySQL DB
+# SSM Parameter Store - DB Name for LabMySQL DB
 resource "aws_ssm_parameter" "lab_mysql_db_name" {
-  name  = "/lab/rds/mysql/db-name"
+  name  = "/lab/rds/mysql/db-name-${local.name_suffix}"
   type  = "String"
   value = aws_db_instance.lab_mysql.identifier
 
@@ -30,7 +30,7 @@ resource "aws_ssm_parameter" "lab_mysql_db_name" {
 
 # SSM Parameter Store - Host Address for LabMySQL DB
 resource "aws_ssm_parameter" "lab_mysql_db_host" {
-  name  = "/lab/rds/mysql/host"
+  name  = "/lab/rds/mysql/host-${local.name_suffix}"
   type  = "String"
   value = aws_db_instance.lab_mysql.address
 
@@ -44,7 +44,7 @@ resource "aws_ssm_parameter" "lab_mysql_db_host" {
 
 # SSM Parameter Store - DB Port for LabMySQL DB
 resource "aws_ssm_parameter" "lab_mysql_db_port" {
-  name  = "/lab/rds/mysql/port"
+  name  = "/lab/rds/mysql/port-${local.name_suffix}"
   type  = "String"
   value = tostring(aws_db_instance.lab_mysql.port)
 
