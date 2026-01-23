@@ -2,16 +2,7 @@ locals {
   # Environment setup
   environment = lower(var.env)
   application = var.application_name
-
-  # Replace this with your own trusted IP.
-  # DO NOT use 0.0.0.0/0 in production.
-  trusted_ip = "0.0.0.0/0"
-
-  # Optional: You can manually add the AWS Instance Connect region CIDR in the console after deploying.
-  # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-tutorial.html#eic-tut1-task2
-
-  # TODO: Working on automating this in Terraform with an AWS data source and region to CIDR range map.
-
+  trusted_ip  = var.trusted_ip
 
   # Region and AZ
   region = var.region_map[var.region_choice]
@@ -29,22 +20,6 @@ locals {
   # Subnet selection helpers
   subnet_index = random_integer.subnet_picker.result
 
-  # Public Subnets
-  public_subnets = [
-    aws_subnet.public_a.id,
-    aws_subnet.public_b.id,
-    aws_subnet.public_c.id
-  ]
-
-  # Assigns random subnet from the list using shared random index
-  random_public_subnet = local.public_subnets[local.subnet_index]
-
-  # Common tags for public subnets
-  public_subnet_tags = {
-    Exposure = "public"
-    Egress   = "igw"
-  }
-
   # Private Egress Subnets
   private_egress_subnets = [
     aws_subnet.private_egress_a.id,
@@ -59,6 +34,18 @@ locals {
     Egress   = "nat"
   }
 
+
+  # Private App Subnets
+  private_app_subnets = [
+    aws_subnet.private_app_a.id,
+    aws_subnet.private_app_b.id,
+    aws_subnet.private_app_c.id
+  ]
+
+  # Assigns random subnet from the list using shared random index
+  random_private_app_subnet = local.private_app_subnets[local.subnet_index]
+
+
   # Private Data Subnets
   private_data_subnets = [
     aws_subnet.private_data_a.id,
@@ -68,7 +55,7 @@ locals {
 
   random_private_data_subnet = local.private_data_subnets[local.subnet_index]
 
-  private_data_subnet_tags = {
+  private_subnet_tags = {
     Exposure = "internal-only"
     Egress   = "none"
   }

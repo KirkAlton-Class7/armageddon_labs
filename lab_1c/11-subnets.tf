@@ -1,49 +1,20 @@
-# Public Subnet Configuration
-resource "aws_subnet" "public_a" {
+# NAT Gateway Subnet
+resource "aws_subnet" "nat_subnet" {
   vpc_id                  = aws_vpc.main.id
   cidr_block              = "10.10.1.0/24"
   availability_zone       = local.azs[0]
   map_public_ip_on_launch = true
-  tags = merge(
-    {
-      Name = "public-a"
-    },
-    local.public_subnet_tags
-  )
-}
-resource "aws_subnet" "public_b" {
-  vpc_id                  = aws_vpc.main.id
-  cidr_block              = "10.10.2.0/24"
-  availability_zone       = local.azs[1]
-  map_public_ip_on_launch = true
-
-  tags = merge(
-    {
-      Name = "public-b"
-    },
-    local.public_subnet_tags
-  )
-}
-
-resource "aws_subnet" "public_c" {
-  vpc_id            = aws_vpc.main.id
-  cidr_block        = "10.10.3.0/24"
-  availability_zone = local.azs[2]
-
-  map_public_ip_on_launch = true
-
-  tags = merge(
-    {
-      Name = "public-c"
-    },
-    local.public_subnet_tags
-  )
+  tags = {
+    Name     = "nat-subnet"
+    Exposure = "public"
+    Egress   = "igw"
+  }
 }
 
 # Private Egress Subnet Configuration
 resource "aws_subnet" "private_egress_a" {
   vpc_id            = aws_vpc.main.id
-  cidr_block        = "10.10.11.0/24"
+  cidr_block        = "10.10.2.0/24"
   availability_zone = local.azs[0]
 
   tags = merge(
@@ -56,7 +27,7 @@ resource "aws_subnet" "private_egress_a" {
 
 resource "aws_subnet" "private_egress_b" {
   vpc_id            = aws_vpc.main.id
-  cidr_block        = "10.10.22.0/24"
+  cidr_block        = "10.10.3.0/24"
   availability_zone = local.azs[1]
 
 
@@ -69,7 +40,7 @@ resource "aws_subnet" "private_egress_b" {
 }
 resource "aws_subnet" "private_egress_c" {
   vpc_id            = aws_vpc.main.id
-  cidr_block        = "10.10.33.0/24"
+  cidr_block        = "10.10.4.0/24"
   availability_zone = local.azs[2]
 
 
@@ -78,6 +49,48 @@ resource "aws_subnet" "private_egress_c" {
       Name = "private-egress-c"
     },
     local.private_egress_subnet_tags
+  )
+}
+
+
+# Private App Subnet Configuration
+resource "aws_subnet" "private_app_a" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "10.10.11.0/24"
+  availability_zone = local.azs[0]
+
+  tags = merge(
+    {
+      Name = "private-app-a"
+    },
+    local.private_subnet_tags
+  )
+}
+
+resource "aws_subnet" "private_app_b" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "10.10.22.0/24"
+  availability_zone = local.azs[1]
+
+
+  tags = merge(
+    {
+      Name = "private-app-b"
+    },
+    local.private_subnet_tags
+  )
+}
+resource "aws_subnet" "private_app_c" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "10.10.33.0/24"
+  availability_zone = local.azs[2]
+
+
+  tags = merge(
+    {
+      Name = "private-app-c"
+    },
+    local.private_subnet_tags
   )
 }
 
@@ -92,7 +105,7 @@ resource "aws_subnet" "private_data_a" {
     {
       Name = "private-data-a"
     },
-    local.private_data_subnet_tags
+    local.private_subnet_tags
   )
 }
 
@@ -105,7 +118,7 @@ resource "aws_subnet" "private_data_b" {
     {
       Name = "private-data-b"
     },
-    local.private_data_subnet_tags
+    local.private_subnet_tags
   )
 }
 
@@ -117,6 +130,6 @@ resource "aws_subnet" "private_data_c" {
     {
       Name = "private-data-c"
     },
-    local.private_data_subnet_tags
+    local.private_subnet_tags
   )
 }

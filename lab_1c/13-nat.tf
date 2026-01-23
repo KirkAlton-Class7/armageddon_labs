@@ -6,7 +6,7 @@ resource "aws_eip" "main" {
 # NAT Configuration
 resource "aws_nat_gateway" "main" {
   allocation_id = aws_eip.main.id
-  subnet_id     = aws_subnet.public_a.id
+  subnet_id     = aws_subnet.nat_subnet.id
 
   tags = {
     Name      = "main-nat-gw"

@@ -43,3 +43,16 @@ variable "region_map" {
     "6" = "ap-southeast-2"
   }
 }
+
+variable "trusted_ip" {
+  type    = string
+  default = "0.0.0.0/0" # 0.0.0.0/0 only for temporary testing.
+  # For proeuction, enter your private IP CIDR block or manually add Instance Connect Region Prefix in conosole.
+  # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-tutorial.html#eic-tut1-task2
+  description = "Enter trusted IPv4 address as CIDR block (/32):"
+
+  validation {
+    condition     = can(cidrnetmask(var.trusted_ip))
+    error_message = "Must be a valid IPv4 CIDR block address (e.g., 192.168.1.0/24 or 10.0.0.1/32)."
+  }
+}
