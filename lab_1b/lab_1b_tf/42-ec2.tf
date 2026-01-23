@@ -32,7 +32,7 @@ resource "aws_instance" "public_app" {
 # Instance Profile
 resource "aws_iam_instance_profile" "get_db_secret" {
   name = "get-db-secret-profile"
-  role = aws_iam_role.read_db_secret.name
+  role = aws_iam_role.public_app.name
 }
 
 # EC2 Data
