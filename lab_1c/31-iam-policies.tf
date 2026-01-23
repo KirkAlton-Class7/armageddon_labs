@@ -1,4 +1,66 @@
 # -------------------------------------------------------------------------------
+# SSM Agent Permissions
+# -------------------------------------------------------------------------------
+
+# IAM Policy Object - SSM Agent Policy
+resource "aws_iam_policy" "ssm_agent_policy" {
+  name   = "SSMAgentPolicy"
+  path = "/"
+  description = "Allow SSM Agent Permissions"
+
+  policy =data.aws_iam_policy_document.ssm_agent_policy.json
+}
+
+# IAM Policy Data - SSM Agent Policy (SSM Agent Permissions, Messaging, and Legacy Messaging)
+data "aws_iam_policy_document" "ssm_agent_policy" {
+     statement {
+      sid    = "AllowSSMAgentPermissions"
+      effect = "Allow"
+      actions = [
+        "ssm:DescribeAssociation",
+        "ssm:GetDeployablePatchSnapshotForInstance",
+        "ssm:GetDocument",
+        "ssm:DescribeDocument",
+        "ssm:GetManifest",
+        "ssm:ListAssociations",
+        "ssm:ListInstanceAssociations",
+        "ssm:PutInventory",
+        "ssm:PutComplianceItems",
+        "ssm:PutConfigurePackageResult",
+        "ssm:UpdateAssociationStatus",
+        "ssm:UpdateInstanceAssociationStatus",
+        "ssm:UpdateInstanceInformation"
+        ]
+    resources = ["*"]
+    }
+  statement {
+    sid    = "AllowSSMChannelMessaging"
+    effect = "Allow"
+    actions = [
+      "ssmmessages:CreateControlChannel",
+      "ssmmessages:CreateDataChannel",
+      "ssmmessages:OpenControlChannel",
+      "ssmmessages:OpenDataChannel"
+      ]
+    resources = ["*"]
+    }
+     statement {
+      sid    = "AllowSSMLegacyMessaging"
+      effect = "Allow"
+      actions = [
+        "ec2messages:AcknowledgeMessage",
+        "ec2messages:DeleteMessage",
+        "ec2messages:FailMessage",
+        "ec2messages:GetEndpoint",
+        "ec2messages:GetMessages",
+        "ec2messages:SendReply"
+        ]
+    resources = ["*"]
+    }
+  }
+
+
+# -------------------------------------------------------------------------------
 # EC2 Policies
 # -------------------------------------------------------------------------------
 
