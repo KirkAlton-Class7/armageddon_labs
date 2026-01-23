@@ -2,6 +2,7 @@
 
 dnf update -y
 sudo dnf install mariadb105 -y
+sudo dnf install amazon-cloudwatch-agent -y
 dnf install -y python3-pip
 pip3 install flask pymysql boto3
 
