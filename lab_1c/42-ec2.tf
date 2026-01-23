@@ -3,7 +3,7 @@ resource "aws_instance" "internal_app" {
   ami                    = data.aws_ami.amazon_linux_2023.id
   instance_type          = "t3.micro"
   subnet_id              = local.random_private_app_subnet
-  vpc_security_group_ids = local.ec2_sg_id
+  vpc_security_group_ids = [local.ec2_sg_id]
 
   iam_instance_profile = aws_iam_instance_profile.get_db_secret.name
   # key_name             = aws_key_pair.tf_armageddon_key.key_name

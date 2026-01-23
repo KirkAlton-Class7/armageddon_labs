@@ -45,5 +45,4 @@ provider "random" {
 
 # Data for Current Account ID
 data "aws_caller_identity" "current_account" {
-
 }
