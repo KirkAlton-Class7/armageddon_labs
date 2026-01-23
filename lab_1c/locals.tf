@@ -25,15 +25,6 @@ locals {
   # Subnet selection helpers
   subnet_index = random_integer.subnet_picker.result
 
-  # Private Egress Subnets
-  private_egress_subnets = [
-    aws_subnet.private_egress_a.id,
-    aws_subnet.private_egress_b.id,
-    aws_subnet.private_egress_c.id
-  ]
-
-  random_private_egress_subnet = local.private_egress_subnets[local.subnet_index]
-
   private_egress_subnet_tags = {
     Exposure = "egress-only"
     Egress   = "nat"
