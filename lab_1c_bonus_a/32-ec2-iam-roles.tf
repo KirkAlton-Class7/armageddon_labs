@@ -40,6 +40,21 @@ resource "aws_iam_role_policy_attachment" "attach_read_db_secret" {
   policy_arn = aws_iam_policy.read_db_secret.arn
 }
 
+
+# Policy Attachment - Read CloudWatch Agent Config File --> Internal App role
+resource "aws_iam_role_policy_attachment" "attach_read_cloudwatch_agent_config" {
+  role       = aws_iam_role.internal_app.name
+  policy_arn = aws_iam_policy.read_cloudwatch_agent_config.arn
+}
+
+
+# Policy Attachment - EC2 Linux Repo Access --> Internal App role
+resource "aws_iam_role_policy_attachment" "ec2_linux_repo_access" {
+  role       = aws_iam_role.internal_app.name
+  policy_arn = aws_iam_policy.ec2_linux_repo_access.arn
+}
+
+
 # Policy Attachment - Read DB Name Parameter --> Internal App role
 resource "aws_iam_role_policy_attachment" "attach_read_db_name_parameter" {
   role       = aws_iam_role.internal_app.name

@@ -9,15 +9,20 @@ resource "aws_instance" "internal_app" {
   # key_name             = aws_key_pair.tf_armageddon_key.key_name
   # Replace with your key aws_key_pair resource to test EC2 via SSH
 
-  user_data = templatefile(
-    "${path.module}/templates/1a_user_data.sh.tpl",
-    {
-      region    = local.region,
-      secret_id = local.secret_id
-    }
-  )
+  user_data = local.ec2_user_data
 
   associate_public_ip_address = false
+
+  # EC2 depends on VPC Endpoints for access to S3, SSM and CloudWatch Logs (boot script also uses these services)
+  depends_on = [
+    aws_vpc_endpoint.s3,
+    aws_vpc_endpoint.secretsmanager,
+    aws_vpc_endpoint.ssm,
+    aws_vpc_endpoint.ssm_messages,
+    aws_vpc_endpoint.ec2_messages,
+    aws_vpc_endpoint.ec2,
+    aws_vpc_endpoint.logs
+  ]
 
   tags = {
     Name        = "internal-app-ec2"

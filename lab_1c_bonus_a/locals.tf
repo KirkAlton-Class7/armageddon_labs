@@ -28,6 +28,7 @@ locals {
   private_egress_subnet_tags = {
     Exposure = "egress-only"
     Egress   = "nat"
+    Component = "network"
   }
 
 
@@ -54,7 +55,26 @@ locals {
   private_subnet_tags = {
     Exposure = "internal-only"
     Egress   = "none"
+    Component = "network"
   }
+
+  # Template Files
+  # EC2 User Data
+  ec2_user_data = templatefile("${path.module}/templates/1a_user_data.sh.tpl",
+    {
+      region    = local.region,
+      secret_id = local.secret_id
+      name_suffix = local.name_suffix
+    }
+  )
+
+  # CloudWatch Agent Configuration File
+  cloudwatch_agent_config = templatefile("${path.module}/templates/cloudwatch-agent-config.json.tpl",
+    {
+      name_suffix = local.name_suffix
+    }
+  )
+
 
   # Other Locals
   ec2_sg_id = aws_security_group.ec2_internal_app.id

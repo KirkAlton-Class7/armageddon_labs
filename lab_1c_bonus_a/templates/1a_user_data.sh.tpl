@@ -121,6 +121,16 @@ Restart=always
 WantedBy=multi-user.target
 SERVICE
 
+echo "[INFO] Sleeping 60s to give VPC endpoints and dependencies time to initialize" >> /var/log/user_data.log
+sleep 60
+echo "[INFO] Starting CloudWatch Agent" >> /var/log/user_data.log
+
 systemctl daemon-reload
 systemctl enable rdsapp
 systemctl start rdsapp
+
+/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
+  -a fetch-config \
+  -m ec2 \
+  -c ssm:/internal-app/cloudwatch-agent/config-${name_suffix} \
+  -s

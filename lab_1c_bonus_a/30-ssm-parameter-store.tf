@@ -1,3 +1,18 @@
+# SSM Parameter Store - CloudWatch Agent Configuration
+resource "aws_ssm_parameter" "cloudwatch_agent_config" {
+  name  = "/internal-app/cloudwatch-agent/config-${local.name_suffix}"
+  type  = "SecureString"
+  value = local.cloudwatch_agent_config
+
+  tags = {
+    Name         = "internal-app-cloudwatch-agent-config"
+    Component    = "logging"
+    AppComponent = "log-configuration-parameters"
+    DataClass    = "internal"
+  }
+}
+
+
 # SSM Parameter Store - Username for LabMySQL DB
 resource "aws_ssm_parameter" "lab_mysql_db_username" {
   name  = "/lab/rds/mysql/db-username-${local.name_suffix}"

@@ -10,7 +10,6 @@ resource "aws_iam_policy" "ssm_agent_policy" {
 
   policy = data.aws_iam_policy_document.ssm_agent_policy.json
 }
-
 # IAM Policy Data - SSM Agent Policy (SSM Agent Permissions, Messaging, and Legacy Messaging)
 data "aws_iam_policy_document" "ssm_agent_policy" {
   statement {
@@ -64,6 +63,52 @@ data "aws_iam_policy_document" "ssm_agent_policy" {
 # EC2 Policies
 # -------------------------------------------------------------------------------
 
+# Allow EC2 to Access Amazon Linux Repo via VPC Endpoint
+resource "aws_iam_policy" "ec2_linux_repo_access" {
+  name   = "ec2-linux-repo-access-policy"
+  policy = data.aws_iam_policy_document.ec2_linux_repo_access.json
+}
+data "aws_iam_policy_document" "ec2_linux_repo_access" {
+  statement {
+    sid    = "AllowEC2LinuxRepoAccess"
+    effect = "Allow"
+
+    actions = ["s3:GetObject"]
+    
+    resources = ["arn:aws:s3:::al2023-repos-us-east-1-de612dc2/*"]
+  }
+}
+
+
+# IAM Policy Object - EC2 CloudWatch Logs Role
+resource "aws_iam_policy" "ec2_cloudwatch_logs_role" {
+  name   = "ec2-cloudwatch-logs-role-policy"
+  policy = data.aws_iam_policy_document.ec2_cloudwatch_logs_role.json
+}
+
+
+# IAM Policy Data - EC2 CloudWatch Logs Role
+data "aws_iam_policy_document" "ec2_cloudwatch_logs_role" {
+  statement {
+    sid    = "AllowEC2CloudWatchLogsWrites"
+    effect = "Allow"
+
+    actions = [
+      "logs:CreateLogGroup",
+      "logs:CreateLogStream",
+      "logs:PutLogEvents",
+      "logs:DescribeLogGroups",
+      "logs:DescribeLogStreams",
+    ]
+
+    resources = ["arn:aws:logs:${local.region}:${local.account_id}:log-group:/ec2-system-logs*",
+    "arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/internal*:log-stream:*"
+    ]
+  }
+}
+
+
+
 # IAM Policy Object - Read DB Secret
 resource "aws_iam_policy" "read_db_secret" {
   name        = "read-db-secret-${local.name_suffix}"
@@ -88,6 +133,40 @@ data "aws_iam_policy_document" "read_db_secret" {
     ]
     resources = [
       aws_secretsmanager_secret.lab_rds_mysql.arn
+    ]
+  }
+}
+
+
+
+# IAM Policy Object - Read CloudWatch Agent Config File
+resource "aws_iam_policy" "read_cloudwatch_agent_config" {
+  name        = "read-cloudwatch-agent-config-${local.name_suffix}"
+  path        = "/"
+  description = "Allows EC2 to read CloudWatch Agent Config File"
+
+  policy = data.aws_iam_policy_document.read_cloudwatch_agent_config.json
+
+  tags = {
+    Name         = "read-cloudwatch-agent-config"
+    Component    = "iam"
+    AppComponent = "logging-configuration"
+    DataClass    = "internal"
+    AccessLevel  = "read-only"
+  }
+}
+# IAM Policy Data - CloudWatch Agent Config File
+data "aws_iam_policy_document" "read_cloudwatch_agent_config" {
+  statement {
+    sid    = "ReadCloudWatchAgentConfig"
+    effect = "Allow"
+    actions = [
+      "ssm:GetParameter",
+      "ssm:GetParameters", # Allows retrieval of multiple parameters at once
+      "ssm:GetParametersByPath"
+    ]
+    resources = [
+      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/internal-app/cloudwatch-agent/config-${local.name_suffix}"
     ]
   }
 }
@@ -124,6 +203,7 @@ data "aws_iam_policy_document" "read_db_name_parameter" {
   }
 }
 
+
 # IAM Policy Object - Read DB Username Parameter
 resource "aws_iam_policy" "read_db_username_parameter" {
   name        = "read-db-username-parameter-${local.name_suffix}"
@@ -140,8 +220,6 @@ resource "aws_iam_policy" "read_db_username_parameter" {
     AccessLevel  = "read-only"
   }
 }
-
-
 # IAM Policy Data - Read DB Username Parameter
 data "aws_iam_policy_document" "read_db_username_parameter" {
   statement {
