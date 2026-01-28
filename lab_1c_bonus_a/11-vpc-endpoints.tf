@@ -7,7 +7,7 @@ resource "aws_vpc_endpoint" "s3" {
   tags = merge(
     {
       Name = "vpc-endpoint-s3"
-      
+
     },
     local.private_subnet_tags
   )
@@ -55,7 +55,7 @@ resource "aws_vpc_endpoint" "ssm" {
   tags = merge(
     {
       Name = "vpc-endpoint-ssm"
-      
+
     },
     local.private_subnet_tags
   )
@@ -102,7 +102,7 @@ resource "aws_vpc_endpoint" "ec2_messages" {
   tags = merge(
     {
       Name = "vpc-endpoint-ec2-messages"
-      
+
     },
     local.private_subnet_tags
   )
@@ -126,12 +126,35 @@ resource "aws_vpc_endpoint" "ec2" {
   tags = merge(
     {
       Name = "vpc-endpoint-ec2"
-      
+
     },
     local.private_subnet_tags
   )
 }
 
+
+# Interface Endpoint - CloudWatch Logs
+resource "aws_vpc_endpoint" "monitoring" {
+  vpc_id            = aws_vpc.main.id
+  service_name      = "com.amazonaws.${local.region}.monitoring"
+  vpc_endpoint_type = "Interface"
+
+  subnet_ids = local.private_app_subnets
+
+  security_group_ids = [
+    aws_security_group.vpc_endpoint.id
+  ]
+
+  private_dns_enabled = true
+
+  tags = merge(
+    {
+      Name = "vpc-endpoint-monitoring"
+
+    },
+    local.private_subnet_tags
+  )
+}
 
 # Interface Endpoint - CloudWatch Logs
 resource "aws_vpc_endpoint" "logs" {
@@ -150,7 +173,7 @@ resource "aws_vpc_endpoint" "logs" {
   tags = merge(
     {
       Name = "vpc-endpoint-logs"
-      
+
     },
     local.private_subnet_tags
   )

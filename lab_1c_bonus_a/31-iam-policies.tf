@@ -74,7 +74,7 @@ data "aws_iam_policy_document" "ec2_linux_repo_access" {
     effect = "Allow"
 
     actions = ["s3:GetObject"]
-    
+
     resources = ["arn:aws:s3:::al2023-repos-us-east-1-de612dc2/*"]
   }
 }
@@ -101,8 +101,8 @@ data "aws_iam_policy_document" "ec2_cloudwatch_logs_role" {
       "logs:DescribeLogStreams",
     ]
 
-    resources = ["arn:aws:logs:${local.region}:${local.account_id}:log-group:/ec2-system-logs*",
-    "arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/internal*:log-stream:*"
+    resources = ["arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/internal-app-${local.name_suffix}",
+      "arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/internal-app-${local.name_suffix}:log-stream:*"
     ]
   }
 }

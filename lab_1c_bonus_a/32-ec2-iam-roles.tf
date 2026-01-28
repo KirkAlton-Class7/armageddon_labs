@@ -47,6 +47,12 @@ resource "aws_iam_role_policy_attachment" "attach_read_cloudwatch_agent_config" 
   policy_arn = aws_iam_policy.read_cloudwatch_agent_config.arn
 }
 
+# Policy Attachment - Read CloudWatch Agent Config File --> Internal App role
+resource "aws_iam_role_policy_attachment" "attach_ec2_cloudwatch_logs_role" {
+  role       = aws_iam_role.internal_app.name
+  policy_arn = aws_iam_policy.ec2_cloudwatch_logs_role.arn
+}
+
 
 # Policy Attachment - EC2 Linux Repo Access --> Internal App role
 resource "aws_iam_role_policy_attachment" "ec2_linux_repo_access" {

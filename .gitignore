@@ -59,3 +59,6 @@ backup/
 
 # Ignore audit folder
 audit/
+
+# Ignore rendered folder (for rendered templates)
+rendered/

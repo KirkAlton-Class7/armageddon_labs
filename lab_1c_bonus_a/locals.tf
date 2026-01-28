@@ -26,8 +26,8 @@ locals {
   subnet_index = random_integer.subnet_picker.result
 
   private_egress_subnet_tags = {
-    Exposure = "egress-only"
-    Egress   = "nat"
+    Exposure  = "egress-only"
+    Egress    = "nat"
     Component = "network"
   }
 
@@ -53,8 +53,8 @@ locals {
   random_private_data_subnet = local.private_data_subnets[local.subnet_index]
 
   private_subnet_tags = {
-    Exposure = "internal-only"
-    Egress   = "none"
+    Exposure  = "internal-only"
+    Egress    = "none"
     Component = "network"
   }
 
@@ -62,8 +62,8 @@ locals {
   # EC2 User Data
   ec2_user_data = templatefile("${path.module}/templates/1a_user_data.sh.tpl",
     {
-      region    = local.region,
-      secret_id = local.secret_id
+      region      = local.region,
+      secret_id   = local.secret_id
       name_suffix = local.name_suffix
     }
   )
