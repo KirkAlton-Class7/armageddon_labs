@@ -27,10 +27,10 @@ locals {
     aws_subnet.public_c.id
   ]
 
-  # Assigns random subnet from the list using shared random index
+  # Assigns random public subnet from the list using shared random index
   random_public_subnet = local.public_subnets[local.subnet_index]
 
-  # Common tags for public subnets
+  # Shared tags for public subnets
   public_subnet_tags = {
     Exposure = "public"
     Egress   = "igw"
@@ -43,8 +43,10 @@ locals {
     aws_subnet.private_egress_c.id
   ]
 
+  # Assigns random private egress subnet from the list using shared random index
   random_private_egress_subnet = local.private_egress_subnets[local.subnet_index]
 
+  # Shared tags for private egress subnets
   private_egress_subnet_tags = {
     Exposure = "egress-only"
     Egress   = "nat"
@@ -57,8 +59,10 @@ locals {
     aws_subnet.private_data_c.id
   ]
 
+  # Assigns random private data subnet from the list using shared random index
   random_private_data_subnet = local.private_data_subnets[local.subnet_index]
 
+  # Shared tags for private data subnets
   private_data_subnet_tags = {
     Exposure = "internal-only"
     Egress   = "none"

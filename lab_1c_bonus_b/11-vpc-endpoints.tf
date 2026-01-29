@@ -9,7 +9,7 @@ resource "aws_vpc_endpoint" "s3" {
       Name = "vpc-endpoint-s3"
 
     },
-    local.vpc_endpoint_tags
+    local.private_subnet_tags
   )
 }
 
@@ -33,7 +33,7 @@ resource "aws_vpc_endpoint" "secretsmanager" {
       Name = "vpc-endpoint-secretsmanager"
 
     },
-    local.vpc_endpoint_tags
+    local.private_subnet_tags
   )
 }
 
@@ -57,7 +57,7 @@ resource "aws_vpc_endpoint" "ssm" {
       Name = "vpc-endpoint-ssm"
 
     },
-    local.vpc_endpoint_tags
+    local.private_subnet_tags
   )
 }
 
@@ -80,7 +80,7 @@ resource "aws_vpc_endpoint" "ssm_messages" {
     {
       Name = "vpc-endpoint-ssm-messages"
     },
-    local.vpc_endpoint_tags
+    local.private_subnet_tags
   )
 }
 
@@ -104,7 +104,7 @@ resource "aws_vpc_endpoint" "ec2_messages" {
       Name = "vpc-endpoint-ec2-messages"
 
     },
-    local.vpc_endpoint_tags
+    local.private_subnet_tags
   )
 }
 
@@ -128,7 +128,7 @@ resource "aws_vpc_endpoint" "ec2" {
       Name = "vpc-endpoint-ec2"
 
     },
-    local.vpc_endpoint_tags
+    local.private_subnet_tags
   )
 }
 
@@ -152,7 +152,7 @@ resource "aws_vpc_endpoint" "monitoring" {
       Name = "vpc-endpoint-monitoring"
 
     },
-    local.vpc_endpoint_tags
+    local.private_subnet_tags
   )
 }
 
@@ -175,6 +175,6 @@ resource "aws_vpc_endpoint" "logs" {
       Name = "vpc-endpoint-logs"
 
     },
-    local.vpc_endpoint_tags
+    local.private_subnet_tags
   )
 }

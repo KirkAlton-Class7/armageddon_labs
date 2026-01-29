@@ -34,7 +34,7 @@ resource "aws_instance" "internal_app" {
   }
 }
 
-# Instance Profile - Internal App
+# Instance Profile
 resource "aws_iam_instance_profile" "internal_app" {
   name = "internal-app-instance-profile"
   role = aws_iam_role.internal_app.name

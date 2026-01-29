@@ -25,6 +25,24 @@ locals {
   # Subnet selection helpers
   subnet_index = random_integer.subnet_picker.result
 
+  # Public Subnets
+  public_subnets = [
+    aws_subnet.public_a.id,
+    aws_subnet.public_b.id,
+    aws_subnet.public_c.id
+  ]
+
+  # Assigns random public subnet from the list using shared random index
+  random_public_subnet = local.public_subnets[local.subnet_index]
+
+
+  # Shared tags for public subnets
+  public_subnet_tags = {
+    Exposure = "public"
+    Egress   = "igw"
+  }
+
+
   # Shared tags for vpc endpoints
   vpc_endpoint_tags = {
     Exposure  = "egress-only"
@@ -54,14 +72,15 @@ locals {
   # Assigns random private data subnet from the list using shared random index
   random_private_data_subnet = local.private_data_subnets[local.subnet_index]
 
-  # Sharded tags for private subnets
+  # Shared tags for private subnets
   private_subnet_tags = {
     Exposure  = "internal-only"
     Egress    = "none"
     Component = "network"
   }
 
-  # Template - EC2 User Data
+  # Template Files
+  # EC2 User Data
   ec2_user_data = templatefile("${path.module}/templates/1a_user_data.sh.tpl",
     {
       region      = local.region,
@@ -70,7 +89,7 @@ locals {
     }
   )
 
-  # Template - CloudWatch Agent Configuration File
+  # CloudWatch Agent Configuration File
   cloudwatch_agent_config = templatefile("${path.module}/templates/cloudwatch-agent-config.json.tpl",
     {
       name_suffix = local.name_suffix
