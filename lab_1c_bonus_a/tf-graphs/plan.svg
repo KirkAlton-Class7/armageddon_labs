@@ -380,15 +380,15 @@
 <path fill="none" stroke="black" d="M1868.78,-863.59C1868.78,-848.98 1868.78,-831 1868.78,-831 1868.78,-831 2136.03,-831 2136.03,-831 2136.03,-831 2136.03,-830.74 2136.03,-830.74"/>
 <polygon fill="black" stroke="black" points="2139.53,-839.94 2136.03,-829.94 2132.53,-839.94 2139.53,-839.94"/>
 </g>
-<!-- [root] aws_iam_role.internal_app -->
+<!-- [root] aws_iam_role.rds_app -->
 <g id="node39" class="node">
-<title>[root] aws_iam_role.internal_app</title>
+<title>[root] aws_iam_role.rds_app</title>
 <polygon fill="none" stroke="black" points="2747.78,-756 2584.03,-756 2584.03,-720 2747.78,-720 2747.78,-756"/>
-<text xml:space="preserve" text-anchor="middle" x="2665.9" y="-732.95" font-family="Times,serif" font-size="14.00">aws_iam_role.internal_app</text>
+<text xml:space="preserve" text-anchor="middle" x="2665.9" y="-732.95" font-family="Times,serif" font-size="14.00">aws_iam_role.rds_app</text>
 </g>
-<!-- [root] aws_iam_instance_profile.get_db_secret (expand)&#45;&gt;[root] aws_iam_role.internal_app -->
+<!-- [root] aws_iam_instance_profile.get_db_secret (expand)&#45;&gt;[root] aws_iam_role.rds_app -->
 <g id="edge29" class="edge">
-<title>[root] aws_iam_instance_profile.get_db_secret (expand)&#45;&gt;[root] aws_iam_role.internal_app</title>
+<title>[root] aws_iam_instance_profile.get_db_secret (expand)&#45;&gt;[root] aws_iam_role.rds_app</title>
 <path fill="none" stroke="black" d="M2259.15,-791.75C2259.15,-777.82 2259.15,-761 2259.15,-761 2259.15,-761 2606.28,-761 2606.28,-761 2606.28,-761 2606.28,-760.51 2606.28,-760.51"/>
 <polygon fill="black" stroke="black" points="2609.78,-767.64 2606.28,-757.64 2602.78,-767.64 2609.78,-767.64"/>
 </g>
@@ -638,33 +638,33 @@
 <path fill="none" stroke="black" d="M4584.46,-935.83C4584.46,-935.83 4584.46,-911.93 4584.46,-911.93"/>
 <polygon fill="black" stroke="black" points="4587.96,-911.93 4584.46,-901.93 4580.96,-911.93 4587.96,-911.93"/>
 </g>
-<!-- [root] aws_iam_role.internal_app (expand) -->
+<!-- [root] aws_iam_role.rds_app (expand) -->
 <g id="node40" class="node">
-<title>[root] aws_iam_role.internal_app (expand)</title>
+<title>[root] aws_iam_role.rds_app (expand)</title>
 <polygon fill="none" stroke="black" points="3845.78,-684 3682.03,-684 3682.03,-648 3845.78,-648 3845.78,-684"/>
-<text xml:space="preserve" text-anchor="middle" x="3763.9" y="-660.95" font-family="Times,serif" font-size="14.00">aws_iam_role.internal_app</text>
+<text xml:space="preserve" text-anchor="middle" x="3763.9" y="-660.95" font-family="Times,serif" font-size="14.00">aws_iam_role.rds_app</text>
 </g>
-<!-- [root] aws_iam_role.internal_app&#45;&gt;[root] aws_iam_role.internal_app (expand) -->
+<!-- [root] aws_iam_role.rds_app&#45;&gt;[root] aws_iam_role.rds_app (expand) -->
 <g id="edge50" class="edge">
-<title>[root] aws_iam_role.internal_app&#45;&gt;[root] aws_iam_role.internal_app (expand)</title>
+<title>[root] aws_iam_role.rds_app&#45;&gt;[root] aws_iam_role.rds_app (expand)</title>
 <path fill="none" stroke="black" d="M2665.9,-719.88C2665.9,-717.03 2665.9,-715 2665.9,-715 2665.9,-715 3763.9,-715 3763.9,-715 3763.9,-715 3763.9,-695.76 3763.9,-695.76"/>
 <polygon fill="black" stroke="black" points="3767.4,-695.76 3763.9,-685.76 3760.4,-695.76 3767.4,-695.76"/>
 </g>
-<!-- [root] data.aws_iam_policy_document.internal_app_assume_role (expand) -->
+<!-- [root] data.aws_iam_policy_document.rds_app_assume_role (expand) -->
 <g id="node150" class="node">
-<title>[root] data.aws_iam_policy_document.internal_app_assume_role (expand)</title>
+<title>[root] data.aws_iam_policy_document.rds_app_assume_role (expand)</title>
 <polygon fill="none" stroke="black" points="4029.15,-612 3690.65,-612 3690.65,-576 4029.15,-576 4029.15,-612"/>
-<text xml:space="preserve" text-anchor="middle" x="3859.9" y="-588.95" font-family="Times,serif" font-size="14.00">data.aws_iam_policy_document.internal_app_assume_role</text>
+<text xml:space="preserve" text-anchor="middle" x="3859.9" y="-588.95" font-family="Times,serif" font-size="14.00">data.aws_iam_policy_document.rds_app_assume_role</text>
 </g>
-<!-- [root] aws_iam_role.internal_app (expand)&#45;&gt;[root] data.aws_iam_policy_document.internal_app_assume_role (expand) -->
+<!-- [root] aws_iam_role.rds_app (expand)&#45;&gt;[root] data.aws_iam_policy_document.rds_app_assume_role (expand) -->
 <g id="edge48" class="edge">
-<title>[root] aws_iam_role.internal_app (expand)&#45;&gt;[root] data.aws_iam_policy_document.internal_app_assume_role (expand)</title>
+<title>[root] aws_iam_role.rds_app (expand)&#45;&gt;[root] data.aws_iam_policy_document.rds_app_assume_role (expand)</title>
 <path fill="none" stroke="black" d="M3742.36,-647.83C3742.36,-647.83 3742.36,-623.93 3742.36,-623.93"/>
 <polygon fill="black" stroke="black" points="3745.86,-623.93 3742.36,-613.93 3738.86,-623.93 3745.86,-623.93"/>
 </g>
-<!-- [root] aws_iam_role.internal_app (expand)&#45;&gt;[root] local.name_suffix (expand) -->
+<!-- [root] aws_iam_role.rds_app (expand)&#45;&gt;[root] local.name_suffix (expand) -->
 <g id="edge49" class="edge">
-<title>[root] aws_iam_role.internal_app (expand)&#45;&gt;[root] local.name_suffix (expand)</title>
+<title>[root] aws_iam_role.rds_app (expand)&#45;&gt;[root] local.name_suffix (expand)</title>
 <path fill="none" stroke="black" d="M3794.07,-647.81C3794.07,-639.72 3794.07,-632 3794.07,-632 3794.07,-632 4167.54,-632 4167.54,-632 4167.54,-632 4167.54,-621.41 4167.54,-621.41"/>
 <polygon fill="black" stroke="black" points="4171.04,-621.41 4167.54,-611.41 4164.04,-621.41 4171.04,-621.41"/>
 </g>
@@ -782,9 +782,9 @@
 <path fill="none" stroke="black" d="M2459.9,-935.83C2459.9,-935.83 2459.9,-911.93 2459.9,-911.93"/>
 <polygon fill="black" stroke="black" points="2463.4,-911.93 2459.9,-901.93 2456.4,-911.93 2463.4,-911.93"/>
 </g>
-<!-- [root] aws_iam_role_policy_attachment.attach_read_db_host_parameter (expand)&#45;&gt;[root] aws_iam_role.internal_app -->
+<!-- [root] aws_iam_role_policy_attachment.attach_read_db_host_parameter (expand)&#45;&gt;[root] aws_iam_role.rds_app -->
 <g id="edge61" class="edge">
-<title>[root] aws_iam_role_policy_attachment.attach_read_db_host_parameter (expand)&#45;&gt;[root] aws_iam_role.internal_app</title>
+<title>[root] aws_iam_role_policy_attachment.attach_read_db_host_parameter (expand)&#45;&gt;[root] aws_iam_role.rds_app</title>
 <path fill="none" stroke="black" d="M2673.03,-935.58C2673.03,-935.58 2673.03,-767.88 2673.03,-767.88"/>
 <polygon fill="black" stroke="black" points="2676.53,-767.88 2673.03,-757.88 2669.53,-767.88 2676.53,-767.88"/>
 </g>
@@ -812,9 +812,9 @@
 <path fill="none" stroke="black" d="M3431.9,-935.83C3431.9,-935.83 3431.9,-911.93 3431.9,-911.93"/>
 <polygon fill="black" stroke="black" points="3435.4,-911.93 3431.9,-901.93 3428.4,-911.93 3435.4,-911.93"/>
 </g>
-<!-- [root] aws_iam_role_policy_attachment.attach_read_db_name_parameter (expand)&#45;&gt;[root] aws_iam_role.internal_app -->
+<!-- [root] aws_iam_role_policy_attachment.attach_read_db_name_parameter (expand)&#45;&gt;[root] aws_iam_role.rds_app -->
 <g id="edge64" class="edge">
-<title>[root] aws_iam_role_policy_attachment.attach_read_db_name_parameter (expand)&#45;&gt;[root] aws_iam_role.internal_app</title>
+<title>[root] aws_iam_role_policy_attachment.attach_read_db_name_parameter (expand)&#45;&gt;[root] aws_iam_role.rds_app</title>
 <path fill="none" stroke="black" d="M3232.46,-935.58C3232.46,-926.72 3232.46,-918 3232.46,-918 3232.46,-918 2736.36,-918 2736.36,-918 2736.36,-918 2736.36,-767.76 2736.36,-767.76"/>
 <polygon fill="black" stroke="black" points="2739.86,-767.76 2736.36,-757.76 2732.86,-767.76 2739.86,-767.76"/>
 </g>
@@ -842,9 +842,9 @@
 <path fill="none" stroke="black" d="M2105.9,-935.83C2105.9,-935.83 2105.9,-911.93 2105.9,-911.93"/>
 <polygon fill="black" stroke="black" points="2109.4,-911.93 2105.9,-901.93 2102.4,-911.93 2109.4,-911.93"/>
 </g>
-<!-- [root] aws_iam_role_policy_attachment.attach_read_db_port_parameter (expand)&#45;&gt;[root] aws_iam_role.internal_app -->
+<!-- [root] aws_iam_role_policy_attachment.attach_read_db_port_parameter (expand)&#45;&gt;[root] aws_iam_role.rds_app -->
 <g id="edge67" class="edge">
-<title>[root] aws_iam_role_policy_attachment.attach_read_db_port_parameter (expand)&#45;&gt;[root] aws_iam_role.internal_app</title>
+<title>[root] aws_iam_role_policy_attachment.attach_read_db_port_parameter (expand)&#45;&gt;[root] aws_iam_role.rds_app</title>
 <path fill="none" stroke="black" d="M2291.71,-935.51C2291.71,-923.86 2291.71,-911 2291.71,-911 2291.71,-911 2650.78,-911 2650.78,-911 2650.78,-911 2650.78,-767.7 2650.78,-767.7"/>
 <polygon fill="black" stroke="black" points="2654.28,-767.7 2650.78,-757.7 2647.28,-767.7 2654.28,-767.7"/>
 </g>
@@ -872,9 +872,9 @@
 <path fill="none" stroke="black" d="M3220.96,-1079.83C3220.96,-1079.83 3220.96,-1055.93 3220.96,-1055.93"/>
 <polygon fill="black" stroke="black" points="3224.46,-1055.93 3220.96,-1045.93 3217.46,-1055.93 3224.46,-1055.93"/>
 </g>
-<!-- [root] aws_iam_role_policy_attachment.attach_read_db_secret (expand)&#45;&gt;[root] aws_iam_role.internal_app -->
+<!-- [root] aws_iam_role_policy_attachment.attach_read_db_secret (expand)&#45;&gt;[root] aws_iam_role.rds_app -->
 <g id="edge70" class="edge">
-<title>[root] aws_iam_role_policy_attachment.attach_read_db_secret (expand)&#45;&gt;[root] aws_iam_role.internal_app</title>
+<title>[root] aws_iam_role_policy_attachment.attach_read_db_secret (expand)&#45;&gt;[root] aws_iam_role.rds_app</title>
 <path fill="none" stroke="black" d="M3031.03,-1079.58C3031.03,-1066.04 3031.03,-1050 3031.03,-1050 3031.03,-1050 2704.4,-1050 2704.4,-1050 2704.4,-1050 2704.4,-767.64 2704.4,-767.64"/>
 <polygon fill="black" stroke="black" points="2707.9,-767.64 2704.4,-757.64 2700.9,-767.64 2707.9,-767.64"/>
 </g>
@@ -902,9 +902,9 @@
 <path fill="none" stroke="black" d="M3068.46,-935.83C3068.46,-935.83 3068.46,-911.93 3068.46,-911.93"/>
 <polygon fill="black" stroke="black" points="3071.96,-911.93 3068.46,-901.93 3064.96,-911.93 3071.96,-911.93"/>
 </g>
-<!-- [root] aws_iam_role_policy_attachment.attach_read_db_username_parameter (expand)&#45;&gt;[root] aws_iam_role.internal_app -->
+<!-- [root] aws_iam_role_policy_attachment.attach_read_db_username_parameter (expand)&#45;&gt;[root] aws_iam_role.rds_app -->
 <g id="edge73" class="edge">
-<title>[root] aws_iam_role_policy_attachment.attach_read_db_username_parameter (expand)&#45;&gt;[root] aws_iam_role.internal_app</title>
+<title>[root] aws_iam_role_policy_attachment.attach_read_db_username_parameter (expand)&#45;&gt;[root] aws_iam_role.rds_app</title>
 <path fill="none" stroke="black" d="M2724.94,-935.58C2724.94,-935.58 2724.94,-767.88 2724.94,-767.88"/>
 <polygon fill="black" stroke="black" points="2728.44,-767.88 2724.94,-757.88 2721.44,-767.88 2728.44,-767.88"/>
 </g>
@@ -932,9 +932,9 @@
 <path fill="none" stroke="black" d="M1628.46,-791.83C1628.46,-791.83 1628.46,-767.93 1628.46,-767.93"/>
 <polygon fill="black" stroke="black" points="1631.96,-767.93 1628.46,-757.93 1624.96,-767.93 1631.96,-767.93"/>
 </g>
-<!-- [root] aws_iam_role_policy_attachment.attach_ssm_agent_policy (expand)&#45;&gt;[root] aws_iam_role.internal_app -->
+<!-- [root] aws_iam_role_policy_attachment.attach_ssm_agent_policy (expand)&#45;&gt;[root] aws_iam_role.rds_app -->
 <g id="edge76" class="edge">
-<title>[root] aws_iam_role_policy_attachment.attach_ssm_agent_policy (expand)&#45;&gt;[root] aws_iam_role.internal_app</title>
+<title>[root] aws_iam_role_policy_attachment.attach_ssm_agent_policy (expand)&#45;&gt;[root] aws_iam_role.rds_app</title>
 <path fill="none" stroke="black" d="M1722.28,-828.13C1722.28,-838.31 1722.28,-849 1722.28,-849 1722.28,-849 2628.53,-849 2628.53,-849 2628.53,-849 2628.53,-767.84 2628.53,-767.84"/>
 <polygon fill="black" stroke="black" points="2632.03,-767.84 2628.53,-757.84 2625.03,-767.84 2632.03,-767.84"/>
 </g>
@@ -968,27 +968,27 @@
 <path fill="none" stroke="black" d="M4457.84,-1079.5C4457.84,-1070.25 4457.84,-1061 4457.84,-1061 4457.84,-1061 4797.16,-1061 4797.16,-1061 4797.16,-1061 4797.16,-767.8 4797.16,-767.8"/>
 <polygon fill="black" stroke="black" points="4800.66,-767.8 4797.16,-757.8 4793.66,-767.8 4800.66,-767.8"/>
 </g>
-<!-- [root] aws_instance.internal_app -->
+<!-- [root] aws_instance.rds_app -->
 <g id="node61" class="node">
-<title>[root] aws_instance.internal_app</title>
+<title>[root] aws_instance.rds_app</title>
 <polygon fill="none" stroke="black" points="1906.53,-1044 1747.28,-1044 1747.28,-1008 1906.53,-1008 1906.53,-1044"/>
-<text xml:space="preserve" text-anchor="middle" x="1826.9" y="-1020.95" font-family="Times,serif" font-size="14.00">aws_instance.internal_app</text>
+<text xml:space="preserve" text-anchor="middle" x="1826.9" y="-1020.95" font-family="Times,serif" font-size="14.00">aws_instance.rds_app</text>
 </g>
-<!-- [root] aws_instance.internal_app (expand) -->
+<!-- [root] aws_instance.rds_app (expand) -->
 <g id="node62" class="node">
-<title>[root] aws_instance.internal_app (expand)</title>
+<title>[root] aws_instance.rds_app (expand)</title>
 <polygon fill="none" stroke="black" points="1906.53,-972 1747.28,-972 1747.28,-936 1906.53,-936 1906.53,-972"/>
-<text xml:space="preserve" text-anchor="middle" x="1826.9" y="-948.95" font-family="Times,serif" font-size="14.00">aws_instance.internal_app</text>
+<text xml:space="preserve" text-anchor="middle" x="1826.9" y="-948.95" font-family="Times,serif" font-size="14.00">aws_instance.rds_app</text>
 </g>
-<!-- [root] aws_instance.internal_app&#45;&gt;[root] aws_instance.internal_app (expand) -->
+<!-- [root] aws_instance.rds_app&#45;&gt;[root] aws_instance.rds_app (expand) -->
 <g id="edge86" class="edge">
-<title>[root] aws_instance.internal_app&#45;&gt;[root] aws_instance.internal_app (expand)</title>
+<title>[root] aws_instance.rds_app&#45;&gt;[root] aws_instance.rds_app (expand)</title>
 <path fill="none" stroke="black" d="M1826.9,-1007.83C1826.9,-1007.83 1826.9,-983.93 1826.9,-983.93"/>
 <polygon fill="black" stroke="black" points="1830.4,-983.93 1826.9,-973.93 1823.4,-983.93 1830.4,-983.93"/>
 </g>
-<!-- [root] aws_instance.internal_app (expand)&#45;&gt;[root] aws_iam_instance_profile.get_db_secret -->
+<!-- [root] aws_instance.rds_app (expand)&#45;&gt;[root] aws_iam_instance_profile.get_db_secret -->
 <g id="edge81" class="edge">
-<title>[root] aws_instance.internal_app (expand)&#45;&gt;[root] aws_iam_instance_profile.get_db_secret</title>
+<title>[root] aws_instance.rds_app (expand)&#45;&gt;[root] aws_iam_instance_profile.get_db_secret</title>
 <path fill="none" stroke="black" d="M1800.36,-935.83C1800.36,-935.83 1800.36,-911.93 1800.36,-911.93"/>
 <polygon fill="black" stroke="black" points="1803.86,-911.93 1800.36,-901.93 1796.86,-911.93 1803.86,-911.93"/>
 </g>
@@ -998,9 +998,9 @@
 <polygon fill="none" stroke="black" points="3449.78,-324 3244.03,-324 3244.03,-288 3449.78,-288 3449.78,-324"/>
 <text xml:space="preserve" text-anchor="middle" x="3346.9" y="-300.95" font-family="Times,serif" font-size="14.00">data.aws_ami.amazon_linux_2023</text>
 </g>
-<!-- [root] aws_instance.internal_app (expand)&#45;&gt;[root] data.aws_ami.amazon_linux_2023 (expand) -->
+<!-- [root] aws_instance.rds_app (expand)&#45;&gt;[root] data.aws_ami.amazon_linux_2023 (expand) -->
 <g id="edge82" class="edge">
-<title>[root] aws_instance.internal_app (expand)&#45;&gt;[root] data.aws_ami.amazon_linux_2023 (expand)</title>
+<title>[root] aws_instance.rds_app (expand)&#45;&gt;[root] data.aws_ami.amazon_linux_2023 (expand)</title>
 <path fill="none" stroke="black" d="M1826.9,-935.76C1826.9,-928.57 1826.9,-922 1826.9,-922 1826.9,-922 1968.78,-922 1968.78,-922 1968.78,-922 1968.78,-861 1968.78,-861 1968.78,-861 2908.71,-861 2908.71,-861 2908.71,-861 2908.71,-306 2908.71,-306 2908.71,-306 3232.1,-306 3232.1,-306"/>
 <polygon fill="black" stroke="black" points="3232.1,-309.5 3242.1,-306 3232.1,-302.5 3232.1,-309.5"/>
 </g>
@@ -1010,9 +1010,9 @@
 <ellipse fill="none" stroke="black" cx="3702.9" cy="-882" rx="127.61" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="3702.9" y="-876.95" font-family="Times,serif" font-size="14.00">[root] local.ec2_sg_id (expand)</text>
 </g>
-<!-- [root] aws_instance.internal_app (expand)&#45;&gt;[root] local.ec2_sg_id (expand) -->
+<!-- [root] aws_instance.rds_app (expand)&#45;&gt;[root] local.ec2_sg_id (expand) -->
 <g id="edge83" class="edge">
-<title>[root] aws_instance.internal_app (expand)&#45;&gt;[root] local.ec2_sg_id (expand)</title>
+<title>[root] aws_instance.rds_app (expand)&#45;&gt;[root] local.ec2_sg_id (expand)</title>
 <path fill="none" stroke="black" d="M1879.99,-935.83C1879.99,-933.55 1879.99,-932 1879.99,-932 1879.99,-932 3605.1,-932 3605.1,-932 3605.1,-932 3605.1,-905.36 3605.1,-905.36"/>
 <polygon fill="black" stroke="black" points="3608.6,-905.36 3605.1,-895.36 3601.6,-905.36 3608.6,-905.36"/>
 </g>
@@ -1022,9 +1022,9 @@
 <ellipse fill="none" stroke="black" cx="1178.9" cy="-882" rx="195.68" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="1178.9" y="-876.95" font-family="Times,serif" font-size="14.00">[root] local.random_private_app_subnet (expand)</text>
 </g>
-<!-- [root] aws_instance.internal_app (expand)&#45;&gt;[root] local.random_private_app_subnet (expand) -->
+<!-- [root] aws_instance.rds_app (expand)&#45;&gt;[root] local.random_private_app_subnet (expand) -->
 <g id="edge84" class="edge">
-<title>[root] aws_instance.internal_app (expand)&#45;&gt;[root] local.random_private_app_subnet (expand)</title>
+<title>[root] aws_instance.rds_app (expand)&#45;&gt;[root] local.random_private_app_subnet (expand)</title>
 <path fill="none" stroke="black" d="M1773.82,-935.87C1773.82,-925.29 1773.82,-914 1773.82,-914 1773.82,-914 1293.8,-914 1293.8,-914 1293.8,-914 1293.8,-908.39 1293.8,-908.39"/>
 <polygon fill="black" stroke="black" points="1297.3,-908.39 1293.8,-898.39 1290.3,-908.39 1297.3,-908.39"/>
 </g>
@@ -1034,9 +1034,9 @@
 <ellipse fill="none" stroke="black" cx="2874.9" cy="-882" rx="123.52" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="2874.9" y="-876.95" font-family="Times,serif" font-size="14.00">[root] local.secret_id (expand)</text>
 </g>
-<!-- [root] aws_instance.internal_app (expand)&#45;&gt;[root] local.secret_id (expand) -->
+<!-- [root] aws_instance.rds_app (expand)&#45;&gt;[root] local.secret_id (expand) -->
 <g id="edge85" class="edge">
-<title>[root] aws_instance.internal_app (expand)&#45;&gt;[root] local.secret_id (expand)</title>
+<title>[root] aws_instance.rds_app (expand)&#45;&gt;[root] local.secret_id (expand)</title>
 <path fill="none" stroke="black" d="M1853.44,-935.8C1853.44,-929.97 1853.44,-925 1853.44,-925 1853.44,-925 2874.9,-925 2874.9,-925 2874.9,-925 2874.9,-912 2874.9,-912"/>
 <polygon fill="black" stroke="black" points="2878.4,-912 2874.9,-902 2871.4,-912 2878.4,-912"/>
 </g>
@@ -1340,27 +1340,27 @@
 <path fill="none" stroke="black" d="M3997.57,-1079.67C3997.57,-1048.14 3997.57,-987 3997.57,-987 3997.57,-987 4420.09,-987 4420.09,-987 4420.09,-987 4420.09,-767.82 4420.09,-767.82"/>
 <polygon fill="black" stroke="black" points="4423.59,-767.82 4420.09,-757.82 4416.59,-767.82 4423.59,-767.82"/>
 </g>
-<!-- [root] aws_security_group.ec2_internal_app -->
+<!-- [root] aws_security_group.ec2_rds_app -->
 <g id="node81" class="node">
-<title>[root] aws_security_group.ec2_internal_app</title>
+<title>[root] aws_security_group.ec2_rds_app</title>
 <polygon fill="none" stroke="black" points="8224.65,-828 8003.15,-828 8003.15,-792 8224.65,-792 8224.65,-828"/>
-<text xml:space="preserve" text-anchor="middle" x="8113.9" y="-804.95" font-family="Times,serif" font-size="14.00">aws_security_group.ec2_internal_app</text>
+<text xml:space="preserve" text-anchor="middle" x="8113.9" y="-804.95" font-family="Times,serif" font-size="14.00">aws_security_group.ec2_rds_app</text>
 </g>
-<!-- [root] aws_security_group.ec2_internal_app (expand) -->
+<!-- [root] aws_security_group.ec2_rds_app (expand) -->
 <g id="node82" class="node">
-<title>[root] aws_security_group.ec2_internal_app (expand)</title>
+<title>[root] aws_security_group.ec2_rds_app (expand)</title>
 <polygon fill="none" stroke="black" points="7611.65,-468 7390.15,-468 7390.15,-432 7611.65,-432 7611.65,-468"/>
-<text xml:space="preserve" text-anchor="middle" x="7500.9" y="-444.95" font-family="Times,serif" font-size="14.00">aws_security_group.ec2_internal_app</text>
+<text xml:space="preserve" text-anchor="middle" x="7500.9" y="-444.95" font-family="Times,serif" font-size="14.00">aws_security_group.ec2_rds_app</text>
 </g>
-<!-- [root] aws_security_group.ec2_internal_app&#45;&gt;[root] aws_security_group.ec2_internal_app (expand) -->
+<!-- [root] aws_security_group.ec2_rds_app&#45;&gt;[root] aws_security_group.ec2_rds_app (expand) -->
 <g id="edge114" class="edge">
-<title>[root] aws_security_group.ec2_internal_app&#45;&gt;[root] aws_security_group.ec2_internal_app (expand)</title>
+<title>[root] aws_security_group.ec2_rds_app&#45;&gt;[root] aws_security_group.ec2_rds_app (expand)</title>
 <path fill="none" stroke="black" d="M8002.8,-810C7891.29,-810 7735.93,-810 7735.93,-810 7735.93,-810 7735.93,-450 7735.93,-450 7735.93,-450 7623.39,-450 7623.39,-450"/>
 <polygon fill="black" stroke="black" points="7623.39,-446.5 7613.39,-450 7623.39,-453.5 7623.39,-446.5"/>
 </g>
-<!-- [root] aws_security_group.ec2_internal_app (expand)&#45;&gt;[root] aws_vpc.main -->
+<!-- [root] aws_security_group.ec2_rds_app (expand)&#45;&gt;[root] aws_vpc.main -->
 <g id="edge113" class="edge">
-<title>[root] aws_security_group.ec2_internal_app (expand)&#45;&gt;[root] aws_vpc.main</title>
+<title>[root] aws_security_group.ec2_rds_app (expand)&#45;&gt;[root] aws_vpc.main</title>
 <path fill="none" stroke="black" d="M7411.77,-431.62C7411.77,-412.09 7411.77,-384 7411.77,-384 7411.77,-384 7006.88,-384 7006.88,-384"/>
 <polygon fill="black" stroke="black" points="7006.88,-380.5 6996.88,-384 7006.88,-387.5 7006.88,-380.5"/>
 </g>
@@ -2078,27 +2078,27 @@
 <path fill="none" stroke="black" d="M8002.9,-719.83C8002.9,-719.83 8002.9,-695.93 8002.9,-695.93"/>
 <polygon fill="black" stroke="black" points="8006.4,-695.93 8002.9,-685.93 7999.4,-695.93 8006.4,-695.93"/>
 </g>
-<!-- [root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_internal_app -->
+<!-- [root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app -->
 <g id="node135" class="node">
-<title>[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_internal_app</title>
+<title>[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app</title>
 <polygon fill="none" stroke="black" points="9430.65,-1188 8921.15,-1188 8921.15,-1152 9430.65,-1152 9430.65,-1188"/>
-<text xml:space="preserve" text-anchor="middle" x="9175.9" y="-1164.95" font-family="Times,serif" font-size="14.00">aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_internal_app</text>
+<text xml:space="preserve" text-anchor="middle" x="9175.9" y="-1164.95" font-family="Times,serif" font-size="14.00">aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app</text>
 </g>
-<!-- [root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_internal_app (expand) -->
+<!-- [root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app (expand) -->
 <g id="node136" class="node">
-<title>[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_internal_app (expand)</title>
+<title>[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app (expand)</title>
 <polygon fill="none" stroke="black" points="9100.65,-1044 8591.15,-1044 8591.15,-1008 9100.65,-1008 9100.65,-1044"/>
-<text xml:space="preserve" text-anchor="middle" x="8845.9" y="-1020.95" font-family="Times,serif" font-size="14.00">aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_internal_app</text>
+<text xml:space="preserve" text-anchor="middle" x="8845.9" y="-1020.95" font-family="Times,serif" font-size="14.00">aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app</text>
 </g>
-<!-- [root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_internal_app&#45;&gt;[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_internal_app (expand) -->
+<!-- [root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app&#45;&gt;[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app (expand) -->
 <g id="edge189" class="edge">
-<title>[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_internal_app&#45;&gt;[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_internal_app (expand)</title>
+<title>[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app&#45;&gt;[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app (expand)</title>
 <path fill="none" stroke="black" d="M9010.9,-1151.76C9010.9,-1151.76 9010.9,-1055.6 9010.9,-1055.6"/>
 <polygon fill="black" stroke="black" points="9014.4,-1055.6 9010.9,-1045.6 9007.4,-1055.6 9014.4,-1055.6"/>
 </g>
-<!-- [root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_internal_app (expand)&#45;&gt;[root] aws_security_group.ec2_internal_app -->
+<!-- [root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app (expand)&#45;&gt;[root] aws_security_group.ec2_rds_app -->
 <g id="edge188" class="edge">
-<title>[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_internal_app (expand)&#45;&gt;[root] aws_security_group.ec2_internal_app</title>
+<title>[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app (expand)&#45;&gt;[root] aws_security_group.ec2_rds_app</title>
 <path fill="none" stroke="black" d="M8694.96,-1007.57C8694.96,-1000.01 8694.96,-993 8694.96,-993 8694.96,-993 8173.74,-993 8173.74,-993 8173.74,-993 8173.74,-839.73 8173.74,-839.73"/>
 <polygon fill="black" stroke="black" points="8177.24,-839.73 8173.74,-829.73 8170.24,-839.73 8177.24,-839.73"/>
 </g>
@@ -2168,69 +2168,69 @@
 <path fill="none" stroke="black" d="M8512.9,-1151.76C8512.9,-1151.76 8512.9,-1055.6 8512.9,-1055.6"/>
 <polygon fill="black" stroke="black" points="8516.4,-1055.6 8512.9,-1045.6 8509.4,-1055.6 8516.4,-1055.6"/>
 </g>
-<!-- [root] aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_interal_app (expand)&#45;&gt;[root] aws_security_group.ec2_internal_app -->
+<!-- [root] aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_interal_app (expand)&#45;&gt;[root] aws_security_group.ec2_rds_app -->
 <g id="edge194" class="edge">
-<title>[root] aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_interal_app (expand)&#45;&gt;[root] aws_security_group.ec2_internal_app</title>
+<title>[root] aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_interal_app (expand)&#45;&gt;[root] aws_security_group.ec2_rds_app</title>
 <path fill="none" stroke="black" d="M8148.44,-1007.58C8148.44,-1007.58 8148.44,-839.88 8148.44,-839.88"/>
 <polygon fill="black" stroke="black" points="8151.94,-839.88 8148.44,-829.88 8144.94,-839.88 8151.94,-839.88"/>
 </g>
-<!-- [root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app -->
+<!-- [root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app -->
 <g id="node143" class="node">
-<title>[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app</title>
+<title>[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app</title>
 <polygon fill="none" stroke="black" points="8798.78,-972 8329.03,-972 8329.03,-936 8798.78,-936 8798.78,-972"/>
-<text xml:space="preserve" text-anchor="middle" x="8563.9" y="-948.95" font-family="Times,serif" font-size="14.00">aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app</text>
+<text xml:space="preserve" text-anchor="middle" x="8563.9" y="-948.95" font-family="Times,serif" font-size="14.00">aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app</text>
 </g>
-<!-- [root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand) -->
+<!-- [root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app (expand) -->
 <g id="node144" class="node">
-<title>[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)</title>
+<title>[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app (expand)</title>
 <polygon fill="none" stroke="black" points="8668.78,-900 8199.03,-900 8199.03,-864 8668.78,-864 8668.78,-900"/>
-<text xml:space="preserve" text-anchor="middle" x="8433.9" y="-876.95" font-family="Times,serif" font-size="14.00">aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app</text>
+<text xml:space="preserve" text-anchor="middle" x="8433.9" y="-876.95" font-family="Times,serif" font-size="14.00">aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app</text>
 </g>
-<!-- [root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app&#45;&gt;[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand) -->
+<!-- [root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app&#45;&gt;[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app (expand) -->
 <g id="edge198" class="edge">
-<title>[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app&#45;&gt;[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)</title>
+<title>[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app&#45;&gt;[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app (expand)</title>
 <path fill="none" stroke="black" d="M8498.9,-935.83C8498.9,-935.83 8498.9,-911.93 8498.9,-911.93"/>
 <polygon fill="black" stroke="black" points="8502.4,-911.93 8498.9,-901.93 8495.4,-911.93 8502.4,-911.93"/>
 </g>
-<!-- [root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)&#45;&gt;[root] aws_security_group.ec2_internal_app -->
+<!-- [root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app (expand)&#45;&gt;[root] aws_security_group.ec2_rds_app -->
 <g id="edge196" class="edge">
-<title>[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)&#45;&gt;[root] aws_security_group.ec2_internal_app</title>
+<title>[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app (expand)&#45;&gt;[root] aws_security_group.ec2_rds_app</title>
 <path fill="none" stroke="black" d="M8211.84,-863.83C8211.84,-863.83 8211.84,-839.93 8211.84,-839.93"/>
 <polygon fill="black" stroke="black" points="8215.34,-839.93 8211.84,-829.93 8208.34,-839.93 8215.34,-839.93"/>
 </g>
-<!-- [root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)&#45;&gt;[root] aws_security_group.private_db -->
+<!-- [root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app (expand)&#45;&gt;[root] aws_security_group.private_db -->
 <g id="edge197" class="edge">
-<title>[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)&#45;&gt;[root] aws_security_group.private_db</title>
+<title>[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app (expand)&#45;&gt;[root] aws_security_group.private_db</title>
 <path fill="none" stroke="black" d="M8393.9,-863.83C8393.9,-863.83 8393.9,-839.93 8393.9,-839.93"/>
 <polygon fill="black" stroke="black" points="8397.4,-839.93 8393.9,-829.93 8390.4,-839.93 8397.4,-839.93"/>
 </g>
-<!-- [root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint -->
+<!-- [root] aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint -->
 <g id="node145" class="node">
-<title>[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint</title>
+<title>[root] aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint</title>
 <polygon fill="none" stroke="black" points="8435.03,-1188 7972.78,-1188 7972.78,-1152 8435.03,-1152 8435.03,-1188"/>
-<text xml:space="preserve" text-anchor="middle" x="8203.9" y="-1164.95" font-family="Times,serif" font-size="14.00">aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint</text>
+<text xml:space="preserve" text-anchor="middle" x="8203.9" y="-1164.95" font-family="Times,serif" font-size="14.00">aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint</text>
 </g>
-<!-- [root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint (expand) -->
+<!-- [root] aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint (expand) -->
 <g id="node146" class="node">
-<title>[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint (expand)</title>
+<title>[root] aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint (expand)</title>
 <polygon fill="none" stroke="black" points="8435.03,-1116 7972.78,-1116 7972.78,-1080 8435.03,-1080 8435.03,-1116"/>
-<text xml:space="preserve" text-anchor="middle" x="8203.9" y="-1092.95" font-family="Times,serif" font-size="14.00">aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint</text>
+<text xml:space="preserve" text-anchor="middle" x="8203.9" y="-1092.95" font-family="Times,serif" font-size="14.00">aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint</text>
 </g>
-<!-- [root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint&#45;&gt;[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint (expand) -->
+<!-- [root] aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint&#45;&gt;[root] aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint (expand) -->
 <g id="edge201" class="edge">
-<title>[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint&#45;&gt;[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint (expand)</title>
+<title>[root] aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint&#45;&gt;[root] aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint (expand)</title>
 <path fill="none" stroke="black" d="M8203.9,-1151.83C8203.9,-1151.83 8203.9,-1127.93 8203.9,-1127.93"/>
 <polygon fill="black" stroke="black" points="8207.4,-1127.93 8203.9,-1117.93 8200.4,-1127.93 8207.4,-1127.93"/>
 </g>
-<!-- [root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint (expand)&#45;&gt;[root] aws_security_group.ec2_internal_app -->
+<!-- [root] aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint (expand)&#45;&gt;[root] aws_security_group.ec2_rds_app -->
 <g id="edge199" class="edge">
-<title>[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint (expand)&#45;&gt;[root] aws_security_group.ec2_internal_app</title>
+<title>[root] aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint (expand)&#45;&gt;[root] aws_security_group.ec2_rds_app</title>
 <path fill="none" stroke="black" d="M8083.15,-1079.55C8083.15,-1079.55 8083.15,-839.81 8083.15,-839.81"/>
 <polygon fill="black" stroke="black" points="8086.65,-839.81 8083.15,-829.81 8079.65,-839.81 8086.65,-839.81"/>
 </g>
-<!-- [root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint (expand)&#45;&gt;[root] aws_security_group.vpc_endpoint -->
+<!-- [root] aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint (expand)&#45;&gt;[root] aws_security_group.vpc_endpoint -->
 <g id="edge200" class="edge">
-<title>[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint (expand)&#45;&gt;[root] aws_security_group.vpc_endpoint</title>
+<title>[root] aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint (expand)&#45;&gt;[root] aws_security_group.vpc_endpoint</title>
 <path fill="none" stroke="black" d="M7987.96,-1079.52C7987.96,-1056.45 7987.96,-1020 7987.96,-1020 7987.96,-1020 7583.65,-1020 7583.65,-1020"/>
 <polygon fill="black" stroke="black" points="7583.65,-1016.5 7573.65,-1020 7583.65,-1023.5 7583.65,-1016.5"/>
 </g>
@@ -2264,9 +2264,9 @@
 <path fill="none" stroke="black" d="M3896.9,-359.57C3896.9,-321.35 3896.9,-237 3896.9,-237 3896.9,-237 4187.93,-237 4187.93,-237"/>
 <polygon fill="black" stroke="black" points="4187.93,-240.5 4197.93,-237 4187.93,-233.5 4187.93,-240.5"/>
 </g>
-<!-- [root] data.aws_iam_policy_document.internal_app_assume_role (expand)&#45;&gt;[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] -->
+<!-- [root] data.aws_iam_policy_document.rds_app_assume_role (expand)&#45;&gt;[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] -->
 <g id="edge205" class="edge">
-<title>[root] data.aws_iam_policy_document.internal_app_assume_role (expand)&#45;&gt;[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;]</title>
+<title>[root] data.aws_iam_policy_document.rds_app_assume_role (expand)&#45;&gt;[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;]</title>
 <path fill="none" stroke="black" d="M4022.53,-575.57C4022.53,-503.14 4022.53,-242 4022.53,-242 4022.53,-242 4261.36,-242 4261.36,-242"/>
 <polygon fill="black" stroke="black" points="4261.36,-245.5 4271.36,-242 4261.36,-238.5 4261.36,-245.5"/>
 </g>
@@ -2432,27 +2432,27 @@
 <path fill="none" stroke="black" d="M4636.84,-791.83C4636.84,-791.83 4636.84,-767.93 4636.84,-767.93"/>
 <polygon fill="black" stroke="black" points="4640.34,-767.93 4636.84,-757.93 4633.34,-767.93 4640.34,-767.93"/>
 </g>
-<!-- [root] data.aws_network_interface.internal_app_eni -->
+<!-- [root] data.aws_network_interface.rds_app_eni -->
 <g id="node167" class="node">
-<title>[root] data.aws_network_interface.internal_app_eni</title>
+<title>[root] data.aws_network_interface.rds_app_eni</title>
 <polygon fill="none" stroke="black" points="2772.28,-1188 2509.53,-1188 2509.53,-1152 2772.28,-1152 2772.28,-1188"/>
-<text xml:space="preserve" text-anchor="middle" x="2640.9" y="-1164.95" font-family="Times,serif" font-size="14.00">data.aws_network_interface.internal_app_eni</text>
+<text xml:space="preserve" text-anchor="middle" x="2640.9" y="-1164.95" font-family="Times,serif" font-size="14.00">data.aws_network_interface.rds_app_eni</text>
 </g>
-<!-- [root] data.aws_network_interface.internal_app_eni (expand) -->
+<!-- [root] data.aws_network_interface.rds_app_eni (expand) -->
 <g id="node168" class="node">
-<title>[root] data.aws_network_interface.internal_app_eni (expand)</title>
+<title>[root] data.aws_network_interface.rds_app_eni (expand)</title>
 <polygon fill="none" stroke="black" points="2772.28,-1116 2509.53,-1116 2509.53,-1080 2772.28,-1080 2772.28,-1116"/>
-<text xml:space="preserve" text-anchor="middle" x="2640.9" y="-1092.95" font-family="Times,serif" font-size="14.00">data.aws_network_interface.internal_app_eni</text>
+<text xml:space="preserve" text-anchor="middle" x="2640.9" y="-1092.95" font-family="Times,serif" font-size="14.00">data.aws_network_interface.rds_app_eni</text>
 </g>
-<!-- [root] data.aws_network_interface.internal_app_eni&#45;&gt;[root] data.aws_network_interface.internal_app_eni (expand) -->
+<!-- [root] data.aws_network_interface.rds_app_eni&#45;&gt;[root] data.aws_network_interface.rds_app_eni (expand) -->
 <g id="edge227" class="edge">
-<title>[root] data.aws_network_interface.internal_app_eni&#45;&gt;[root] data.aws_network_interface.internal_app_eni (expand)</title>
+<title>[root] data.aws_network_interface.rds_app_eni&#45;&gt;[root] data.aws_network_interface.rds_app_eni (expand)</title>
 <path fill="none" stroke="black" d="M2640.9,-1151.83C2640.9,-1151.83 2640.9,-1127.93 2640.9,-1127.93"/>
 <polygon fill="black" stroke="black" points="2644.4,-1127.93 2640.9,-1117.93 2637.4,-1127.93 2644.4,-1127.93"/>
 </g>
-<!-- [root] data.aws_network_interface.internal_app_eni (expand)&#45;&gt;[root] aws_instance.internal_app -->
+<!-- [root] data.aws_network_interface.rds_app_eni (expand)&#45;&gt;[root] aws_instance.rds_app -->
 <g id="edge226" class="edge">
-<title>[root] data.aws_network_interface.internal_app_eni (expand)&#45;&gt;[root] aws_instance.internal_app</title>
+<title>[root] data.aws_network_interface.rds_app_eni (expand)&#45;&gt;[root] aws_instance.rds_app</title>
 <path fill="none" stroke="black" d="M2602.4,-1079.51C2602.4,-1067.86 2602.4,-1055 2602.4,-1055 2602.4,-1055 1826.9,-1055 1826.9,-1055 1826.9,-1055 1826.9,-1053.92 1826.9,-1053.92"/>
 <polygon fill="black" stroke="black" points="1830.4,-1055.71 1826.9,-1045.72 1823.4,-1055.72 1830.4,-1055.71"/>
 </g>
@@ -2652,9 +2652,9 @@
 <path fill="none" stroke="black" d="M4224.91,-730.48C4224.91,-718.64 4224.91,-697 4224.91,-697 4224.91,-697 5796.21,-697 5796.21,-697 5796.21,-697 5796.21,-695.74 5796.21,-695.74"/>
 <polygon fill="black" stroke="black" points="5799.71,-695.9 5796.21,-685.9 5792.71,-695.9 5799.71,-695.9"/>
 </g>
-<!-- [root] local.ec2_sg_id (expand)&#45;&gt;[root] aws_security_group.ec2_internal_app -->
+<!-- [root] local.ec2_sg_id (expand)&#45;&gt;[root] aws_security_group.ec2_rds_app -->
 <g id="edge233" class="edge">
-<title>[root] local.ec2_sg_id (expand)&#45;&gt;[root] aws_security_group.ec2_internal_app</title>
+<title>[root] local.ec2_sg_id (expand)&#45;&gt;[root] aws_security_group.ec2_rds_app</title>
 <path fill="none" stroke="black" d="M3820.58,-874.9C3820.58,-867.2 3820.58,-856 3820.58,-856 3820.58,-856 8043.15,-856 8043.15,-856 8043.15,-856 8043.15,-839.96 8043.15,-839.96"/>
 <polygon fill="black" stroke="black" points="8046.65,-839.96 8043.15,-829.96 8039.65,-839.96 8046.65,-839.96"/>
 </g>
@@ -2850,15 +2850,15 @@
 <path fill="none" stroke="black" d="M2011.56,-288.63C2011.56,-250.33 2011.56,-162 2011.56,-162 2011.56,-162 4192.89,-162 4192.89,-162"/>
 <polygon fill="black" stroke="black" points="4192.89,-165.5 4202.89,-162 4192.89,-158.5 4192.89,-165.5"/>
 </g>
-<!-- [root] output.internal_app_info (expand) -->
+<!-- [root] output.rds_app_info (expand) -->
 <g id="node206" class="node">
-<title>[root] output.internal_app_info (expand)</title>
+<title>[root] output.rds_app_info (expand)</title>
 <ellipse fill="none" stroke="black" cx="1224.9" cy="-1242" rx="161.39" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="1224.9" y="-1236.95" font-family="Times,serif" font-size="14.00">[root] output.internal_app_info (expand)</text>
+<text xml:space="preserve" text-anchor="middle" x="1224.9" y="-1236.95" font-family="Times,serif" font-size="14.00">[root] output.rds_app_info (expand)</text>
 </g>
-<!-- [root] output.internal_app_info (expand)&#45;&gt;[root] aws_instance.internal_app -->
+<!-- [root] output.rds_app_info (expand)&#45;&gt;[root] aws_instance.rds_app -->
 <g id="edge256" class="edge">
-<title>[root] output.internal_app_info (expand)&#45;&gt;[root] aws_instance.internal_app</title>
+<title>[root] output.rds_app_info (expand)&#45;&gt;[root] aws_instance.rds_app</title>
 <path fill="none" stroke="black" d="M1386.54,-1242C1526.73,-1242 1707.3,-1242 1707.3,-1242 1707.3,-1242 1707.3,-1032 1707.3,-1032 1707.3,-1032 1735.28,-1032 1735.28,-1032"/>
 <polygon fill="black" stroke="black" points="1735.28,-1035.5 1745.28,-1032 1735.28,-1028.5 1735.28,-1035.5"/>
 </g>
@@ -3132,9 +3132,9 @@
 <path fill="none" stroke="black" d="M5643.26,-1229.31C5643.26,-1221.9 5643.26,-1214 5643.26,-1214 5643.26,-1214 9932.09,-1214 9932.09,-1214 9932.09,-1214 9932.09,-1055.88 9932.09,-1055.88"/>
 <polygon fill="black" stroke="black" points="9935.59,-1055.88 9932.09,-1045.88 9928.59,-1055.88 9935.59,-1055.88"/>
 </g>
-<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_internal_app -->
+<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app -->
 <g id="edge296" class="edge">
-<title>[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_internal_app</title>
+<title>[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app</title>
 <path fill="none" stroke="black" d="M5628.77,-1256C6332.08,-1256 9175.9,-1256 9175.9,-1256 9175.9,-1256 9175.9,-1199.75 9175.9,-1199.75"/>
 <polygon fill="black" stroke="black" points="9179.4,-1199.75 9175.9,-1189.75 9172.4,-1199.75 9179.4,-1199.75"/>
 </g>
@@ -3156,21 +3156,21 @@
 <path fill="none" stroke="black" d="M5654.4,-1254C6332.4,-1254 8677.9,-1254 8677.9,-1254 8677.9,-1254 8677.9,-1199.74 8677.9,-1199.74"/>
 <polygon fill="black" stroke="black" points="8681.4,-1199.74 8677.9,-1189.74 8674.4,-1199.74 8681.4,-1199.74"/>
 </g>
-<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app -->
+<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app -->
 <g id="edge300" class="edge">
-<title>[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app</title>
+<title>[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app</title>
 <path fill="none" stroke="black" d="M5698.54,-1248C6269.05,-1248 7724.09,-1248 7724.09,-1248 7724.09,-1248 7724.09,-954 7724.09,-954 7724.09,-954 8317.06,-954 8317.06,-954"/>
 <polygon fill="black" stroke="black" points="8317.06,-957.5 8327.06,-954 8317.06,-950.5 8317.06,-957.5"/>
 </g>
-<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint -->
+<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint -->
 <g id="edge301" class="edge">
-<title>[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint</title>
+<title>[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint</title>
 <path fill="none" stroke="black" d="M5673.44,-1252C6303.85,-1252 8203.9,-1252 8203.9,-1252 8203.9,-1252 8203.9,-1199.71 8203.9,-1199.71"/>
 <polygon fill="black" stroke="black" points="8207.4,-1199.71 8203.9,-1189.71 8200.4,-1199.71 8207.4,-1199.71"/>
 </g>
-<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] data.aws_network_interface.internal_app_eni -->
+<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] data.aws_network_interface.rds_app_eni -->
 <g id="edge302" class="edge">
-<title>[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] data.aws_network_interface.internal_app_eni</title>
+<title>[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] data.aws_network_interface.rds_app_eni</title>
 <path fill="none" stroke="black" d="M5252.15,-1249C4585.93,-1249 2640.9,-1249 2640.9,-1249 2640.9,-1249 2640.9,-1199.84 2640.9,-1199.84"/>
 <polygon fill="black" stroke="black" points="2644.4,-1199.84 2640.9,-1189.84 2637.4,-1199.84 2644.4,-1199.84"/>
 </g>
@@ -3240,9 +3240,9 @@
 <path fill="none" stroke="black" d="M1264.86,-1303C1379.01,-1303 1698.36,-1303 1698.36,-1303 1698.36,-1303 1698.36,-1066 1698.36,-1066 1698.36,-1066 1381.56,-1066 1381.56,-1066 1381.56,-1066 1381.56,-312 1381.56,-312 1381.56,-312 1816.96,-312 1816.96,-312"/>
 <polygon fill="black" stroke="black" points="1816.96,-315.5 1826.96,-312 1816.96,-308.5 1816.96,-315.5"/>
 </g>
-<!-- [root] root&#45;&gt;[root] output.internal_app_info (expand) -->
+<!-- [root] root&#45;&gt;[root] output.rds_app_info (expand) -->
 <g id="edge323" class="edge">
-<title>[root] root&#45;&gt;[root] output.internal_app_info (expand)</title>
+<title>[root] root&#45;&gt;[root] output.rds_app_info (expand)</title>
 <path fill="none" stroke="black" d="M1224.9,-1295.83C1224.9,-1295.83 1224.9,-1271.93 1224.9,-1271.93"/>
 <polygon fill="black" stroke="black" points="1228.4,-1271.93 1224.9,-1261.93 1221.4,-1271.93 1228.4,-1271.93"/>
 </g>

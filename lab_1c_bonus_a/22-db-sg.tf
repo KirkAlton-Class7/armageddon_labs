@@ -1,7 +1,7 @@
 # Private Database Security Group
 resource "aws_security_group" "private_db" {
   name        = "private-db-sg"
-  description = "Only allow inbound traffic from ec2-internal-app"
+  description = "Only allow inbound traffic from ec2-rds-app"
   vpc_id      = aws_vpc.main.id
 
   tags = {
@@ -11,12 +11,12 @@ resource "aws_security_group" "private_db" {
 }
 
 # SG Rule: Allow Aurora/MySQL Inbound only from EC2 Internal App SG
-resource "aws_vpc_security_group_ingress_rule" "allow_inbound_http_from_ec2_internal_app" {
+resource "aws_vpc_security_group_ingress_rule" "allow_inbound_http_from_ec2_rds_app" {
   security_group_id            = aws_security_group.private_db.id
   ip_protocol                  = "tcp"
   from_port                    = 3306
   to_port                      = 3306
-  referenced_security_group_id = aws_security_group.ec2_internal_app.id
+  referenced_security_group_id = aws_security_group.ec2_rds_app.id
 }
 
 # SG Rule: Allow Internal Outbound IPv4 for Private DB SG

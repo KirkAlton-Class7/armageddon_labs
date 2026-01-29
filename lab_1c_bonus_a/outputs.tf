@@ -32,14 +32,14 @@ output "vpc_info" {
   }
 }
 
-output "internal_app_info" {
+output "rds_app_info" {
   description = "EC2 Names and Browser Addresses"
   value = {
-    name       = aws_instance.internal_app.tags["Name"]
-    az         = aws_instance.internal_app.availability_zone
-    subnet_id  = aws_instance.internal_app.subnet_id
-    ip-address = aws_instance.internal_app.private_ip
-    url        = "http://${aws_instance.internal_app.private_dns}"
+    name       = aws_instance.rds_app.tags["Name"]
+    az         = aws_instance.rds_app.availability_zone
+    subnet_id  = aws_instance.rds_app.subnet_id
+    ip-address = aws_instance.rds_app.private_ip
+    url        = "http://${aws_instance.rds_app.private_dns}"
   }
 }
 

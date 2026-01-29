@@ -101,8 +101,8 @@ data "aws_iam_policy_document" "ec2_cloudwatch_logs_role" {
       "logs:DescribeLogStreams",
     ]
 
-    resources = ["arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/internal-app-${local.name_suffix}",
-      "arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/internal-app-${local.name_suffix}:log-stream:*"
+    resources = ["arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/rds-app-${local.name_suffix}",
+      "arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/rds-app-${local.name_suffix}:log-stream:*"
     ]
   }
 }
@@ -166,7 +166,7 @@ data "aws_iam_policy_document" "read_cloudwatch_agent_config" {
       "ssm:GetParametersByPath"
     ]
     resources = [
-      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/internal-app/cloudwatch-agent/config-${local.name_suffix}"
+      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/rds-app/cloudwatch-agent/config-${local.name_suffix}"
     ]
   }
 }

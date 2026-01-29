@@ -40,8 +40,8 @@ digraph {
 		"[root] aws_iam_policy.ssm_agent_policy (expand)" [label = "aws_iam_policy.ssm_agent_policy", shape = "box"]
 		"[root] aws_iam_policy.vpc_flow_log_role" [label = "aws_iam_policy.vpc_flow_log_role", shape = "box"]
 		"[root] aws_iam_policy.vpc_flow_log_role (expand)" [label = "aws_iam_policy.vpc_flow_log_role", shape = "box"]
-		"[root] aws_iam_role.internal_app" [label = "aws_iam_role.internal_app", shape = "box"]
-		"[root] aws_iam_role.internal_app (expand)" [label = "aws_iam_role.internal_app", shape = "box"]
+		"[root] aws_iam_role.rds_app" [label = "aws_iam_role.rds_app", shape = "box"]
+		"[root] aws_iam_role.rds_app (expand)" [label = "aws_iam_role.rds_app", shape = "box"]
 		"[root] aws_iam_role.rds_enhanced_monitoring_role" [label = "aws_iam_role.rds_enhanced_monitoring_role", shape = "box"]
 		"[root] aws_iam_role.rds_enhanced_monitoring_role (expand)" [label = "aws_iam_role.rds_enhanced_monitoring_role", shape = "box"]
 		"[root] aws_iam_role.vpc_flow_log_role" [label = "aws_iam_role.vpc_flow_log_role", shape = "box"]
@@ -62,8 +62,8 @@ digraph {
 		"[root] aws_iam_role_policy_attachment.attach_ssm_agent_policy (expand)" [label = "aws_iam_role_policy_attachment.attach_ssm_agent_policy", shape = "box"]
 		"[root] aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role" [label = "aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role", shape = "box"]
 		"[root] aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role (expand)" [label = "aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role", shape = "box"]
-		"[root] aws_instance.internal_app" [label = "aws_instance.internal_app", shape = "box"]
-		"[root] aws_instance.internal_app (expand)" [label = "aws_instance.internal_app", shape = "box"]
+		"[root] aws_instance.rds_app" [label = "aws_instance.rds_app", shape = "box"]
+		"[root] aws_instance.rds_app (expand)" [label = "aws_instance.rds_app", shape = "box"]
 		"[root] aws_route_table.local" [label = "aws_route_table.local", shape = "box"]
 		"[root] aws_route_table.local (expand)" [label = "aws_route_table.local", shape = "box"]
 		"[root] aws_route_table_association.private_app_a" [label = "aws_route_table_association.private_app_a", shape = "box"]
@@ -82,8 +82,8 @@ digraph {
 		"[root] aws_secretsmanager_secret.lab_rds_mysql (expand)" [label = "aws_secretsmanager_secret.lab_rds_mysql", shape = "box"]
 		"[root] aws_secretsmanager_secret_version.lab_rds_mysql" [label = "aws_secretsmanager_secret_version.lab_rds_mysql", shape = "box"]
 		"[root] aws_secretsmanager_secret_version.lab_rds_mysql (expand)" [label = "aws_secretsmanager_secret_version.lab_rds_mysql", shape = "box"]
-		"[root] aws_security_group.ec2_internal_app" [label = "aws_security_group.ec2_internal_app", shape = "box"]
-		"[root] aws_security_group.ec2_internal_app (expand)" [label = "aws_security_group.ec2_internal_app", shape = "box"]
+		"[root] aws_security_group.ec2_rds_app" [label = "aws_security_group.ec2_rds_app", shape = "box"]
+		"[root] aws_security_group.ec2_rds_app (expand)" [label = "aws_security_group.ec2_rds_app", shape = "box"]
 		"[root] aws_security_group.private_db" [label = "aws_security_group.private_db", shape = "box"]
 		"[root] aws_security_group.private_db (expand)" [label = "aws_security_group.private_db", shape = "box"]
 		"[root] aws_security_group.vpc_endpoint" [label = "aws_security_group.vpc_endpoint", shape = "box"]
@@ -136,22 +136,22 @@ digraph {
 		"[root] aws_vpc_endpoint.ssm_messages (expand)" [label = "aws_vpc_endpoint.ssm_messages", shape = "box"]
 		"[root] aws_vpc_endpoint_route_table_association.s3_private_app_a" [label = "aws_vpc_endpoint_route_table_association.s3_private_app_a", shape = "box"]
 		"[root] aws_vpc_endpoint_route_table_association.s3_private_app_a (expand)" [label = "aws_vpc_endpoint_route_table_association.s3_private_app_a", shape = "box"]
-		"[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_internal_app" [label = "aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_internal_app", shape = "box"]
-		"[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_internal_app (expand)" [label = "aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_internal_app", shape = "box"]
+		"[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app" [label = "aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app", shape = "box"]
+		"[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app (expand)" [label = "aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app", shape = "box"]
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_from_vpc_endpoint" [label = "aws_vpc_security_group_egress_rule.allow_all_outbound_from_vpc_endpoint", shape = "box"]
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_from_vpc_endpoint (expand)" [label = "aws_vpc_security_group_egress_rule.allow_all_outbound_from_vpc_endpoint", shape = "box"]
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db" [label = "aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db", shape = "box"]
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db (expand)" [label = "aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db", shape = "box"]
 		"[root] aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_interal_app" [label = "aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_interal_app", shape = "box"]
 		"[root] aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_interal_app (expand)" [label = "aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_interal_app", shape = "box"]
-		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app" [label = "aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app", shape = "box"]
-		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)" [label = "aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app", shape = "box"]
-		"[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint" [label = "aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint", shape = "box"]
-		"[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint (expand)" [label = "aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint", shape = "box"]
+		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app" [label = "aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app", shape = "box"]
+		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app (expand)" [label = "aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app", shape = "box"]
+		"[root] aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint" [label = "aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint", shape = "box"]
+		"[root] aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint (expand)" [label = "aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint", shape = "box"]
 		"[root] data.aws_ami.amazon_linux_2023 (expand)" [label = "data.aws_ami.amazon_linux_2023", shape = "box"]
 		"[root] data.aws_availability_zones.available (expand)" [label = "data.aws_availability_zones.available", shape = "box"]
 		"[root] data.aws_caller_identity.current_account (expand)" [label = "data.aws_caller_identity.current_account", shape = "box"]
-		"[root] data.aws_iam_policy_document.internal_app_assume_role (expand)" [label = "data.aws_iam_policy_document.internal_app_assume_role", shape = "box"]
+		"[root] data.aws_iam_policy_document.rds_app_assume_role (expand)" [label = "data.aws_iam_policy_document.rds_app_assume_role", shape = "box"]
 		"[root] data.aws_iam_policy_document.rds_enhanced_monitoring_assume_role (expand)" [label = "data.aws_iam_policy_document.rds_enhanced_monitoring_assume_role", shape = "box"]
 		"[root] data.aws_iam_policy_document.rds_enhanced_monitoring_role (expand)" [label = "data.aws_iam_policy_document.rds_enhanced_monitoring_role", shape = "box"]
 		"[root] data.aws_iam_policy_document.read_db_host_parameter" [label = "data.aws_iam_policy_document.read_db_host_parameter", shape = "box"]
@@ -168,8 +168,8 @@ digraph {
 		"[root] data.aws_iam_policy_document.vpc_flow_log_assume_role (expand)" [label = "data.aws_iam_policy_document.vpc_flow_log_assume_role", shape = "box"]
 		"[root] data.aws_iam_policy_document.vpc_flow_log_role" [label = "data.aws_iam_policy_document.vpc_flow_log_role", shape = "box"]
 		"[root] data.aws_iam_policy_document.vpc_flow_log_role (expand)" [label = "data.aws_iam_policy_document.vpc_flow_log_role", shape = "box"]
-		"[root] data.aws_network_interface.internal_app_eni" [label = "data.aws_network_interface.internal_app_eni", shape = "box"]
-		"[root] data.aws_network_interface.internal_app_eni (expand)" [label = "data.aws_network_interface.internal_app_eni", shape = "box"]
+		"[root] data.aws_network_interface.rds_app_eni" [label = "data.aws_network_interface.rds_app_eni", shape = "box"]
+		"[root] data.aws_network_interface.rds_app_eni (expand)" [label = "data.aws_network_interface.rds_app_eni", shape = "box"]
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
 		"[root] provider[\"registry.terraform.io/hashicorp/random\"]" [label = "provider[\"registry.terraform.io/hashicorp/random\"]", shape = "diamond"]
 		"[root] random_integer.subnet_picker" [label = "random_integer.subnet_picker", shape = "box"]
@@ -211,7 +211,7 @@ digraph {
 		"[root] aws_flow_log.vpc (expand)" -> "[root] aws_iam_role.vpc_flow_log_role"
 		"[root] aws_flow_log.vpc (expand)" -> "[root] aws_vpc.main"
 		"[root] aws_flow_log.vpc" -> "[root] aws_flow_log.vpc (expand)"
-		"[root] aws_iam_instance_profile.get_db_secret (expand)" -> "[root] aws_iam_role.internal_app"
+		"[root] aws_iam_instance_profile.get_db_secret (expand)" -> "[root] aws_iam_role.rds_app"
 		"[root] aws_iam_instance_profile.get_db_secret" -> "[root] aws_iam_instance_profile.get_db_secret (expand)"
 		"[root] aws_iam_policy.rds_enhanced_monitoring_role (expand)" -> "[root] data.aws_iam_policy_document.rds_enhanced_monitoring_role (expand)"
 		"[root] aws_iam_policy.rds_enhanced_monitoring_role (expand)" -> "[root] local.name_suffix (expand)"
@@ -230,9 +230,9 @@ digraph {
 		"[root] aws_iam_policy.ssm_agent_policy" -> "[root] aws_iam_policy.ssm_agent_policy (expand)"
 		"[root] aws_iam_policy.vpc_flow_log_role (expand)" -> "[root] data.aws_iam_policy_document.vpc_flow_log_role"
 		"[root] aws_iam_policy.vpc_flow_log_role" -> "[root] aws_iam_policy.vpc_flow_log_role (expand)"
-		"[root] aws_iam_role.internal_app (expand)" -> "[root] data.aws_iam_policy_document.internal_app_assume_role (expand)"
-		"[root] aws_iam_role.internal_app (expand)" -> "[root] local.name_suffix (expand)"
-		"[root] aws_iam_role.internal_app" -> "[root] aws_iam_role.internal_app (expand)"
+		"[root] aws_iam_role.rds_app (expand)" -> "[root] data.aws_iam_policy_document.rds_app_assume_role (expand)"
+		"[root] aws_iam_role.rds_app (expand)" -> "[root] local.name_suffix (expand)"
+		"[root] aws_iam_role.rds_app" -> "[root] aws_iam_role.rds_app (expand)"
 		"[root] aws_iam_role.rds_enhanced_monitoring_role (expand)" -> "[root] data.aws_iam_policy_document.rds_enhanced_monitoring_assume_role (expand)"
 		"[root] aws_iam_role.rds_enhanced_monitoring_role (expand)" -> "[root] local.name_suffix (expand)"
 		"[root] aws_iam_role.rds_enhanced_monitoring_role" -> "[root] aws_iam_role.rds_enhanced_monitoring_role (expand)"
@@ -243,32 +243,32 @@ digraph {
 		"[root] aws_iam_role_policy_attachment.attach_ (expand)" -> "[root] aws_iam_role.rds_enhanced_monitoring_role"
 		"[root] aws_iam_role_policy_attachment.attach_" -> "[root] aws_iam_role_policy_attachment.attach_ (expand)"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_host_parameter (expand)" -> "[root] aws_iam_policy.read_db_host_parameter"
-		"[root] aws_iam_role_policy_attachment.attach_read_db_host_parameter (expand)" -> "[root] aws_iam_role.internal_app"
+		"[root] aws_iam_role_policy_attachment.attach_read_db_host_parameter (expand)" -> "[root] aws_iam_role.rds_app"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_host_parameter" -> "[root] aws_iam_role_policy_attachment.attach_read_db_host_parameter (expand)"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_name_parameter (expand)" -> "[root] aws_iam_policy.read_db_name_parameter"
-		"[root] aws_iam_role_policy_attachment.attach_read_db_name_parameter (expand)" -> "[root] aws_iam_role.internal_app"
+		"[root] aws_iam_role_policy_attachment.attach_read_db_name_parameter (expand)" -> "[root] aws_iam_role.rds_app"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_name_parameter" -> "[root] aws_iam_role_policy_attachment.attach_read_db_name_parameter (expand)"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_port_parameter (expand)" -> "[root] aws_iam_policy.read_db_port_parameter"
-		"[root] aws_iam_role_policy_attachment.attach_read_db_port_parameter (expand)" -> "[root] aws_iam_role.internal_app"
+		"[root] aws_iam_role_policy_attachment.attach_read_db_port_parameter (expand)" -> "[root] aws_iam_role.rds_app"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_port_parameter" -> "[root] aws_iam_role_policy_attachment.attach_read_db_port_parameter (expand)"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_secret (expand)" -> "[root] aws_iam_policy.read_db_secret"
-		"[root] aws_iam_role_policy_attachment.attach_read_db_secret (expand)" -> "[root] aws_iam_role.internal_app"
+		"[root] aws_iam_role_policy_attachment.attach_read_db_secret (expand)" -> "[root] aws_iam_role.rds_app"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_secret" -> "[root] aws_iam_role_policy_attachment.attach_read_db_secret (expand)"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_username_parameter (expand)" -> "[root] aws_iam_policy.read_db_username_parameter"
-		"[root] aws_iam_role_policy_attachment.attach_read_db_username_parameter (expand)" -> "[root] aws_iam_role.internal_app"
+		"[root] aws_iam_role_policy_attachment.attach_read_db_username_parameter (expand)" -> "[root] aws_iam_role.rds_app"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_username_parameter" -> "[root] aws_iam_role_policy_attachment.attach_read_db_username_parameter (expand)"
 		"[root] aws_iam_role_policy_attachment.attach_ssm_agent_policy (expand)" -> "[root] aws_iam_policy.ssm_agent_policy"
-		"[root] aws_iam_role_policy_attachment.attach_ssm_agent_policy (expand)" -> "[root] aws_iam_role.internal_app"
+		"[root] aws_iam_role_policy_attachment.attach_ssm_agent_policy (expand)" -> "[root] aws_iam_role.rds_app"
 		"[root] aws_iam_role_policy_attachment.attach_ssm_agent_policy" -> "[root] aws_iam_role_policy_attachment.attach_ssm_agent_policy (expand)"
 		"[root] aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role (expand)" -> "[root] aws_iam_policy.vpc_flow_log_role"
 		"[root] aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role (expand)" -> "[root] aws_iam_role.vpc_flow_log_role"
 		"[root] aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role" -> "[root] aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role (expand)"
-		"[root] aws_instance.internal_app (expand)" -> "[root] aws_iam_instance_profile.get_db_secret"
-		"[root] aws_instance.internal_app (expand)" -> "[root] data.aws_ami.amazon_linux_2023 (expand)"
-		"[root] aws_instance.internal_app (expand)" -> "[root] local.ec2_sg_id (expand)"
-		"[root] aws_instance.internal_app (expand)" -> "[root] local.random_private_app_subnet (expand)"
-		"[root] aws_instance.internal_app (expand)" -> "[root] local.secret_id (expand)"
-		"[root] aws_instance.internal_app" -> "[root] aws_instance.internal_app (expand)"
+		"[root] aws_instance.rds_app (expand)" -> "[root] aws_iam_instance_profile.get_db_secret"
+		"[root] aws_instance.rds_app (expand)" -> "[root] data.aws_ami.amazon_linux_2023 (expand)"
+		"[root] aws_instance.rds_app (expand)" -> "[root] local.ec2_sg_id (expand)"
+		"[root] aws_instance.rds_app (expand)" -> "[root] local.random_private_app_subnet (expand)"
+		"[root] aws_instance.rds_app (expand)" -> "[root] local.secret_id (expand)"
+		"[root] aws_instance.rds_app" -> "[root] aws_instance.rds_app (expand)"
 		"[root] aws_route_table.local (expand)" -> "[root] aws_vpc.main"
 		"[root] aws_route_table.local" -> "[root] aws_route_table.local (expand)"
 		"[root] aws_route_table_association.private_app_a (expand)" -> "[root] aws_route_table.local"
@@ -295,8 +295,8 @@ digraph {
 		"[root] aws_secretsmanager_secret_version.lab_rds_mysql (expand)" -> "[root] aws_db_instance.lab_mysql"
 		"[root] aws_secretsmanager_secret_version.lab_rds_mysql (expand)" -> "[root] aws_secretsmanager_secret.lab_rds_mysql"
 		"[root] aws_secretsmanager_secret_version.lab_rds_mysql" -> "[root] aws_secretsmanager_secret_version.lab_rds_mysql (expand)"
-		"[root] aws_security_group.ec2_internal_app (expand)" -> "[root] aws_vpc.main"
-		"[root] aws_security_group.ec2_internal_app" -> "[root] aws_security_group.ec2_internal_app (expand)"
+		"[root] aws_security_group.ec2_rds_app (expand)" -> "[root] aws_vpc.main"
+		"[root] aws_security_group.ec2_rds_app" -> "[root] aws_security_group.ec2_rds_app (expand)"
 		"[root] aws_security_group.private_db (expand)" -> "[root] aws_vpc.main"
 		"[root] aws_security_group.private_db" -> "[root] aws_security_group.private_db (expand)"
 		"[root] aws_security_group.vpc_endpoint (expand)" -> "[root] aws_vpc.main"
@@ -370,24 +370,24 @@ digraph {
 		"[root] aws_vpc_endpoint_route_table_association.s3_private_app_a (expand)" -> "[root] aws_route_table.local"
 		"[root] aws_vpc_endpoint_route_table_association.s3_private_app_a (expand)" -> "[root] aws_vpc_endpoint.s3"
 		"[root] aws_vpc_endpoint_route_table_association.s3_private_app_a" -> "[root] aws_vpc_endpoint_route_table_association.s3_private_app_a (expand)"
-		"[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_internal_app (expand)" -> "[root] aws_security_group.ec2_internal_app"
-		"[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_internal_app" -> "[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_internal_app (expand)"
+		"[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app (expand)" -> "[root] aws_security_group.ec2_rds_app"
+		"[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app" -> "[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app (expand)"
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_from_vpc_endpoint (expand)" -> "[root] aws_security_group.vpc_endpoint"
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_from_vpc_endpoint" -> "[root] aws_vpc_security_group_egress_rule.allow_all_outbound_from_vpc_endpoint (expand)"
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db (expand)" -> "[root] aws_security_group.private_db"
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db" -> "[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db (expand)"
-		"[root] aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_interal_app (expand)" -> "[root] aws_security_group.ec2_internal_app"
+		"[root] aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_interal_app (expand)" -> "[root] aws_security_group.ec2_rds_app"
 		"[root] aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_interal_app" -> "[root] aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_interal_app (expand)"
-		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)" -> "[root] aws_security_group.ec2_internal_app"
-		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)" -> "[root] aws_security_group.private_db"
-		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app" -> "[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)"
-		"[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint (expand)" -> "[root] aws_security_group.ec2_internal_app"
-		"[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint (expand)" -> "[root] aws_security_group.vpc_endpoint"
-		"[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint" -> "[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint (expand)"
+		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app (expand)" -> "[root] aws_security_group.ec2_rds_app"
+		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app (expand)" -> "[root] aws_security_group.private_db"
+		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app" -> "[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app (expand)"
+		"[root] aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint (expand)" -> "[root] aws_security_group.ec2_rds_app"
+		"[root] aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint (expand)" -> "[root] aws_security_group.vpc_endpoint"
+		"[root] aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint" -> "[root] aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint (expand)"
 		"[root] data.aws_ami.amazon_linux_2023 (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] data.aws_availability_zones.available (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] data.aws_caller_identity.current_account (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
-		"[root] data.aws_iam_policy_document.internal_app_assume_role (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] data.aws_iam_policy_document.rds_app_assume_role (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] data.aws_iam_policy_document.rds_enhanced_monitoring_assume_role (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] data.aws_iam_policy_document.rds_enhanced_monitoring_role (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] data.aws_iam_policy_document.read_db_host_parameter (expand)" -> "[root] local.account_id (expand)"
@@ -408,14 +408,14 @@ digraph {
 		"[root] data.aws_iam_policy_document.vpc_flow_log_assume_role (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] data.aws_iam_policy_document.vpc_flow_log_role (expand)" -> "[root] aws_cloudwatch_log_group.vpc_flow_log"
 		"[root] data.aws_iam_policy_document.vpc_flow_log_role" -> "[root] data.aws_iam_policy_document.vpc_flow_log_role (expand)"
-		"[root] data.aws_network_interface.internal_app_eni (expand)" -> "[root] aws_instance.internal_app"
-		"[root] data.aws_network_interface.internal_app_eni" -> "[root] data.aws_network_interface.internal_app_eni (expand)"
+		"[root] data.aws_network_interface.rds_app_eni (expand)" -> "[root] aws_instance.rds_app"
+		"[root] data.aws_network_interface.rds_app_eni" -> "[root] data.aws_network_interface.rds_app_eni (expand)"
 		"[root] local.account_id (expand)" -> "[root] data.aws_caller_identity.current_account (expand)"
 		"[root] local.application (expand)" -> "[root] var.application_name"
 		"[root] local.azs (expand)" -> "[root] data.aws_availability_zones.available (expand)"
 		"[root] local.base_tags (expand)" -> "[root] local.environment (expand)"
 		"[root] local.db_credentials (expand)" -> "[root] random_password.db_password"
-		"[root] local.ec2_sg_id (expand)" -> "[root] aws_security_group.ec2_internal_app"
+		"[root] local.ec2_sg_id (expand)" -> "[root] aws_security_group.ec2_rds_app"
 		"[root] local.environment (expand)" -> "[root] var.env (validation)"
 		"[root] local.name_prefix (expand)" -> "[root] local.application (expand)"
 		"[root] local.name_prefix (expand)" -> "[root] local.environment (expand)"
@@ -438,7 +438,7 @@ digraph {
 		"[root] output.application_name (expand)" -> "[root] var.application_name"
 		"[root] output.availability_zones (expand)" -> "[root] data.aws_availability_zones.available (expand)"
 		"[root] output.environment (expand)" -> "[root] local.environment (expand)"
-		"[root] output.internal_app_info (expand)" -> "[root] aws_instance.internal_app"
+		"[root] output.rds_app_info (expand)" -> "[root] aws_instance.rds_app"
 		"[root] output.rds_info (expand)" -> "[root] aws_db_instance.lab_mysql"
 		"[root] output.rds_subnets (expand)" -> "[root] aws_db_subnet_group.armageddon_1a_db"
 		"[root] output.region (expand)" -> "[root] local.region (expand)"
@@ -478,13 +478,13 @@ digraph {
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_endpoint.ssm"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_endpoint.ssm_messages"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_endpoint_route_table_association.s3_private_app_a"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_internal_app"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_egress_rule.allow_all_outbound_from_vpc_endpoint"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_interal_app"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] data.aws_network_interface.internal_app_eni"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_rds_app"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_ingress_rule.allow_rds_app_https_to_vpc_endpoint"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] data.aws_network_interface.rds_app_eni"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" -> "[root] local.application (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" -> "[root] local.environment (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" -> "[root] local.region (expand)"
@@ -505,7 +505,7 @@ digraph {
 		"[root] root" -> "[root] output.application_name (expand)"
 		"[root] root" -> "[root] output.availability_zones (expand)"
 		"[root] root" -> "[root] output.environment (expand)"
-		"[root] root" -> "[root] output.internal_app_info (expand)"
+		"[root] root" -> "[root] output.rds_app_info (expand)"
 		"[root] root" -> "[root] output.rds_info (expand)"
 		"[root] root" -> "[root] output.rds_subnets (expand)"
 		"[root] root" -> "[root] output.region (expand)"

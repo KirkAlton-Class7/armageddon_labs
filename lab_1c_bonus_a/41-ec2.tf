@@ -1,11 +1,11 @@
 # EC2 - Internal App EC2
-resource "aws_instance" "internal_app" {
+resource "aws_instance" "rds_app" {
   ami                    = data.aws_ami.amazon_linux_2023.id
   instance_type          = "t3.micro"
   subnet_id              = local.random_private_app_subnet
   vpc_security_group_ids = [local.ec2_sg_id]
 
-  iam_instance_profile = aws_iam_instance_profile.internal_app.name
+  iam_instance_profile = aws_iam_instance_profile.rds_app.name
   # key_name             = aws_key_pair.tf_armageddon_key.key_name
   # Replace with your key aws_key_pair resource to test EC2 via SSH
 
@@ -25,7 +25,7 @@ resource "aws_instance" "internal_app" {
   ]
 
   tags = {
-    Name        = "internal-app-ec2"
+    Name        = "rds-app-ec2"
     App         = "${local.application}"
     Environment = "${local.environment}"
     Service     = "post-notes"
@@ -35,7 +35,7 @@ resource "aws_instance" "internal_app" {
 }
 
 # Instance Profile - Internal App
-resource "aws_iam_instance_profile" "internal_app" {
-  name = "internal-app-instance-profile"
-  role = aws_iam_role.internal_app.name
+resource "aws_iam_instance_profile" "rds_app" {
+  name = "rds-app-instance-profile"
+  role = aws_iam_role.rds_app.name
 }

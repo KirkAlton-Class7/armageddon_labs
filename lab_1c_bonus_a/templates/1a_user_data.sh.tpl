@@ -134,5 +134,5 @@ systemctl start rdsapp
 /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
   -a fetch-config \
   -m ec2 \
-  -c ssm:/internal-app/cloudwatch-agent/config-${name_suffix} \
+  -c ssm:/rds-app/cloudwatch-agent/config-${name_suffix} \
   -s
