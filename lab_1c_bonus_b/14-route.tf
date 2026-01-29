@@ -16,17 +16,17 @@ resource "aws_route_table" "public" {
 
 # Public Route Table Associations
 resource "aws_route_table_association" "public_a" {
-  subnet_id      = aws_subnet.public_a.id
+  subnet_id      = local.public_subnets[0]
   route_table_id = aws_route_table.public.id
 }
 
 resource "aws_route_table_association" "public_b" {
-  subnet_id      = aws_subnet.public_b.id
+  subnet_id      = local.public_subnets[1]
   route_table_id = aws_route_table.public.id
 }
 
 resource "aws_route_table_association" "public_c" {
-  subnet_id      = aws_subnet.public_c.id
+  subnet_id      = local.public_subnets[2]
   route_table_id = aws_route_table.public.id
 }
 
