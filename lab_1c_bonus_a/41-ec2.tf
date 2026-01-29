@@ -1,4 +1,4 @@
-# EC2 - Internal App EC2
+# EC2 - RDS App EC2
 resource "aws_instance" "rds_app" {
   ami                    = data.aws_ami.amazon_linux_2023.id
   instance_type          = "t3.micro"
@@ -34,7 +34,7 @@ resource "aws_instance" "rds_app" {
   }
 }
 
-# Instance Profile - Internal App
+# Instance Profile - RDS App
 resource "aws_iam_instance_profile" "rds_app" {
   name = "rds-app-instance-profile"
   role = aws_iam_role.rds_app.name

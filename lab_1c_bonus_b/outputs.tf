@@ -32,7 +32,7 @@ output "vpc_info" {
   }
 }
 
-output "internal_app_info" {
+output "rds_app_info" {
   description = "EC2 Names and Browser Addresses"
   value = {
     name       = aws_instance.rds_app.tags["Name"]
@@ -64,9 +64,9 @@ output "rds_subnets" {
 output "public_app_lb_01_ifno" {
   value = [
     {
-      name    = aws_lb.internal_app_public_alb.tags["Name"]
-      subnets = aws_lb.internal_app_public_alb.subnets
-      url     = "http://${aws_lb.internal_app_public_alb.dns_name}/"
+      name    = aws_lb.rds_app_public_alb.tags["Name"]
+      subnets = aws_lb.rds_app_public_alb.subnets
+      url     = "http://${aws_lb.rds_app_public_alb.dns_name}/"
     }
   ]
 

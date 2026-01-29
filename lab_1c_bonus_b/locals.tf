@@ -119,7 +119,7 @@ locals {
 
 
   # Other Locals
-  ec2_sg_id = aws_security_group.ec2_internal_app.id
+  ec2_sg_id = aws_security_group.ec2_rds_app.id
 
   private_db_sg_id = aws_security_group.private_db.id
 

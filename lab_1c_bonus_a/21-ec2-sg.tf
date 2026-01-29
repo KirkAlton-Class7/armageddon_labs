@@ -10,7 +10,7 @@ resource "aws_security_group" "ec2_rds_app" {
   }
 }
 
-# SG Rule: Allow Internal HTTP Inbound for EC2 Internal App SG
+# SG Rule: Allow Internal HTTP Inbound for EC2 RDS App SG
 resource "aws_vpc_security_group_ingress_rule" "allow_all_internal_ipv4_ec2_interal_app" {
   security_group_id = aws_security_group.ec2_rds_app.id
   cidr_ipv4         = local.vpc_cidr
@@ -19,7 +19,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_all_internal_ipv4_ec2_inte
   to_port           = 80
 }
 
-# SG Rule: Allow all Outbound IPv4 for EC2 Internal App SG
+# SG Rule: Allow all Outbound IPv4 for EC2 RDS App SG
 resource "aws_vpc_security_group_egress_rule" "allow_all_internal_outbound_ipv4_ec2_rds_app" {
   security_group_id = aws_security_group.ec2_rds_app.id
   cidr_ipv4         = "0.0.0.0/0"

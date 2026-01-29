@@ -1,8 +1,8 @@
 
 #Target Group Configurations
 
-#Private Client ASG Target Group
-resource "aws_lb_target_group" "internal_app_asg_tg" {
+#RDS App ASG Target Group
+resource "aws_lb_target_group" "rds_app_asg_tg" {
   name        = "private-client-asg-tg"
   target_type = "instance"
   protocol    = "HTTP"

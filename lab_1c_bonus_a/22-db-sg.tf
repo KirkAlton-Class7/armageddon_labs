@@ -10,7 +10,7 @@ resource "aws_security_group" "private_db" {
   }
 }
 
-# SG Rule: Allow Aurora/MySQL Inbound only from EC2 Internal App SG
+# SG Rule: Allow Aurora/MySQL Inbound only from EC2 RDS App SG
 resource "aws_vpc_security_group_ingress_rule" "allow_inbound_http_from_ec2_rds_app" {
   security_group_id            = aws_security_group.private_db.id
   ip_protocol                  = "tcp"

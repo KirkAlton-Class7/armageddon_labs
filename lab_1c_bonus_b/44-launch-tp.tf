@@ -1,15 +1,20 @@
-# Launch Template for Private Client Auto Scaling Group
-resource "aws_launch_template" "internal_app_asg" {
+# Launch Template for RDS App Auto Scaling Group
+resource "aws_launch_template" "rds_app_asg" {
   name     = "rds-app-asg-lt"
   image_id = data.aws_ami.amazon_linux_2023.id
-  # image_id = data.aws_ssm_parameter.al2023.value  # Alternatively, use latest AL2023 AMI via SSM Parameter Store (From Aaron's code. Looks simpler)
+  #image_id = data.aws_ssm_parameter.al2023.value  # Alternatively, use latest AL2023 AMI via SSM Parameter Store (From Aaron's code. Looks simpler)
   instance_type          = "t3.micro"
-  vpc_security_group_ids = [aws_security_group.private_asg.id]
+  vpc_security_group_ids = [aws_security_group.rds_app_asg.id]
   #key_name = "osaka-key"  # Replace with your key pair name
-  user_data = local.ec2_user_data
+
+  user_data = base64encode(local.ec2_user_data)
 
   ebs_optimized                        = true
   instance_initiated_shutdown_behavior = "terminate"
+
+  iam_instance_profile {
+    name = aws_iam_instance_profile.rds_app.name
+  }
 
   monitoring {
     enabled = true

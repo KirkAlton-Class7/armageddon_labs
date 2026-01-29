@@ -10,7 +10,7 @@ resource "aws_security_group" "vpc_endpoint" {
   }
 }
 
-# SG Rule: Allow Internal HTTPS Inbound from EC2 Internal App SG
+# SG Rule: Allow Internal HTTPS Inbound from EC2 RDS App SG
 resource "aws_vpc_security_group_ingress_rule" "allow_rds_app_https_to_vpc_endpoint" {
   security_group_id            = aws_security_group.vpc_endpoint.id
   ip_protocol                  = "tcp"

@@ -1,4 +1,4 @@
-# EC2 - Internal App EC2
+# EC2 - RDS App EC2
 resource "aws_instance" "rds_app" {
   ami                    = data.aws_ami.amazon_linux_2023.id
   instance_type          = "t3.micro"

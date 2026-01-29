@@ -1,10 +1,10 @@
 # Public Application Load Balancer
-resource "aws_lb" "internal_app_public_alb" {
+resource "aws_lb" "rds_app_public_alb" {
   name               = "rds-app-public-alb"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.public_alb.id]
-  subnets            = [local.random_public_subnet]
+  subnets            = local.private_app_subnets
 
 
   enable_deletion_protection = false

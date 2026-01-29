@@ -1,6 +1,6 @@
 # Public Application Load Balancer Security Group
 resource "aws_security_group" "public_alb" {
-  name        = "public_alb_sg"
+  name        = "public-alb-sg"
   description = "Allow all inbound/outbound traffic for HTTP and HTTPS"
   vpc_id      = aws_vpc.main.id
 
