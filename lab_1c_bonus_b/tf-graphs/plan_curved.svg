@@ -362,33 +362,33 @@
 <path fill="none" stroke="black" d="M5928.79,-664.07C5599.59,-658.72 3984.27,-631.55 3937,-612 3915.5,-603.11 3920.45,-585.01 3899,-576 3800.08,-534.43 3040.44,-553.52 2934,-540 2896.88,-535.28 2628.46,-497.15 2605,-468 2594.97,-455.54 2594.7,-444.24 2605,-432 2635.94,-395.24 2772.13,-383.98 2852.01,-380.52"/>
 <polygon fill="black" stroke="black" points="2852,-384.03 2861.86,-380.13 2851.72,-377.03 2852,-384.03"/>
 </g>
-<!-- [root] aws_iam_instance_profile.internal_app -->
+<!-- [root] aws_iam_instance_profile.rds_app -->
 <g id="node21" class="node">
-<title>[root] aws_iam_instance_profile.internal_app</title>
+<title>[root] aws_iam_instance_profile.rds_app</title>
 <polygon fill="none" stroke="black" points="6123.88,-900 5894.12,-900 5894.12,-864 6123.88,-864 6123.88,-900"/>
-<text xml:space="preserve" text-anchor="middle" x="6009" y="-876.95" font-family="Times,serif" font-size="14.00">aws_iam_instance_profile.internal_app</text>
+<text xml:space="preserve" text-anchor="middle" x="6009" y="-876.95" font-family="Times,serif" font-size="14.00">aws_iam_instance_profile.rds_app</text>
 </g>
-<!-- [root] aws_iam_instance_profile.internal_app (expand) -->
+<!-- [root] aws_iam_instance_profile.rds_app (expand) -->
 <g id="node22" class="node">
-<title>[root] aws_iam_instance_profile.internal_app (expand)</title>
+<title>[root] aws_iam_instance_profile.rds_app (expand)</title>
 <polygon fill="none" stroke="black" points="6882.88,-828 6653.12,-828 6653.12,-792 6882.88,-792 6882.88,-828"/>
-<text xml:space="preserve" text-anchor="middle" x="6768" y="-804.95" font-family="Times,serif" font-size="14.00">aws_iam_instance_profile.internal_app</text>
+<text xml:space="preserve" text-anchor="middle" x="6768" y="-804.95" font-family="Times,serif" font-size="14.00">aws_iam_instance_profile.rds_app</text>
 </g>
-<!-- [root] aws_iam_instance_profile.internal_app&#45;&gt;[root] aws_iam_instance_profile.internal_app (expand) -->
+<!-- [root] aws_iam_instance_profile.rds_app&#45;&gt;[root] aws_iam_instance_profile.rds_app (expand) -->
 <g id="edge30" class="edge">
-<title>[root] aws_iam_instance_profile.internal_app&#45;&gt;[root] aws_iam_instance_profile.internal_app (expand)</title>
+<title>[root] aws_iam_instance_profile.rds_app&#45;&gt;[root] aws_iam_instance_profile.rds_app (expand)</title>
 <path fill="none" stroke="black" d="M6124.2,-864.84C6126.83,-864.55 6129.43,-864.27 6132,-864 6355.23,-840.75 6415.18,-851.16 6641.59,-828.2"/>
 <polygon fill="black" stroke="black" points="6641.76,-831.71 6651.35,-827.2 6641.04,-824.74 6641.76,-831.71"/>
 </g>
-<!-- [root] aws_iam_role.internal_app -->
+<!-- [root] aws_iam_role.rds_app -->
 <g id="node45" class="node">
-<title>[root] aws_iam_role.internal_app</title>
+<title>[root] aws_iam_role.rds_app</title>
 <polygon fill="none" stroke="black" points="8979.88,-756 8816.12,-756 8816.12,-720 8979.88,-720 8979.88,-756"/>
-<text xml:space="preserve" text-anchor="middle" x="8898" y="-732.95" font-family="Times,serif" font-size="14.00">aws_iam_role.internal_app</text>
+<text xml:space="preserve" text-anchor="middle" x="8898" y="-732.95" font-family="Times,serif" font-size="14.00">aws_iam_role.rds_app</text>
 </g>
-<!-- [root] aws_iam_instance_profile.internal_app (expand)&#45;&gt;[root] aws_iam_role.internal_app -->
+<!-- [root] aws_iam_instance_profile.rds_app (expand)&#45;&gt;[root] aws_iam_role.rds_app -->
 <g id="edge29" class="edge">
-<title>[root] aws_iam_instance_profile.internal_app (expand)&#45;&gt;[root] aws_iam_role.internal_app</title>
+<title>[root] aws_iam_instance_profile.rds_app (expand)&#45;&gt;[root] aws_iam_role.rds_app</title>
 <path fill="none" stroke="black" d="M6883.23,-799.58C6922.2,-796.71 6965.96,-793.83 7006,-792 7798.22,-755.74 8000.03,-825.82 8790,-756 8794.86,-755.57 8799.84,-755.05 8804.86,-754.48"/>
 <polygon fill="black" stroke="black" points="8804.89,-758 8814.38,-753.3 8804.03,-751.05 8804.89,-758"/>
 </g>
@@ -728,15 +728,15 @@
 <path fill="none" stroke="black" d="M6235.7,-791.7C6237.72,-784.24 6240.14,-775.32 6242.41,-766.97"/>
 <polygon fill="black" stroke="black" points="6245.72,-768.13 6244.96,-757.57 6238.96,-766.3 6245.72,-768.13"/>
 </g>
-<!-- [root] aws_iam_role.internal_app (expand) -->
+<!-- [root] aws_iam_role.rds_app (expand) -->
 <g id="node46" class="node">
-<title>[root] aws_iam_role.internal_app (expand)</title>
+<title>[root] aws_iam_role.rds_app (expand)</title>
 <polygon fill="none" stroke="black" points="9683.88,-540 9520.12,-540 9520.12,-504 9683.88,-504 9683.88,-540"/>
-<text xml:space="preserve" text-anchor="middle" x="9602" y="-516.95" font-family="Times,serif" font-size="14.00">aws_iam_role.internal_app</text>
+<text xml:space="preserve" text-anchor="middle" x="9602" y="-516.95" font-family="Times,serif" font-size="14.00">aws_iam_role.rds_app</text>
 </g>
-<!-- [root] aws_iam_role.internal_app&#45;&gt;[root] aws_iam_role.internal_app (expand) -->
+<!-- [root] aws_iam_role.rds_app&#45;&gt;[root] aws_iam_role.rds_app (expand) -->
 <g id="edge56" class="edge">
-<title>[root] aws_iam_role.internal_app&#45;&gt;[root] aws_iam_role.internal_app (expand)</title>
+<title>[root] aws_iam_role.rds_app&#45;&gt;[root] aws_iam_role.rds_app (expand)</title>
 <path fill="none" stroke="black" d="M8980.33,-721.55C8983.25,-721.02 8986.15,-720.51 8989,-720 9083.96,-703.14 9118.98,-731.36 9203,-684 9258.18,-652.9 9240.81,-607.08 9296,-576 9377.29,-530.22 9412.92,-554.89 9508.36,-540.32"/>
 <polygon fill="black" stroke="black" points="9508.88,-543.78 9518.18,-538.7 9507.74,-536.87 9508.88,-543.78"/>
 </g>
@@ -746,15 +746,15 @@
 <polygon fill="none" stroke="black" points="8732.25,-324 8393.75,-324 8393.75,-288 8732.25,-288 8732.25,-324"/>
 <text xml:space="preserve" text-anchor="middle" x="8563" y="-300.95" font-family="Times,serif" font-size="14.00">data.aws_iam_policy_document.internal_app_assume_role</text>
 </g>
-<!-- [root] aws_iam_role.internal_app (expand)&#45;&gt;[root] data.aws_iam_policy_document.internal_app_assume_role (expand) -->
+<!-- [root] aws_iam_role.rds_app (expand)&#45;&gt;[root] data.aws_iam_policy_document.internal_app_assume_role (expand) -->
 <g id="edge54" class="edge">
-<title>[root] aws_iam_role.internal_app (expand)&#45;&gt;[root] data.aws_iam_policy_document.internal_app_assume_role (expand)</title>
+<title>[root] aws_iam_role.rds_app (expand)&#45;&gt;[root] data.aws_iam_policy_document.internal_app_assume_role (expand)</title>
 <path fill="none" stroke="black" d="M9520.04,-504.12C9330.28,-465.03 8861.52,-368.48 8658.87,-326.75"/>
 <polygon fill="black" stroke="black" points="8659.65,-323.33 8649.15,-324.74 8658.24,-330.19 8659.65,-323.33"/>
 </g>
-<!-- [root] aws_iam_role.internal_app (expand)&#45;&gt;[root] local.name_suffix (expand) -->
+<!-- [root] aws_iam_role.rds_app (expand)&#45;&gt;[root] local.name_suffix (expand) -->
 <g id="edge55" class="edge">
-<title>[root] aws_iam_role.internal_app (expand)&#45;&gt;[root] local.name_suffix (expand)</title>
+<title>[root] aws_iam_role.rds_app (expand)&#45;&gt;[root] local.name_suffix (expand)</title>
 <path fill="none" stroke="black" d="M9519.75,-505.02C9516.8,-504.64 9513.88,-504.3 9511,-504 9459.11,-498.57 7913.6,-464.71 7426.53,-454.14"/>
 <polygon fill="black" stroke="black" points="7426.81,-450.65 7416.73,-453.93 7426.65,-457.65 7426.81,-450.65"/>
 </g>
@@ -872,9 +872,9 @@
 <path fill="none" stroke="black" d="M7857.99,-791.7C7858.41,-784.41 7858.9,-775.73 7859.37,-767.54"/>
 <polygon fill="black" stroke="black" points="7862.86,-767.8 7859.94,-757.62 7855.87,-767.4 7862.86,-767.8"/>
 </g>
-<!-- [root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_logs_role (expand)&#45;&gt;[root] aws_iam_role.internal_app -->
+<!-- [root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_logs_role (expand)&#45;&gt;[root] aws_iam_role.rds_app -->
 <g id="edge67" class="edge">
-<title>[root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_logs_role (expand)&#45;&gt;[root] aws_iam_role.internal_app</title>
+<title>[root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_logs_role (expand)&#45;&gt;[root] aws_iam_role.rds_app</title>
 <path fill="none" stroke="black" d="M8050.93,-792.61C8053.98,-792.4 8057,-792.2 8060,-792 8384.12,-770.44 8466.87,-789.3 8790,-756 8794.86,-755.5 8799.83,-754.93 8804.84,-754.3"/>
 <polygon fill="black" stroke="black" points="8804.9,-757.83 8814.36,-753.06 8803.99,-750.89 8804.9,-757.83"/>
 </g>
@@ -902,9 +902,9 @@
 <path fill="none" stroke="black" d="M8274.26,-791.7C8273.95,-784.41 8273.57,-775.73 8273.22,-767.54"/>
 <polygon fill="black" stroke="black" points="8276.72,-767.46 8272.8,-757.62 8269.73,-767.76 8276.72,-767.46"/>
 </g>
-<!-- [root] aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand)&#45;&gt;[root] aws_iam_role.internal_app -->
+<!-- [root] aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand)&#45;&gt;[root] aws_iam_role.rds_app -->
 <g id="edge70" class="edge">
-<title>[root] aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand)&#45;&gt;[root] aws_iam_role.internal_app</title>
+<title>[root] aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand)&#45;&gt;[root] aws_iam_role.rds_app</title>
 <path fill="none" stroke="black" d="M8469.09,-791.5C8565.69,-782.17 8684.16,-769.77 8790,-756 8794.84,-755.37 8799.8,-754.7 8804.81,-753.99"/>
 <polygon fill="black" stroke="black" points="8804.91,-757.51 8814.31,-752.62 8803.91,-750.58 8804.91,-757.51"/>
 </g>
@@ -932,9 +932,9 @@
 <path fill="none" stroke="black" d="M9541.78,-791.7C9540.83,-784.32 9539.7,-775.52 9538.63,-767.25"/>
 <polygon fill="black" stroke="black" points="9542.14,-767.08 9537.39,-757.61 9535.2,-767.97 9542.14,-767.08"/>
 </g>
-<!-- [root] aws_iam_role_policy_attachment.attach_read_db_host_parameter (expand)&#45;&gt;[root] aws_iam_role.internal_app -->
+<!-- [root] aws_iam_role_policy_attachment.attach_read_db_host_parameter (expand)&#45;&gt;[root] aws_iam_role.rds_app -->
 <g id="edge73" class="edge">
-<title>[root] aws_iam_role_policy_attachment.attach_read_db_host_parameter (expand)&#45;&gt;[root] aws_iam_role.internal_app</title>
+<title>[root] aws_iam_role_policy_attachment.attach_read_db_host_parameter (expand)&#45;&gt;[root] aws_iam_role.rds_app</title>
 <path fill="none" stroke="black" d="M9355.46,-792.81C9228.91,-781.61 9072.38,-767.04 8991.23,-756.22"/>
 <polygon fill="black" stroke="black" points="8992.17,-752.81 8981.79,-754.92 8991.22,-759.75 8992.17,-752.81"/>
 </g>
@@ -962,9 +962,9 @@
 <path fill="none" stroke="black" d="M7463.13,-791.7C7467.7,-783.9 7473.2,-774.51 7478.29,-765.83"/>
 <polygon fill="black" stroke="black" points="7481.18,-767.81 7483.22,-757.41 7475.14,-764.27 7481.18,-767.81"/>
 </g>
-<!-- [root] aws_iam_role_policy_attachment.attach_read_db_name_parameter (expand)&#45;&gt;[root] aws_iam_role.internal_app -->
+<!-- [root] aws_iam_role_policy_attachment.attach_read_db_name_parameter (expand)&#45;&gt;[root] aws_iam_role.rds_app -->
 <g id="edge76" class="edge">
-<title>[root] aws_iam_role_policy_attachment.attach_read_db_name_parameter (expand)&#45;&gt;[root] aws_iam_role.internal_app</title>
+<title>[root] aws_iam_role_policy_attachment.attach_read_db_name_parameter (expand)&#45;&gt;[root] aws_iam_role.rds_app</title>
 <path fill="none" stroke="black" d="M7645.55,-792.51C7648.38,-792.33 7651.2,-792.16 7654,-792 8158.29,-762.7 8287.08,-803.36 8790,-756 8794.86,-755.54 8799.84,-755 8804.85,-754.41"/>
 <polygon fill="black" stroke="black" points="8804.89,-757.93 8814.37,-753.21 8804.01,-750.99 8804.89,-757.93"/>
 </g>
@@ -992,9 +992,9 @@
 <path fill="none" stroke="black" d="M8680.33,-791.7C8677.42,-784.15 8673.93,-775.12 8670.68,-766.68"/>
 <polygon fill="black" stroke="black" points="8674.01,-765.59 8667.14,-757.52 8667.48,-768.11 8674.01,-765.59"/>
 </g>
-<!-- [root] aws_iam_role_policy_attachment.attach_read_db_port_parameter (expand)&#45;&gt;[root] aws_iam_role.internal_app -->
+<!-- [root] aws_iam_role_policy_attachment.attach_read_db_port_parameter (expand)&#45;&gt;[root] aws_iam_role.rds_app -->
 <g id="edge79" class="edge">
-<title>[root] aws_iam_role_policy_attachment.attach_read_db_port_parameter (expand)&#45;&gt;[root] aws_iam_role.internal_app</title>
+<title>[root] aws_iam_role_policy_attachment.attach_read_db_port_parameter (expand)&#45;&gt;[root] aws_iam_role.rds_app</title>
 <path fill="none" stroke="black" d="M8739.7,-791.52C8768.51,-781.96 8804.4,-770.05 8834.71,-760"/>
 <polygon fill="black" stroke="black" points="8835.78,-763.33 8844.17,-756.86 8833.58,-756.69 8835.78,-763.33"/>
 </g>
@@ -1022,9 +1022,9 @@
 <path fill="none" stroke="black" d="M8048.55,-936.69C8045.68,-936.45 8042.83,-936.22 8040,-936 7768.02,-914.61 7695.69,-929.92 7421.54,-900.21"/>
 <polygon fill="black" stroke="black" points="7422.27,-896.77 7411.94,-899.16 7421.5,-903.73 7422.27,-896.77"/>
 </g>
-<!-- [root] aws_iam_role_policy_attachment.attach_read_db_secret (expand)&#45;&gt;[root] aws_iam_role.internal_app -->
+<!-- [root] aws_iam_role_policy_attachment.attach_read_db_secret (expand)&#45;&gt;[root] aws_iam_role.rds_app -->
 <g id="edge82" class="edge">
-<title>[root] aws_iam_role_policy_attachment.attach_read_db_secret (expand)&#45;&gt;[root] aws_iam_role.internal_app</title>
+<title>[root] aws_iam_role_policy_attachment.attach_read_db_secret (expand)&#45;&gt;[root] aws_iam_role.rds_app</title>
 <path fill="none" stroke="black" d="M8241.49,-935.53C8279.89,-914.49 8348.53,-879.97 8412,-864 8463.01,-851.17 8845.35,-863.68 8884,-828 8900.26,-812.99 8902.82,-787.4 8901.86,-767.5"/>
 <polygon fill="black" stroke="black" points="8905.37,-767.46 8901.06,-757.79 8898.4,-768.04 8905.37,-767.46"/>
 </g>
@@ -1052,9 +1052,9 @@
 <path fill="none" stroke="black" d="M9134,-791.7C9134,-784.41 9134,-775.73 9134,-767.54"/>
 <polygon fill="black" stroke="black" points="9137.5,-767.62 9134,-757.62 9130.5,-767.62 9137.5,-767.62"/>
 </g>
-<!-- [root] aws_iam_role_policy_attachment.attach_read_db_username_parameter (expand)&#45;&gt;[root] aws_iam_role.internal_app -->
+<!-- [root] aws_iam_role_policy_attachment.attach_read_db_username_parameter (expand)&#45;&gt;[root] aws_iam_role.rds_app -->
 <g id="edge85" class="edge">
-<title>[root] aws_iam_role_policy_attachment.attach_read_db_username_parameter (expand)&#45;&gt;[root] aws_iam_role.internal_app</title>
+<title>[root] aws_iam_role_policy_attachment.attach_read_db_username_parameter (expand)&#45;&gt;[root] aws_iam_role.rds_app</title>
 <path fill="none" stroke="black" d="M9075.06,-791.52C9042.41,-781.83 9001.64,-769.74 8967.45,-759.6"/>
 <polygon fill="black" stroke="black" points="8968.63,-756.3 8958.05,-756.81 8966.64,-763.01 8968.63,-756.3"/>
 </g>
@@ -1082,9 +1082,9 @@
 <path fill="none" stroke="black" d="M10243.52,-791.52C10231.39,-782.85 10216.55,-772.25 10203.39,-762.85"/>
 <polygon fill="black" stroke="black" points="10205.57,-760.1 10195.4,-757.14 10201.5,-765.8 10205.57,-760.1"/>
 </g>
-<!-- [root] aws_iam_role_policy_attachment.attach_ssm_agent_policy (expand)&#45;&gt;[root] aws_iam_role.internal_app -->
+<!-- [root] aws_iam_role_policy_attachment.attach_ssm_agent_policy (expand)&#45;&gt;[root] aws_iam_role.rds_app -->
 <g id="edge88" class="edge">
-<title>[root] aws_iam_role_policy_attachment.attach_ssm_agent_policy (expand)&#45;&gt;[root] aws_iam_role.internal_app</title>
+<title>[root] aws_iam_role_policy_attachment.attach_ssm_agent_policy (expand)&#45;&gt;[root] aws_iam_role.rds_app</title>
 <path fill="none" stroke="black" d="M10097.48,-792.63C10094.3,-792.41 10091.13,-792.2 10088,-792 9603.97,-761.24 9476.74,-808.3 8991.42,-756.16"/>
 <polygon fill="black" stroke="black" points="8992.08,-752.71 8981.76,-755.11 8991.33,-759.67 8992.08,-752.71"/>
 </g>
@@ -1142,33 +1142,33 @@
 <path fill="none" stroke="black" d="M9894.73,-791.7C9884.87,-783.28 9872.85,-773.02 9862.04,-763.79"/>
 <polygon fill="black" stroke="black" points="9864.35,-761.16 9854.47,-757.33 9859.81,-766.48 9864.35,-761.16"/>
 </g>
-<!-- [root] aws_iam_role_policy_attachment.ec2_linux_repo_access (expand)&#45;&gt;[root] aws_iam_role.internal_app -->
+<!-- [root] aws_iam_role_policy_attachment.ec2_linux_repo_access (expand)&#45;&gt;[root] aws_iam_role.rds_app -->
 <g id="edge94" class="edge">
-<title>[root] aws_iam_role_policy_attachment.ec2_linux_repo_access (expand)&#45;&gt;[root] aws_iam_role.internal_app</title>
+<title>[root] aws_iam_role_policy_attachment.ec2_linux_repo_access (expand)&#45;&gt;[root] aws_iam_role.rds_app</title>
 <path fill="none" stroke="black" d="M9750.16,-792.69C9747.08,-792.45 9744.03,-792.22 9741,-792 9411.02,-768 9323.31,-794.21 8991.66,-756.21"/>
 <polygon fill="black" stroke="black" points="8992.1,-752.74 8981.77,-755.06 8991.3,-759.69 8992.1,-752.74"/>
 </g>
-<!-- [root] aws_instance.internal_app -->
+<!-- [root] aws_instance.rds_app -->
 <g id="node73" class="node">
-<title>[root] aws_instance.internal_app</title>
+<title>[root] aws_instance.rds_app</title>
 <polygon fill="none" stroke="black" points="1683.62,-1044 1524.38,-1044 1524.38,-1008 1683.62,-1008 1683.62,-1044"/>
-<text xml:space="preserve" text-anchor="middle" x="1604" y="-1020.95" font-family="Times,serif" font-size="14.00">aws_instance.internal_app</text>
+<text xml:space="preserve" text-anchor="middle" x="1604" y="-1020.95" font-family="Times,serif" font-size="14.00">aws_instance.rds_app</text>
 </g>
-<!-- [root] aws_instance.internal_app (expand) -->
+<!-- [root] aws_instance.rds_app (expand) -->
 <g id="node74" class="node">
-<title>[root] aws_instance.internal_app (expand)</title>
+<title>[root] aws_instance.rds_app (expand)</title>
 <polygon fill="none" stroke="black" points="2357.62,-972 2198.38,-972 2198.38,-936 2357.62,-936 2357.62,-972"/>
-<text xml:space="preserve" text-anchor="middle" x="2278" y="-948.95" font-family="Times,serif" font-size="14.00">aws_instance.internal_app</text>
+<text xml:space="preserve" text-anchor="middle" x="2278" y="-948.95" font-family="Times,serif" font-size="14.00">aws_instance.rds_app</text>
 </g>
-<!-- [root] aws_instance.internal_app&#45;&gt;[root] aws_instance.internal_app (expand) -->
+<!-- [root] aws_instance.rds_app&#45;&gt;[root] aws_instance.rds_app (expand) -->
 <g id="edge108" class="edge">
-<title>[root] aws_instance.internal_app&#45;&gt;[root] aws_instance.internal_app (expand)</title>
+<title>[root] aws_instance.rds_app&#45;&gt;[root] aws_instance.rds_app (expand)</title>
 <path fill="none" stroke="black" d="M1683.92,-1010.05C1688.68,-1009.32 1693.4,-1008.63 1698,-1008 1869.94,-984.64 2071.99,-968.78 2186.52,-960.87"/>
 <polygon fill="black" stroke="black" points="2186.76,-964.36 2196.49,-960.18 2186.28,-957.38 2186.76,-964.36"/>
 </g>
-<!-- [root] aws_instance.internal_app (expand)&#45;&gt;[root] aws_iam_instance_profile.internal_app -->
+<!-- [root] aws_instance.rds_app (expand)&#45;&gt;[root] aws_iam_instance_profile.rds_app -->
 <g id="edge96" class="edge">
-<title>[root] aws_instance.internal_app (expand)&#45;&gt;[root] aws_iam_instance_profile.internal_app</title>
+<title>[root] aws_instance.rds_app (expand)&#45;&gt;[root] aws_iam_instance_profile.rds_app</title>
 <path fill="none" stroke="black" d="M2358.06,-952.15C2805.77,-947.32 5003.36,-922.83 5681,-900 5747.53,-897.76 5821.58,-894.03 5882.47,-890.63"/>
 <polygon fill="black" stroke="black" points="5882.38,-894.14 5892.17,-890.08 5881.99,-887.15 5882.38,-894.14"/>
 </g>
@@ -1178,9 +1178,9 @@
 <polygon fill="none" stroke="black" points="2168.88,-900 2029.12,-900 2029.12,-864 2168.88,-864 2168.88,-900"/>
 <text xml:space="preserve" text-anchor="middle" x="2099" y="-876.95" font-family="Times,serif" font-size="14.00">aws_vpc_endpoint.ec2</text>
 </g>
-<!-- [root] aws_instance.internal_app (expand)&#45;&gt;[root] aws_vpc_endpoint.ec2 -->
+<!-- [root] aws_instance.rds_app (expand)&#45;&gt;[root] aws_vpc_endpoint.ec2 -->
 <g id="edge97" class="edge">
-<title>[root] aws_instance.internal_app (expand)&#45;&gt;[root] aws_vpc_endpoint.ec2</title>
+<title>[root] aws_instance.rds_app (expand)&#45;&gt;[root] aws_vpc_endpoint.ec2</title>
 <path fill="none" stroke="black" d="M2233.29,-935.52C2209.28,-926.13 2179.48,-914.47 2154.05,-904.53"/>
 <polygon fill="black" stroke="black" points="2155.45,-901.32 2144.86,-900.93 2152.9,-907.83 2155.45,-901.32"/>
 </g>
@@ -1190,9 +1190,9 @@
 <polygon fill="none" stroke="black" points="2385.12,-900 2186.88,-900 2186.88,-864 2385.12,-864 2385.12,-900"/>
 <text xml:space="preserve" text-anchor="middle" x="2286" y="-876.95" font-family="Times,serif" font-size="14.00">aws_vpc_endpoint.ec2_messages</text>
 </g>
-<!-- [root] aws_instance.internal_app (expand)&#45;&gt;[root] aws_vpc_endpoint.ec2_messages -->
+<!-- [root] aws_instance.rds_app (expand)&#45;&gt;[root] aws_vpc_endpoint.ec2_messages -->
 <g id="edge98" class="edge">
-<title>[root] aws_instance.internal_app (expand)&#45;&gt;[root] aws_vpc_endpoint.ec2_messages</title>
+<title>[root] aws_instance.rds_app (expand)&#45;&gt;[root] aws_vpc_endpoint.ec2_messages</title>
 <path fill="none" stroke="black" d="M2279.98,-935.7C2280.81,-928.41 2281.8,-919.73 2282.74,-911.54"/>
 <polygon fill="black" stroke="black" points="2286.22,-911.94 2283.87,-901.61 2279.26,-911.15 2286.22,-911.94"/>
 </g>
@@ -1202,9 +1202,9 @@
 <polygon fill="none" stroke="black" points="2546.75,-900 2403.25,-900 2403.25,-864 2546.75,-864 2546.75,-900"/>
 <text xml:space="preserve" text-anchor="middle" x="2475" y="-876.95" font-family="Times,serif" font-size="14.00">aws_vpc_endpoint.logs</text>
 </g>
-<!-- [root] aws_instance.internal_app (expand)&#45;&gt;[root] aws_vpc_endpoint.logs -->
+<!-- [root] aws_instance.rds_app (expand)&#45;&gt;[root] aws_vpc_endpoint.logs -->
 <g id="edge99" class="edge">
-<title>[root] aws_instance.internal_app (expand)&#45;&gt;[root] aws_vpc_endpoint.logs</title>
+<title>[root] aws_instance.rds_app (expand)&#45;&gt;[root] aws_vpc_endpoint.logs</title>
 <path fill="none" stroke="black" d="M2327.2,-935.52C2353.98,-926 2387.31,-914.16 2415.54,-904.13"/>
 <polygon fill="black" stroke="black" points="2416.41,-907.53 2424.66,-900.89 2414.06,-900.94 2416.41,-907.53"/>
 </g>
@@ -1214,9 +1214,9 @@
 <polygon fill="none" stroke="black" points="1765.5,-540 1632.5,-540 1632.5,-504 1765.5,-504 1765.5,-540"/>
 <text xml:space="preserve" text-anchor="middle" x="1699" y="-516.95" font-family="Times,serif" font-size="14.00">aws_vpc_endpoint.s3</text>
 </g>
-<!-- [root] aws_instance.internal_app (expand)&#45;&gt;[root] aws_vpc_endpoint.s3 -->
+<!-- [root] aws_instance.rds_app (expand)&#45;&gt;[root] aws_vpc_endpoint.s3 -->
 <g id="edge100" class="edge">
-<title>[root] aws_instance.internal_app (expand)&#45;&gt;[root] aws_vpc_endpoint.s3</title>
+<title>[root] aws_instance.rds_app (expand)&#45;&gt;[root] aws_vpc_endpoint.s3</title>
 <path fill="none" stroke="black" d="M2198.16,-941.97C2180.97,-939.81 2162.9,-937.69 2146,-936 2033.83,-924.8 1739.67,-952.66 1640,-900 1567.83,-861.87 1565.42,-827.48 1526,-756 1501.43,-711.44 1525.29,-682.63 1488,-648 1443.13,-606.33 1392.22,-660.63 1355,-612 1345.28,-599.29 1344.58,-588.14 1355,-576 1359.33,-570.95 1520.68,-547.74 1620.84,-533.76"/>
 <polygon fill="black" stroke="black" points="1621.21,-537.25 1630.64,-532.4 1620.25,-530.31 1621.21,-537.25"/>
 </g>
@@ -1226,9 +1226,9 @@
 <polygon fill="none" stroke="black" points="2769.5,-900 2564.5,-900 2564.5,-864 2769.5,-864 2769.5,-900"/>
 <text xml:space="preserve" text-anchor="middle" x="2667" y="-876.95" font-family="Times,serif" font-size="14.00">aws_vpc_endpoint.secretsmanager</text>
 </g>
-<!-- [root] aws_instance.internal_app (expand)&#45;&gt;[root] aws_vpc_endpoint.secretsmanager -->
+<!-- [root] aws_instance.rds_app (expand)&#45;&gt;[root] aws_vpc_endpoint.secretsmanager -->
 <g id="edge101" class="edge">
-<title>[root] aws_instance.internal_app (expand)&#45;&gt;[root] aws_vpc_endpoint.secretsmanager</title>
+<title>[root] aws_instance.rds_app (expand)&#45;&gt;[root] aws_vpc_endpoint.secretsmanager</title>
 <path fill="none" stroke="black" d="M2358,-938.53C2362.74,-937.67 2367.43,-936.82 2372,-936 2433.68,-924.88 2502.63,-912.49 2558.35,-902.49"/>
 <polygon fill="black" stroke="black" points="2558.95,-905.94 2568.18,-900.73 2557.72,-899.05 2558.95,-905.94"/>
 </g>
@@ -1238,9 +1238,9 @@
 <polygon fill="none" stroke="black" points="1791.38,-900 1648.62,-900 1648.62,-864 1791.38,-864 1791.38,-900"/>
 <text xml:space="preserve" text-anchor="middle" x="1720" y="-876.95" font-family="Times,serif" font-size="14.00">aws_vpc_endpoint.ssm</text>
 </g>
-<!-- [root] aws_instance.internal_app (expand)&#45;&gt;[root] aws_vpc_endpoint.ssm -->
+<!-- [root] aws_instance.rds_app (expand)&#45;&gt;[root] aws_vpc_endpoint.ssm -->
 <g id="edge102" class="edge">
-<title>[root] aws_instance.internal_app (expand)&#45;&gt;[root] aws_vpc_endpoint.ssm</title>
+<title>[root] aws_instance.rds_app (expand)&#45;&gt;[root] aws_vpc_endpoint.ssm</title>
 <path fill="none" stroke="black" d="M2198.08,-938.07C2193.32,-937.33 2188.6,-936.63 2184,-936 2017.82,-913.23 1971.43,-925.31 1802.74,-900.31"/>
 <polygon fill="black" stroke="black" points="1803.36,-896.87 1792.95,-898.84 1802.32,-903.79 1803.36,-896.87"/>
 </g>
@@ -1250,9 +1250,9 @@
 <polygon fill="none" stroke="black" points="2010.62,-900 1809.38,-900 1809.38,-864 2010.62,-864 2010.62,-900"/>
 <text xml:space="preserve" text-anchor="middle" x="1910" y="-876.95" font-family="Times,serif" font-size="14.00">aws_vpc_endpoint.ssm_messages</text>
 </g>
-<!-- [root] aws_instance.internal_app (expand)&#45;&gt;[root] aws_vpc_endpoint.ssm_messages -->
+<!-- [root] aws_instance.rds_app (expand)&#45;&gt;[root] aws_vpc_endpoint.ssm_messages -->
 <g id="edge103" class="edge">
-<title>[root] aws_instance.internal_app (expand)&#45;&gt;[root] aws_vpc_endpoint.ssm_messages</title>
+<title>[root] aws_instance.rds_app (expand)&#45;&gt;[root] aws_vpc_endpoint.ssm_messages</title>
 <path fill="none" stroke="black" d="M2198.15,-937.81C2143.83,-927.48 2071.47,-913.71 2012.84,-902.56"/>
 <polygon fill="black" stroke="black" points="2013.65,-899.15 2003.18,-900.72 2012.35,-906.03 2013.65,-899.15"/>
 </g>
@@ -1262,9 +1262,9 @@
 <polygon fill="none" stroke="black" points="5927.88,-324 5722.12,-324 5722.12,-288 5927.88,-288 5927.88,-324"/>
 <text xml:space="preserve" text-anchor="middle" x="5825" y="-300.95" font-family="Times,serif" font-size="14.00">data.aws_ami.amazon_linux_2023</text>
 </g>
-<!-- [root] aws_instance.internal_app (expand)&#45;&gt;[root] data.aws_ami.amazon_linux_2023 (expand) -->
+<!-- [root] aws_instance.rds_app (expand)&#45;&gt;[root] data.aws_ami.amazon_linux_2023 (expand) -->
 <g id="edge104" class="edge">
-<title>[root] aws_instance.internal_app (expand)&#45;&gt;[root] data.aws_ami.amazon_linux_2023 (expand)</title>
+<title>[root] aws_instance.rds_app (expand)&#45;&gt;[root] data.aws_ami.amazon_linux_2023 (expand)</title>
 <path fill="none" stroke="black" d="M2358.04,-952.14C2720.54,-948.09 4210.85,-929.92 4677,-900 4978.52,-880.65 5055.37,-880.05 5353,-828 5419.26,-816.41 5433.81,-803.95 5500,-792 5567.38,-779.83 5755.38,-802.11 5806,-756 5835.9,-728.76 5825,-707.45 5825,-667 5825,-667 5825,-667 5825,-449 5825,-409.74 5825,-364.38 5825,-335.69"/>
 <polygon fill="black" stroke="black" points="5828.5,-336 5825,-326 5821.5,-336 5828.5,-336"/>
 </g>
@@ -1274,9 +1274,9 @@
 <ellipse fill="none" stroke="black" cx="788" cy="-882" rx="127.61" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="788" y="-876.95" font-family="Times,serif" font-size="14.00">[root] local.ec2_sg_id (expand)</text>
 </g>
-<!-- [root] aws_instance.internal_app (expand)&#45;&gt;[root] local.ec2_sg_id (expand) -->
+<!-- [root] aws_instance.rds_app (expand)&#45;&gt;[root] local.ec2_sg_id (expand) -->
 <g id="edge105" class="edge">
-<title>[root] aws_instance.internal_app (expand)&#45;&gt;[root] local.ec2_sg_id (expand)</title>
+<title>[root] aws_instance.rds_app (expand)&#45;&gt;[root] local.ec2_sg_id (expand)</title>
 <path fill="none" stroke="black" d="M2197.99,-946.59C2151.1,-943.02 2090.72,-938.76 2037,-936 1542.73,-910.58 1417.41,-938.73 924,-900 912.29,-899.08 900.03,-897.88 887.88,-896.55"/>
 <polygon fill="black" stroke="black" points="888.6,-893.11 878.27,-895.46 887.81,-900.06 888.6,-893.11"/>
 </g>
@@ -1286,9 +1286,9 @@
 <ellipse fill="none" stroke="black" cx="6983" cy="-882" rx="142.97" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="6983" y="-876.95" font-family="Times,serif" font-size="14.00">[root] local.ec2_user_data (expand)</text>
 </g>
-<!-- [root] aws_instance.internal_app (expand)&#45;&gt;[root] local.ec2_user_data (expand) -->
+<!-- [root] aws_instance.rds_app (expand)&#45;&gt;[root] local.ec2_user_data (expand) -->
 <g id="edge106" class="edge">
-<title>[root] aws_instance.internal_app (expand)&#45;&gt;[root] local.ec2_user_data (expand)</title>
+<title>[root] aws_instance.rds_app (expand)&#45;&gt;[root] local.ec2_user_data (expand)</title>
 <path fill="none" stroke="black" d="M2357.72,-952.18C2955.41,-946.04 6714.81,-907.16 6831,-900 6844.7,-899.16 6859.06,-897.96 6873.26,-896.59"/>
 <polygon fill="black" stroke="black" points="6873.49,-900.08 6883.09,-895.61 6872.79,-893.12 6873.49,-900.08"/>
 </g>
@@ -1298,9 +1298,9 @@
 <ellipse fill="none" stroke="black" cx="2983" cy="-882" rx="195.68" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="2983" y="-876.95" font-family="Times,serif" font-size="14.00">[root] local.random_private_app_subnet (expand)</text>
 </g>
-<!-- [root] aws_instance.internal_app (expand)&#45;&gt;[root] local.random_private_app_subnet (expand) -->
+<!-- [root] aws_instance.rds_app (expand)&#45;&gt;[root] local.random_private_app_subnet (expand) -->
 <g id="edge107" class="edge">
-<title>[root] aws_instance.internal_app (expand)&#45;&gt;[root] local.random_private_app_subnet (expand)</title>
+<title>[root] aws_instance.rds_app (expand)&#45;&gt;[root] local.random_private_app_subnet (expand)</title>
 <path fill="none" stroke="black" d="M2357.92,-938.03C2362.68,-937.3 2367.4,-936.61 2372,-936 2394.48,-933 2657.69,-910.52 2831.23,-895.81"/>
 <polygon fill="black" stroke="black" points="2831.36,-899.31 2841.02,-894.98 2830.76,-892.34 2831.36,-899.31"/>
 </g>
@@ -3588,9 +3588,9 @@
 <ellipse fill="none" stroke="black" cx="1523" cy="-1098" rx="161.39" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="1523" y="-1092.95" font-family="Times,serif" font-size="14.00">[root] output.internal_app_info (expand)</text>
 </g>
-<!-- [root] output.internal_app_info (expand)&#45;&gt;[root] aws_instance.internal_app -->
+<!-- [root] output.internal_app_info (expand)&#45;&gt;[root] aws_instance.rds_app -->
 <g id="edge331" class="edge">
-<title>[root] output.internal_app_info (expand)&#45;&gt;[root] aws_instance.internal_app</title>
+<title>[root] output.internal_app_info (expand)&#45;&gt;[root] aws_instance.rds_app</title>
 <path fill="none" stroke="black" d="M1543.02,-1079.7C1552.76,-1071.28 1564.64,-1061.02 1575.31,-1051.79"/>
 <polygon fill="black" stroke="black" points="1577.5,-1054.52 1582.78,-1045.34 1572.93,-1049.23 1577.5,-1054.52"/>
 </g>
@@ -3762,9 +3762,9 @@
 <path fill="none" stroke="black" d="M5825.45,-1095.62C6465.09,-1091.5 8221.3,-1077.44 8825.73,-1044.09"/>
 <polygon fill="black" stroke="black" points="8825.87,-1047.59 8835.66,-1043.53 8825.48,-1040.6 8825.87,-1047.59"/>
 </g>
-<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_instance.internal_app -->
+<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_instance.rds_app -->
 <g id="edge354" class="edge">
-<title>[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_instance.internal_app</title>
+<title>[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_instance.rds_app</title>
 <path fill="none" stroke="black" d="M5363.27,-1092.03C5190.68,-1088.35 4946.83,-1083.41 4733,-1080 4065.93,-1069.38 2396.41,-1092.35 1731,-1044 1719.28,-1043.15 1706.99,-1041.92 1694.86,-1040.52"/>
 <polygon fill="black" stroke="black" points="1695.64,-1037.09 1685.29,-1039.36 1694.8,-1044.04 1695.64,-1037.09"/>
 </g>

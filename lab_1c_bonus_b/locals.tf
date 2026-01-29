@@ -31,6 +31,12 @@ locals {
     aws_subnet.public_b.id,
     aws_subnet.public_c.id
   ]
+  # Public Subnet CIDRs
+  public_subnet_cidrs = [
+    aws_subnet.public_a.cidr_block,
+    aws_subnet.public_b.cidr_block,
+    aws_subnet.public_c.cidr_block
+  ]
 
   # Assigns random public subnet from the list using shared random index
   random_public_subnet = local.public_subnets[local.subnet_index]
@@ -58,6 +64,13 @@ locals {
     aws_subnet.private_app_c.id
   ]
 
+  # Private App Subnet CIDRs
+  private_app_subnet_cidrs = [
+    aws_subnet.private_app_a.cidr_block,
+    aws_subnet.private_app_b.cidr_block,
+    aws_subnet.private_app_c.cidr_block
+  ]
+
   # Assigns random private app subnet from the list using shared random index
   random_private_app_subnet = local.private_app_subnets[local.subnet_index]
 
@@ -68,6 +81,14 @@ locals {
     aws_subnet.private_data_b.id,
     aws_subnet.private_data_c.id
   ]
+
+  # Private Data Subnet CIDRs
+  private_data_subnet_cidrs = [
+    aws_subnet.private_data_a.cidr_block,
+    aws_subnet.private_data_b.cidr_block,
+    aws_subnet.private_data_c.cidr_block
+  ]
+
 
   # Assigns random private data subnet from the list using shared random index
   random_private_data_subnet = local.private_data_subnets[local.subnet_index]

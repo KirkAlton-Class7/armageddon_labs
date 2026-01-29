@@ -35,11 +35,11 @@ output "vpc_info" {
 output "internal_app_info" {
   description = "EC2 Names and Browser Addresses"
   value = {
-    name       = aws_instance.internal_app.tags["Name"]
-    az         = aws_instance.internal_app.availability_zone
-    subnet_id  = aws_instance.internal_app.subnet_id
-    ip-address = aws_instance.internal_app.private_ip
-    url        = "http://${aws_instance.internal_app.private_dns}"
+    name       = aws_instance.rds_app.tags["Name"]
+    az         = aws_instance.rds_app.availability_zone
+    subnet_id  = aws_instance.rds_app.subnet_id
+    ip-address = aws_instance.rds_app.private_ip
+    url        = "http://${aws_instance.rds_app.private_dns}"
   }
 }
 
@@ -55,4 +55,20 @@ output "rds_info" {
 
 output "rds_subnets" {
   value = aws_db_subnet_group.armageddon_1a_db.subnet_ids
+}
+
+
+
+
+# Public-App-LB-01 A Output
+output "public_app_lb_01_ifno" {
+  value = [
+    {
+      name    = aws_lb.internal_app_public_alb.tags["Name"]
+      subnets = aws_lb.internal_app_public_alb.subnets
+      url     = "http://${aws_lb.internal_app_public_alb.dns_name}/"
+    }
+  ]
+
+  description = "Public App LB 01: Name, Subnets, URL"
 }

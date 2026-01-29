@@ -4,7 +4,7 @@
     "logfile": "/opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log"
   },
   "metrics": {
-    "namespace": "Internal-App",
+    "namespace": "rds-app",
     "append_dimensions": {
       "InstanceId": "$${aws:InstanceId}",
       "InstanceType": "$${aws:InstanceType}",
@@ -49,7 +49,7 @@
           },
           {
             "file_path": "/opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log",
-            "log_group_name": "/aws/ec2/cloudwatch-agent/internal-app-${name_suffix}",
+            "log_group_name": "/aws/ec2/cloudwatch-agent/rds-app-${name_suffix}",
             "log_stream_name": "{instance_id}-agent",
             "timezone": "UTC"
           }

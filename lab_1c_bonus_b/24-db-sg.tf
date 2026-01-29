@@ -1,7 +1,7 @@
 # Private Database Security Group
 resource "aws_security_group" "private_db" {
   name        = "private-db-sg"
-  description = "Only allow inbound traffic from ec2-internal-app"
+  description = "Only allow inbound traffic from ec2-rds-app"
   vpc_id      = aws_vpc.main.id
 
   tags = {

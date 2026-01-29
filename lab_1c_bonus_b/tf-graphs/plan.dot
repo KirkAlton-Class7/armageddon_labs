@@ -22,8 +22,8 @@ digraph {
 		"[root] aws_db_subnet_group.armageddon_1a_db (expand)" [label = "aws_db_subnet_group.armageddon_1a_db", shape = "box"]
 		"[root] aws_flow_log.vpc" [label = "aws_flow_log.vpc", shape = "box"]
 		"[root] aws_flow_log.vpc (expand)" [label = "aws_flow_log.vpc", shape = "box"]
-		"[root] aws_iam_instance_profile.internal_app" [label = "aws_iam_instance_profile.internal_app", shape = "box"]
-		"[root] aws_iam_instance_profile.internal_app (expand)" [label = "aws_iam_instance_profile.internal_app", shape = "box"]
+		"[root] aws_iam_instance_profile.rds_app" [label = "aws_iam_instance_profile.rds_app", shape = "box"]
+		"[root] aws_iam_instance_profile.rds_app (expand)" [label = "aws_iam_instance_profile.rds_app", shape = "box"]
 		"[root] aws_iam_policy.ec2_cloudwatch_logs_role" [label = "aws_iam_policy.ec2_cloudwatch_logs_role", shape = "box"]
 		"[root] aws_iam_policy.ec2_cloudwatch_logs_role (expand)" [label = "aws_iam_policy.ec2_cloudwatch_logs_role", shape = "box"]
 		"[root] aws_iam_policy.ec2_linux_repo_access" [label = "aws_iam_policy.ec2_linux_repo_access", shape = "box"]
@@ -46,8 +46,8 @@ digraph {
 		"[root] aws_iam_policy.ssm_agent_policy (expand)" [label = "aws_iam_policy.ssm_agent_policy", shape = "box"]
 		"[root] aws_iam_policy.vpc_flow_log_role" [label = "aws_iam_policy.vpc_flow_log_role", shape = "box"]
 		"[root] aws_iam_policy.vpc_flow_log_role (expand)" [label = "aws_iam_policy.vpc_flow_log_role", shape = "box"]
-		"[root] aws_iam_role.internal_app" [label = "aws_iam_role.internal_app", shape = "box"]
-		"[root] aws_iam_role.internal_app (expand)" [label = "aws_iam_role.internal_app", shape = "box"]
+		"[root] aws_iam_role.rds_app" [label = "aws_iam_role.rds_app", shape = "box"]
+		"[root] aws_iam_role.rds_app (expand)" [label = "aws_iam_role.rds_app", shape = "box"]
 		"[root] aws_iam_role.rds_enhanced_monitoring_role" [label = "aws_iam_role.rds_enhanced_monitoring_role", shape = "box"]
 		"[root] aws_iam_role.rds_enhanced_monitoring_role (expand)" [label = "aws_iam_role.rds_enhanced_monitoring_role", shape = "box"]
 		"[root] aws_iam_role.vpc_flow_log_role" [label = "aws_iam_role.vpc_flow_log_role", shape = "box"]
@@ -74,8 +74,8 @@ digraph {
 		"[root] aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role (expand)" [label = "aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role", shape = "box"]
 		"[root] aws_iam_role_policy_attachment.ec2_linux_repo_access" [label = "aws_iam_role_policy_attachment.ec2_linux_repo_access", shape = "box"]
 		"[root] aws_iam_role_policy_attachment.ec2_linux_repo_access (expand)" [label = "aws_iam_role_policy_attachment.ec2_linux_repo_access", shape = "box"]
-		"[root] aws_instance.internal_app" [label = "aws_instance.internal_app", shape = "box"]
-		"[root] aws_instance.internal_app (expand)" [label = "aws_instance.internal_app", shape = "box"]
+		"[root] aws_instance.rds_app" [label = "aws_instance.rds_app", shape = "box"]
+		"[root] aws_instance.rds_app (expand)" [label = "aws_instance.rds_app", shape = "box"]
 		"[root] aws_internet_gateway.main" [label = "aws_internet_gateway.main", shape = "box"]
 		"[root] aws_internet_gateway.main (expand)" [label = "aws_internet_gateway.main", shape = "box"]
 		"[root] aws_route_table.local" [label = "aws_route_table.local", shape = "box"]
@@ -253,8 +253,8 @@ digraph {
 		"[root] aws_flow_log.vpc (expand)" -> "[root] aws_iam_role.vpc_flow_log_role"
 		"[root] aws_flow_log.vpc (expand)" -> "[root] aws_vpc.main"
 		"[root] aws_flow_log.vpc" -> "[root] aws_flow_log.vpc (expand)"
-		"[root] aws_iam_instance_profile.internal_app (expand)" -> "[root] aws_iam_role.internal_app"
-		"[root] aws_iam_instance_profile.internal_app" -> "[root] aws_iam_instance_profile.internal_app (expand)"
+		"[root] aws_iam_instance_profile.rds_app (expand)" -> "[root] aws_iam_role.rds_app"
+		"[root] aws_iam_instance_profile.rds_app" -> "[root] aws_iam_instance_profile.rds_app (expand)"
 		"[root] aws_iam_policy.ec2_cloudwatch_logs_role (expand)" -> "[root] data.aws_iam_policy_document.ec2_cloudwatch_logs_role"
 		"[root] aws_iam_policy.ec2_cloudwatch_logs_role" -> "[root] aws_iam_policy.ec2_cloudwatch_logs_role (expand)"
 		"[root] aws_iam_policy.ec2_linux_repo_access (expand)" -> "[root] data.aws_iam_policy_document.ec2_linux_repo_access (expand)"
@@ -278,9 +278,9 @@ digraph {
 		"[root] aws_iam_policy.ssm_agent_policy" -> "[root] aws_iam_policy.ssm_agent_policy (expand)"
 		"[root] aws_iam_policy.vpc_flow_log_role (expand)" -> "[root] data.aws_iam_policy_document.vpc_flow_log_role"
 		"[root] aws_iam_policy.vpc_flow_log_role" -> "[root] aws_iam_policy.vpc_flow_log_role (expand)"
-		"[root] aws_iam_role.internal_app (expand)" -> "[root] data.aws_iam_policy_document.internal_app_assume_role (expand)"
-		"[root] aws_iam_role.internal_app (expand)" -> "[root] local.name_suffix (expand)"
-		"[root] aws_iam_role.internal_app" -> "[root] aws_iam_role.internal_app (expand)"
+		"[root] aws_iam_role.rds_app (expand)" -> "[root] data.aws_iam_policy_document.internal_app_assume_role (expand)"
+		"[root] aws_iam_role.rds_app (expand)" -> "[root] local.name_suffix (expand)"
+		"[root] aws_iam_role.rds_app" -> "[root] aws_iam_role.rds_app (expand)"
 		"[root] aws_iam_role.rds_enhanced_monitoring_role (expand)" -> "[root] data.aws_iam_policy_document.rds_enhanced_monitoring_assume_role (expand)"
 		"[root] aws_iam_role.rds_enhanced_monitoring_role (expand)" -> "[root] local.name_suffix (expand)"
 		"[root] aws_iam_role.rds_enhanced_monitoring_role" -> "[root] aws_iam_role.rds_enhanced_monitoring_role (expand)"
@@ -291,48 +291,48 @@ digraph {
 		"[root] aws_iam_role_policy_attachment.attach_ (expand)" -> "[root] aws_iam_role.rds_enhanced_monitoring_role"
 		"[root] aws_iam_role_policy_attachment.attach_" -> "[root] aws_iam_role_policy_attachment.attach_ (expand)"
 		"[root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_logs_role (expand)" -> "[root] aws_iam_policy.ec2_cloudwatch_logs_role"
-		"[root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_logs_role (expand)" -> "[root] aws_iam_role.internal_app"
+		"[root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_logs_role (expand)" -> "[root] aws_iam_role.rds_app"
 		"[root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_logs_role" -> "[root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_logs_role (expand)"
 		"[root] aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand)" -> "[root] aws_iam_policy.read_cloudwatch_agent_config"
-		"[root] aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand)" -> "[root] aws_iam_role.internal_app"
+		"[root] aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand)" -> "[root] aws_iam_role.rds_app"
 		"[root] aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config" -> "[root] aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand)"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_host_parameter (expand)" -> "[root] aws_iam_policy.read_db_host_parameter"
-		"[root] aws_iam_role_policy_attachment.attach_read_db_host_parameter (expand)" -> "[root] aws_iam_role.internal_app"
+		"[root] aws_iam_role_policy_attachment.attach_read_db_host_parameter (expand)" -> "[root] aws_iam_role.rds_app"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_host_parameter" -> "[root] aws_iam_role_policy_attachment.attach_read_db_host_parameter (expand)"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_name_parameter (expand)" -> "[root] aws_iam_policy.read_db_name_parameter"
-		"[root] aws_iam_role_policy_attachment.attach_read_db_name_parameter (expand)" -> "[root] aws_iam_role.internal_app"
+		"[root] aws_iam_role_policy_attachment.attach_read_db_name_parameter (expand)" -> "[root] aws_iam_role.rds_app"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_name_parameter" -> "[root] aws_iam_role_policy_attachment.attach_read_db_name_parameter (expand)"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_port_parameter (expand)" -> "[root] aws_iam_policy.read_db_port_parameter"
-		"[root] aws_iam_role_policy_attachment.attach_read_db_port_parameter (expand)" -> "[root] aws_iam_role.internal_app"
+		"[root] aws_iam_role_policy_attachment.attach_read_db_port_parameter (expand)" -> "[root] aws_iam_role.rds_app"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_port_parameter" -> "[root] aws_iam_role_policy_attachment.attach_read_db_port_parameter (expand)"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_secret (expand)" -> "[root] aws_iam_policy.read_db_secret"
-		"[root] aws_iam_role_policy_attachment.attach_read_db_secret (expand)" -> "[root] aws_iam_role.internal_app"
+		"[root] aws_iam_role_policy_attachment.attach_read_db_secret (expand)" -> "[root] aws_iam_role.rds_app"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_secret" -> "[root] aws_iam_role_policy_attachment.attach_read_db_secret (expand)"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_username_parameter (expand)" -> "[root] aws_iam_policy.read_db_username_parameter"
-		"[root] aws_iam_role_policy_attachment.attach_read_db_username_parameter (expand)" -> "[root] aws_iam_role.internal_app"
+		"[root] aws_iam_role_policy_attachment.attach_read_db_username_parameter (expand)" -> "[root] aws_iam_role.rds_app"
 		"[root] aws_iam_role_policy_attachment.attach_read_db_username_parameter" -> "[root] aws_iam_role_policy_attachment.attach_read_db_username_parameter (expand)"
 		"[root] aws_iam_role_policy_attachment.attach_ssm_agent_policy (expand)" -> "[root] aws_iam_policy.ssm_agent_policy"
-		"[root] aws_iam_role_policy_attachment.attach_ssm_agent_policy (expand)" -> "[root] aws_iam_role.internal_app"
+		"[root] aws_iam_role_policy_attachment.attach_ssm_agent_policy (expand)" -> "[root] aws_iam_role.rds_app"
 		"[root] aws_iam_role_policy_attachment.attach_ssm_agent_policy" -> "[root] aws_iam_role_policy_attachment.attach_ssm_agent_policy (expand)"
 		"[root] aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role (expand)" -> "[root] aws_iam_policy.vpc_flow_log_role"
 		"[root] aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role (expand)" -> "[root] aws_iam_role.vpc_flow_log_role"
 		"[root] aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role" -> "[root] aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role (expand)"
 		"[root] aws_iam_role_policy_attachment.ec2_linux_repo_access (expand)" -> "[root] aws_iam_policy.ec2_linux_repo_access"
-		"[root] aws_iam_role_policy_attachment.ec2_linux_repo_access (expand)" -> "[root] aws_iam_role.internal_app"
+		"[root] aws_iam_role_policy_attachment.ec2_linux_repo_access (expand)" -> "[root] aws_iam_role.rds_app"
 		"[root] aws_iam_role_policy_attachment.ec2_linux_repo_access" -> "[root] aws_iam_role_policy_attachment.ec2_linux_repo_access (expand)"
-		"[root] aws_instance.internal_app (expand)" -> "[root] aws_iam_instance_profile.internal_app"
-		"[root] aws_instance.internal_app (expand)" -> "[root] aws_vpc_endpoint.ec2"
-		"[root] aws_instance.internal_app (expand)" -> "[root] aws_vpc_endpoint.ec2_messages"
-		"[root] aws_instance.internal_app (expand)" -> "[root] aws_vpc_endpoint.logs"
-		"[root] aws_instance.internal_app (expand)" -> "[root] aws_vpc_endpoint.s3"
-		"[root] aws_instance.internal_app (expand)" -> "[root] aws_vpc_endpoint.secretsmanager"
-		"[root] aws_instance.internal_app (expand)" -> "[root] aws_vpc_endpoint.ssm"
-		"[root] aws_instance.internal_app (expand)" -> "[root] aws_vpc_endpoint.ssm_messages"
-		"[root] aws_instance.internal_app (expand)" -> "[root] data.aws_ami.amazon_linux_2023 (expand)"
-		"[root] aws_instance.internal_app (expand)" -> "[root] local.ec2_sg_id (expand)"
-		"[root] aws_instance.internal_app (expand)" -> "[root] local.ec2_user_data (expand)"
-		"[root] aws_instance.internal_app (expand)" -> "[root] local.random_private_app_subnet (expand)"
-		"[root] aws_instance.internal_app" -> "[root] aws_instance.internal_app (expand)"
+		"[root] aws_instance.rds_app (expand)" -> "[root] aws_iam_instance_profile.rds_app"
+		"[root] aws_instance.rds_app (expand)" -> "[root] aws_vpc_endpoint.ec2"
+		"[root] aws_instance.rds_app (expand)" -> "[root] aws_vpc_endpoint.ec2_messages"
+		"[root] aws_instance.rds_app (expand)" -> "[root] aws_vpc_endpoint.logs"
+		"[root] aws_instance.rds_app (expand)" -> "[root] aws_vpc_endpoint.s3"
+		"[root] aws_instance.rds_app (expand)" -> "[root] aws_vpc_endpoint.secretsmanager"
+		"[root] aws_instance.rds_app (expand)" -> "[root] aws_vpc_endpoint.ssm"
+		"[root] aws_instance.rds_app (expand)" -> "[root] aws_vpc_endpoint.ssm_messages"
+		"[root] aws_instance.rds_app (expand)" -> "[root] data.aws_ami.amazon_linux_2023 (expand)"
+		"[root] aws_instance.rds_app (expand)" -> "[root] local.ec2_sg_id (expand)"
+		"[root] aws_instance.rds_app (expand)" -> "[root] local.ec2_user_data (expand)"
+		"[root] aws_instance.rds_app (expand)" -> "[root] local.random_private_app_subnet (expand)"
+		"[root] aws_instance.rds_app" -> "[root] aws_instance.rds_app (expand)"
 		"[root] aws_internet_gateway.main (expand)" -> "[root] aws_vpc.main"
 		"[root] aws_internet_gateway.main" -> "[root] aws_internet_gateway.main (expand)"
 		"[root] aws_route_table.local (expand)" -> "[root] aws_vpc.main"
@@ -555,7 +555,7 @@ digraph {
 		"[root] output.application_name (expand)" -> "[root] var.application_name"
 		"[root] output.availability_zones (expand)" -> "[root] data.aws_availability_zones.available (expand)"
 		"[root] output.environment (expand)" -> "[root] local.environment (expand)"
-		"[root] output.internal_app_info (expand)" -> "[root] aws_instance.internal_app"
+		"[root] output.internal_app_info (expand)" -> "[root] aws_instance.rds_app"
 		"[root] output.rds_info (expand)" -> "[root] aws_db_instance.lab_mysql"
 		"[root] output.rds_subnets (expand)" -> "[root] aws_db_subnet_group.armageddon_1a_db"
 		"[root] output.region (expand)" -> "[root] local.region (expand)"
@@ -578,7 +578,7 @@ digraph {
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_iam_role_policy_attachment.attach_ssm_agent_policy"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_iam_role_policy_attachment.ec2_linux_repo_access"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_instance.internal_app"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_instance.rds_app"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.private_app_a"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.private_app_b"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.private_app_c"

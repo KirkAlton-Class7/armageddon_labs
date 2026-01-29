@@ -1,11 +1,11 @@
 # EC2 Public App Security Group
 resource "aws_security_group" "ec2_internal_app" {
-  name        = "ec2-internal-app-sg"
+  name        = "ec2-rds-app-sg"
   description = "Allow all internal inbound traffic for HTTP and SSH"
   vpc_id      = aws_vpc.main.id
 
   tags = {
-    Name      = "ec2-internal-app-sg"
+    Name      = "ec2-rds-app-sg"
     Component = "security"
   }
 }
