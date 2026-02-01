@@ -6,6 +6,12 @@ resource "local_file" "ec2_user_data" {
   content  = local.ec2_user_data
 }
 
+# Local File - Rendered ASG User Data
+resource "local_file" "asg_user_data" {
+  filename = "${path.module}/rendered/asg_user_data-${local.name_suffix}.sh"
+  content  = local.asg_user_data
+}
+
 # Local File - Rendered CloudWatch Agent Configuration File
 resource "local_file" "cloudwatch_agent_config" {
   content  = local.cloudwatch_agent_config
