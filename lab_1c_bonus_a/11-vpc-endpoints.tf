@@ -1,3 +1,24 @@
+# Interface Endpoint - KMS
+resource "aws_vpc_endpoint" "kms" {
+  vpc_id            = aws_vpc.main.id
+  service_name      = "com.amazonaws.${local.region}.kms"
+  vpc_endpoint_type = "Interface"
+  subnet_ids        = local.private_app_subnets
+
+  security_group_ids = [
+    aws_security_group.vpc_endpoint.id
+  ]
+
+  private_dns_enabled = true
+
+  tags = merge(
+    {
+      Name = "vpc-endpoint-kms"
+    },
+    local.private_subnet_tags
+  )
+}
+
 
 # S3 Gateway Endpoint
 resource "aws_vpc_endpoint" "s3" {

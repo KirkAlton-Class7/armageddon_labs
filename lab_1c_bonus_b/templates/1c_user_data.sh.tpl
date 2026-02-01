@@ -5,6 +5,7 @@ set -euo pipefail
 mkdir -p /opt/aws/amazon-cloudwatch-agent/logs
 mkdir -p /opt/rdsapp
 
+# Write application code to Python file
 cat >/opt/rdsapp/app.py <<'PY'
 import json
 import os
@@ -20,8 +21,6 @@ secrets = boto3.client("secretsmanager", region_name=REGION)
 def get_db_creds():
     resp = secrets.get_secret_value(SecretId=SECRET_ID)
     s = json.loads(resp["SecretString"])
-    # When you use "Credentials for RDS database", AWS usually stores:
-    # username, password, host, port, dbname (sometimes)
     return s
 
 def get_conn():
@@ -128,7 +127,7 @@ systemctl daemon-reload
 systemctl enable rdsapp
 systemctl start rdsapp
 
-# Start
+# Start CloudWatch Agent
 /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
   -a fetch-config \
   -m ec2 \

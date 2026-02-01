@@ -135,8 +135,8 @@ digraph {
 		"[root] aws_security_group.public_alb (expand)" [label = "aws_security_group.public_alb", shape = "box"]
 		"[root] aws_security_group.rds_app_asg" [label = "aws_security_group.rds_app_asg", shape = "box"]
 		"[root] aws_security_group.rds_app_asg (expand)" [label = "aws_security_group.rds_app_asg", shape = "box"]
-		"[root] aws_security_group.vpc_endpoint" [label = "aws_security_group.vpc_endpoint", shape = "box"]
-		"[root] aws_security_group.vpc_endpoint (expand)" [label = "aws_security_group.vpc_endpoint", shape = "box"]
+		"[root] aws_security_group.vpc_endpoints" [label = "aws_security_group.vpc_endpoints", shape = "box"]
+		"[root] aws_security_group.vpc_endpoints (expand)" [label = "aws_security_group.vpc_endpoints", shape = "box"]
 		"[root] aws_sns_topic.app_to_rds_connection_failure_alert" [label = "aws_sns_topic.app_to_rds_connection_failure_alert", shape = "box"]
 		"[root] aws_sns_topic.app_to_rds_connection_failure_alert (expand)" [label = "aws_sns_topic.app_to_rds_connection_failure_alert", shape = "box"]
 		"[root] aws_sns_topic.lab_mysql_auth_failure_alert" [label = "aws_sns_topic.lab_mysql_auth_failure_alert", shape = "box"]
@@ -183,6 +183,8 @@ digraph {
 		"[root] aws_vpc_endpoint.ec2 (expand)" [label = "aws_vpc_endpoint.ec2", shape = "box"]
 		"[root] aws_vpc_endpoint.ec2_messages" [label = "aws_vpc_endpoint.ec2_messages", shape = "box"]
 		"[root] aws_vpc_endpoint.ec2_messages (expand)" [label = "aws_vpc_endpoint.ec2_messages", shape = "box"]
+		"[root] aws_vpc_endpoint.kms" [label = "aws_vpc_endpoint.kms", shape = "box"]
+		"[root] aws_vpc_endpoint.kms (expand)" [label = "aws_vpc_endpoint.kms", shape = "box"]
 		"[root] aws_vpc_endpoint.logs" [label = "aws_vpc_endpoint.logs", shape = "box"]
 		"[root] aws_vpc_endpoint.logs (expand)" [label = "aws_vpc_endpoint.logs", shape = "box"]
 		"[root] aws_vpc_endpoint.monitoring" [label = "aws_vpc_endpoint.monitoring", shape = "box"]
@@ -205,20 +207,14 @@ digraph {
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db (expand)" [label = "aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db", shape = "box"]
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb" [label = "aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb", shape = "box"]
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)" [label = "aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb", shape = "box"]
-		"[root] aws_vpc_security_group_egress_rule.allow_outbound_http_to_public_subnets (expand)" [label = "aws_vpc_security_group_egress_rule.allow_outbound_http_to_public_subnets", shape = "box"]
-		"[root] aws_vpc_security_group_egress_rule.allow_outbound_http_to_public_subnets[\"10.10.1.0/24\"]" [label = "aws_vpc_security_group_egress_rule.allow_outbound_http_to_public_subnets", shape = "box"]
-		"[root] aws_vpc_security_group_egress_rule.allow_outbound_http_to_public_subnets[\"10.10.2.0/24\"]" [label = "aws_vpc_security_group_egress_rule.allow_outbound_http_to_public_subnets", shape = "box"]
-		"[root] aws_vpc_security_group_egress_rule.allow_outbound_http_to_public_subnets[\"10.10.3.0/24\"]" [label = "aws_vpc_security_group_egress_rule.allow_outbound_http_to_public_subnets", shape = "box"]
-		"[root] aws_vpc_security_group_egress_rule.allow_outbound_https_to_public_subnets (expand)" [label = "aws_vpc_security_group_egress_rule.allow_outbound_https_to_public_subnets", shape = "box"]
-		"[root] aws_vpc_security_group_egress_rule.allow_outbound_https_to_public_subnets[\"10.10.1.0/24\"]" [label = "aws_vpc_security_group_egress_rule.allow_outbound_https_to_public_subnets", shape = "box"]
-		"[root] aws_vpc_security_group_egress_rule.allow_outbound_https_to_public_subnets[\"10.10.2.0/24\"]" [label = "aws_vpc_security_group_egress_rule.allow_outbound_https_to_public_subnets", shape = "box"]
-		"[root] aws_vpc_security_group_egress_rule.allow_outbound_https_to_public_subnets[\"10.10.3.0/24\"]" [label = "aws_vpc_security_group_egress_rule.allow_outbound_https_to_public_subnets", shape = "box"]
 		"[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb" [label = "aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb", shape = "box"]
 		"[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb (expand)" [label = "aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb", shape = "box"]
 		"[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb" [label = "aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb", shape = "box"]
 		"[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb (expand)" [label = "aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb", shape = "box"]
 		"[root] aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_rds_app" [label = "aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_rds_app", shape = "box"]
 		"[root] aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_rds_app (expand)" [label = "aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_rds_app", shape = "box"]
+		"[root] aws_vpc_security_group_ingress_rule.allow_https_vpc_endpoints" [label = "aws_vpc_security_group_ingress_rule.allow_https_vpc_endpoints", shape = "box"]
+		"[root] aws_vpc_security_group_ingress_rule.allow_https_vpc_endpoints (expand)" [label = "aws_vpc_security_group_ingress_rule.allow_https_vpc_endpoints", shape = "box"]
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app" [label = "aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app", shape = "box"]
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)" [label = "aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app", shape = "box"]
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg" [label = "aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg", shape = "box"]
@@ -461,8 +457,8 @@ digraph {
 		"[root] aws_security_group.public_alb" -> "[root] aws_security_group.public_alb (expand)"
 		"[root] aws_security_group.rds_app_asg (expand)" -> "[root] aws_vpc.main"
 		"[root] aws_security_group.rds_app_asg" -> "[root] aws_security_group.rds_app_asg (expand)"
-		"[root] aws_security_group.vpc_endpoint (expand)" -> "[root] aws_vpc.main"
-		"[root] aws_security_group.vpc_endpoint" -> "[root] aws_security_group.vpc_endpoint (expand)"
+		"[root] aws_security_group.vpc_endpoints (expand)" -> "[root] aws_vpc.main"
+		"[root] aws_security_group.vpc_endpoints" -> "[root] aws_security_group.vpc_endpoints (expand)"
 		"[root] aws_sns_topic.app_to_rds_connection_failure_alert (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] aws_sns_topic.app_to_rds_connection_failure_alert" -> "[root] aws_sns_topic.app_to_rds_connection_failure_alert (expand)"
 		"[root] aws_sns_topic.lab_mysql_auth_failure_alert (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
@@ -527,28 +523,31 @@ digraph {
 		"[root] aws_vpc.main (expand)" -> "[root] local.vpc_cidr (expand)"
 		"[root] aws_vpc.main (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] aws_vpc.main" -> "[root] aws_vpc.main (expand)"
-		"[root] aws_vpc_endpoint.ec2 (expand)" -> "[root] aws_security_group.vpc_endpoint"
+		"[root] aws_vpc_endpoint.ec2 (expand)" -> "[root] aws_security_group.vpc_endpoints"
 		"[root] aws_vpc_endpoint.ec2 (expand)" -> "[root] local.private_app_subnets (expand)"
 		"[root] aws_vpc_endpoint.ec2" -> "[root] aws_vpc_endpoint.ec2 (expand)"
-		"[root] aws_vpc_endpoint.ec2_messages (expand)" -> "[root] aws_security_group.vpc_endpoint"
+		"[root] aws_vpc_endpoint.ec2_messages (expand)" -> "[root] aws_security_group.vpc_endpoints"
 		"[root] aws_vpc_endpoint.ec2_messages (expand)" -> "[root] local.private_app_subnets (expand)"
 		"[root] aws_vpc_endpoint.ec2_messages" -> "[root] aws_vpc_endpoint.ec2_messages (expand)"
-		"[root] aws_vpc_endpoint.logs (expand)" -> "[root] aws_security_group.vpc_endpoint"
+		"[root] aws_vpc_endpoint.kms (expand)" -> "[root] aws_security_group.vpc_endpoints"
+		"[root] aws_vpc_endpoint.kms (expand)" -> "[root] local.private_app_subnets (expand)"
+		"[root] aws_vpc_endpoint.kms" -> "[root] aws_vpc_endpoint.kms (expand)"
+		"[root] aws_vpc_endpoint.logs (expand)" -> "[root] aws_security_group.vpc_endpoints"
 		"[root] aws_vpc_endpoint.logs (expand)" -> "[root] local.private_app_subnets (expand)"
 		"[root] aws_vpc_endpoint.logs" -> "[root] aws_vpc_endpoint.logs (expand)"
-		"[root] aws_vpc_endpoint.monitoring (expand)" -> "[root] aws_security_group.vpc_endpoint"
+		"[root] aws_vpc_endpoint.monitoring (expand)" -> "[root] aws_security_group.vpc_endpoints"
 		"[root] aws_vpc_endpoint.monitoring (expand)" -> "[root] local.private_app_subnets (expand)"
 		"[root] aws_vpc_endpoint.monitoring" -> "[root] aws_vpc_endpoint.monitoring (expand)"
 		"[root] aws_vpc_endpoint.s3 (expand)" -> "[root] aws_vpc.main"
 		"[root] aws_vpc_endpoint.s3 (expand)" -> "[root] local.private_subnet_tags (expand)"
 		"[root] aws_vpc_endpoint.s3" -> "[root] aws_vpc_endpoint.s3 (expand)"
-		"[root] aws_vpc_endpoint.secretsmanager (expand)" -> "[root] aws_security_group.vpc_endpoint"
+		"[root] aws_vpc_endpoint.secretsmanager (expand)" -> "[root] aws_security_group.vpc_endpoints"
 		"[root] aws_vpc_endpoint.secretsmanager (expand)" -> "[root] local.private_app_subnets (expand)"
 		"[root] aws_vpc_endpoint.secretsmanager" -> "[root] aws_vpc_endpoint.secretsmanager (expand)"
-		"[root] aws_vpc_endpoint.ssm (expand)" -> "[root] aws_security_group.vpc_endpoint"
+		"[root] aws_vpc_endpoint.ssm (expand)" -> "[root] aws_security_group.vpc_endpoints"
 		"[root] aws_vpc_endpoint.ssm (expand)" -> "[root] local.private_app_subnets (expand)"
 		"[root] aws_vpc_endpoint.ssm" -> "[root] aws_vpc_endpoint.ssm (expand)"
-		"[root] aws_vpc_endpoint.ssm_messages (expand)" -> "[root] aws_security_group.vpc_endpoint"
+		"[root] aws_vpc_endpoint.ssm_messages (expand)" -> "[root] aws_security_group.vpc_endpoints"
 		"[root] aws_vpc_endpoint.ssm_messages (expand)" -> "[root] local.private_app_subnets (expand)"
 		"[root] aws_vpc_endpoint.ssm_messages" -> "[root] aws_vpc_endpoint.ssm_messages (expand)"
 		"[root] aws_vpc_endpoint_route_table_association.s3_private_app_a (expand)" -> "[root] aws_route_table.local"
@@ -556,29 +555,22 @@ digraph {
 		"[root] aws_vpc_endpoint_route_table_association.s3_private_app_a" -> "[root] aws_vpc_endpoint_route_table_association.s3_private_app_a (expand)"
 		"[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app (expand)" -> "[root] aws_security_group.ec2_rds_app"
 		"[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app" -> "[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app (expand)"
-		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_from_vpc_endpoint (expand)" -> "[root] aws_security_group.vpc_endpoint"
+		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_from_vpc_endpoint (expand)" -> "[root] aws_security_group.vpc_endpoints"
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_from_vpc_endpoint" -> "[root] aws_vpc_security_group_egress_rule.allow_all_outbound_from_vpc_endpoint (expand)"
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db (expand)" -> "[root] aws_security_group.private_db"
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db" -> "[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db (expand)"
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)" -> "[root] aws_security_group.public_alb"
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)" -> "[root] aws_security_group.rds_app_asg"
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb" -> "[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)"
-		"[root] aws_vpc_security_group_egress_rule.allow_outbound_http_to_public_subnets (expand)" -> "[root] aws_security_group.rds_app_asg"
-		"[root] aws_vpc_security_group_egress_rule.allow_outbound_http_to_public_subnets (expand)" -> "[root] local.public_subnet_cidrs (expand)"
-		"[root] aws_vpc_security_group_egress_rule.allow_outbound_http_to_public_subnets[\"10.10.1.0/24\"]" -> "[root] aws_vpc_security_group_egress_rule.allow_outbound_http_to_public_subnets (expand)"
-		"[root] aws_vpc_security_group_egress_rule.allow_outbound_http_to_public_subnets[\"10.10.2.0/24\"]" -> "[root] aws_vpc_security_group_egress_rule.allow_outbound_http_to_public_subnets (expand)"
-		"[root] aws_vpc_security_group_egress_rule.allow_outbound_http_to_public_subnets[\"10.10.3.0/24\"]" -> "[root] aws_vpc_security_group_egress_rule.allow_outbound_http_to_public_subnets (expand)"
-		"[root] aws_vpc_security_group_egress_rule.allow_outbound_https_to_public_subnets (expand)" -> "[root] aws_security_group.rds_app_asg"
-		"[root] aws_vpc_security_group_egress_rule.allow_outbound_https_to_public_subnets (expand)" -> "[root] local.public_subnet_cidrs (expand)"
-		"[root] aws_vpc_security_group_egress_rule.allow_outbound_https_to_public_subnets[\"10.10.1.0/24\"]" -> "[root] aws_vpc_security_group_egress_rule.allow_outbound_https_to_public_subnets (expand)"
-		"[root] aws_vpc_security_group_egress_rule.allow_outbound_https_to_public_subnets[\"10.10.2.0/24\"]" -> "[root] aws_vpc_security_group_egress_rule.allow_outbound_https_to_public_subnets (expand)"
-		"[root] aws_vpc_security_group_egress_rule.allow_outbound_https_to_public_subnets[\"10.10.3.0/24\"]" -> "[root] aws_vpc_security_group_egress_rule.allow_outbound_https_to_public_subnets (expand)"
 		"[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb (expand)" -> "[root] aws_security_group.public_alb"
 		"[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb" -> "[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb (expand)"
 		"[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb (expand)" -> "[root] aws_security_group.public_alb"
 		"[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb" -> "[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb (expand)"
 		"[root] aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_rds_app (expand)" -> "[root] aws_security_group.ec2_rds_app"
 		"[root] aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_rds_app" -> "[root] aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_rds_app (expand)"
+		"[root] aws_vpc_security_group_ingress_rule.allow_https_vpc_endpoints (expand)" -> "[root] aws_security_group.rds_app_asg"
+		"[root] aws_vpc_security_group_ingress_rule.allow_https_vpc_endpoints (expand)" -> "[root] aws_security_group.vpc_endpoints"
+		"[root] aws_vpc_security_group_ingress_rule.allow_https_vpc_endpoints" -> "[root] aws_vpc_security_group_ingress_rule.allow_https_vpc_endpoints (expand)"
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)" -> "[root] aws_security_group.ec2_rds_app"
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)" -> "[root] aws_security_group.private_db"
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app" -> "[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)"
@@ -589,7 +581,7 @@ digraph {
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg (expand)" -> "[root] aws_security_group.rds_app_asg"
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg" -> "[root] aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg (expand)"
 		"[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint (expand)" -> "[root] aws_security_group.ec2_rds_app"
-		"[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint (expand)" -> "[root] aws_security_group.vpc_endpoint"
+		"[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint (expand)" -> "[root] aws_security_group.vpc_endpoints"
 		"[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint" -> "[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint (expand)"
 		"[root] data.aws_ami.amazon_linux_2023 (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] data.aws_availability_zones.available (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
@@ -624,7 +616,9 @@ digraph {
 		"[root] data.aws_iam_policy_document.vpc_flow_log_role" -> "[root] data.aws_iam_policy_document.vpc_flow_log_role (expand)"
 		"[root] data.aws_route53_zone.rds_app_zone (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] local.account_id (expand)" -> "[root] data.aws_caller_identity.current_account (expand)"
+		"[root] local.alb_sg_id (expand)" -> "[root] aws_security_group.public_alb"
 		"[root] local.application (expand)" -> "[root] var.application_name"
+		"[root] local.asg_sg_id (expand)" -> "[root] aws_security_group.rds_app_asg"
 		"[root] local.asg_user_data (expand)" -> "[root] local.secret_id (expand)"
 		"[root] local.azs (expand)" -> "[root] data.aws_availability_zones.available (expand)"
 		"[root] local.base_tags (expand)" -> "[root] local.environment (expand)"
@@ -724,21 +718,17 @@ digraph {
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_ssm_parameter.lab_mysql_db_name"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_ssm_parameter.lab_mysql_db_port"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_ssm_parameter.lab_mysql_db_username"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_endpoint.kms"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_endpoint.monitoring"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_endpoint_route_table_association.s3_private_app_a"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_egress_rule.allow_all_internal_outbound_ipv4_ec2_rds_app"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_egress_rule.allow_all_outbound_from_vpc_endpoint"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_egress_rule.allow_outbound_http_to_public_subnets[\"10.10.1.0/24\"]"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_egress_rule.allow_outbound_http_to_public_subnets[\"10.10.2.0/24\"]"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_egress_rule.allow_outbound_http_to_public_subnets[\"10.10.3.0/24\"]"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_egress_rule.allow_outbound_https_to_public_subnets[\"10.10.1.0/24\"]"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_egress_rule.allow_outbound_https_to_public_subnets[\"10.10.2.0/24\"]"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_egress_rule.allow_outbound_https_to_public_subnets[\"10.10.3.0/24\"]"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_rds_app"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_ingress_rule.allow_https_vpc_endpoints"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg"
@@ -759,10 +749,13 @@ digraph {
 		"[root] random_password.db_password" -> "[root] random_password.db_password (expand)"
 		"[root] random_string.suffix (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/random\"]"
 		"[root] random_string.suffix" -> "[root] random_string.suffix (expand)"
+		"[root] root" -> "[root] local.alb_sg_id (expand)"
+		"[root] root" -> "[root] local.asg_sg_id (expand)"
 		"[root] root" -> "[root] local.base_tags (expand)"
 		"[root] root" -> "[root] local.name_prefix (expand)"
 		"[root] root" -> "[root] local.private_app_subnet_cidrs (expand)"
 		"[root] root" -> "[root] local.private_data_subnet_cidrs (expand)"
+		"[root] root" -> "[root] local.public_subnet_cidrs (expand)"
 		"[root] root" -> "[root] local.random_private_data_subnet (expand)"
 		"[root] root" -> "[root] local.random_public_subnet (expand)"
 		"[root] root" -> "[root] local.vpc_endpoint_tags (expand)"

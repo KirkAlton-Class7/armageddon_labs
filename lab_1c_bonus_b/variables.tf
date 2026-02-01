@@ -60,8 +60,3 @@ variable "region_map" {
 #   }
 # }
 
-# # Variable for ACM Certificate ARN
-# variable "acm_cert_arn" {
-#   type        = string
-#   description = "Enter the ARN of the ACM Certificate to use for the ALB HTTPS Listener."
-# }
