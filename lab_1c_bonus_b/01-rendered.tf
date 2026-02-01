@@ -3,13 +3,13 @@
 # Local File - Rendered EC2 User Data
 resource "local_file" "ec2_user_data" {
   filename = "${path.module}/rendered/ec2_user_data-${local.name_suffix}.sh"
-  content  = local.ec2_user_data
+  content  = local.rds_app_user_data
 }
 
 # Local File - Rendered ASG User Data
 resource "local_file" "asg_user_data" {
   filename = "${path.module}/rendered/asg_user_data-${local.name_suffix}.sh"
-  content  = local.asg_user_data
+  content  = local.rds_app_user_data
 }
 
 # Local File - Rendered CloudWatch Agent Configuration File

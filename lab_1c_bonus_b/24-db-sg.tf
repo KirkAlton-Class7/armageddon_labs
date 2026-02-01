@@ -16,7 +16,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_inbound_http_from_ec2_inte
   ip_protocol                  = "tcp"
   from_port                    = 3306
   to_port                      = 3306
-  referenced_security_group_id = aws_security_group.ec2_rds_app.id
+  referenced_security_group_id = aws_security_group.rds_app_asg.id
 }
 
 # SG Rule: Allow Internal Outbound IPv4 for Private DB SG

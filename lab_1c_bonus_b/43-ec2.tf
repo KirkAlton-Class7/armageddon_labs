@@ -6,6 +6,7 @@ resource "aws_iam_instance_profile" "rds_app" {
   role = aws_iam_role.rds_app.name
 }
 
+
 # EC2 Instances
 
 # EC2 - RDS App EC2
@@ -19,7 +20,7 @@ resource "aws_instance" "rds_app" {
   # key_name             = aws_key_pair.tf_armageddon_key.key_name
   # Replace with your key aws_key_pair resource to test EC2 via SSH
 
-  user_data = local.ec2_user_data
+  user_data = local.rds_app_user_data
 
   associate_public_ip_address = false
 

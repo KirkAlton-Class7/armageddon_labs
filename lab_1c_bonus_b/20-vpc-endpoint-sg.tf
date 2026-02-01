@@ -12,11 +12,11 @@ resource "aws_security_group" "vpc_endpoints" {
 
 # SG Rule: Allow Internal HTTPS Inbound from EC2 RDS App SG
 resource "aws_vpc_security_group_ingress_rule" "allow_internal_app_https_to_vpc_endpoint" {
-  security_group_id            = aws_security_group.vpc_endpoints.id
-  cidr_ipv4                    = local.vpc_cidr
-  ip_protocol                  = "tcp"
-  from_port                    = 443
-  to_port                      = 443
+  security_group_id = aws_security_group.vpc_endpoints.id
+  cidr_ipv4         = local.vpc_cidr
+  ip_protocol       = "tcp"
+  from_port         = 443
+  to_port           = 443
 }
 
 # SG Rule: Allow all Outbound IPv4 for VPC Endpoint SG
