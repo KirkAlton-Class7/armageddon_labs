@@ -110,6 +110,15 @@ locals {
     }
   )
 
+  # User Data for ASG Instances
+  asg_user_data = templatefile("${path.module}/templates/1c_user_data.sh.tpl",
+    {
+      region      = local.region,
+      secret_id   = local.secret_id
+      name_suffix = local.name_suffix
+    }
+  )
+
   # CloudWatch Agent Configuration File
   cloudwatch_agent_config = templatefile("${path.module}/templates/cloudwatch-agent-config.json.tpl",
     {

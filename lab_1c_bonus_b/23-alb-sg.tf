@@ -27,9 +27,11 @@ resource "aws_vpc_security_group_ingress_rule" "allow_all_inbound_https_ipv4_pub
   to_port           = 443
 }
 
-# SG Rule: Allow all Outbound IPv4 for Public ALB SG
+# SG Rule: Only Allow Outbound IPv4 to RDS App ASG SG
 resource "aws_vpc_security_group_egress_rule" "allow_all_outbound_ipv4_public_alb" {
-  security_group_id = aws_security_group.public_alb.id
-  cidr_ipv4         = "0.0.0.0/0"
-  ip_protocol       = "-1" # semantically equivalent to all ports
+  security_group_id            = aws_security_group.public_alb.id
+  ip_protocol                  = "tcp"
+  from_port                    = 80
+  to_port                      = 80
+  referenced_security_group_id = aws_security_group.rds_app_asg.id
 }

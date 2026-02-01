@@ -59,3 +59,9 @@ variable "region_map" {
 #     error_message = "Must be a valid IPv4 CIDR block address (e.g., 192.168.1.0/24 or 10.0.0.1/32)."
 #   }
 # }
+
+# # Variable for ACM Certificate ARN
+# variable "acm_cert_arn" {
+#   type        = string
+#   description = "Enter the ARN of the ACM Certificate to use for the ALB HTTPS Listener."
+# }

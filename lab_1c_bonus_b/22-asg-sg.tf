@@ -1,6 +1,6 @@
 # Private ASG Security Group
 resource "aws_security_group" "rds_app_asg" {
-  name        = "rds_app_asg"
+  name        = "rds-app-asg-sg"
   description = "Only allow inbound traffic from public-application-lb-sg"
   vpc_id      = aws_vpc.main.id
 

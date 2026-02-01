@@ -1,13 +1,13 @@
 # Launch Template for RDS App Auto Scaling Group
 resource "aws_launch_template" "rds_app_asg" {
   name     = "rds-app-asg-lt"
-  image_id = data.aws_ami.amazon_linux_2023.id
+  image_id = "ami-0efe8259c582a1117" # Replace with the AMI for your Golden Image (AL2023)
   #image_id = data.aws_ssm_parameter.al2023.value  # Alternatively, use latest AL2023 AMI via SSM Parameter Store (From Aaron's code. Looks simpler)
   instance_type          = "t3.micro"
   vpc_security_group_ids = [aws_security_group.rds_app_asg.id]
   #key_name = "osaka-key"  # Replace with your key pair name
 
-  user_data = base64encode(local.ec2_user_data)
+  user_data = base64encode(local.asg_user_data)
 
   ebs_optimized                        = true
   instance_initiated_shutdown_behavior = "terminate"
