@@ -1,31 +1,31 @@
-# Launch Template for RDS App EC2 Instance
-resource "aws_launch_template" "rds_app_ec2" {
-  name                   = "rds-app-ec2-lt"
-  image_id               = "ami-0365298ecd8182a83" # Replace with the AMI for your Golden Image (AL2023).
-  instance_type          = "t3.micro"
-  vpc_security_group_ids = [aws_security_group.ec2_rds_app.id]
+# # Launch Template for RDS App EC2 Instance
+# resource "aws_launch_template" "rds_app_ec2" {
+#   name                   = "rds-app-ec2-lt"
+#   image_id               = "ami-0365298ecd8182a83" # Replace with the AMI for your Golden Image (AL2023).
+#   instance_type          = "t3.micro"
+#   vpc_security_group_ids = [aws_security_group.ec2_rds_app.id]
 
-  user_data = base64encode(local.rds_app_user_data)
+#   user_data = base64encode(local.rds_app_user_data)
 
-  ebs_optimized                        = true
-  instance_initiated_shutdown_behavior = "terminate"
+#   ebs_optimized                        = true
+#   instance_initiated_shutdown_behavior = "terminate"
 
-  iam_instance_profile {
-    name = aws_iam_instance_profile.rds_app.name
-  }
+#   iam_instance_profile {
+#     name = aws_iam_instance_profile.rds_app.name
+#   }
 
-  monitoring {
-    enabled = true
-  }
+#   monitoring {
+#     enabled = true
+#   }
 
-  tag_specifications {
-    resource_type = "instance"
+#   tag_specifications {
+#     resource_type = "instance"
 
-    tags = {
-      Name = "rds-app-instance"
-    }
-  }
-}
+#     tags = {
+#       Name = "rds-app-instance"
+#     }
+#   }
+# }
 
 
 # Launch Template for RDS App Auto Scaling Group

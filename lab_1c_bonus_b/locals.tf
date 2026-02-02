@@ -122,7 +122,7 @@ locals {
 
   # Security Group IDs
   alb_sg_id        = aws_security_group.public_alb.id
-  ec2_sg_id        = aws_security_group.ec2_rds_app.id
+  # ec2_sg_id        = aws_security_group.ec2_rds_app.id
   asg_sg_id        = aws_security_group.rds_app_asg.id
   private_db_sg_id = aws_security_group.private_db.id
 

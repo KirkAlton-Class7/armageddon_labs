@@ -1,14 +1,11 @@
 #!/bin/bash
 
-dnf update -y
-sudo dnf install mariadb105 -y
-sudo dnf install amazon-cloudwatch-agent -y
-dnf install -y python3-pip
-pip3 install flask pymysql boto3
+set -euo pipefail
 
 mkdir -p /opt/aws/amazon-cloudwatch-agent/logs
 mkdir -p /opt/rdsapp
 
+# Write application code to Python file
 cat >/opt/rdsapp/app.py <<'PY'
 import json
 import os
@@ -24,8 +21,6 @@ secrets = boto3.client("secretsmanager", region_name=REGION)
 def get_db_creds():
     resp = secrets.get_secret_value(SecretId=SECRET_ID)
     s = json.loads(resp["SecretString"])
-    # When you use "Credentials for RDS database", AWS usually stores:
-    # username, password, host, port, dbname (sometimes)
     return s
 
 def get_conn():
@@ -106,7 +101,7 @@ AWS_REGION=${region}
 SECRET_ID=${secret_id}
 EOF
 
-
+# Create systemd service unit
 cat >/etc/systemd/system/rdsapp.service <<'SERVICE'
 [Unit]
 Description=EC2 to RDS Notes App
@@ -123,6 +118,7 @@ Restart=always
 WantedBy=multi-user.target
 SERVICE
 
+# Start services
 echo "[INFO] Sleeping 60s to give VPC endpoints and dependencies time to initialize" >> /var/log/user_data.log
 sleep 60
 echo "[INFO] Starting CloudWatch Agent" >> /var/log/user_data.log
@@ -131,6 +127,7 @@ systemctl daemon-reload
 systemctl enable rdsapp
 systemctl start rdsapp
 
+# Start CloudWatch Agent
 /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
   -a fetch-config \
   -m ec2 \
