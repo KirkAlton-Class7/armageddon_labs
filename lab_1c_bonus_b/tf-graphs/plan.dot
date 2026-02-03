@@ -131,8 +131,8 @@ digraph {
 		"[root] aws_security_group.ec2_rds_app (expand)" [label = "aws_security_group.ec2_rds_app", shape = "box"]
 		"[root] aws_security_group.private_db" [label = "aws_security_group.private_db", shape = "box"]
 		"[root] aws_security_group.private_db (expand)" [label = "aws_security_group.private_db", shape = "box"]
-		"[root] aws_security_group.public_alb" [label = "aws_security_group.public_alb", shape = "box"]
-		"[root] aws_security_group.public_alb (expand)" [label = "aws_security_group.public_alb", shape = "box"]
+		"[root] aws_security_group.alb" [label = "aws_security_group.alb", shape = "box"]
+		"[root] aws_security_group.alb (expand)" [label = "aws_security_group.alb", shape = "box"]
 		"[root] aws_security_group.rds_app_asg" [label = "aws_security_group.rds_app_asg", shape = "box"]
 		"[root] aws_security_group.rds_app_asg (expand)" [label = "aws_security_group.rds_app_asg", shape = "box"]
 		"[root] aws_security_group.vpc_endpoints" [label = "aws_security_group.vpc_endpoints", shape = "box"]
@@ -396,7 +396,7 @@ digraph {
 		"[root] aws_launch_template.rds_app_asg (expand)" -> "[root] aws_security_group.rds_app_asg"
 		"[root] aws_launch_template.rds_app_asg (expand)" -> "[root] local.asg_user_data (expand)"
 		"[root] aws_launch_template.rds_app_asg" -> "[root] aws_launch_template.rds_app_asg (expand)"
-		"[root] aws_lb.rds_app_public_alb (expand)" -> "[root] aws_security_group.public_alb"
+		"[root] aws_lb.rds_app_public_alb (expand)" -> "[root] aws_security_group.alb"
 		"[root] aws_lb.rds_app_public_alb (expand)" -> "[root] local.public_subnets (expand)"
 		"[root] aws_lb.rds_app_public_alb" -> "[root] aws_lb.rds_app_public_alb (expand)"
 		"[root] aws_lb_listener.rds_app_https (expand)" -> "[root] aws_acm_certificate_validation.rds_app_cert"
@@ -453,8 +453,8 @@ digraph {
 		"[root] aws_security_group.ec2_rds_app" -> "[root] aws_security_group.ec2_rds_app (expand)"
 		"[root] aws_security_group.private_db (expand)" -> "[root] aws_vpc.main"
 		"[root] aws_security_group.private_db" -> "[root] aws_security_group.private_db (expand)"
-		"[root] aws_security_group.public_alb (expand)" -> "[root] aws_vpc.main"
-		"[root] aws_security_group.public_alb" -> "[root] aws_security_group.public_alb (expand)"
+		"[root] aws_security_group.alb (expand)" -> "[root] aws_vpc.main"
+		"[root] aws_security_group.alb" -> "[root] aws_security_group.alb (expand)"
 		"[root] aws_security_group.rds_app_asg (expand)" -> "[root] aws_vpc.main"
 		"[root] aws_security_group.rds_app_asg" -> "[root] aws_security_group.rds_app_asg (expand)"
 		"[root] aws_security_group.vpc_endpoints (expand)" -> "[root] aws_vpc.main"
@@ -559,12 +559,12 @@ digraph {
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_from_vpc_endpoint" -> "[root] aws_vpc_security_group_egress_rule.allow_all_outbound_from_vpc_endpoint (expand)"
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db (expand)" -> "[root] aws_security_group.private_db"
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db" -> "[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db (expand)"
-		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)" -> "[root] aws_security_group.public_alb"
+		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)" -> "[root] aws_security_group.alb"
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)" -> "[root] aws_security_group.rds_app_asg"
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb" -> "[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)"
-		"[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb (expand)" -> "[root] aws_security_group.public_alb"
+		"[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb (expand)" -> "[root] aws_security_group.alb"
 		"[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb" -> "[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb (expand)"
-		"[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb (expand)" -> "[root] aws_security_group.public_alb"
+		"[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb (expand)" -> "[root] aws_security_group.alb"
 		"[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb" -> "[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb (expand)"
 		"[root] aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_rds_app (expand)" -> "[root] aws_security_group.ec2_rds_app"
 		"[root] aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_rds_app" -> "[root] aws_vpc_security_group_ingress_rule.allow_all_internal_ipv4_ec2_rds_app (expand)"
@@ -574,10 +574,10 @@ digraph {
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)" -> "[root] aws_security_group.ec2_rds_app"
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)" -> "[root] aws_security_group.private_db"
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app" -> "[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)"
-		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg (expand)" -> "[root] aws_security_group.public_alb"
+		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg (expand)" -> "[root] aws_security_group.alb"
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg (expand)" -> "[root] aws_security_group.rds_app_asg"
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg" -> "[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg (expand)"
-		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg (expand)" -> "[root] aws_security_group.public_alb"
+		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg (expand)" -> "[root] aws_security_group.alb"
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg (expand)" -> "[root] aws_security_group.rds_app_asg"
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg" -> "[root] aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg (expand)"
 		"[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint (expand)" -> "[root] aws_security_group.ec2_rds_app"
@@ -616,9 +616,9 @@ digraph {
 		"[root] data.aws_iam_policy_document.vpc_flow_log_role" -> "[root] data.aws_iam_policy_document.vpc_flow_log_role (expand)"
 		"[root] data.aws_route53_zone.rds_app_zone (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] local.account_id (expand)" -> "[root] data.aws_caller_identity.current_account (expand)"
-		"[root] local.alb_sg_id (expand)" -> "[root] aws_security_group.public_alb"
+		"[root] local.alb_sg_id (expand)" -> "[root] aws_security_group.alb"
 		"[root] local.application (expand)" -> "[root] var.application_name"
-		"[root] local.asg_sg_id (expand)" -> "[root] aws_security_group.rds_app_asg"
+		"[root] local.rds_app_asg_sg_id (expand)" -> "[root] aws_security_group.rds_app_asg"
 		"[root] local.asg_user_data (expand)" -> "[root] local.secret_id (expand)"
 		"[root] local.azs (expand)" -> "[root] data.aws_availability_zones.available (expand)"
 		"[root] local.base_tags (expand)" -> "[root] local.environment (expand)"
@@ -750,7 +750,7 @@ digraph {
 		"[root] random_string.suffix (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/random\"]"
 		"[root] random_string.suffix" -> "[root] random_string.suffix (expand)"
 		"[root] root" -> "[root] local.alb_sg_id (expand)"
-		"[root] root" -> "[root] local.asg_sg_id (expand)"
+		"[root] root" -> "[root] local.rds_app_asg_sg_id (expand)"
 		"[root] root" -> "[root] local.base_tags (expand)"
 		"[root] root" -> "[root] local.name_prefix (expand)"
 		"[root] root" -> "[root] local.private_app_subnet_cidrs (expand)"

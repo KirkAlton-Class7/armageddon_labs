@@ -124,8 +124,8 @@ locals {
 
   # Security Group IDs
   alb_sg_id        = aws_security_group.alb.id
-  # rds_app_ec2_sg_id        = aws_security_group.rds_app_ec2.id
-  rds_app_asg_sg_id = aws_security_group.rds_app_asg
+  rds_app_ec2_sg_id        = aws_security_group.rds_app_ec2.id
+  rds_app_asg_sg_id        = aws_security_group.rds_app_asg.id
   private_db_sg_id = aws_security_group.private_db.id
 
   db_credentials = {

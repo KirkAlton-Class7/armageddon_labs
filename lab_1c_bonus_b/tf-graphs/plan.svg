@@ -1556,15 +1556,15 @@
 <path fill="none" stroke="black" d="M10723.49,-863.57C10723.49,-859.82 10723.49,-857 10723.49,-857 10723.49,-857 8829.55,-857 8829.55,-857 8829.55,-857 8829.55,-839.82 8829.55,-839.82"/>
 <polygon fill="black" stroke="black" points="8833.05,-839.82 8829.55,-829.82 8826.05,-839.82 8833.05,-839.82"/>
 </g>
-<!-- [root] aws_security_group.public_alb -->
+<!-- [root] aws_security_group.alb -->
 <g id="node130" class="node">
-<title>[root] aws_security_group.public_alb</title>
+<title>[root] aws_security_group.alb</title>
 <polygon fill="none" stroke="black" points="7849.24,-756 7663.74,-756 7663.74,-720 7849.24,-720 7849.24,-756"/>
-<text xml:space="preserve" text-anchor="middle" x="7756.49" y="-732.95" font-family="Times,serif" font-size="14.00">aws_security_group.public_alb</text>
+<text xml:space="preserve" text-anchor="middle" x="7756.49" y="-732.95" font-family="Times,serif" font-size="14.00">aws_security_group.alb</text>
 </g>
-<!-- [root] aws_lb.rds_app_public_alb (expand)&#45;&gt;[root] aws_security_group.public_alb -->
+<!-- [root] aws_lb.rds_app_public_alb (expand)&#45;&gt;[root] aws_security_group.alb -->
 <g id="edge128" class="edge">
-<title>[root] aws_lb.rds_app_public_alb (expand)&#45;&gt;[root] aws_security_group.public_alb</title>
+<title>[root] aws_lb.rds_app_public_alb (expand)&#45;&gt;[root] aws_security_group.alb</title>
 <path fill="none" stroke="black" d="M8712.66,-791.57C8712.66,-784.01 8712.66,-777 8712.66,-777 8712.66,-777 7800.37,-777 7800.37,-777 7800.37,-777 7800.37,-767.64 7800.37,-767.64"/>
 <polygon fill="black" stroke="black" points="7803.87,-767.64 7800.37,-757.64 7796.87,-767.64 7803.87,-767.64"/>
 </g>
@@ -2162,21 +2162,21 @@
 <path fill="none" stroke="black" d="M5511.74,-503.57C5511.74,-499.82 5511.74,-497 5511.74,-497 5511.74,-497 6218.84,-497 6218.84,-497 6218.84,-497 6218.84,-407.85 6218.84,-407.85"/>
 <polygon fill="black" stroke="black" points="6222.34,-407.85 6218.84,-397.85 6215.34,-407.85 6222.34,-407.85"/>
 </g>
-<!-- [root] aws_security_group.public_alb (expand) -->
+<!-- [root] aws_security_group.alb (expand) -->
 <g id="node131" class="node">
-<title>[root] aws_security_group.public_alb (expand)</title>
+<title>[root] aws_security_group.alb (expand)</title>
 <polygon fill="none" stroke="black" points="6834.24,-468 6648.74,-468 6648.74,-432 6834.24,-432 6834.24,-468"/>
-<text xml:space="preserve" text-anchor="middle" x="6741.49" y="-444.95" font-family="Times,serif" font-size="14.00">aws_security_group.public_alb</text>
+<text xml:space="preserve" text-anchor="middle" x="6741.49" y="-444.95" font-family="Times,serif" font-size="14.00">aws_security_group.alb</text>
 </g>
-<!-- [root] aws_security_group.public_alb&#45;&gt;[root] aws_security_group.public_alb (expand) -->
+<!-- [root] aws_security_group.alb&#45;&gt;[root] aws_security_group.alb (expand) -->
 <g id="edge186" class="edge">
-<title>[root] aws_security_group.public_alb&#45;&gt;[root] aws_security_group.public_alb (expand)</title>
+<title>[root] aws_security_group.alb&#45;&gt;[root] aws_security_group.alb (expand)</title>
 <path fill="none" stroke="black" d="M7697.33,-719.57C7697.33,-715.82 7697.33,-713 7697.33,-713 7697.33,-713 6810.87,-713 6810.87,-713 6810.87,-713 6810.87,-480.01 6810.87,-480.01"/>
 <polygon fill="black" stroke="black" points="6814.37,-480.01 6810.87,-470.01 6807.37,-480.01 6814.37,-480.01"/>
 </g>
-<!-- [root] aws_security_group.public_alb (expand)&#45;&gt;[root] aws_vpc.main -->
+<!-- [root] aws_security_group.alb (expand)&#45;&gt;[root] aws_vpc.main -->
 <g id="edge185" class="edge">
-<title>[root] aws_security_group.public_alb (expand)&#45;&gt;[root] aws_vpc.main</title>
+<title>[root] aws_security_group.alb (expand)&#45;&gt;[root] aws_vpc.main</title>
 <path fill="none" stroke="black" d="M6730.68,-431.62C6730.68,-412.09 6730.68,-384 6730.68,-384 6730.68,-384 6274.55,-384 6274.55,-384"/>
 <polygon fill="black" stroke="black" points="6274.55,-380.5 6264.55,-384 6274.55,-387.5 6274.55,-380.5"/>
 </g>
@@ -3176,9 +3176,9 @@
 <path fill="none" stroke="black" d="M7020.49,-863.83C7020.49,-863.83 7020.49,-839.93 7020.49,-839.93"/>
 <polygon fill="black" stroke="black" points="7023.99,-839.93 7020.49,-829.93 7016.99,-839.93 7023.99,-839.93"/>
 </g>
-<!-- [root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.public_alb -->
+<!-- [root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.alb -->
 <g id="edge291" class="edge">
-<title>[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.public_alb</title>
+<title>[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.alb</title>
 <path fill="none" stroke="black" d="M7199.62,-791.62C7199.62,-772.09 7199.62,-744 7199.62,-744 7199.62,-744 7651.77,-744 7651.77,-744"/>
 <polygon fill="black" stroke="black" points="7651.77,-747.5 7661.77,-744 7651.77,-740.5 7651.77,-747.5"/>
 </g>
@@ -3206,9 +3206,9 @@
 <path fill="none" stroke="black" d="M8912.49,-1007.83C8912.49,-1007.83 8912.49,-983.93 8912.49,-983.93"/>
 <polygon fill="black" stroke="black" points="8915.99,-983.93 8912.49,-973.93 8908.99,-983.93 8915.99,-983.93"/>
 </g>
-<!-- [root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.public_alb -->
+<!-- [root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.alb -->
 <g id="edge294" class="edge">
-<title>[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.public_alb</title>
+<title>[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.alb</title>
 <path fill="none" stroke="black" d="M8747.3,-935.68C8747.3,-903.46 8747.3,-840 8747.3,-840 8747.3,-840 7693.68,-840 7693.68,-840 7693.68,-840 7693.68,-767.75 7693.68,-767.75"/>
 <polygon fill="black" stroke="black" points="7697.18,-767.75 7693.68,-757.75 7690.18,-767.75 7697.18,-767.75"/>
 </g>
@@ -3230,9 +3230,9 @@
 <path fill="none" stroke="black" d="M8440.49,-1007.83C8440.49,-1007.83 8440.49,-983.93 8440.49,-983.93"/>
 <polygon fill="black" stroke="black" points="8443.99,-983.93 8440.49,-973.93 8436.99,-983.93 8443.99,-983.93"/>
 </g>
-<!-- [root] aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.public_alb -->
+<!-- [root] aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.alb -->
 <g id="edge296" class="edge">
-<title>[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.public_alb</title>
+<title>[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.alb</title>
 <path fill="none" stroke="black" d="M8222.48,-935.83C8222.48,-890.86 8222.48,-778 8222.48,-778 8222.48,-778 7775.93,-778 7775.93,-778 7775.93,-778 7775.93,-767.64 7775.93,-767.64"/>
 <polygon fill="black" stroke="black" points="7779.43,-767.64 7775.93,-757.64 7772.43,-767.64 7779.43,-767.64"/>
 </g>
@@ -3338,9 +3338,9 @@
 <path fill="none" stroke="black" d="M7477.49,-863.83C7477.49,-863.83 7477.49,-839.93 7477.49,-839.93"/>
 <polygon fill="black" stroke="black" points="7480.99,-839.93 7477.49,-829.93 7473.99,-839.93 7480.99,-839.93"/>
 </g>
-<!-- [root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg (expand)&#45;&gt;[root] aws_security_group.public_alb -->
+<!-- [root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg (expand)&#45;&gt;[root] aws_security_group.alb -->
 <g id="edge306" class="edge">
-<title>[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg (expand)&#45;&gt;[root] aws_security_group.public_alb</title>
+<title>[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg (expand)&#45;&gt;[root] aws_security_group.alb</title>
 <path fill="none" stroke="black" d="M7674.24,-791.83C7674.24,-791.83 7674.24,-767.93 7674.24,-767.93"/>
 <polygon fill="black" stroke="black" points="7677.74,-767.93 7674.24,-757.93 7670.74,-767.93 7677.74,-767.93"/>
 </g>
@@ -3368,9 +3368,9 @@
 <path fill="none" stroke="black" d="M7950.49,-863.83C7950.49,-863.83 7950.49,-839.93 7950.49,-839.93"/>
 <polygon fill="black" stroke="black" points="7953.99,-839.93 7950.49,-829.93 7946.99,-839.93 7953.99,-839.93"/>
 </g>
-<!-- [root] aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg (expand)&#45;&gt;[root] aws_security_group.public_alb -->
+<!-- [root] aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg (expand)&#45;&gt;[root] aws_security_group.alb -->
 <g id="edge309" class="edge">
-<title>[root] aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg (expand)&#45;&gt;[root] aws_security_group.public_alb</title>
+<title>[root] aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg (expand)&#45;&gt;[root] aws_security_group.alb</title>
 <path fill="none" stroke="black" d="M7751.49,-791.83C7751.49,-791.83 7751.49,-767.93 7751.49,-767.93"/>
 <polygon fill="black" stroke="black" points="7754.99,-767.93 7751.49,-757.93 7747.99,-767.93 7754.99,-767.93"/>
 </g>
@@ -4062,9 +4062,9 @@
 <ellipse fill="none" stroke="black" cx="11060.49" cy="-1098" rx="126.08" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="11060.49" y="-1092.95" font-family="Times,serif" font-size="14.00">[root] local.alb_sg_id (expand)</text>
 </g>
-<!-- [root] local.alb_sg_id (expand)&#45;&gt;[root] aws_security_group.public_alb -->
+<!-- [root] local.alb_sg_id (expand)&#45;&gt;[root] aws_security_group.alb -->
 <g id="edge348" class="edge">
-<title>[root] local.alb_sg_id (expand)&#45;&gt;[root] aws_security_group.public_alb</title>
+<title>[root] local.alb_sg_id (expand)&#45;&gt;[root] aws_security_group.alb</title>
 <path fill="none" stroke="black" d="M11019.02,-1080.85C11019.02,-1069.61 11019.02,-1057 11019.02,-1057 11019.02,-1057 10101.45,-1057 10101.45,-1057 10101.45,-1057 10101.45,-760 10101.45,-760 10101.45,-760 7824.8,-760 7824.8,-760 7824.8,-760 7824.8,-759.62 7824.8,-759.62"/>
 <polygon fill="black" stroke="black" points="7828.3,-767.68 7824.8,-757.68 7821.3,-767.68 7828.3,-767.68"/>
 </g>
@@ -4074,15 +4074,15 @@
 <path fill="none" stroke="black" d="M11271.2,-162C10715.13,-162 8582.49,-162 8582.49,-162 8582.49,-162 8582.49,-119.68 8582.49,-119.68"/>
 <polygon fill="black" stroke="black" points="8585.99,-119.68 8582.49,-109.68 8578.99,-119.68 8585.99,-119.68"/>
 </g>
-<!-- [root] local.asg_sg_id (expand) -->
+<!-- [root] local.rds_app_asg_sg_id (expand) -->
 <g id="node286" class="node">
-<title>[root] local.asg_sg_id (expand)</title>
+<title>[root] local.rds_app_asg_sg_id (expand)</title>
 <ellipse fill="none" stroke="black" cx="10456.49" cy="-1098" rx="127.1" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="10456.49" y="-1092.95" font-family="Times,serif" font-size="14.00">[root] local.asg_sg_id (expand)</text>
+<text xml:space="preserve" text-anchor="middle" x="10456.49" y="-1092.95" font-family="Times,serif" font-size="14.00">[root] local.rds_app_asg_sg_id (expand)</text>
 </g>
-<!-- [root] local.asg_sg_id (expand)&#45;&gt;[root] aws_security_group.rds_app_asg -->
+<!-- [root] local.rds_app_asg_sg_id (expand)&#45;&gt;[root] aws_security_group.rds_app_asg -->
 <g id="edge350" class="edge">
-<title>[root] local.asg_sg_id (expand)&#45;&gt;[root] aws_security_group.rds_app_asg</title>
+<title>[root] local.rds_app_asg_sg_id (expand)&#45;&gt;[root] aws_security_group.rds_app_asg</title>
 <path fill="none" stroke="black" d="M10381.89,-1113C10276.98,-1113 10098.53,-1113 10098.53,-1113 10098.53,-1113 10098.53,-761 10098.53,-761 10098.53,-761 6712.21,-761 6712.21,-761 6712.21,-761 6712.21,-623.7 6712.21,-623.7"/>
 <polygon fill="black" stroke="black" points="6715.71,-623.7 6712.21,-613.7 6708.71,-623.7 6715.71,-623.7"/>
 </g>
@@ -4794,9 +4794,9 @@
 <path fill="none" stroke="black" d="M10485.62,-1155C10606.28,-1155 11060.49,-1155 11060.49,-1155 11060.49,-1155 11060.49,-1127.86 11060.49,-1127.86"/>
 <polygon fill="black" stroke="black" points="11063.99,-1127.86 11060.49,-1117.86 11056.99,-1127.86 11063.99,-1127.86"/>
 </g>
-<!-- [root] root&#45;&gt;[root] local.asg_sg_id (expand) -->
+<!-- [root] root&#45;&gt;[root] local.rds_app_asg_sg_id (expand) -->
 <g id="edge482" class="edge">
-<title>[root] root&#45;&gt;[root] local.asg_sg_id (expand)</title>
+<title>[root] root&#45;&gt;[root] local.rds_app_asg_sg_id (expand)</title>
 <path fill="none" stroke="black" d="M10456.49,-1151.83C10456.49,-1151.83 10456.49,-1127.93 10456.49,-1127.93"/>
 <polygon fill="black" stroke="black" points="10459.99,-1127.93 10456.49,-1117.93 10452.99,-1127.93 10459.99,-1127.93"/>
 </g>
