@@ -2,7 +2,7 @@
 #Target Group Configurations
 
 #RDS App ASG Target Group
-resource "aws_lb_target_group" "rds_app_asg_tg" {
+resource "aws_lb_target_group" "rds_app_ec2_tg" {
   name        = "rds-app-asg-tg"
   target_type = "instance"
   protocol    = "HTTP"

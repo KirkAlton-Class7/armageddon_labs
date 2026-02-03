@@ -56,19 +56,3 @@ output "rds_info" {
 output "rds_subnets" {
   value = aws_db_subnet_group.armageddon_1a_db.subnet_ids
 }
-
-
-
-
-# Public-App-LB-01 A Output
-output "public_app_lb_01_ifno" {
-  value = [
-    {
-      name    = aws_lb.rds_app_public_alb.tags["Name"]
-      subnets = aws_lb.rds_app_public_alb.subnets
-      url     = "http://${aws_lb.rds_app_public_alb.dns_name}/"
-    }
-  ]
-
-  description = "Public App LB 01: Name, Subnets, URL"
-}

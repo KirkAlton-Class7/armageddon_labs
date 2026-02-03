@@ -1,7 +1,7 @@
 # Instance Profiles
 
 # Instance Profile - RDS App
-resource "aws_iam_instance_profile" "rds_app_ec2" {
+resource "aws_iam_instance_profile" "rds_app" {
   name = "rds-app-instance-profile"
   role = aws_iam_role.rds_app.name
 }
