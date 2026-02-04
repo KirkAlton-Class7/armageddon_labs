@@ -59,3 +59,25 @@ resource "aws_sns_topic_subscription" "lab_mysql_auth_failure_email_alert" {
   protocol  = "email"
   endpoint  = "email@icloud.com" # Replace with your email address
 }
+
+
+# RDS App ALB Server Error Alert
+resource "aws_sns_topic" "rds_app_alb_server_error_alert" {
+  name = "rds-app-alb-server-error-alert"
+
+  tags = {
+    Name        = "rds-app-alb-server-error-alert"
+    App         = "${local.application}"
+    Environment = "${local.environment}"
+    Component   = "alert-alb"
+    Scope       = "monitoring-backend"
+    Severity    = "high"
+  }
+}
+
+# Email Subscription - RDS App ALB Server Error Alert
+resource "aws_sns_topic_subscription" "app_alb_server_error_email_alert" {
+  topic_arn = aws_sns_topic.rds_app_alb_server_error_alert.arn
+  protocol  = "email"
+  endpoint  = "email@icloud.com" # Replace with your email address
+}

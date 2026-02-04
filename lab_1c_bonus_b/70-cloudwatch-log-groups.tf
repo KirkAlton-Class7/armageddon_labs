@@ -8,6 +8,21 @@ resource "aws_cloudwatch_log_group" "vpc_flow_log" {
     Environment = "${local.environment}"
     Component   = "logs-vpc"
     Scope       = "logging-conectivity"
-    DataClass   = "confidential"
+    DataClass   = "internal"
+  }
+}
+
+
+# CWL Group - RDS App ALB Logs
+resource "aws_cloudwatch_log_group" "rds_app_alb_server_error" {
+  name = "rds-app-alb-server-error-${local.name_suffix}"
+
+  tags = {
+    Name        = "rds-app-alb-server-error"
+    App         = "${local.application}"
+    Environment = "${local.environment}"
+    Component   = "logs-alb"
+    Scope       = "logging-backend"
+    DataClass   = "internal"
   }
 }
