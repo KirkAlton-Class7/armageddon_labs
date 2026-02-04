@@ -1,6 +1,6 @@
 # CloudWatch Alarm - Public App to MySQL Connection Failure
 # Metric
-resource "aws_cloudwatch_log_metric_filter" "public_app_to_lab_mysql_connection_failure" {
+resource "aws_cloudwatch_log_metric_filter" "rds_app_to_lab_mysql_connection_failure" {
   name           = "public-app-to-lab-mysql-connection-failure"
   log_group_name = aws_cloudwatch_log_group.vpc_flow_log.name
 
@@ -9,17 +9,17 @@ resource "aws_cloudwatch_log_metric_filter" "public_app_to_lab_mysql_connection_
   PATTERN 
 
   metric_transformation {
-    name      = "PublicAppToLabMySqlConnectionFailure"
+    name      = "RdsAppToLabMySqlConnectionFailure"
     namespace = "Custom/VPC"
     value     = "1"
   }
 }
 # Alarm
-resource "aws_cloudwatch_metric_alarm" "public_app_to_lab_mysql_connection_failure" {
-  alarm_name          = "public-app-to-lab-mysql-connection-failure"
+resource "aws_cloudwatch_metric_alarm" "rds_app_to_lab_mysql_connection_failure" {
+  alarm_name          = "rds-app-to-lab-mysql-connection-failure"
   comparison_operator = "GreaterThanThreshold"
   evaluation_periods  = 2
-  metric_name         = "PublicAppToLabMySqlConnectionFailure"
+  metric_name         = "RdsAppToLabMySqlConnectionFailure"
   namespace           = "Custom/VPC"
   period              = 60
   statistic           = "Sum"
@@ -29,7 +29,7 @@ resource "aws_cloudwatch_metric_alarm" "public_app_to_lab_mysql_connection_failu
   alarm_actions     = [aws_sns_topic.app_to_rds_connection_failure_alert.arn]
 
   tags = {
-    Name        = "public-app-to-lab-mysql-connection-failure"
+    Name        = "app-to-lab-mysql-connection-failure"
     App         = "${local.application}"
     Environment = "${local.environment}"
     Component   = "alarm-db"
@@ -96,8 +96,8 @@ resource "aws_cloudwatch_log_metric_filter" "rds_app_alb_server_error" {
 }
 
 # Alarm - ALB 5xx Error Rate for RDS App
-resource "aws_cloudwatch_metric_alarm" "rds_app_alb_5xx_error_alarm" {
-  alarm_name          = "rds-app-alb-5xx-error"
+resource "aws_cloudwatch_metric_alarm" "rds_app_alb_server_error_alarm" {
+  alarm_name          = "rds-app-alb-server-error"
   comparison_operator = "GreaterThanThreshold"
   evaluation_periods  = 2
   metric_name         = "RdsAppAlbServerError"
@@ -106,11 +106,11 @@ resource "aws_cloudwatch_metric_alarm" "rds_app_alb_5xx_error_alarm" {
   statistic           = "Sum"
   threshold           = 5
 
-  alarm_description = "Triggers when RDS App ALB returns 5 or more 5xx errors in 2 minutes"
+  alarm_description = "Triggers when RDS App ALB returns 5 or more server errors in 2 minutes"
   alarm_actions     = [aws_sns_topic.rds_app_alb_server_error_alert.arn]
 
   tags = {
-    Name        = "rds-app-alb-5xx-error"
+    Name        = "rds-app-alb-server-error"
     App         = "${local.application}"
     Environment = "${local.environment}"
     Component   = "alarm-alb"

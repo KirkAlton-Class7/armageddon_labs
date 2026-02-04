@@ -19,7 +19,7 @@ resource "aws_sns_topic_subscription" "rds_failure_email_alert" {
 }
 
 
-# App to RDS Connection Failure Alert
+# RDS App to RDS Connection Failure Alert
 resource "aws_sns_topic" "app_to_rds_connection_failure_alert" {
   name = "app-to-rds-connection-failure-alert"
 
