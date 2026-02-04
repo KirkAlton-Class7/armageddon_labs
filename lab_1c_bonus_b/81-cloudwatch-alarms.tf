@@ -85,7 +85,7 @@ resource "aws_cloudwatch_log_metric_filter" "rds_app_alb_server_error" {
   log_group_name = aws_cloudwatch_log_group.rds_app_alb_server_error.name
 
   pattern = <<PATTERN
-  [type, time, elb, client:port, target:port, request_processing_time, response_processing_time, elb_status_code="5$${*}", target_status_code, received_bytes, sent_bytes, "request_line", "user_agent", ssl_cipher, ssl_protocol, target_group_arn, "trace_id", "domain_name", "chosen_cert_arn", matched_rule_priority, request_creation_time, "actions_executed", "redirect_url", "error_reason", "target:port_list", "target_status_code_list", "classification", "classification_reason", conn_trace_id, "transformed_host", "transformed_uri", "request_transform_status"]
+  [type, time, elb, client_port, target_port, request_processing_time, response_processing_time, elb_status_code="5$${*}", target_status_code, received_bytes, sent_bytes, request_line, user_agent, ssl_cipher, ssl_protocol, target_group_arn, trace_id, domain_name, chosen_cert_arn, matched_rule_priority, request_creation_time, actions_executed, redirect_url, error_reason, target_port_list, target_status_code_list, classification, classification_reason, conn_trace_id, transformed_host, transformed_uri, request_transform_status]
   PATTERN
 
   metric_transformation {
