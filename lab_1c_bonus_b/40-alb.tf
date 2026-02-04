@@ -8,25 +8,18 @@ resource "aws_lb" "rds_app_public_alb" {
 
 
   enable_deletion_protection = false
-  
+
   # Access Logs for ALB
   access_logs {
-    bucket  = aws_s3_bucket.alb_logs.id
-    prefix  = "rds-app-alb"
+    bucket  = aws_s3_bucket.terraform_bucket.id
+    prefix  = "rds-app/logs/alb-logs"
     enabled = true
   }
 
   tags = {
-    Name = "rds-app-alb-logs"
-  }
-}
-
-# S3 Bucket for ALB Access Logs
-resource "aws_s3_bucket" "alb_logs" {
-  bucket = "armageddon-lab-1c-bonus-b-alb-logs-${local.region}-${local.bucket_suffix}"
-
-  tags = {
-    Name        = "alb-logs-bucket"
+    Name        = "rds-app-alb"
+    Component   = "load-balancing"
     Environment = "${local.environment}"
+    Service     = "post-notes"
   }
 }

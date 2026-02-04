@@ -6,6 +6,12 @@ resource "aws_lb_listener" "rds_app_http_80" {
   protocol          = "HTTP"
   port              = "80"
 
+  tags = {
+    Name        = "rds-app-http-80-listener"
+    Component   = "load-balancing"
+    Environment = "${local.environment}"
+    Service     = "post-notes"
+  }
   default_action {
     type = "redirect"
 
@@ -27,6 +33,12 @@ resource "aws_lb_listener" "rds_app_https_443" {
   # Use .certificate_arn from aws_acm_certificate_validation instead of direct aws_acm_certificate.rds_app_cert.arn
   # This guarantees that the listener waits until the certificate is fully validated.
 
+  tags = {
+    Name        = "rds-app-https-443-listener"
+    Component   = "load-balancing"
+    Environment = "${local.environment}"
+    Service     = "post-notes"
+  }
   default_action {
     type             = "forward"
     target_group_arn = aws_lb_target_group.rds_app_asg_tg.arn

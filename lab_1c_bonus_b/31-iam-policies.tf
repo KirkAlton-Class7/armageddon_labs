@@ -365,3 +365,51 @@ data "aws_iam_policy_document" "vpc_flow_log_role" {
     resources = ["${aws_cloudwatch_log_group.vpc_flow_log.arn}", "${aws_cloudwatch_log_group.vpc_flow_log.arn}:log-stream:*"]
   }
 }
+
+
+# S3 Bucket Policy Object - ALB Logs
+resource "aws_s3_bucket_policy" "rds_app_alb_logs" {
+  bucket = aws_s3_bucket.terraform_bucket.id
+  policy = data.aws_iam_policy_document.rds_app_alb_logs.json
+}
+
+# S3 Bucket Policy Data - ALB Logs
+data "aws_iam_policy_document" "rds_app_alb_logs" {
+  statement {
+    sid    = "AllowWritesToRdsAppAlbLogs"
+    effect = "Allow"
+    principals {
+      type        = "Service"
+      identifiers = ["logdelivery.elasticloadbalancing.amazonaws.com"]
+    }
+
+    actions = [
+      "s3:PutObject"
+    ]
+
+    resources = ["${aws_s3_bucket.terraform_bucket.arn}/rds-app/logs/alb-logs/*"]
+  }
+}
+
+#     Version = "2012-10-17"
+#     Statement = [
+#       {
+#         Sid       = "AllowALBAccessLogging"
+#         Effect    = "Allow"
+#         Principal = {
+#           Service = "elasticloadbalancing.amazonaws.com"
+#         }
+#         Action = "s3:PutObject"
+#         Resource = "${aws_s3_bucket.terraform_bucket.arn}/*"
+#         Condition = {
+#           StringEquals = {
+#             "AWS:SourceAccount" = data.aws_caller_identity.current.account_id
+#           }
+#           ArnLike = {
+#             "AWS:SourceArn" = "arn:aws:elasticloadbalancing:${var.region}:${data.aws_caller_identity.current.account_id}:loadbalancer/app/*"
+#           }
+#         }
+#       }
+#     ]
+#   })
+# }

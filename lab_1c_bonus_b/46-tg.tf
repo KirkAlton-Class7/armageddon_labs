@@ -23,4 +23,12 @@ resource "aws_lb_target_group" "rds_app_asg_tg" {
     timeout             = 6
     unhealthy_threshold = 3
   }
+  tags = {
+    Name        = "rds-app-asg-tg"
+    App         = "${local.application}"
+    Environment = "${local.environment}"
+    Service     = "post-notes"
+    Component   = "load-balancing"
+    Scope       = "frontend"
+  }
 }

@@ -4,6 +4,14 @@
 resource "aws_iam_instance_profile" "rds_app" {
   name = "rds-app-instance-profile"
   role = aws_iam_role.rds_app.name
+
+  tags = {
+    Name        = "rds-app-instance-profile"
+    Component   = "iam"
+    AccessLevel = "read-and-write"
+    Service     = "ec2"
+    Scope       = "rds-app"
+  }
 }
 
 
@@ -11,19 +19,15 @@ resource "aws_iam_instance_profile" "rds_app" {
 
 # EC2 - RDS App EC2
 resource "aws_instance" "rds_app" {
-  ami                    = data.aws_ami.amazon_linux_2023.id
-  instance_type          = "t3.micro"
-  subnet_id              = local.random_private_app_subnet
-  vpc_security_group_ids = [local.rds_app_ec2_sg_id]
+  launch_template {
+    id      = aws_launch_template.rds_app_ec2.id
+    version = "$Latest"
+  }
 
-  iam_instance_profile = aws_iam_instance_profile.rds_app.name
-  # key_name             = aws_key_pair.tf_armageddon_key.key_name
-  # Replace with your key aws_key_pair resource to test EC2 via SSH
-
-  user_data = local.rds_app_user_data
+  subnet_id = local.random_private_app_subnet
+  vpc_security_group_ids = [aws_security_group.rds_app_ec2.id]
 
   associate_public_ip_address = false
-
 
   # EC2 depends on VPC Endpoints for access to S3, SSM and CloudWatch Logs (boot script also uses these services)
   depends_on = [
@@ -35,13 +39,4 @@ resource "aws_instance" "rds_app" {
     aws_vpc_endpoint.ec2,
     aws_vpc_endpoint.logs
   ]
-
-  tags = {
-    Name        = "rds-app-ec2"
-    App         = "${local.application}"
-    Environment = "${local.environment}"
-    Service     = "post-notes"
-    Component   = "compute-ec2"
-    Scope       = "frontend"
-  }
 }

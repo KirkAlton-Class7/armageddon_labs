@@ -9,7 +9,15 @@ resource "aws_iam_policy" "ssm_agent_policy" {
   description = "Allow SSM Agent Permissions"
 
   policy = data.aws_iam_policy_document.ssm_agent_policy.json
+
+  tags = {
+    Name      = "ssm-agent-policy"
+    Component = "iam"
+    DataClass = "internal"
+    AccessLevel  = "write"
+  }
 }
+
 # IAM Policy Data - SSM Agent Policy (SSM Agent Permissions, Messaging, and Legacy Messaging)
 data "aws_iam_policy_document" "ssm_agent_policy" {
   statement {
@@ -67,6 +75,14 @@ data "aws_iam_policy_document" "ssm_agent_policy" {
 resource "aws_iam_policy" "ec2_linux_repo_access" {
   name   = "ec2-linux-repo-access-policy"
   policy = data.aws_iam_policy_document.ec2_linux_repo_access.json
+
+  tags = {
+    Name      = "ec2-linux-repo-access"
+    Component = "iam"
+    AppComponent = "repository-access"
+    DataClass = "internal"
+    AccessLevel  = "read-only"
+  }
 }
 data "aws_iam_policy_document" "ec2_linux_repo_access" {
   statement {
@@ -84,6 +100,14 @@ data "aws_iam_policy_document" "ec2_linux_repo_access" {
 resource "aws_iam_policy" "ec2_cloudwatch_logs_role" {
   name   = "ec2-cloudwatch-logs-role-policy"
   policy = data.aws_iam_policy_document.ec2_cloudwatch_logs_role.json
+
+  tags = {
+    Name      = "ec2-cloudwatch-logs-role"
+    Component = "iam"
+    AppComponent = "logging"
+    DataClass = "internal"
+    AccessLevel  = "write"
+  }
 }
 
 
@@ -121,6 +145,7 @@ resource "aws_iam_policy" "read_db_secret" {
     Name      = "read-db-secret"
     Component = "iam"
     DataClass = "confidential"
+    AccessLevel  = "read-only"
   }
 }
 # IAM Policy Data - Read DB Secret
@@ -151,7 +176,6 @@ resource "aws_iam_policy" "read_cloudwatch_agent_config" {
   tags = {
     Name         = "read-cloudwatch-agent-config"
     Component    = "iam"
-    AppComponent = "logging-configuration"
     DataClass    = "internal"
     AccessLevel  = "read-only"
   }
@@ -184,7 +208,6 @@ resource "aws_iam_policy" "read_db_name_parameter" {
   tags = {
     Name         = "read-db-name-parameter"
     Component    = "iam"
-    AppComponent = "credentials"
     DataClass    = "internal"
     AccessLevel  = "read-only"
   }
@@ -216,7 +239,6 @@ resource "aws_iam_policy" "read_db_username_parameter" {
   tags = {
     Name         = "read-db-username-parameter"
     Component    = "iam"
-    AppComponent = "credentials"
     DataClass    = "internal"
     AccessLevel  = "read-only"
   }
@@ -248,7 +270,6 @@ resource "aws_iam_policy" "read_db_host_parameter" {
   tags = {
     Name         = "read-db-host-parameter"
     Component    = "iam"
-    AppComponent = "credentials"
     DataClass    = "internal"
     AccessLevel  = "read-only"
   }
@@ -280,7 +301,6 @@ resource "aws_iam_policy" "read_db_port_parameter" {
   tags = {
     Name         = "read-db-port-parameter"
     Component    = "iam"
-    AppComponent = "credentials"
     DataClass    = "internal"
     AccessLevel  = "read-only"
   }
@@ -316,6 +336,8 @@ resource "aws_iam_policy" "rds_enhanced_monitoring_role" {
   tags = {
     Name      = "rds-enhanced-monitoring-role"
     Component = "iam"
+    DataClass = "internal"
+    AccessLevel  = "write"
   }
 }
 
@@ -345,6 +367,13 @@ data "aws_iam_policy_document" "rds_enhanced_monitoring_role" {
 resource "aws_iam_policy" "vpc_flow_log_role" {
   name   = "vpc-flow-log-role-policy"
   policy = data.aws_iam_policy_document.vpc_flow_log_role.json
+  
+  tags = {
+    Name      = "vpc-flow-log-role"
+    Component = "iam"
+    DataClass = "internal"
+    AccessLevel  = "write"
+  }
 }
 
 

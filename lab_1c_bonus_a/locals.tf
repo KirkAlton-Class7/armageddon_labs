@@ -62,7 +62,7 @@ locals {
   }
 
   # Template - EC2 User Data
-  ec2_user_data = templatefile("${path.module}/templates/1a_user_data.sh.tpl",
+  user_data = templatefile("${path.module}/templates/1a_user_data.sh.tpl",
     {
       region      = local.region,
       secret_id   = local.secret_id

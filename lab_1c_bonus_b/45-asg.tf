@@ -11,13 +11,23 @@ resource "aws_autoscaling_group" "rds_app_asg" {
   target_group_arns = [aws_lb_target_group.rds_app_asg_tg.arn] # Target group to attach the ASG to. A list of ARNS is expected for an ASG, so use brackets and add an "s" make "target_group_arn" plural.
   force_delete      = true
 
+  depends_on = [
+    aws_vpc_endpoint.s3,
+    aws_vpc_endpoint.secretsmanager,
+    aws_vpc_endpoint.ssm,
+    aws_vpc_endpoint.ssm_messages,
+    aws_vpc_endpoint.ec2_messages,
+    aws_vpc_endpoint.ec2,
+    aws_vpc_endpoint.logs
+  ]
+
   launch_template {
     id      = aws_launch_template.rds_app_asg.id
     version = "$Latest"
   }
   tag {
-    key                 = "Environment" # Keep this tag block to add addtional metadata to the instances (launch template handles main tags like name, owner, etc.)
-    value               = var.env
+    key                 = "ManagedBy" # Keep this tag block and expand to add fine grained metadata to the instances (launch template handles main tags like name, owner, etc.)
+    value               = "terraform"
     propagate_at_launch = true
   }
 
