@@ -9,15 +9,7 @@ resource "aws_iam_policy" "ssm_agent_policy" {
   description = "Allow SSM Agent Permissions"
 
   policy = data.aws_iam_policy_document.ssm_agent_policy.json
-
-  tags = {
-    Name      = "ssm-agent-policy"
-    Component = "iam"
-    DataClass = "internal"
-    AccessLevel  = "write"
-  }
 }
-
 # IAM Policy Data - SSM Agent Policy (SSM Agent Permissions, Messaging, and Legacy Messaging)
 data "aws_iam_policy_document" "ssm_agent_policy" {
   statement {
@@ -75,14 +67,6 @@ data "aws_iam_policy_document" "ssm_agent_policy" {
 resource "aws_iam_policy" "ec2_linux_repo_access" {
   name   = "ec2-linux-repo-access-policy"
   policy = data.aws_iam_policy_document.ec2_linux_repo_access.json
-
-  tags = {
-    Name      = "ec2-linux-repo-access"
-    Component = "iam"
-    AppComponent = "repository-access"
-    DataClass = "internal"
-    AccessLevel  = "read-only"
-  }
 }
 data "aws_iam_policy_document" "ec2_linux_repo_access" {
   statement {
@@ -100,36 +84,61 @@ data "aws_iam_policy_document" "ec2_linux_repo_access" {
 resource "aws_iam_policy" "ec2_cloudwatch_logs_role" {
   name   = "ec2-cloudwatch-logs-role-policy"
   policy = data.aws_iam_policy_document.ec2_cloudwatch_logs_role.json
-
-  tags = {
-    Name      = "ec2-cloudwatch-logs-role"
-    Component = "iam"
-    AppComponent = "logging"
-    DataClass = "internal"
-    AccessLevel  = "write"
-  }
 }
 
 
 # IAM Policy Data - EC2 CloudWatch Logs Role
 data "aws_iam_policy_document" "ec2_cloudwatch_logs_role" {
+  
+  # Allow CloudWatch Agent to write metric data to CloudWatch Metrics
   statement {
-    sid    = "AllowEC2CloudWatchLogsWrites"
+  sid    = "AllowCloudWatchMetrics"
+  effect = "Allow"
+
+  actions = [
+    "cloudwatch:PutMetricData"
+  ]
+
+  resources = ["*"]  # CloudWatch doesn't support ARNs for PutMetricData
+
+  condition {
+    test     = "StringEquals"
+    variable = "cloudwatch:namespace"
+    values   = ["rds-app"]
+  }
+}
+  # Allow CloudWatch Agent to write log data to CloudWatch Logs
+  statement {
+  sid    = "AllowEC2LogGroupActions"
+  effect = "Allow"
+  actions = [
+    "logs:CreateLogGroup",
+    "logs:DescribeLogGroups",
+  ]
+  resources = [
+    "arn:aws:logs:${local.region}:${local.account_id}:log-group:*",
+    "arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/rds-app-${local.name_suffix}",
+    "arn:aws:logs:${local.region}:${local.account_id}:log-group:/ec2-system-logs-${local.name_suffix}"
+  ]
+}
+
+  statement {
+    sid    = "AllowEC2LogStreamActions"
     effect = "Allow"
 
     actions = [
-      "logs:CreateLogGroup",
       "logs:CreateLogStream",
       "logs:PutLogEvents",
-      "logs:DescribeLogGroups",
       "logs:DescribeLogStreams",
     ]
 
-    resources = ["arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/rds-app-${local.name_suffix}",
+    resources = [
+      "arn:aws:logs:${local.region}:${local.account_id}:log-group:/ec2-system-logs-${local.name_suffix}:log-stream:*",   
       "arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/rds-app-${local.name_suffix}:log-stream:*"
-    ]
+      ]
   }
 }
+
 
 
 
@@ -145,7 +154,6 @@ resource "aws_iam_policy" "read_db_secret" {
     Name      = "read-db-secret"
     Component = "iam"
     DataClass = "confidential"
-    AccessLevel  = "read-only"
   }
 }
 # IAM Policy Data - Read DB Secret
@@ -176,6 +184,7 @@ resource "aws_iam_policy" "read_cloudwatch_agent_config" {
   tags = {
     Name         = "read-cloudwatch-agent-config"
     Component    = "iam"
+    AppComponent = "logging-configuration"
     DataClass    = "internal"
     AccessLevel  = "read-only"
   }
@@ -208,6 +217,7 @@ resource "aws_iam_policy" "read_db_name_parameter" {
   tags = {
     Name         = "read-db-name-parameter"
     Component    = "iam"
+    AppComponent = "credentials"
     DataClass    = "internal"
     AccessLevel  = "read-only"
   }
@@ -239,6 +249,7 @@ resource "aws_iam_policy" "read_db_username_parameter" {
   tags = {
     Name         = "read-db-username-parameter"
     Component    = "iam"
+    AppComponent = "credentials"
     DataClass    = "internal"
     AccessLevel  = "read-only"
   }
@@ -253,7 +264,7 @@ data "aws_iam_policy_document" "read_db_username_parameter" {
       "ssm:GetParametersByPath"
     ]
     resources = [
-      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/lab/rds/mysql/username-${local.name_suffix}"
+      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/lab/rds/mysql/db-username-${local.name_suffix}"
     ]
   }
 }
@@ -270,6 +281,7 @@ resource "aws_iam_policy" "read_db_host_parameter" {
   tags = {
     Name         = "read-db-host-parameter"
     Component    = "iam"
+    AppComponent = "credentials"
     DataClass    = "internal"
     AccessLevel  = "read-only"
   }
@@ -284,7 +296,7 @@ data "aws_iam_policy_document" "read_db_host_parameter" {
       "ssm:GetParametersByPath"
     ]
     resources = [
-      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/lab/rds/mysql/host-${local.name_suffix}"
+      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/lab/rds/mysql/db-host-${local.name_suffix}"
     ]
   }
 }
@@ -301,6 +313,7 @@ resource "aws_iam_policy" "read_db_port_parameter" {
   tags = {
     Name         = "read-db-port-parameter"
     Component    = "iam"
+    AppComponent = "credentials"
     DataClass    = "internal"
     AccessLevel  = "read-only"
   }
@@ -315,7 +328,7 @@ data "aws_iam_policy_document" "read_db_port_parameter" {
       "ssm:GetParametersByPath"
     ]
     resources = [
-      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/lab/rds/mysql/port-${local.name_suffix}"
+      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/lab/rds/mysql/db-port-${local.name_suffix}"
     ]
   }
 }
@@ -336,8 +349,6 @@ resource "aws_iam_policy" "rds_enhanced_monitoring_role" {
   tags = {
     Name      = "rds-enhanced-monitoring-role"
     Component = "iam"
-    DataClass = "internal"
-    AccessLevel  = "write"
   }
 }
 
@@ -345,14 +356,14 @@ resource "aws_iam_policy" "rds_enhanced_monitoring_role" {
 # IAM Policy Data - RDS Enhanced Monitoring Role
 data "aws_iam_policy_document" "rds_enhanced_monitoring_role" {
   statement {
-    sid       = "EnableCreationAndManagementOfRDSCloudwatchLogGroups"
+    sid       = "AllowRdsLogGroupActions"
     effect    = "Allow"
     actions   = ["logs:CreateLogGroup", "logs:PutRetentionPolicy"]
     resources = ["arn:aws:logs:*:*:log-group:RDS*"]
   }
 
   statement {
-    sid       = "EnableCreationAndManagementOfRDSCloudwatchLogStreams"
+    sid       = "AllowRdsLogStreamActions"
     effect    = "Allow"
     actions   = ["logs:CreateLogStream", "logs:PutLogEvents", "logs:DescribeLogStreams", "logs:GetLogEvents"]
     resources = ["arn:aws:logs:*:*:log-group:RDS*:log-stream:*"]
@@ -367,30 +378,33 @@ data "aws_iam_policy_document" "rds_enhanced_monitoring_role" {
 resource "aws_iam_policy" "vpc_flow_log_role" {
   name   = "vpc-flow-log-role-policy"
   policy = data.aws_iam_policy_document.vpc_flow_log_role.json
-  
-  tags = {
-    Name      = "vpc-flow-log-role"
-    Component = "iam"
-    DataClass = "internal"
-    AccessLevel  = "write"
-  }
 }
 
 
 # IAM Policy Data - VPC Flow Log
 data "aws_iam_policy_document" "vpc_flow_log_role" {
   statement {
-    sid    = "AllowVPCFlowLogWrites"
+    sid    = "AllowVpcLogGroupActions"
     effect = "Allow"
 
     actions = [
       "logs:CreateLogGroup",
+      "logs:DescribeLogGroups",
+    ]
+
+    resources = ["${aws_cloudwatch_log_group.vpc_flow_log.arn}"]
+  }
+
+  statement {
+    sid    = "AllowVpcLogStreamActions"
+    effect = "Allow"
+
+    actions = [
       "logs:CreateLogStream",
       "logs:PutLogEvents",
-      "logs:DescribeLogGroups",
       "logs:DescribeLogStreams",
     ]
 
-    resources = ["${aws_cloudwatch_log_group.vpc_flow_log.arn}", "${aws_cloudwatch_log_group.vpc_flow_log.arn}:log-stream:*"]
+    resources = ["${aws_cloudwatch_log_group.vpc_flow_log.arn}:log-stream:*"]
   }
 }

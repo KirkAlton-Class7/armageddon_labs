@@ -89,23 +89,56 @@ resource "aws_iam_policy" "ec2_cloudwatch_logs_role" {
 
 # IAM Policy Data - EC2 CloudWatch Logs Role
 data "aws_iam_policy_document" "ec2_cloudwatch_logs_role" {
+  
+  # Allow CloudWatch Agent to write metric data to CloudWatch Metrics
   statement {
-    sid    = "AllowEC2CloudWatchLogsWrites"
+  sid    = "AllowCloudWatchMetrics"
+  effect = "Allow"
+
+  actions = [
+    "cloudwatch:PutMetricData"
+  ]
+
+  resources = ["*"]  # CloudWatch doesn't support ARNs for PutMetricData
+
+  condition {
+    test     = "StringEquals"
+    variable = "cloudwatch:namespace"
+    values   = ["rds-app"]
+  }
+}
+  # Allow CloudWatch Agent to write log data to CloudWatch Logs
+  statement {
+  sid    = "AllowEC2LogGroupActions"
+  effect = "Allow"
+  actions = [
+    "logs:CreateLogGroup",
+    "logs:DescribeLogGroups",
+  ]
+  resources = [
+    "arn:aws:logs:${local.region}:${local.account_id}:log-group:*",
+    "arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/rds-app-${local.name_suffix}",
+    "arn:aws:logs:${local.region}:${local.account_id}:log-group:/ec2-system-logs-${local.name_suffix}"
+  ]
+}
+
+  statement {
+    sid    = "AllowEC2LogStreamActions"
     effect = "Allow"
 
     actions = [
-      "logs:CreateLogGroup",
       "logs:CreateLogStream",
       "logs:PutLogEvents",
-      "logs:DescribeLogGroups",
       "logs:DescribeLogStreams",
     ]
 
-    resources = ["arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/rds-app-${local.name_suffix}",
+    resources = [
+      "arn:aws:logs:${local.region}:${local.account_id}:log-group:/ec2-system-logs-${local.name_suffix}:log-stream:*",   
       "arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/rds-app-${local.name_suffix}:log-stream:*"
-    ]
+      ]
   }
 }
+
 
 
 
@@ -231,7 +264,7 @@ data "aws_iam_policy_document" "read_db_username_parameter" {
       "ssm:GetParametersByPath"
     ]
     resources = [
-      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/lab/rds/mysql/username-${local.name_suffix}"
+      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/lab/rds/mysql/db-username-${local.name_suffix}"
     ]
   }
 }
@@ -263,7 +296,7 @@ data "aws_iam_policy_document" "read_db_host_parameter" {
       "ssm:GetParametersByPath"
     ]
     resources = [
-      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/lab/rds/mysql/host-${local.name_suffix}"
+      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/lab/rds/mysql/db-host-${local.name_suffix}"
     ]
   }
 }
@@ -295,7 +328,7 @@ data "aws_iam_policy_document" "read_db_port_parameter" {
       "ssm:GetParametersByPath"
     ]
     resources = [
-      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/lab/rds/mysql/port-${local.name_suffix}"
+      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/lab/rds/mysql/db-port-${local.name_suffix}"
     ]
   }
 }
@@ -323,14 +356,14 @@ resource "aws_iam_policy" "rds_enhanced_monitoring_role" {
 # IAM Policy Data - RDS Enhanced Monitoring Role
 data "aws_iam_policy_document" "rds_enhanced_monitoring_role" {
   statement {
-    sid       = "EnableCreationAndManagementOfRDSCloudwatchLogGroups"
+    sid       = "AllowRdsLogGroupActions"
     effect    = "Allow"
     actions   = ["logs:CreateLogGroup", "logs:PutRetentionPolicy"]
     resources = ["arn:aws:logs:*:*:log-group:RDS*"]
   }
 
   statement {
-    sid       = "EnableCreationAndManagementOfRDSCloudwatchLogStreams"
+    sid       = "AllowRdsLogStreamActions"
     effect    = "Allow"
     actions   = ["logs:CreateLogStream", "logs:PutLogEvents", "logs:DescribeLogStreams", "logs:GetLogEvents"]
     resources = ["arn:aws:logs:*:*:log-group:RDS*:log-stream:*"]
@@ -351,18 +384,28 @@ resource "aws_iam_policy" "vpc_flow_log_role" {
 # IAM Policy Data - VPC Flow Log
 data "aws_iam_policy_document" "vpc_flow_log_role" {
   statement {
-    sid    = "AllowVPCFlowLogWrites"
+    sid    = "AllowVpcLogGroupActions"
     effect = "Allow"
 
     actions = [
       "logs:CreateLogGroup",
+      "logs:DescribeLogGroups",
+    ]
+
+    resources = ["${aws_cloudwatch_log_group.vpc_flow_log.arn}"]
+  }
+
+  statement {
+    sid    = "AllowVpcLogStreamActions"
+    effect = "Allow"
+
+    actions = [
       "logs:CreateLogStream",
       "logs:PutLogEvents",
-      "logs:DescribeLogGroups",
       "logs:DescribeLogStreams",
     ]
 
-    resources = ["${aws_cloudwatch_log_group.vpc_flow_log.arn}", "${aws_cloudwatch_log_group.vpc_flow_log.arn}:log-stream:*"]
+    resources = ["${aws_cloudwatch_log_group.vpc_flow_log.arn}:log-stream:*"]
   }
 }
 

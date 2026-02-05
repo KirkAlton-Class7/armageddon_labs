@@ -13,19 +13,6 @@ resource "aws_ssm_parameter" "cloudwatch_agent_config" {
 }
 
 
-# SSM Parameter Store - Username for LabMySQL DB
-resource "aws_ssm_parameter" "lab_mysql_db_username" {
-  name  = "/lab/rds/mysql/db-username-${local.name_suffix}"
-  type  = "String"
-  value = local.db_credentials.username
-
-  tags = {
-    Name         = "lab-rds-mysql-username"
-    Component    = "security"
-    AppComponent = "login-parameters"
-    DataClass    = "internal"
-  }
-}
 
 # SSM Parameter Store - DB Name for LabMySQL DB
 resource "aws_ssm_parameter" "lab_mysql_db_name" {
@@ -42,10 +29,24 @@ resource "aws_ssm_parameter" "lab_mysql_db_name" {
 }
 
 
+# SSM Parameter Store - Username for LabMySQL DB
+resource "aws_ssm_parameter" "lab_mysql_db_username" {
+  name  = "/lab/rds/mysql/db-username-${local.name_suffix}"
+  type  = "String"
+  value = local.db_credentials.username
+
+  tags = {
+    Name         = "lab-rds-mysql-db-username"
+    Component    = "security"
+    AppComponent = "login-parameters"
+    DataClass    = "internal"
+  }
+}
+
 
 # SSM Parameter Store - Host Address for LabMySQL DB
 resource "aws_ssm_parameter" "lab_mysql_db_host" {
-  name  = "/lab/rds/mysql/host-${local.name_suffix}"
+  name  = "/lab/rds/mysql/db-host-${local.name_suffix}"
   type  = "String"
   value = aws_db_instance.lab_mysql.address
 
@@ -59,7 +60,7 @@ resource "aws_ssm_parameter" "lab_mysql_db_host" {
 
 # SSM Parameter Store - DB Port for LabMySQL DB
 resource "aws_ssm_parameter" "lab_mysql_db_port" {
-  name  = "/lab/rds/mysql/port-${local.name_suffix}"
+  name  = "/lab/rds/mysql/db-port-${local.name_suffix}"
   type  = "String"
   value = tostring(aws_db_instance.lab_mysql.port)
 

@@ -6,7 +6,7 @@ resource "aws_autoscaling_group" "rds_app_asg" {
 
   desired_capacity  = 3
   max_size          = 6
-  min_size          = 3
+  min_size          = 2
   health_check_type = "ELB"
   target_group_arns = [aws_lb_target_group.rds_app_asg_tg.arn] # Target group to attach the ASG to. A list of ARNS is expected for an ASG, so use brackets and add an "s" make "target_group_arn" plural.
   force_delete      = true

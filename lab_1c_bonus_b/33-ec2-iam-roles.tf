@@ -34,6 +34,12 @@ resource "aws_iam_role_policy_attachment" "attach_ssm_agent_policy" {
   policy_arn = aws_iam_policy.ssm_agent_policy.arn
 }
 
+# Policy Attachment - EC2 CloudWatch Logs --> RDS App role
+resource "aws_iam_role_policy_attachment" "attach_ec2_cloudwatch_logs" {
+  role       = aws_iam_role.rds_app.name
+  policy_arn = aws_iam_policy.ec2_cloudwatch_logs_role.arn
+}
+
 # Policy Attachment - Read DB Secret --> RDS App role
 resource "aws_iam_role_policy_attachment" "attach_read_db_secret" {
   role       = aws_iam_role.rds_app.name
