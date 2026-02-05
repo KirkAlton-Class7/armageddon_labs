@@ -133,3 +133,7 @@ systemctl start rdsapp
   -m ec2 \
   -c ssm:/rds-app/cloudwatch-agent/config-${name_suffix} \
   -s
+
+# Enable CloudWatch Agent to start at boot
+systemctl enable amazon-cloudwatch-agent
+

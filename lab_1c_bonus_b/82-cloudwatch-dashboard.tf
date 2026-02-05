@@ -13,7 +13,7 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
         properties : {
           title : "ASG CPU Utilization",
           metrics : [
-            ["AWS/EC2", "CPUUtilization", "AutoScalingGroupName", "rds-app-asg"]
+            ["AWS/EC2", "CPUUtilization", "AutoScalingGroupName", aws_autoscaling_group.rds_app_asg.name]
           ],
           stat : "Average",
           region : local.region,
@@ -25,15 +25,17 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
         type : "metric",
         x : 12, y : 0, width : 12, height : 6,
         properties : {
-          title : "Memory Utilization (CloudWatch Agent)",
+          title : "ASG Memory Utilization (CloudWatch Agent)",
           metrics : [
-            ["CWAgent", "mem_used_percent", "InstanceId", "i-*", { "stat" : "Average" }]
+            ["CWAgent", "mem_used_percent", "AutoScalingGroupName", aws_autoscaling_group.rds_app_asg.name]
           ],
           region : local.region,
+          stat: "Average",
           period : 300,
           view : "timeSeries"
         }
       },
+
 
       ## ========== RDS METRICS ==========
       {
@@ -42,7 +44,7 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
         properties : {
           title : "RDS CPU & Memory",
           metrics : [
-            ["AWS/RDS", "CPUUtilization", "DBInstanceIdentifier", "lab-mysql-*"],
+            ["AWS/RDS", "CPUUtilization", "DBInstanceIdentifier", aws_db_instance.lab_mysql.identifier],
             [".", "FreeableMemory", ".", "."]
           ],
           region : local.region,
@@ -84,7 +86,7 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
         properties : {
           title : "WAF Blocked Requests",
           metrics : [
-            ["AWS/WAFV2", "BlockedRequests", "WebACL", "web-acl-rds-app-*"]
+            ["AWS/WAFV2", "BlockedRequests", "WebACL", aws_wafv2_web_acl.rds_app.name]
           ],
           region : local.region
           period : 300

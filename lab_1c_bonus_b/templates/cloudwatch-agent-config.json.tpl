@@ -3,33 +3,43 @@
     "metrics_collection_interval": 30,
     "logfile": "/opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log"
   },
+
+  "append_dimensions": {
+    "InstanceId": "$${aws:InstanceId}",
+    "InstanceType": "$${aws:InstanceType}",
+    "ImageId": "$${aws:ImageId}",
+    "AutoScalingGroupName": "$${aws:AutoScalingGroupName}"
+  },
+
   "metrics": {
-    "namespace": "rds-app",
-    "append_dimensions": {
-      "InstanceId": "$${aws:InstanceId}",
-      "InstanceType": "$${aws:InstanceType}",
-      "ImageId": "$${aws:ImageId}"
-    },
     "metrics_collected": {
       "cpu": {
         "resources": ["*"],
         "measurement": [
-          {"name": "cpu_usage_idle", "unit": "Percent"},
-          {"name": "cpu_usage_user", "unit": "Percent"},
-          {"name": "cpu_usage_system", "unit": "Percent"}
+          { "name": "cpu_usage_idle", "unit": "Percent" },
+          { "name": "cpu_usage_user", "unit": "Percent" },
+          { "name": "cpu_usage_system", "unit": "Percent" }
         ],
         "totalcpu": true,
         "metrics_collection_interval": 30
       },
+
       "mem": {
-        "measurement": ["mem_used", "mem_available", "mem_total"],
+        "measurement": [
+          "mem_used",
+          "mem_available",
+          "mem_total",
+          "mem_used_percent"
+        ],
         "metrics_collection_interval": 30
       },
+
       "disk": {
         "resources": ["/"],
         "measurement": ["used", "free", "total"],
         "metrics_collection_interval": 60
       },
+
       "net": {
         "resources": ["eth0"],
         "measurement": ["bytes_sent", "bytes_recv"],
@@ -37,6 +47,7 @@
       }
     }
   },
+
   "logs": {
     "logs_collected": {
       "files": {

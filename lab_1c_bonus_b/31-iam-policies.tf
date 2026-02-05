@@ -80,15 +80,15 @@ data "aws_iam_policy_document" "ec2_linux_repo_access" {
 }
 
 
-# IAM Policy Object - EC2 CloudWatch Logs Role
-resource "aws_iam_policy" "ec2_cloudwatch_logs_role" {
+# IAM Policy Object - EC2 CloudWatch Agent Role
+resource "aws_iam_policy" "ec2_cloudwatch_agent_role" {
   name   = "ec2-cloudwatch-logs-role-policy"
-  policy = data.aws_iam_policy_document.ec2_cloudwatch_logs_role.json
+  policy = data.aws_iam_policy_document.ec2_cloudwatch_agent_role.json
 }
 
 
-# IAM Policy Data - EC2 CloudWatch Logs Role
-data "aws_iam_policy_document" "ec2_cloudwatch_logs_role" {
+# IAM Policy Data - EC2 CloudWatch Agent Role
+data "aws_iam_policy_document" "ec2_cloudwatch_agent_role" {
   
   # Allow CloudWatch Agent to write metric data to CloudWatch Metrics
   statement {
@@ -104,7 +104,7 @@ data "aws_iam_policy_document" "ec2_cloudwatch_logs_role" {
   condition {
     test     = "StringEquals"
     variable = "cloudwatch:namespace"
-    values   = ["rds-app"]
+    values   = ["CWAgent"]
   }
 }
   # Allow CloudWatch Agent to write log data to CloudWatch Logs
@@ -121,6 +121,17 @@ data "aws_iam_policy_document" "ec2_cloudwatch_logs_role" {
     "arn:aws:logs:${local.region}:${local.account_id}:log-group:/ec2-system-logs-${local.name_suffix}"
   ]
 }
+  # Allow EC2 Describe Tags
+  statement {
+    sid    = "AllowEC2DescribeTags"
+    effect = "Allow"
+
+    actions = [
+      "ec2:DescribeTags"
+    ]
+
+    resources = ["*"]
+  }
 
   statement {
     sid    = "AllowEC2LogStreamActions"

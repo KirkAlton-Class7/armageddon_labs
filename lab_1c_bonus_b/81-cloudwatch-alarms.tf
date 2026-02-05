@@ -28,6 +28,8 @@ resource "aws_cloudwatch_metric_alarm" "rds_app_to_lab_mysql_connection_failure"
   alarm_description = "Triggers when EC2 to RDS REJECT traffic exceeds 6 in 2 minutes"
   alarm_actions     = [aws_sns_topic.app_to_rds_connection_failure_alert.arn]
 
+  treat_missing_data = "notBreaching" # Alarm stays in OK state when CloudWatch has no data points (prevents noisy insufficient data state on error-count metrics)
+
   tags = {
     Name        = "app-to-lab-mysql-connection-failure"
     App         = "${local.application}"
@@ -65,6 +67,8 @@ resource "aws_cloudwatch_metric_alarm" "alarm_lab_mysql_auth_failure" {
 
   alarm_description = "Triggers when MySQL db auth failures exceed 6 in 2 minutes"
   alarm_actions     = [aws_sns_topic.lab_mysql_auth_failure_alert.arn]
+
+  treat_missing_data = "notBreaching" # Alarm stays in OK state when CloudWatch has no data points (prevents noisy insufficient data state on error-count metrics)
 
   tags = {
     Name        = "alarm-lab-mysql-auth-failures"
@@ -108,7 +112,9 @@ resource "aws_cloudwatch_metric_alarm" "rds_app_alb_server_error_alarm" {
 
   alarm_description = "Triggers when RDS App ALB returns 5 or more server errors in 2 minutes"
   alarm_actions     = [aws_sns_topic.rds_app_alb_server_error_alert.arn]
-
+  
+  treat_missing_data = "notBreaching" # Alarm stays in OK state when CloudWatch has no data points (prevents noisy insufficient data state on error-count metrics)
+ 
   tags = {
     Name        = "rds-app-alb-server-error"
     App         = "${local.application}"

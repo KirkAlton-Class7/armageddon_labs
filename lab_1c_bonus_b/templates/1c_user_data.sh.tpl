@@ -128,8 +128,13 @@ systemctl enable rdsapp
 systemctl start rdsapp
 
 # Start CloudWatch Agent
-/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
+# Fetch config
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
   -a fetch-config \
   -m ec2 \
-  -c ssm:/rds-app/cloudwatch-agent/config-${name_suffix} \
-  -s
+  -c ssm:/rds-app/cloudwatch-agent/config-55ouf
+
+# Now explicitly control systemd
+sudo systemctl daemon-reload
+sudo systemctl enable amazon-cloudwatch-agent
+sudo systemctl restart amazon-cloudwatch-agent
