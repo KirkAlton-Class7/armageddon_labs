@@ -10,3 +10,8 @@ resource "random_integer" "subnet_picker" {
   max = length(local.private_app_subnets) - 1
 }
 # Note: This resource is shared. Keep the number of subnets symmetrical so it does't break when using with other subnet types (ex, 3 public, 3 private, 3 data).
+
+# Random Hex ID for bucket names
+resource "random_id" "bucket_suffix" {
+  byte_length = 4
+}

@@ -1,8 +1,12 @@
-resource "aws_db_subnet_group" "armageddon_1a_db" {
-  name       = "armageddon-1a-db-subnet-group"
+resource "aws_db_subnet_group" "lab_mysql" {
+  name       = "lab-mysql-subnet-group"
   subnet_ids = local.private_data_subnets
 
-  tags = {
-    Name = "armageddon-1a-db-subnet-group"
-  }
+  tags = merge(
+    {
+      Name = "labmysql-db-subnet-group"
+      #Scope = aws_db_instance.lab_mysql.name
+    },
+    local.private_subnet_tags
+  )
 }

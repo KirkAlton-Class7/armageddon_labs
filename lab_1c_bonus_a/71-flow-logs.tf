@@ -9,4 +9,11 @@ resource "aws_flow_log" "vpc" {
 
   traffic_type = "ALL"
   vpc_id       = aws_vpc.main.id
+  tags = {
+    Name        = "main-vpc-flow-log"
+    App         = local.application
+    Environment = local.environment
+    Component   = "logging-vpc"
+    Scope       = "network"
+    }
 }

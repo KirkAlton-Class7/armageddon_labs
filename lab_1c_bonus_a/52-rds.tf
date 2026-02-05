@@ -9,7 +9,7 @@ resource "random_password" "db_password" {
 # DB - Lab-MySQL
 resource "aws_db_instance" "lab_mysql" {
   identifier             = "lab-mysql-${local.name_suffix}"
-  db_subnet_group_name   = aws_db_subnet_group.armageddon_1a_db.name
+  db_subnet_group_name   = aws_db_subnet_group.lab_mysql.name
   vpc_security_group_ids = [local.private_db_sg_id]
 
   engine            = "mysql"

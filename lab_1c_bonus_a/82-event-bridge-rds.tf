@@ -9,4 +9,11 @@ resource "aws_db_event_subscription" "rds_failure_events" {
     "failure"
   ]
   enabled = true
+
+  tags = {
+    Name        = "rds-failure-events"
+    Component   = "monitoring"
+    Service     = "rds"
+    Environment = local.environment
+  }
 }

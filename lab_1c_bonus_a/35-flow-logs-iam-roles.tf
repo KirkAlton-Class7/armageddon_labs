@@ -2,6 +2,13 @@
 resource "aws_iam_role" "vpc_flow_log_role" {
   name               = "vpc-flow-log-role-${local.name_suffix}"
   assume_role_policy = data.aws_iam_policy_document.vpc_flow_log_assume_role.json
+
+  tags = {
+    Name      = "vpc-flow-log-role"
+    Component = "iam"
+    DataClass = "internal"
+    AccessLevel  = "write"
+  }
 }
 
 # Trust Policy Data for VPC Flow Log role

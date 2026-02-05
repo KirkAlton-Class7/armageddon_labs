@@ -19,11 +19,37 @@ locals {
   }
 
   # Naming helpers
-  name_prefix = "${local.application}-${local.environment}"
-  name_suffix = lower(random_string.suffix.result)
+  name_prefix   = "${local.application}-${local.environment}"
+  name_suffix   = lower(random_string.suffix.result)
+  bucket_suffix = random_id.bucket_suffix.hex
+
 
   # Subnet selection helpers
   subnet_index = random_integer.subnet_picker.result
+
+  # Public Subnets
+  public_subnets = [
+    aws_subnet.public_a.id,
+    aws_subnet.public_b.id,
+    aws_subnet.public_c.id
+  ]
+  # Public Subnet CIDRs
+  public_subnet_cidrs = [
+    aws_subnet.public_a.cidr_block,
+    aws_subnet.public_b.cidr_block,
+    aws_subnet.public_c.cidr_block
+  ]
+
+  # Assigns random public subnet from the list using shared random index
+  random_public_subnet = local.public_subnets[local.subnet_index]
+
+
+  # Shared tags for public subnets
+  public_subnet_tags = {
+    Exposure = "public"
+    Egress   = "igw"
+  }
+
 
   # Shared tags for vpc endpoints
   vpc_endpoint_tags = {
@@ -40,6 +66,13 @@ locals {
     aws_subnet.private_app_c.id
   ]
 
+  # Private App Subnet CIDRs
+  private_app_subnet_cidrs = [
+    aws_subnet.private_app_a.cidr_block,
+    aws_subnet.private_app_b.cidr_block,
+    aws_subnet.private_app_c.cidr_block
+  ]
+
   # Assigns random private app subnet from the list using shared random index
   random_private_app_subnet = local.private_app_subnets[local.subnet_index]
 
@@ -51,18 +84,27 @@ locals {
     aws_subnet.private_data_c.id
   ]
 
+  # Private Data Subnet CIDRs
+  private_data_subnet_cidrs = [
+    aws_subnet.private_data_a.cidr_block,
+    aws_subnet.private_data_b.cidr_block,
+    aws_subnet.private_data_c.cidr_block
+  ]
+
+
   # Assigns random private data subnet from the list using shared random index
   random_private_data_subnet = local.private_data_subnets[local.subnet_index]
 
-  # Sharded tags for private subnets
+  # Shared tags for private subnets
   private_subnet_tags = {
     Exposure  = "internal-only"
     Egress    = "none"
     Component = "network"
   }
 
-  # Template - EC2 User Data
-  user_data = templatefile("${path.module}/templates/1a_user_data.sh.tpl",
+  # Template Files
+  # EC2 User Data for RDS App Instances
+  rds_app_user_data = templatefile("${path.module}/templates/1c_user_data.sh.tpl",
     {
       region      = local.region,
       secret_id   = local.secret_id
@@ -70,7 +112,7 @@ locals {
     }
   )
 
-  # Template - CloudWatch Agent Configuration File
+  # CloudWatch Agent Configuration File
   cloudwatch_agent_config = templatefile("${path.module}/templates/cloudwatch-agent-config.json.tpl",
     {
       name_suffix = local.name_suffix
@@ -79,9 +121,10 @@ locals {
 
 
   # Other Locals
-  ec2_sg_id = aws_security_group.ec2_rds_app.id
 
-  private_db_sg_id = aws_security_group.private_db.id
+  # Security Group IDs
+  rds_app_ec2_sg_id = aws_security_group.rds_app_ec2.id
+  private_db_sg_id  = aws_security_group.private_db.id
 
   db_credentials = {
     username = "admin"

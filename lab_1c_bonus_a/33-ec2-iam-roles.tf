@@ -2,13 +2,14 @@
 resource "aws_iam_role" "rds_app" {
   name               = "rds-app-role-${local.name_suffix}"
   assume_role_policy = data.aws_iam_policy_document.rds_app_assume_role.json
-  description        = "EC2 role that reads a db secret."
+  description        = "EC2 role that reads a db secret and login parameters."
 
   tags = {
     Name        = "rds-app-role"
     Component   = "iam"
-    DataClass   = "confidential"
-    AccessLevel = "read-only"
+    AccessLevel = "read-and-write"
+    Service     = "ec2"
+    Scope       = "rds-app"
   }
 }
 
