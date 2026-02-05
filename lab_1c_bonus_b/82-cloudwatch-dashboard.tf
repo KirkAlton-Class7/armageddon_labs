@@ -94,7 +94,7 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
       ## ========== ALARMS ==========
       {
         type : "alarm",
-        x : 16, y : 18, width : 8, height : 6,
+        x : 0, y : 18, width : 8, height : 6,
         properties : {
           title : "ALB Server Errors",
           alarms : [aws_cloudwatch_metric_alarm.rds_app_alb_server_error_alarm.arn]
@@ -110,7 +110,7 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
       },
       {
         type : "alarm",
-        x : 0, y : 18, width : 8, height : 6,
+        x : 16, y : 18, width : 8, height : 6,
         properties : {
           title : "DB Auth Failures",
           alarms : [aws_cloudwatch_metric_alarm.alarm_lab_mysql_auth_failure.arn]

@@ -20,7 +20,7 @@ variable "env" {
 
 variable "region_choice" {
   type        = string
-  default     = "2" # Defaults region to us-west-2
+  #default     = "2" # Defaults region to us-west-2
   description = <<EOT
 Choose an Availability Zone by number:
     1   =   us-east-1
