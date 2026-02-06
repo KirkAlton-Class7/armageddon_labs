@@ -4166,13 +4166,13 @@
 <path fill="none" stroke="black" d="M12647.08,-71.7C12635.75,-62.79 12621.8,-51.81 12609.56,-42.19"/>
 <polygon fill="black" stroke="black" points="12611.82,-39.51 12601.79,-36.08 12607.49,-45.01 12611.82,-39.51"/>
 </g>
-<!-- [root] var.application -->
+<!-- [root] var.application_name -->
 <g id="node283" class="node">
-<title>[root] var.application</title>
-<polygon fill="none" stroke="black" points="9000.2,-108 8909.95,-108 8909.95,-72 9006.2,-72 9006.2,-102 9000.2,-108"/>
-<polyline fill="none" stroke="black" points="9000.2,-108 9000.2,-102"/>
-<polyline fill="none" stroke="black" points="9006.2,-102 9000.2,-102"/>
-<text xml:space="preserve" text-anchor="middle" x="8958.08" y="-84.95" font-family="Times,serif" font-size="14.00">var.application</text>
+<title>[root] var.application_name</title>
+<polygon fill="none" stroke="black" points="9018.58,-108 8891.58,-108 8891.58,-72 9024.58,-72 9024.58,-102 9018.58,-108"/>
+<polyline fill="none" stroke="black" points="9018.58,-108 9018.58,-102"/>
+<polyline fill="none" stroke="black" points="9024.58,-102 9018.58,-102"/>
+<text xml:space="preserve" text-anchor="middle" x="8958.08" y="-84.95" font-family="Times,serif" font-size="14.00">var.application_name</text>
 </g>
 <!-- [root] var.env -->
 <g id="node284" class="node">
@@ -4332,11 +4332,11 @@
 <path fill="none" stroke="black" d="M883.89,-1300.8C725.26,-1277.97 405.2,-1227.52 373.08,-1188 337.51,-1144.25 421.62,-1083.33 428.08,-1080 533.21,-1025.78 1375.39,-1063.43 1492.08,-1044 1546.16,-1035 1556.63,-1020.23 1610.08,-1008 1697.04,-988.1 1798.18,-973.46 1867.79,-964.66"/>
 <polygon fill="black" stroke="black" points="1868.13,-968.15 1877.62,-963.44 1867.26,-961.2 1868.13,-968.15"/>
 </g>
-<!-- [root] local.application (expand)&#45;&gt;[root] var.application -->
+<!-- [root] local.application (expand)&#45;&gt;[root] var.application_name -->
 <g id="edge376" class="edge">
-<title>[root] local.application (expand)&#45;&gt;[root] var.application</title>
-<path fill="none" stroke="black" d="M7677.74,-154.93C7966.68,-140.5 8685.86,-104.59 8898.17,-93.99"/>
-<polygon fill="black" stroke="black" points="8898.33,-97.49 8908.14,-93.49 8897.98,-90.5 8898.33,-97.49"/>
+<title>[root] local.application (expand)&#45;&gt;[root] var.application_name</title>
+<path fill="none" stroke="black" d="M7677.74,-154.93C7958.91,-140.89 8647.49,-106.51 8879.95,-94.9"/>
+<polygon fill="black" stroke="black" points="8880.01,-98.4 8889.82,-94.41 8879.66,-91.41 8880.01,-98.4"/>
 </g>
 <!-- [root] local.base_tags (expand) -->
 <g id="node304" class="node">
@@ -4566,11 +4566,11 @@
 <ellipse fill="none" stroke="black" cx="9498.08" cy="-162" rx="161.9" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="9498.08" y="-156.95" font-family="Times,serif" font-size="14.00">[root] output.application_name (expand)</text>
 </g>
-<!-- [root] output.application_name (expand)&#45;&gt;[root] var.application -->
+<!-- [root] output.application_name (expand)&#45;&gt;[root] var.application_name -->
 <g id="edge426" class="edge">
-<title>[root] output.application_name (expand)&#45;&gt;[root] var.application</title>
-<path fill="none" stroke="black" d="M9395.55,-147.71C9283.79,-133.22 9108.75,-110.53 9017.66,-98.72"/>
-<polygon fill="black" stroke="black" points="9018.32,-95.28 9007.95,-97.47 9017.42,-102.22 9018.32,-95.28"/>
+<title>[root] output.application_name (expand)&#45;&gt;[root] var.application_name</title>
+<path fill="none" stroke="black" d="M9395.55,-147.71C9290.91,-134.15 9130.8,-113.39 9036.06,-101.11"/>
+<polygon fill="black" stroke="black" points="9036.71,-97.66 9026.34,-99.85 9035.81,-104.61 9036.71,-97.66"/>
 </g>
 <!-- [root] output.availability_zones (expand) -->
 <g id="node320" class="node">

@@ -284,7 +284,7 @@ digraph {
 		"[root] random_password.db_password (expand)" [label = "random_password.db_password", shape = "box"]
 		"[root] random_string.suffix" [label = "random_string.suffix", shape = "box"]
 		"[root] random_string.suffix (expand)" [label = "random_string.suffix", shape = "box"]
-		"[root] var.application" [label = "var.application", shape = "note"]
+		"[root] var.application_name" [label = "var.application_name", shape = "note"]
 		"[root] var.env" [label = "var.env", shape = "note"]
 		"[root] var.region_choice" [label = "var.region_choice", shape = "note"]
 		"[root] var.region_map" [label = "var.region_map", shape = "note"]
@@ -664,7 +664,7 @@ digraph {
 		"[root] data.aws_route53_zone.rds_app_zone (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] local.account_id (expand)" -> "[root] data.aws_caller_identity.current_account (expand)"
 		"[root] local.alb_sg_id (expand)" -> "[root] aws_security_group.alb"
-		"[root] local.application (expand)" -> "[root] var.application"
+		"[root] local.application (expand)" -> "[root] var.application_name"
 		"[root] local.azs (expand)" -> "[root] data.aws_availability_zones.available (expand)"
 		"[root] local.base_tags (expand)" -> "[root] local.environment (expand)"
 		"[root] local.bucket_suffix (expand)" -> "[root] random_id.bucket_suffix"
@@ -714,7 +714,7 @@ digraph {
 		"[root] local_file.ec2_user_data (expand)" -> "[root] local.rds_app_user_data (expand)"
 		"[root] local_file.ec2_user_data (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/local\"]"
 		"[root] local_file.ec2_user_data" -> "[root] local_file.ec2_user_data (expand)"
-		"[root] output.application_name (expand)" -> "[root] var.application"
+		"[root] output.application_name (expand)" -> "[root] var.application_name"
 		"[root] output.availability_zones (expand)" -> "[root] data.aws_availability_zones.available (expand)"
 		"[root] output.environment (expand)" -> "[root] local.environment (expand)"
 		"[root] output.rds_app_alb (expand)" -> "[root] aws_route53_record.rds_app_alias"

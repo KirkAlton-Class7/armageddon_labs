@@ -8,6 +8,11 @@ variable "application" {
   default = "rds-app"
 }
 
+variable "root_domain" {
+  type    = string
+  description = "Root DNS name (no subdomain)"
+  default = "kirkdevsecops.com"
+}
 
 variable "env" {
   type        = string

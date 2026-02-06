@@ -3737,8 +3737,8 @@
 <!-- [root] data.aws_iam_policy_document.rds_app_assume_role (expand)&#45;&gt;[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] -->
 <g id="edge349" class="edge">
 <title>[root] data.aws_iam_policy_document.rds_app_assume_role (expand)&#45;&gt;[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;]</title>
-<path fill="none" stroke="black" d="M10059.58,-575.66C10059.58,-540.27 10059.58,-466 10059.58,-466 10059.58,-466 9419.12,-466 9419.12,-466"/>
-<polygon fill="black" stroke="black" points="9419.12,-462.5 9409.12,-466 9419.12,-469.5 9419.12,-462.5"/>
+<path fill="none" stroke="black" d="M10050.39,-575.66C10050.39,-540.27 10050.39,-466 10050.39,-466 10050.39,-466 9419.11,-466 9419.11,-466"/>
+<polygon fill="black" stroke="black" points="9419.11,-462.5 9409.11,-466 9419.11,-469.5 9419.11,-462.5"/>
 </g>
 <!-- [root] data.aws_iam_policy_document.rds_enhanced_monitoring_assume_role (expand)&#45;&gt;[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] -->
 <g id="edge350" class="edge">
@@ -4166,13 +4166,13 @@
 <path fill="none" stroke="black" d="M15421.08,-143.76C15421.08,-143.76 15421.08,-41.34 15421.08,-41.34"/>
 <polygon fill="black" stroke="black" points="15424.58,-41.34 15421.08,-31.34 15417.58,-41.34 15424.58,-41.34"/>
 </g>
-<!-- [root] var.application -->
+<!-- [root] var.application_name -->
 <g id="node283" class="node">
-<title>[root] var.application</title>
-<polygon fill="none" stroke="black" points="10184.2,-180 10093.95,-180 10093.95,-144 10190.2,-144 10190.2,-174 10184.2,-180"/>
-<polyline fill="none" stroke="black" points="10184.2,-180 10184.2,-174"/>
-<polyline fill="none" stroke="black" points="10190.2,-174 10184.2,-174"/>
-<text xml:space="preserve" text-anchor="middle" x="10142.08" y="-156.95" font-family="Times,serif" font-size="14.00">var.application</text>
+<title>[root] var.application_name</title>
+<polygon fill="none" stroke="black" points="10202.58,-180 10075.58,-180 10075.58,-144 10208.58,-144 10208.58,-174 10202.58,-180"/>
+<polyline fill="none" stroke="black" points="10202.58,-180 10202.58,-174"/>
+<polyline fill="none" stroke="black" points="10208.58,-174 10202.58,-174"/>
+<text xml:space="preserve" text-anchor="middle" x="10142.08" y="-156.95" font-family="Times,serif" font-size="14.00">var.application_name</text>
 </g>
 <!-- [root] var.env -->
 <g id="node284" class="node">
@@ -4332,11 +4332,11 @@
 <path fill="none" stroke="black" d="M1042.48,-2602.15C1042.48,-2530.26 1042.48,-1989 1042.48,-1989 1042.48,-1989 2687.83,-1989 2687.83,-1989 2687.83,-1989 2687.83,-1919.67 2687.83,-1919.67"/>
 <polygon fill="black" stroke="black" points="2691.33,-1919.67 2687.83,-1909.67 2684.33,-1919.67 2691.33,-1919.67"/>
 </g>
-<!-- [root] local.application (expand)&#45;&gt;[root] var.application -->
+<!-- [root] local.application (expand)&#45;&gt;[root] var.application_name -->
 <g id="edge376" class="edge">
-<title>[root] local.application (expand)&#45;&gt;[root] var.application</title>
-<path fill="none" stroke="black" d="M9495.32,-312C9709.62,-312 10126.03,-312 10126.03,-312 10126.03,-312 10126.03,-191.91 10126.03,-191.91"/>
-<polygon fill="black" stroke="black" points="10129.53,-191.91 10126.03,-181.91 10122.53,-191.91 10129.53,-191.91"/>
+<title>[root] local.application (expand)&#45;&gt;[root] var.application_name</title>
+<path fill="none" stroke="black" d="M9495.57,-312C9708.5,-312 10119.91,-312 10119.91,-312 10119.91,-312 10119.91,-191.91 10119.91,-191.91"/>
+<polygon fill="black" stroke="black" points="10123.41,-191.91 10119.91,-181.91 10116.41,-191.91 10123.41,-191.91"/>
 </g>
 <!-- [root] local.base_tags (expand) -->
 <g id="node304" class="node">
@@ -4566,11 +4566,11 @@
 <ellipse fill="none" stroke="black" cx="10860.08" cy="-306" rx="161.9" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="10860.08" y="-300.95" font-family="Times,serif" font-size="14.00">[root] output.application_name (expand)</text>
 </g>
-<!-- [root] output.application_name (expand)&#45;&gt;[root] var.application -->
+<!-- [root] output.application_name (expand)&#45;&gt;[root] var.application_name -->
 <g id="edge426" class="edge">
-<title>[root] output.application_name (expand)&#45;&gt;[root] var.application</title>
-<path fill="none" stroke="black" d="M10706.46,-300C10499.87,-300 10158.12,-300 10158.12,-300 10158.12,-300 10158.12,-191.84 10158.12,-191.84"/>
-<polygon fill="black" stroke="black" points="10161.62,-191.84 10158.12,-181.84 10154.62,-191.84 10161.62,-191.84"/>
+<title>[root] output.application_name (expand)&#45;&gt;[root] var.application_name</title>
+<path fill="none" stroke="black" d="M10706.51,-300C10501.59,-300 10164.24,-300 10164.24,-300 10164.24,-300 10164.24,-191.84 10164.24,-191.84"/>
+<polygon fill="black" stroke="black" points="10167.74,-191.84 10164.24,-181.84 10160.74,-191.84 10167.74,-191.84"/>
 </g>
 <!-- [root] output.availability_zones (expand) -->
 <g id="node320" class="node">
