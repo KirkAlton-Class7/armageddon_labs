@@ -3,9 +3,9 @@ variable "vpc_cidr" {
   default = "10.10.0.0/16"
 }
 variable "application" {
-  type    = string
+  type        = string
   description = "Application name (short)"
-  default = "rds-app"
+  default     = "rds-app"
 }
 
 
