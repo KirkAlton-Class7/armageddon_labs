@@ -49,24 +49,46 @@ output "rds_subnets" {
 }
 
 
-# Route53 Output
-output "zone_id" {
-  description = "Route53 Zone ID"
-  value       = data.aws_route53_zone.rds_app_zone
+# Route53 Hosted Zone Info
+output "route53_zone" {
+  description = "Route53 hosted zone information"
+
+  value = {
+    arn          = data.aws_route53_zone.rds_app_zone.arn
+    id           = data.aws_route53_zone.rds_app_zone.zone_id
+    name         = data.aws_route53_zone.rds_app_zone.name
+    name_servers = data.aws_route53_zone.rds_app_zone.name_servers
+    comment      = data.aws_route53_zone.rds_app_zone.comment
+  }
 }
 
 # WAF Info
 output "waf_info" {
-  description = "WAF attached to the public ALB"
+  description = "WAF Web ACL details"
+
   value = {
-    name = aws_wafv2_web_acl.rds_app.name
-    arn  = aws_wafv2_web_acl.rds_app.arn
+    name  = aws_wafv2_web_acl.rds_app.name
+    arn   = aws_wafv2_web_acl.rds_app.arn
+    scope = aws_wafv2_web_acl.rds_app.scope
+
+    # Use try() with .managed_rule_group_statement and null to avoid errors if the rule isn't a managed group.
+    rules = [
+      for rule in aws_wafv2_web_acl.rds_app.rule : {
+        name     = rule.name
+        priority = rule.priority
+        metric   = rule.visibility_config[0].metric_name
+        managed_rule_group = try(
+          rule.statement[0].managed_rule_group_statement[0].name,
+          null
+        )
+      }
+    ]
   }
 }
 
 # RDS App ALB Info
 output "rds_app_alb" {
-  description = "RDS App ALB details (name, DNS, Route53 record)"
+  description = "ALB Information"
 
   value = {
     application = local.application
