@@ -49,15 +49,47 @@ output "rds_subnets" {
 }
 
 
-# RDS App ALB Output
+# Route53 Output
+output "zone_id" {
+  description = "Route53 Zone ID"
+  value       = data.aws_route53_zone.rds_app_zone
+}
+
+# WAF Info
+output "waf_info" {
+  description = "WAF attached to the public ALB"
+  value = {
+    name = aws_wafv2_web_acl.rds_app.name
+    arn  = aws_wafv2_web_acl.rds_app.arn
+  }
+}
+
+# RDS App ALB Info
 output "rds_app_alb" {
-  description = "RDS App ALB: Name, Subnets, URL"
-  value = [
-    {
-      name    = aws_lb.rds_app_public_alb.tags["Name"]
-      subnets = aws_lb.rds_app_public_alb.subnets
-      url     = aws_route53_record.rds_app_alias.name
-      url     = "http://${aws_lb.rds_app_public_alb.dns_name}/"
-    }
-  ]
+  description = "RDS App ALB details (name, DNS, Route53 record)"
+
+  value = {
+    application = local.application
+    name        = aws_lb.rds_app_public_alb.name
+    dns_name    = aws_lb.rds_app_public_alb.dns_name
+    zone_id     = aws_lb.rds_app_public_alb.zone_id
+    a_record    = aws_route53_record.rds_app_alias.name
+  }
+}
+
+# RDS App ALB Listeners
+output "alb_listeners" {
+  description = "ALB listener ports"
+  value = {
+    http  = aws_lb_listener.rds_app_http_80.port
+    https = aws_lb_listener.rds_app_https_443.port
+  }
+}
+
+# Application URL
+output "application_url" {
+  description = "URL for accessing the application"
+  value = {
+    url = "https://${local.fqdn}"
+  }
 }

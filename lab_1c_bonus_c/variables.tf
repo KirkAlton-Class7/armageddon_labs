@@ -3,15 +3,15 @@ variable "vpc_cidr" {
   default = "10.10.0.0/16"
 }
 variable "application" {
-  type    = string
+  type        = string
   description = "Application name (short)"
-  default = "rds-app"
+  default     = "rds-app"
 }
 
 variable "root_domain" {
-  type    = string
+  type        = string
   description = "Root DNS name (no subdomain)"
-  default = "kirkdevsecops.com"
+  default     = "kirkdevsecops.com"
 }
 
 variable "env" {

@@ -1,11 +1,11 @@
 # ACM Certificate for RDS App
 resource "aws_acm_certificate" "rds_app_cert" {
-  domain_name               = "kirkdevsecops.com"
-  subject_alternative_names = ["*.kirkdevsecops.com"] # Use wildcard to cover one level subdomains (argument value requires a set of strings here)
+  domain_name               = local.root_domain
+  subject_alternative_names = ["*.${local.root_domain}"] # Use wildcard to cover one level subdomains (argument value requires a set of strings here)
   validation_method         = "DNS"
 
   tags = {
-    Name = "wildcard-kirkdevsecops-com-cert"
+    Name = "${local.application}-cert"
   }
 
   lifecycle {
@@ -16,7 +16,7 @@ resource "aws_acm_certificate" "rds_app_cert" {
 
 # Hosted Zone for RDS App
 data "aws_route53_zone" "rds_app_zone" { # Use data if the zone already exists. Use resource if you want to create a new zone.
-  name         = "kirkdevsecops.com"
+  name         = local.root_domain
   private_zone = false
 }
 
@@ -42,14 +42,12 @@ resource "aws_route53_record" "rds_app_cert_validation" {
 resource "aws_acm_certificate_validation" "rds_app_cert" {
   certificate_arn         = aws_acm_certificate.rds_app_cert.arn
   validation_record_fqdns = [for record in aws_route53_record.rds_app_cert_validation : record.fqdn]
-
-  depends_on = [aws_route53_record.rds_app_cert_validation]
 }
 
 
 resource "aws_route53_record" "rds_app_alias" {
   zone_id = data.aws_route53_zone.rds_app_zone.id
-  name    = "rds-app.kirkdevsecops.com"
+  name    = local.fqdn
   type    = "A"
 
   alias {
@@ -58,12 +56,3 @@ resource "aws_route53_record" "rds_app_alias" {
     evaluate_target_health = true
   }
 }
-
-
-
-
-# resource "aws_lb_listener" "rds_app_https" {
-#   # ... other configuration ...
-
-#   certificate_arn = aws_acm_certificate_validation.rds_app_cert.certificate_arn
-# }

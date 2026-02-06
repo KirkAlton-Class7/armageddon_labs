@@ -30,8 +30,10 @@ resource "aws_lb_listener" "rds_app_https_443" {
   port              = 443
   ssl_policy        = "ELBSecurityPolicy-2016-08"
   certificate_arn   = aws_acm_certificate_validation.rds_app_cert.certificate_arn
-  # Use .certificate_arn from aws_acm_certificate_validation instead of direct aws_acm_certificate.rds_app_cert.arn
-  # This guarantees that the listener waits until the certificate is fully validated.
+  # Use the validated certificate ARN from aws_acm_certificate_validation instead of the unvalidated certificate resource.
+  # This creates an implicit dependency and guarantees the HTTPS listener is created only after the cert has been fully validated.
+  # This is very consistent and more declarative than using depends_on.
+
 
   tags = {
     Name        = "rds-app-https-443-listener"

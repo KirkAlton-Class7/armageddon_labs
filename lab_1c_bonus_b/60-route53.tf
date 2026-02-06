@@ -5,7 +5,7 @@ resource "aws_acm_certificate" "rds_app_cert" {
   validation_method         = "DNS"
 
   tags = {
-    Name = "wildcard-kirkdevsecops-com-cert"
+    Name = "${local.application}-cert"
   }
 
   lifecycle {

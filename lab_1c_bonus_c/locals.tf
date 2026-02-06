@@ -10,9 +10,9 @@ locals {
   application = var.application
 
   # Route53
-  root_domain = var.root_domain
+  root_domain   = var.root_domain
   app_subdomain = var.application
-  fqdn = "${local.app_subdomain}.${local.root_domain}"
+  fqdn          = "${local.app_subdomain}.${local.root_domain}"
 
   # Region and AZ
   region = var.region_map[var.region_choice]
