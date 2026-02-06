@@ -74,8 +74,6 @@ digraph {
 		"[root] aws_iam_role_policy_attachment.attach_ (expand)" [label = "aws_iam_role_policy_attachment.attach_", shape = "box"]
 		"[root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_agent_role" [label = "aws_iam_role_policy_attachment.attach_ec2_cloudwatch_agent_role", shape = "box"]
 		"[root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_agent_role (expand)" [label = "aws_iam_role_policy_attachment.attach_ec2_cloudwatch_agent_role", shape = "box"]
-		"[root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_logs_role" [label = "aws_iam_role_policy_attachment.attach_ec2_cloudwatch_logs_role", shape = "box"]
-		"[root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_logs_role (expand)" [label = "aws_iam_role_policy_attachment.attach_ec2_cloudwatch_logs_role", shape = "box"]
 		"[root] aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config" [label = "aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config", shape = "box"]
 		"[root] aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand)" [label = "aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config", shape = "box"]
 		"[root] aws_iam_role_policy_attachment.attach_read_db_host_parameter" [label = "aws_iam_role_policy_attachment.attach_read_db_host_parameter", shape = "box"]
@@ -106,11 +104,11 @@ digraph {
 		"[root] aws_lb_listener.rds_app_https_443 (expand)" [label = "aws_lb_listener.rds_app_https_443", shape = "box"]
 		"[root] aws_lb_target_group.rds_app_asg_tg" [label = "aws_lb_target_group.rds_app_asg_tg", shape = "box"]
 		"[root] aws_lb_target_group.rds_app_asg_tg (expand)" [label = "aws_lb_target_group.rds_app_asg_tg", shape = "box"]
+		"[root] aws_route53_record.rds_app_alias" [label = "aws_route53_record.rds_app_alias", shape = "box"]
+		"[root] aws_route53_record.rds_app_alias (expand)" [label = "aws_route53_record.rds_app_alias", shape = "box"]
 		"[root] aws_route53_record.rds_app_cert_validation (expand)" [label = "aws_route53_record.rds_app_cert_validation", shape = "box"]
 		"[root] aws_route53_record.rds_app_cert_validation[\"*.kirkdevsecops.com\"]" [label = "aws_route53_record.rds_app_cert_validation", shape = "box"]
 		"[root] aws_route53_record.rds_app_cert_validation[\"kirkdevsecops.com\"]" [label = "aws_route53_record.rds_app_cert_validation", shape = "box"]
-		"[root] aws_route53_record.www" [label = "aws_route53_record.www", shape = "box"]
-		"[root] aws_route53_record.www (expand)" [label = "aws_route53_record.www", shape = "box"]
 		"[root] aws_route_table.local" [label = "aws_route_table.local", shape = "box"]
 		"[root] aws_route_table.local (expand)" [label = "aws_route_table.local", shape = "box"]
 		"[root] aws_route_table.public" [label = "aws_route_table.public", shape = "box"]
@@ -392,9 +390,6 @@ digraph {
 		"[root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_agent_role (expand)" -> "[root] aws_iam_policy.ec2_cloudwatch_agent_role"
 		"[root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_agent_role (expand)" -> "[root] aws_iam_role.rds_app"
 		"[root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_agent_role" -> "[root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_agent_role (expand)"
-		"[root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_logs_role (expand)" -> "[root] aws_iam_policy.ec2_cloudwatch_agent_role"
-		"[root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_logs_role (expand)" -> "[root] aws_iam_role.rds_app"
-		"[root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_logs_role" -> "[root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_logs_role (expand)"
 		"[root] aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand)" -> "[root] aws_iam_policy.read_cloudwatch_agent_config"
 		"[root] aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand)" -> "[root] aws_iam_role.rds_app"
 		"[root] aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config" -> "[root] aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand)"
@@ -445,13 +440,13 @@ digraph {
 		"[root] aws_lb_listener.rds_app_https_443" -> "[root] aws_lb_listener.rds_app_https_443 (expand)"
 		"[root] aws_lb_target_group.rds_app_asg_tg (expand)" -> "[root] aws_vpc.main"
 		"[root] aws_lb_target_group.rds_app_asg_tg" -> "[root] aws_lb_target_group.rds_app_asg_tg (expand)"
+		"[root] aws_route53_record.rds_app_alias (expand)" -> "[root] aws_lb.rds_app_public_alb"
+		"[root] aws_route53_record.rds_app_alias (expand)" -> "[root] data.aws_route53_zone.rds_app_zone (expand)"
+		"[root] aws_route53_record.rds_app_alias" -> "[root] aws_route53_record.rds_app_alias (expand)"
 		"[root] aws_route53_record.rds_app_cert_validation (expand)" -> "[root] aws_acm_certificate.rds_app_cert"
 		"[root] aws_route53_record.rds_app_cert_validation (expand)" -> "[root] data.aws_route53_zone.rds_app_zone (expand)"
 		"[root] aws_route53_record.rds_app_cert_validation[\"*.kirkdevsecops.com\"]" -> "[root] aws_route53_record.rds_app_cert_validation (expand)"
 		"[root] aws_route53_record.rds_app_cert_validation[\"kirkdevsecops.com\"]" -> "[root] aws_route53_record.rds_app_cert_validation (expand)"
-		"[root] aws_route53_record.www (expand)" -> "[root] aws_lb.rds_app_public_alb"
-		"[root] aws_route53_record.www (expand)" -> "[root] data.aws_route53_zone.rds_app_zone (expand)"
-		"[root] aws_route53_record.www" -> "[root] aws_route53_record.www (expand)"
 		"[root] aws_route_table.local (expand)" -> "[root] aws_vpc.main"
 		"[root] aws_route_table.local" -> "[root] aws_route_table.local (expand)"
 		"[root] aws_route_table.public (expand)" -> "[root] aws_internet_gateway.main"
@@ -721,7 +716,7 @@ digraph {
 		"[root] output.application_name (expand)" -> "[root] var.application_name"
 		"[root] output.availability_zones (expand)" -> "[root] data.aws_availability_zones.available (expand)"
 		"[root] output.environment (expand)" -> "[root] local.environment (expand)"
-		"[root] output.public_app_lb_01_ifno (expand)" -> "[root] aws_lb.rds_app_public_alb"
+		"[root] output.rds_app_alb (expand)" -> "[root] aws_route53_record.rds_app_alias"
 		"[root] output.rds_info (expand)" -> "[root] aws_db_instance.lab_mysql"
 		"[root] output.rds_subnets (expand)" -> "[root] aws_db_subnet_group.lab_mysql"
 		"[root] output.region (expand)" -> "[root] local.region (expand)"
@@ -737,14 +732,13 @@ digraph {
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_flow_log.vpc"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_iam_role_policy_attachment.attach_"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_agent_role"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_iam_role_policy_attachment.attach_ec2_cloudwatch_logs_role"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_iam_role_policy_attachment.attach_ssm_agent_policy"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_iam_role_policy_attachment.attach_vpc_flow_log_assume_role"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_iam_role_policy_attachment.ec2_linux_repo_access"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_lb_listener.rds_app_http_80"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_lb_listener.rds_app_https_443"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route53_record.www"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route53_record.rds_app_alias"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.private_app_a"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.private_app_b"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.private_app_c"
@@ -814,7 +808,7 @@ digraph {
 		"[root] root" -> "[root] output.application_name (expand)"
 		"[root] root" -> "[root] output.availability_zones (expand)"
 		"[root] root" -> "[root] output.environment (expand)"
-		"[root] root" -> "[root] output.public_app_lb_01_ifno (expand)"
+		"[root] root" -> "[root] output.rds_app_alb (expand)"
 		"[root] root" -> "[root] output.rds_info (expand)"
 		"[root] root" -> "[root] output.rds_subnets (expand)"
 		"[root] root" -> "[root] output.region (expand)"

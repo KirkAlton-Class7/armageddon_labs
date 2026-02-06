@@ -136,4 +136,3 @@ systemctl start rdsapp
 
 # Enable CloudWatch Agent to start at boot
 systemctl enable amazon-cloudwatch-agent
-

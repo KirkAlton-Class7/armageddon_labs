@@ -118,23 +118,22 @@ Restart=always
 WantedBy=multi-user.target
 SERVICE
 
-# Start services
+# Sleep so dependencies initialize
 echo "[INFO] Sleeping 60s to give VPC endpoints and dependencies time to initialize" >> /var/log/user_data.log
 sleep 60
-echo "[INFO] Starting CloudWatch Agent" >> /var/log/user_data.log
 
-systemctl daemon-reload
+# Start RDS App
+echo "[INFO] Starting RDSApp service" >> /var/log/user_data.log
 systemctl enable rdsapp
 systemctl start rdsapp
 
-# Start CloudWatch Agent
-# Fetch config
-sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
+# Fetch Config and start CloudWatch Agent
+echo "[INFO] Fetching and starting CloudWatch Agent" >> /var/log/user_data.log
+/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
   -a fetch-config \
   -m ec2 \
-  -c ssm:/rds-app/cloudwatch-agent/config-55ouf
+  -c ssm:/rds-app/cloudwatch-agent/config-${name_suffix} \
+  -s
 
-# Now explicitly control systemd
-sudo systemctl daemon-reload
-sudo systemctl enable amazon-cloudwatch-agent
-sudo systemctl restart amazon-cloudwatch-agent
+# Persist CloudWatch Agent across reboot / ASG replacement
+systemctl enable amazon-cloudwatch-agent

@@ -9,6 +9,12 @@ resource "aws_iam_policy" "ssm_agent_policy" {
   description = "Allow SSM Agent Permissions"
 
   policy = data.aws_iam_policy_document.ssm_agent_policy.json
+
+  tags = {
+    Name      = "ssm-agent-policy"
+    Component = "instance-management"
+  }
+
 }
 # IAM Policy Data - SSM Agent Policy (SSM Agent Permissions, Messaging, and Legacy Messaging)
 data "aws_iam_policy_document" "ssm_agent_policy" {
@@ -67,6 +73,12 @@ data "aws_iam_policy_document" "ssm_agent_policy" {
 resource "aws_iam_policy" "ec2_linux_repo_access" {
   name   = "ec2-linux-repo-access-policy"
   policy = data.aws_iam_policy_document.ec2_linux_repo_access.json
+
+  tags = {
+    Name        = "ec2-linux-repo-access"
+    Component   = "iam"
+    AccessLevel = "read-only"
+  }
 }
 data "aws_iam_policy_document" "ec2_linux_repo_access" {
   statement {
@@ -82,55 +94,50 @@ data "aws_iam_policy_document" "ec2_linux_repo_access" {
 
 # IAM Policy Object - EC2 CloudWatch Agent Role
 resource "aws_iam_policy" "ec2_cloudwatch_agent_role" {
-  name   = "ec2-cloudwatch-logs-role-policy"
+  name   = "ec2-cloudwatch-agent-role"
   policy = data.aws_iam_policy_document.ec2_cloudwatch_agent_role.json
+
+  tags = {
+    Name        = "ec2-cloudwatch-agent-role"
+    Component   = "iam"
+    AccessLevel = "write"
+  }
 }
 
 
 # IAM Policy Data - EC2 CloudWatch Agent Role
 data "aws_iam_policy_document" "ec2_cloudwatch_agent_role" {
-  
+
   # Allow CloudWatch Agent to write metric data to CloudWatch Metrics
   statement {
-  sid    = "AllowCloudWatchMetrics"
-  effect = "Allow"
-
-  actions = [
-    "cloudwatch:PutMetricData"
-  ]
-
-  resources = ["*"]  # CloudWatch doesn't support ARNs for PutMetricData
-
-  condition {
-    test     = "StringEquals"
-    variable = "cloudwatch:namespace"
-    values   = ["CWAgent"]
-  }
-}
-  # Allow CloudWatch Agent to write log data to CloudWatch Logs
-  statement {
-  sid    = "AllowEC2LogGroupActions"
-  effect = "Allow"
-  actions = [
-    "logs:CreateLogGroup",
-    "logs:DescribeLogGroups",
-  ]
-  resources = [
-    "arn:aws:logs:${local.region}:${local.account_id}:log-group:*",
-    "arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/rds-app-${local.name_suffix}",
-    "arn:aws:logs:${local.region}:${local.account_id}:log-group:/ec2-system-logs-${local.name_suffix}"
-  ]
-}
-  # Allow EC2 Describe Tags
-  statement {
-    sid    = "AllowEC2DescribeTags"
+    sid    = "AllowCloudWatchMetrics"
     effect = "Allow"
 
     actions = [
-      "ec2:DescribeTags"
+      "cloudwatch:PutMetricData"
     ]
 
-    resources = ["*"]
+    resources = ["*"] # CloudWatch doesn't support ARNs for PutMetricData
+
+    condition {
+      test     = "StringEquals"
+      variable = "cloudwatch:namespace"
+      values   = ["CWAgent"]
+    }
+  }
+  # Allow CloudWatch Agent to write log data to CloudWatch Logs
+  statement {
+    sid    = "AllowEC2LogGroupActions"
+    effect = "Allow"
+    actions = [
+      "logs:CreateLogGroup",
+      "logs:DescribeLogGroups",
+    ]
+    resources = [
+      "arn:aws:logs:${local.region}:${local.account_id}:log-group:*",
+      "arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/rds-app-${local.name_suffix}",
+      "arn:aws:logs:${local.region}:${local.account_id}:log-group:/ec2-system-logs-${local.name_suffix}"
+    ]
   }
 
   statement {
@@ -144,9 +151,9 @@ data "aws_iam_policy_document" "ec2_cloudwatch_agent_role" {
     ]
 
     resources = [
-      "arn:aws:logs:${local.region}:${local.account_id}:log-group:/ec2-system-logs-${local.name_suffix}:log-stream:*",   
+      "arn:aws:logs:${local.region}:${local.account_id}:log-group:/ec2-system-logs-${local.name_suffix}:log-stream:*",
       "arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/rds-app-${local.name_suffix}:log-stream:*"
-      ]
+    ]
   }
 }
 

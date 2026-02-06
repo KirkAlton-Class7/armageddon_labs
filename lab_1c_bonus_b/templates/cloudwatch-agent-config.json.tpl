@@ -4,14 +4,14 @@
     "logfile": "/opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log"
   },
 
-  "append_dimensions": {
-    "InstanceId": "$${aws:InstanceId}",
-    "InstanceType": "$${aws:InstanceType}",
-    "ImageId": "$${aws:ImageId}",
-    "AutoScalingGroupName": "$${aws:AutoScalingGroupName}"
-  },
-
   "metrics": {
+    "append_dimensions": {
+      "InstanceId": "$${aws:InstanceId}",
+      "InstanceType": "$${aws:InstanceType}",
+      "ImageId": "$${aws:ImageId}",
+      "AutoScalingGroupName": "$${aws:AutoScalingGroupName}"
+    },
+
     "metrics_collected": {
       "cpu": {
         "resources": ["*"],

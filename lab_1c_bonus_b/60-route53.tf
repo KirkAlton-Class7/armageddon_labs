@@ -47,7 +47,7 @@ resource "aws_acm_certificate_validation" "rds_app_cert" {
 }
 
 
-resource "aws_route53_record" "www" {
+resource "aws_route53_record" "rds_app_alias" {
   zone_id = data.aws_route53_zone.rds_app_zone.id
   name    = "rds-app.kirkdevsecops.com"
   type    = "A"

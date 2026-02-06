@@ -32,19 +32,9 @@ output "vpc_info" {
   }
 }
 
-# output "rds_app_info" {
-#   description = "EC2 Names and Browser Addresses"
-#   value = {
-#     name       = aws_instance.rds_app.tags["Name"]
-#     az         = aws_instance.rds_app.availability_zone
-#     subnet_id  = aws_instance.rds_app.subnet_id
-#     ip-address = aws_instance.rds_app.private_ip
-#     url        = "http://${aws_instance.rds_app.private_dns}"
-#   }
-# }
 
 output "rds_info" {
-  description = "RDS Name and Endpoint"
+  description = "RDS Information"
   value = {
     name     = aws_db_instance.lab_mysql.tags["Name"]
     endpoint = aws_db_instance.lab_mysql.endpoint
@@ -59,17 +49,15 @@ output "rds_subnets" {
 }
 
 
-
-
-# Public-App-LB-01 A Output
-output "public_app_lb_01_ifno" {
+# RDS App ALB Output
+output "rds_app_alb" {
+  description = "RDS App ALB: Name, Subnets, URL"
   value = [
     {
       name    = aws_lb.rds_app_public_alb.tags["Name"]
       subnets = aws_lb.rds_app_public_alb.subnets
+      url     = aws_route53_record.rds_app_alias.name
       url     = "http://${aws_lb.rds_app_public_alb.dns_name}/"
     }
   ]
-
-  description = "Public App LB 01: Name, Subnets, URL"
 }

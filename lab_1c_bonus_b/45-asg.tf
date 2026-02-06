@@ -4,7 +4,7 @@ resource "aws_autoscaling_group" "rds_app_asg" {
   name                = "rds-app-asg"
   vpc_zone_identifier = local.private_app_subnets
 
-  desired_capacity  = 3
+  desired_capacity  = 2
   max_size          = 6
   min_size          = 2
   health_check_type = "ELB"

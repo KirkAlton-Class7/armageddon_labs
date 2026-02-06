@@ -6,7 +6,7 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
     periodOverride = "inherit",
     widgets = [
 
-      ## ========== EC2 ASG METRICS ==========
+      ## ========== COMPUTE ==========
       {
         type : "metric",
         x : 0, y : 0, width : 12, height : 6,
@@ -25,23 +25,6 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
         type : "metric",
         x : 12, y : 0, width : 12, height : 6,
         properties : {
-          title : "ASG Memory Utilization (CloudWatch Agent)",
-          metrics : [
-            ["CWAgent", "mem_used_percent", "AutoScalingGroupName", aws_autoscaling_group.rds_app_asg.name]
-          ],
-          region : local.region,
-          stat: "Average",
-          period : 300,
-          view : "timeSeries"
-        }
-      },
-
-
-      ## ========== RDS METRICS ==========
-      {
-        type : "metric",
-        x : 0, y : 6, width : 12, height : 6,
-        properties : {
           title : "RDS CPU & Memory",
           metrics : [
             ["AWS/RDS", "CPUUtilization", "DBInstanceIdentifier", aws_db_instance.lab_mysql.identifier],
@@ -49,6 +32,27 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
           ],
           region : local.region,
           period : 300,
+          view : "timeSeries"
+        }
+      },
+
+      ## ========== SCALING / DATABASE ==========
+      {
+        type : "metric",
+        x : 0, y : 6, width : 12, height : 6,
+        properties : {
+          title : "ASG In-Service Instances",
+          metrics : [
+            [
+              "AWS/AutoScaling",
+              "GroupInServiceInstances",
+              "AutoScalingGroupName",
+              aws_autoscaling_group.rds_app_asg.name
+            ]
+          ],
+          region : local.region,
+          stat : "Average",
+          period : 60,
           view : "timeSeries"
         }
       },
@@ -66,7 +70,7 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
         }
       },
 
-      ## ========== ALB / WAF METRICS ==========
+      ## ========== EDGE / SECURITY ==========
       {
         type : "metric",
         x : 0, y : 12, width : 12, height : 6,
@@ -88,8 +92,9 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
           metrics : [
             ["AWS/WAFV2", "BlockedRequests", "WebACL", aws_wafv2_web_acl.rds_app.name]
           ],
-          region : local.region
-          period : 300
+          region : local.region,
+          period : 300,
+          view : "timeSeries"
         }
       },
 
@@ -106,7 +111,7 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
         type : "alarm",
         x : 8, y : 18, width : 8, height : 6,
         properties : {
-          title : "App to LabMySQL Connection Failures",
+          title : "App → MySQL Connection Failures",
           alarms : [aws_cloudwatch_metric_alarm.rds_app_to_lab_mysql_connection_failure.arn]
         }
       },

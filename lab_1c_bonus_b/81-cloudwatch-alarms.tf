@@ -112,9 +112,9 @@ resource "aws_cloudwatch_metric_alarm" "rds_app_alb_server_error_alarm" {
 
   alarm_description = "Triggers when RDS App ALB returns 5 or more server errors in 2 minutes"
   alarm_actions     = [aws_sns_topic.rds_app_alb_server_error_alert.arn]
-  
+
   treat_missing_data = "notBreaching" # Alarm stays in OK state when CloudWatch has no data points (prevents noisy insufficient data state on error-count metrics)
- 
+
   tags = {
     Name        = "rds-app-alb-server-error"
     App         = "${local.application}"
