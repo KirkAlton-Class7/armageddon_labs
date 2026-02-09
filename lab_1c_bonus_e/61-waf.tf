@@ -8,6 +8,40 @@ resource "aws_wafv2_web_acl" "rds_app" {
     allow {}
   }
 
+  # # Temporary Rule for Testing WAF
+  # # /add on url is blocked. Should create a loggable record to test log delivery to S3
+  # rule {
+  #   name     = "ForceWafLogValidation"
+  #   priority = 0
+
+  #   action {
+  #     block {}
+  #   }
+
+  #   statement {
+  #     byte_match_statement {
+  #       search_string = "/add"
+  #       field_to_match {
+  #         uri_path {}
+  #       }
+  #       positional_constraint = "CONTAINS"
+
+  #       text_transformation {
+  #         priority = 0
+  #         type     = "NONE"
+  #       }
+  #     }
+  #   }
+
+  #   visibility_config {
+  #     sampled_requests_enabled   = true
+  #     cloudwatch_metrics_enabled = true
+  #     metric_name                = "force-waf-log"
+  #   }
+  # }
+
+
+  # Core WAF Rules
   rule {
     name     = "CommonRuleSet"
     priority = 1

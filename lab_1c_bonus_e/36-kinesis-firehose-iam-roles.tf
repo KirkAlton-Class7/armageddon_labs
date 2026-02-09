@@ -20,14 +20,14 @@ data "aws_iam_policy_document" "firehose_network_telemetry_assume_role" {
 }
 
 # Policy Attachment - Firehose Network Telemetry Logs Policy --> Firehose Network Telemetry Role
-resource "aws_iam_role_policy" "attach_firehose_network_telemetry_logs" {
-  role   = aws_iam_role.firehose_network_telemetry_role.id
-  policy = data.aws_iam_policy_document.firehose_network_telemetry_logs.json
+resource "aws_iam_role_policy_attachment" "attach_firehose_network_telemetry_logs" {
+  role       = aws_iam_role.firehose_network_telemetry_role.id
+  policy_arn = aws_iam_policy.firehose_network_telemetry_logs.arn
 }
 
 
-# Policy Attachment - Firehose Network Telemetry Inboke Lambda Policy --> Firehose Network Telemetry Role
-resource "aws_iam_role_policy" "attache_firehose_network_telemetry_invoke_lambda" {
-  role   = aws_iam_role.firehose_network_telemetry_role.id
-  policy = data.aws_iam_policy_document.firehose_network_telemetry_invoke_lambda.json
+# Policy Attachment - Firehose Network Telemetry Invoke Lambda Policy --> Firehose Network Telemetry Role
+resource "aws_iam_role_policy_attachment" "attach_firehose_network_telemetry_invoke_lambda" {
+  role       = aws_iam_role.firehose_network_telemetry_role.id
+  policy_arn = aws_iam_policy.firehose_network_telemetry_invoke_lambda.arn
 }

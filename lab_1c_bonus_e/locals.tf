@@ -140,4 +140,45 @@ locals {
 
   secret_id = aws_secretsmanager_secret.lab_rds_mysql.arn
 
+
+  # WAF Log Options Map
+  waf_log_modes = {
+    cloudwatch = {
+      direct       = true
+      use_firehose = false
+      target       = "cloudwatch"
+    }
+
+    firehose = {
+      direct       = false
+      use_firehose = true
+      target       = "firehose"
+    }
+
+    s3 = {
+      direct       = true
+      use_firehose = false
+      target       = "s3"
+    }
+  }
+
+  # WAF Log Destination ARN Resolution
+  # This is abstracted from options map to prevent cycle loops with locals.
+  # ? : Is the ternary conditional operator. condition ? value_if_true : value_if_false
+  waf_log_destination_arn = (
+    local.waf_log_mode.target == "cloudwatch" ? aws_cloudwatch_log_group.waf_logs.arn :
+    local.waf_log_mode.target == "firehose" ? aws_kinesis_firehose_delivery_stream.network_telemetry.arn :
+    local.waf_log_mode.target == "s3" ? aws_s3_bucket.waf_logs_bucket[0].arn :
+    null
+  )
+  # Remember, everything in an expression () evaluates to ONE value.
+
+
+  # WAF Log Mode Selection
+  waf_log_mode = local.waf_log_modes[var.waf_log_destination]
+
+  # WAF Log Mode Validation Logic
+  # This will be false if both log modes are true.
+  # A check against this value gives an error to prevent issues on apply.
+  waf_log_mode_valid = (local.waf_log_mode.direct && !local.waf_log_mode.use_firehose) || (!local.waf_log_mode.direct && local.waf_log_mode.use_firehose)
 }

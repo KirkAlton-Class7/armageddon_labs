@@ -11,7 +11,7 @@ resource "aws_lb" "rds_app_public_alb" {
 
   # Access Logs for ALB
   access_logs {
-    bucket  = aws_s3_bucket.terraform_bucket.id
+    bucket  = aws_s3_bucket.alb_logs_bucket.id
     prefix  = var.alb_access_logs_prefix # Prefix is the value of the variable
     enabled = var.enable_alb_access_logs # Access logging determined by the value of the variable
   }

@@ -21,3 +21,14 @@ data "archive_file" "lambda_firehose_processor" {
 
 # NOTE: This Lambda is an intentional no-op Firehose processor that at preserves the delivery pipeline architecture.
 # The code is minimal, and the function can be expanded in the future without architectural changes.
+
+
+# Lambda Permission - Firehose Invoke
+resource "aws_lambda_permission" "allow_firehose_invoke" {
+  statement_id  = "AllowFirehoseInvoke"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.lambda_firehose_network_telemetry_processor.function_name
+  principal     = "firehose.amazonaws.com"
+
+  source_arn = aws_kinesis_firehose_delivery_stream.network_telemetry.arn
+}

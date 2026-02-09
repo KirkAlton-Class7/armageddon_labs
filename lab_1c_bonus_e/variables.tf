@@ -69,14 +69,15 @@ variable "alb_access_logs_prefix" {
 
 variable "waf_log_destination" {
   type        = string
-  description = "Choose ONE destination per WebACL: cloudwatch | s3 | firehose"
-  default     = "cloudwatch"
+  description = "Where AWS WAF delivers logs: cloudwatch | s3 | firehose"
+  default     = "firehose"
 
   validation {
     condition     = contains(["cloudwatch", "s3", "firehose"], lower(var.waf_log_destination))
-    error_message = "Choice must be: cloudwatch, s3, or firehose"
+    error_message = "waf_log_destination must be one of: cloudwatch, s3, firehose"
   }
 }
+
 
 variable "waf_log_retention_days" {
   type        = number

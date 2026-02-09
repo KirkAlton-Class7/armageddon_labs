@@ -120,6 +120,6 @@ output "waf_log_destinations" {
   value = {
     cloudwatch_log_group = aws_cloudwatch_log_group.waf_logs.name
     firehose_name        = aws_kinesis_firehose_delivery_stream.network_telemetry.name
-    s3_bucket            = aws_s3_bucket.terraform_bucket.bucket
+    s3_bucket            = aws_s3_bucket.alb_logs_bucket.bucket
   }
 }

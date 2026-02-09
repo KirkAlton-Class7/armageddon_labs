@@ -1,11 +1,20 @@
+# Kinesis Firehose – Network Telemetry
+# Intentionally provisioned for future expansion (WAF, ALB, other producers).
+# No cost incurred until data is ingested.
 resource "aws_kinesis_firehose_delivery_stream" "network_telemetry" {
   name        = "aws-waf-logs-${local.env}-network-telemetry"
   destination = "extended_s3"
 
   extended_s3_configuration {
     role_arn   = aws_iam_role.firehose_network_telemetry_role.arn
-    bucket_arn = aws_s3_bucket.terraform_bucket.arn
+    bucket_arn = aws_s3_bucket.waf_firehose_logs.arn
     prefix     = "waf-logs/"
+
+    # Buffering Configuration
+    # This small buffer is helpful in labs.
+    # It forces Firehose to quickly flush records to S3.
+    buffering_interval = 60 # Seconds
+    buffering_size     = 1  # MB
 
     cloudwatch_logging_options {
       enabled         = true

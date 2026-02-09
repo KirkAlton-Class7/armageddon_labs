@@ -19,13 +19,13 @@ data "aws_iam_policy_document" "lambda_firehose_network_telemetry_processor_assu
 }
 
 # Policy Attachment - Lambda Firehose Network Telemetry Logs --> Lambda Firehose Network Telemetry Role
-resource "aws_iam_role_policy" "lambda_firehose_network_telemetry_logs" {
-  role   = aws_iam_role.lambda_firehose_network_telemetry_processor_role.id
-  policy = data.aws_iam_policy_document.lambda_firehose_network_telemetry_logs.json
+resource "aws_iam_role_policy_attachment" "attach_lambda_firehose_network_telemetry_logs" {
+  role       = aws_iam_role.lambda_firehose_network_telemetry_processor_role.id
+  policy_arn = aws_iam_policy.lambda_firehose_network_telemetry_logs.arn
 }
 
 # Policy Attachment - Lambda Firehose Network Telemetry S3 ETL --> Lambda Firehose Network Telemetry Role
-resource "aws_iam_role_policy" "lambda_firehose_network_telemetry_s3_etl" {
-  role   = aws_iam_role.lambda_firehose_network_telemetry_processor_role.id
-  policy = data.aws_iam_policy_document.lambda_firehose_network_telemetry_s3_etl.json
+resource "aws_iam_role_policy_attachment" "attach_lambda_firehose_network_telemetry_s3_etl" {
+  role       = aws_iam_role.lambda_firehose_network_telemetry_processor_role.id
+  policy_arn = aws_iam_policy.lambda_firehose_network_telemetry_s3_etl.arn
 }
