@@ -418,33 +418,6 @@ data "aws_iam_policy_document" "vpc_flow_log_role" {
   }
 }
 
-# -------------------------------------------------------------------------------
-# ALB Log Policies
-# -------------------------------------------------------------------------------
-
-# S3 Bucket Policy Object - ALB Logs
-resource "aws_s3_bucket_policy" "rds_app_alb_logs" {
-  bucket = aws_s3_bucket.alb_logs_bucket.id
-  policy = data.aws_iam_policy_document.rds_app_alb_logs.json
-}
-# S3 Bucket Policy Data - ALB Logs
-data "aws_iam_policy_document" "rds_app_alb_logs" {
-  statement {
-    sid    = "AllowWritesToRdsAppAlbLogs"
-    effect = "Allow"
-    principals {
-      type        = "Service"
-      identifiers = ["logdelivery.elasticloadbalancing.amazonaws.com"]
-    }
-
-    actions = [
-      "s3:PutObject"
-    ]
-
-    resources = ["${aws_s3_bucket.alb_logs_bucket.arn}/${var.alb_access_logs_prefix}/*"] # Policy determined by the value of the variable.
-  }
-}
-
 
 # -------------------------------------------------------------------------------
 # Kinesis Firehose IAM Policies
@@ -453,12 +426,15 @@ data "aws_iam_policy_document" "rds_app_alb_logs" {
 
 # IAM Policy Object - Firehose Network Telemetry Logs
 resource "aws_iam_policy" "firehose_network_telemetry_logs" {
+  count = local.waf_log_mode.create_firehose_resources ? 1 : 0
+
   name   = "firehose-network-telemetry-logs"
-  policy = data.aws_iam_policy_document.firehose_network_telemetry_logs.json
+  policy = data.aws_iam_policy_document.firehose_network_telemetry_logs[0].json
 }
 
-# IAM Policy Data - Firehose Network Telemetry Logs
+# Conditional IAM Policy Data - Firehose Network Telemetry Logs
 data "aws_iam_policy_document" "firehose_network_telemetry_logs" {
+  count = local.waf_log_mode.create_firehose_resources ? 1 : 0
 
   # Allow Firehose to write diagnostic logs to CloudWatch
   statement {
@@ -470,48 +446,48 @@ data "aws_iam_policy_document" "firehose_network_telemetry_logs" {
     ]
 
     resources = [
-      "${aws_cloudwatch_log_group.waf_logs.arn}:*"
+      "${aws_cloudwatch_log_group.waf_firehose_logs[0].arn}:*"
     ]
   }
 
   # Allow Firehose to deliver data to S3 (REQUIRED)
+  # NOTE: Keep experimenting with splitting policy statements by scope. Its more logical, easier to see intent, and makes refactoring easier in the future.
+
+  # Bucket-level permissions
   statement {
-    effect = "Allow"
+    sid       = "FirehoseBucketMetadata"
+    actions   = ["s3:GetBucketLocation", "s3:ListBucket"]
+    resources = [aws_s3_bucket.waf_firehose_logs[0].arn]
+  }
 
-    actions = [
-      "s3:PutObject",
-      "s3:AbortMultipartUpload",
-      "s3:GetBucketLocation",
-      "s3:ListBucket"
-    ]
-
-    resources = [
-      "arn:aws:s3:::aws-waf-logs-${local.env}-network-telemetry-${local.bucket_suffix}",
-      "arn:aws:s3:::aws-waf-logs-${local.env}-network-telemetry-${local.bucket_suffix}/*"
-    ]
+  # Object-level permissions
+  statement {
+    sid       = "FirehoseObjectWrite"
+    actions   = ["s3:PutObject", "s3:AbortMultipartUpload"]
+    resources = ["${aws_s3_bucket.waf_firehose_logs[0].arn}/*"]
   }
 }
 
 
-# IAM Policy Object - Firehose Network Telemetry Invoke Lambda
-resource "aws_iam_policy" "firehose_network_telemetry_invoke_lambda" {
-  name   = "firehose-network-telemetry-invoke-lambda"
-  policy = data.aws_iam_policy_document.firehose_network_telemetry_invoke_lambda.json
-}
-# IAM Policy Data - Firehose Network Telemetry Invoke Lambda
-data "aws_iam_policy_document" "firehose_network_telemetry_invoke_lambda" {
-  statement {
-    effect = "Allow"
+# # IAM Policy Object - Firehose Network Telemetry Invoke Lambda
+# resource "aws_iam_policy" "firehose_network_telemetry_invoke_lambda" {
+#   name   = "firehose-network-telemetry-invoke-lambda"
+#   policy = data.aws_iam_policy_document.firehose_network_telemetry_invoke_lambda.json
+# }
+# # IAM Policy Data - Firehose Network Telemetry Invoke Lambda
+# data "aws_iam_policy_document" "firehose_network_telemetry_invoke_lambda" {
+#   statement {
+#     effect = "Allow"
 
-    actions = [
-      "lambda:InvokeFunction"
-    ]
+#     actions = [
+#       "lambda:InvokeFunction"
+#     ]
 
-    resources = [
-      aws_lambda_function.lambda_firehose_network_telemetry_processor.arn
-    ]
-  }
-}
+#     resources = [
+#       aws_lambda_function.lambda_firehose_network_telemetry_processor.arn
+#     ]
+#   }
+# }
 
 
 # -------------------------------------------------------------------------------
@@ -526,6 +502,7 @@ resource "aws_iam_policy" "lambda_firehose_network_telemetry_logs" {
 # IAM Policy Data - Lambda Firehose Network Telemetry Logs
 data "aws_iam_policy_document" "lambda_firehose_network_telemetry_logs" {
   statement {
+    sid    = "LambdaLogGroupActions"
     effect = "Allow"
 
     actions = [
@@ -541,26 +518,26 @@ data "aws_iam_policy_document" "lambda_firehose_network_telemetry_logs" {
 }
 
 
-# IAM Policy Object - Lambda S3 ETL
-resource "aws_iam_policy" "lambda_firehose_network_telemetry_s3_etl" {
-  name   = "lambda-firehose-network-telemetry-s3-etl"
-  policy = data.aws_iam_policy_document.firehose_network_telemetry_invoke_lambda.json
-}
-# IAM Policy Data - Lambda S3 ETL
-data "aws_iam_policy_document" "lambda_firehose_network_telemetry_s3_etl" {
-  statement {
-    effect = "Allow"
+# # IAM Policy Object - Lambda S3 ETL
+# resource "aws_iam_policy" "lambda_firehose_network_telemetry_s3_etl" {
+#   name   = "lambda-firehose-network-telemetry-s3-etl"
+#   policy = data.aws_iam_policy_document.firehose_network_telemetry_invoke_lambda.json
+# }
+# # IAM Policy Data - Lambda S3 ETL
+# data "aws_iam_policy_document" "lambda_firehose_network_telemetry_s3_etl" {
+#   statement {
+#     effect = "Allow"
 
-    actions = [
-      "s3:GetObject",
-      "s3:PutObject"
-    ]
+#     actions = [
+#       "s3:GetObject",
+#       "s3:PutObject"
+#     ]
 
-    resources = [
-      "arn:aws:s3:::aws-waf-logs-${local.env}-network-telemetry/*"
-    ]
-  }
-}
+#     resources = [
+#       "arn:aws:s3:::aws-waf-logs-${local.env}-{local.bucket_suffix}/*"
+#     ]
+#   }
+# }
 
 
 
@@ -578,10 +555,12 @@ resource "aws_cloudwatch_log_resource_policy" "waf_direct" {
   count = var.enable_direct_service_log_delivery ? 1 : 0
 
   policy_name     = "waf-direct-delivery-policy"
-  policy_document = data.aws_iam_policy_document.waf_direct.json
+  policy_document = data.aws_iam_policy_document.waf_direct[0].json
 }
-# IAM Policy Data - WAF Direct Log Delivery to CloudWatch
+# Conditional IAM Policy Data - WAF Direct Log Delivery to CloudWatch
 data "aws_iam_policy_document" "waf_direct" {
+  count = local.waf_log_mode.create_direct_resources ? 1 : 0
+
   version = "2012-10-17"
 
   statement {
@@ -598,7 +577,7 @@ data "aws_iam_policy_document" "waf_direct" {
     ]
 
     resources = [
-      "${aws_cloudwatch_log_group.waf_logs.arn}:*"
+      "${aws_cloudwatch_log_group.waf_logs[0].arn}:*"
     ]
 
     condition {
