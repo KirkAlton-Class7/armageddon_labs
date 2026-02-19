@@ -116,6 +116,8 @@ output "application_url" {
   }
 }
 
+# Logging Info
+# Maps in maps is helpful but slants in CLI.
 output "logging_info" {
   description = "Logging configuration, resources, and log destinations."
 

@@ -4022,27 +4022,27 @@
 <path fill="none" stroke="black" d="M15802.41,-1727.7C15802.41,-1715.24 15802.41,-1701 15802.41,-1701 15802.41,-1701 14736.31,-1701 14736.31,-1701 14736.31,-1701 14736.31,-1628.98 14736.31,-1628.98"/>
 <polygon fill="black" stroke="black" points="14739.81,-1628.98 14736.31,-1618.98 14732.81,-1628.98 14739.81,-1628.98"/>
 </g>
-<!-- [root] local.application (expand) -->
+<!-- [root] local.app (expand) -->
 <g id="node303" class="node">
-<title>[root] local.application (expand)</title>
+<title>[root] local.app (expand)</title>
 <ellipse fill="none" stroke="black" cx="9371.08" cy="-306" rx="131.19" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="9371.08" y="-300.95" font-family="Times,serif" font-size="14.00">[root] local.application (expand)</text>
+<text xml:space="preserve" text-anchor="middle" x="9371.08" y="-300.95" font-family="Times,serif" font-size="14.00">[root] local.app (expand)</text>
 </g>
-<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;]&#45;&gt;[root] local.application (expand) -->
+<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;]&#45;&gt;[root] local.app (expand) -->
 <g id="edge488" class="edge">
-<title>[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;]&#45;&gt;[root] local.application (expand)</title>
+<title>[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;]&#45;&gt;[root] local.app (expand)</title>
 <path fill="none" stroke="black" d="M9371.08,-431.76C9371.08,-431.76 9371.08,-335.6 9371.08,-335.6"/>
 <polygon fill="black" stroke="black" points="9374.58,-335.6 9371.08,-325.6 9367.58,-335.6 9374.58,-335.6"/>
 </g>
-<!-- [root] local.environment (expand) -->
+<!-- [root] local.env (expand) -->
 <g id="node305" class="node">
-<title>[root] local.environment (expand)</title>
+<title>[root] local.env (expand)</title>
 <ellipse fill="none" stroke="black" cx="600.08" cy="-306" rx="137.34" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="600.08" y="-300.95" font-family="Times,serif" font-size="14.00">[root] local.environment (expand)</text>
+<text xml:space="preserve" text-anchor="middle" x="600.08" y="-300.95" font-family="Times,serif" font-size="14.00">[root] local.env (expand)</text>
 </g>
-<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;]&#45;&gt;[root] local.environment (expand) -->
+<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;]&#45;&gt;[root] local.env (expand) -->
 <g id="edge489" class="edge">
-<title>[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;]&#45;&gt;[root] local.environment (expand)</title>
+<title>[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;]&#45;&gt;[root] local.env (expand)</title>
 <path fill="none" stroke="black" d="M9173.26,-445.09C9173.26,-420.51 9173.26,-312 9173.26,-312 9173.26,-312 741.97,-312 741.97,-312"/>
 <polygon fill="black" stroke="black" points="741.97,-308.5 731.97,-312 741.97,-315.5 741.97,-308.5"/>
 </g>
@@ -4332,9 +4332,9 @@
 <path fill="none" stroke="black" d="M1042.48,-2602.15C1042.48,-2530.26 1042.48,-1989 1042.48,-1989 1042.48,-1989 2687.83,-1989 2687.83,-1989 2687.83,-1989 2687.83,-1919.67 2687.83,-1919.67"/>
 <polygon fill="black" stroke="black" points="2691.33,-1919.67 2687.83,-1909.67 2684.33,-1919.67 2691.33,-1919.67"/>
 </g>
-<!-- [root] local.application (expand)&#45;&gt;[root] var.application_name -->
+<!-- [root] local.app (expand)&#45;&gt;[root] var.application_name -->
 <g id="edge376" class="edge">
-<title>[root] local.application (expand)&#45;&gt;[root] var.application_name</title>
+<title>[root] local.app (expand)&#45;&gt;[root] var.application_name</title>
 <path fill="none" stroke="black" d="M9495.57,-312C9708.5,-312 10119.91,-312 10119.91,-312 10119.91,-312 10119.91,-191.91 10119.91,-191.91"/>
 <polygon fill="black" stroke="black" points="10123.41,-191.91 10119.91,-181.91 10116.41,-191.91 10123.41,-191.91"/>
 </g>
@@ -4344,9 +4344,9 @@
 <ellipse fill="none" stroke="black" cx="126.08" cy="-450" rx="126.08" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="126.08" y="-444.95" font-family="Times,serif" font-size="14.00">[root] local.base_tags (expand)</text>
 </g>
-<!-- [root] local.base_tags (expand)&#45;&gt;[root] local.environment (expand) -->
+<!-- [root] local.base_tags (expand)&#45;&gt;[root] local.env (expand) -->
 <g id="edge378" class="edge">
-<title>[root] local.base_tags (expand)&#45;&gt;[root] local.environment (expand)</title>
+<title>[root] local.base_tags (expand)&#45;&gt;[root] local.env (expand)</title>
 <path fill="none" stroke="black" d="M126.08,-431.76C126.08,-393.01 126.08,-306 126.08,-306 126.08,-306 450.82,-306 450.82,-306"/>
 <polygon fill="black" stroke="black" points="450.82,-309.5 460.82,-306 450.82,-302.5 450.82,-309.5"/>
 </g>
@@ -4356,9 +4356,9 @@
 <ellipse fill="none" stroke="black" cx="600.08" cy="-162" rx="107.14" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="600.08" y="-156.95" font-family="Times,serif" font-size="14.00">[root] var.env (validation)</text>
 </g>
-<!-- [root] local.environment (expand)&#45;&gt;[root] var.env (validation) -->
+<!-- [root] local.env (expand)&#45;&gt;[root] var.env (validation) -->
 <g id="edge382" class="edge">
-<title>[root] local.environment (expand)&#45;&gt;[root] var.env (validation)</title>
+<title>[root] local.env (expand)&#45;&gt;[root] var.env (validation)</title>
 <path fill="none" stroke="black" d="M600.08,-287.76C600.08,-287.76 600.08,-191.6 600.08,-191.6"/>
 <polygon fill="black" stroke="black" points="603.58,-191.6 600.08,-181.6 596.58,-191.6 603.58,-191.6"/>
 </g>
@@ -4374,15 +4374,15 @@
 <ellipse fill="none" stroke="black" cx="761.08" cy="-450" rx="137.34" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="761.08" y="-444.95" font-family="Times,serif" font-size="14.00">[root] local.name_prefix (expand)</text>
 </g>
-<!-- [root] local.name_prefix (expand)&#45;&gt;[root] local.application (expand) -->
+<!-- [root] local.name_prefix (expand)&#45;&gt;[root] local.app (expand) -->
 <g id="edge383" class="edge">
-<title>[root] local.name_prefix (expand)&#45;&gt;[root] local.application (expand)</title>
+<title>[root] local.name_prefix (expand)&#45;&gt;[root] local.app (expand)</title>
 <path fill="none" stroke="black" d="M817.91,-433.37C817.91,-394.32 817.91,-300 817.91,-300 817.91,-300 9235.35,-300 9235.35,-300"/>
 <polygon fill="black" stroke="black" points="9235.35,-303.5 9245.35,-300 9235.35,-296.5 9235.35,-303.5"/>
 </g>
-<!-- [root] local.name_prefix (expand)&#45;&gt;[root] local.environment (expand) -->
+<!-- [root] local.name_prefix (expand)&#45;&gt;[root] local.env (expand) -->
 <g id="edge384" class="edge">
-<title>[root] local.name_prefix (expand)&#45;&gt;[root] local.environment (expand)</title>
+<title>[root] local.name_prefix (expand)&#45;&gt;[root] local.env (expand)</title>
 <path fill="none" stroke="black" d="M680.58,-435.13C680.58,-435.13 680.58,-332.52 680.58,-332.52"/>
 <polygon fill="black" stroke="black" points="684.08,-332.52 680.58,-322.52 677.08,-332.52 684.08,-332.52"/>
 </g>
@@ -4590,9 +4590,9 @@
 <ellipse fill="none" stroke="black" cx="438.08" cy="-450" rx="142.97" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="438.08" y="-444.95" font-family="Times,serif" font-size="14.00">[root] output.environment (expand)</text>
 </g>
-<!-- [root] output.environment (expand)&#45;&gt;[root] local.environment (expand) -->
+<!-- [root] output.environment (expand)&#45;&gt;[root] local.env (expand) -->
 <g id="edge428" class="edge">
-<title>[root] output.environment (expand)&#45;&gt;[root] local.environment (expand)</title>
+<title>[root] output.environment (expand)&#45;&gt;[root] local.env (expand)</title>
 <path fill="none" stroke="black" d="M521.89,-435.13C521.89,-435.13 521.89,-332.52 521.89,-332.52"/>
 <polygon fill="black" stroke="black" points="525.39,-332.52 521.89,-322.52 518.39,-332.52 525.39,-332.52"/>
 </g>
