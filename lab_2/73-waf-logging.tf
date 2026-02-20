@@ -5,7 +5,7 @@
 # Conditional WAF Logging - Direct (CloudWatch or S3)
 resource "aws_wafv2_web_acl_logging_configuration" "rds_app_waf_direct" {
   provider = aws.global
-  count = local.waf_log_mode.create_direct_resources ? 1 : 0
+  count    = local.waf_log_mode.create_direct_resources ? 1 : 0
 
   resource_arn = aws_wafv2_web_acl.rds_app.arn
 

@@ -45,10 +45,10 @@ resource "aws_security_group" "alb_origin" {
 
 
 # ----------------------------------------------------------------
-# SECURITY — ALB Ingress Rules (cloudfront Origin Only)
+# SECURITY — ALB Ingress Rules (Cloudfront Origin Only)
 # ----------------------------------------------------------------
 
-# Allow HTTPS only from CloudFront origin-facing IP ranges
+# Allow HTTPS from CloudFront origin-facing IP ranges
 resource "aws_vpc_security_group_ingress_rule" "allow_https_from_cloudfront" {
   security_group_id = aws_security_group.alb_origin.id
   prefix_list_id    = data.aws_ec2_managed_prefix_list.cloudfront_origin_facing.id
@@ -56,6 +56,17 @@ resource "aws_vpc_security_group_ingress_rule" "allow_https_from_cloudfront" {
   from_port         = 443
   to_port           = 443
 }
+
+
+# Allow HTTP from CloudFront origin-facing IP ranges
+resource "aws_vpc_security_group_ingress_rule" "allow_http_from_cloudfront" {
+  security_group_id = aws_security_group.alb_origin.id
+  prefix_list_id    = data.aws_ec2_managed_prefix_list.cloudfront_origin_facing.id
+  ip_protocol       = "tcp"
+  from_port         = 80
+  to_port           = 80
+}
+
 
 
 # ----------------------------------------------------------------

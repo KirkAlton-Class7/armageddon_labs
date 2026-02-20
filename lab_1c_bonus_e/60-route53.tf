@@ -27,12 +27,12 @@ resource "aws_route53_record" "rds_app_cert_validation" {
   records         = [each.value.record]
   ttl             = 60
   type            = each.value.type
-  zone_id         = data.aws_route53_zone.rds_app_zone.id
+  zone_id         = data.aws_route53_zone.rds_app_zone.zone_id
 }
 
 # Alias record for RDS App on Sub Domain
 resource "aws_route53_record" "rds_app_alias" {
-  zone_id = data.aws_route53_zone.rds_app_zone.id
+  zone_id = data.aws_route53_zone.rds_app_zone.zone_id
   name    = local.fqdn
   type    = "A"
 

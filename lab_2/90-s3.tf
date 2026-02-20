@@ -65,7 +65,7 @@ data "aws_iam_policy_document" "rds_app_alb_logs" {
 resource "aws_s3_bucket" "waf_logs_bucket" {
   count = local.waf_log_mode.create_direct_resources ? 1 : 0 # Remember to use index when referencing a conditional resource
 
-  bucket = "aws-waf-logs-${local.region}-${local.bucket_suffix}"
+  bucket        = "aws-waf-logs-${local.region}-${local.bucket_suffix}"
   force_destroy = true
 
   tags = {
