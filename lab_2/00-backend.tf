@@ -1,5 +1,9 @@
+# =============================================================================
+# FOUNDATION — REMOTE STATE BACKEND CONFIGURATION
+# =============================================================================
+
 # ----------------------------------------------------------------
-# Backend Storage
+# S3 Backend
 # ----------------------------------------------------------------
 # Backend configuration to sore the state file remotely.
 # The bucket can be configured in a different region than the Terraform deployment.

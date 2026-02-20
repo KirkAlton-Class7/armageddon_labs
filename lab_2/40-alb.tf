@@ -7,7 +7,7 @@ resource "aws_lb" "rds_app_public_alb" {
   name               = "rds-app-alb-${local.name_suffix}"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.alb.id]
+  security_groups    = [aws_security_group.alb_origin.id]
   subnets            = local.public_subnets
 
   enable_deletion_protection = false

@@ -1,3 +1,7 @@
+# ----------------------------------------------------------------
+# DETECTION — VPC FLOW LOG METRIC FILTER (APP → DB REJECT)
+# ----------------------------------------------------------------
+
 # CloudWatch Alarm - Public App to MySQL Connection Failure
 # Metric
 resource "aws_cloudwatch_log_metric_filter" "rds_app_to_lab_mysql_connection_failure" {
@@ -14,6 +18,12 @@ resource "aws_cloudwatch_log_metric_filter" "rds_app_to_lab_mysql_connection_fai
     value     = "1"
   }
 }
+
+
+# ----------------------------------------------------------------
+# DETECTION — CLOUDWATCH ALARM (APP → DB CONNECTIVITY FAILURE)
+# ----------------------------------------------------------------
+
 # Alarm
 resource "aws_cloudwatch_metric_alarm" "rds_app_to_lab_mysql_connection_failure" {
   alarm_name          = "rds-app-to-lab-mysql-connection-failure"
@@ -41,6 +51,10 @@ resource "aws_cloudwatch_metric_alarm" "rds_app_to_lab_mysql_connection_failure"
 }
 
 
+# ----------------------------------------------------------------
+# DETECTION — RDS ERROR LOG METRIC FILTER (AUTH FAILURE)
+# ----------------------------------------------------------------
+
 # CloudWatch Alarm - LabMySQL Auth Failure
 # Metric
 resource "aws_cloudwatch_log_metric_filter" "lab_mysql_auth_failure" {
@@ -48,12 +62,19 @@ resource "aws_cloudwatch_log_metric_filter" "lab_mysql_auth_failure" {
   log_group_name = "/aws/rds/instance/${aws_db_instance.lab_mysql.identifier}/error" # RDS creates and manages this log group, so use a direct string reference (or a data source), not a Terraform resource.
 
   pattern = "Access denied for user"
+
   metric_transformation {
     name      = "MySQLAuthFailure"
     namespace = "Custom/RDS"
     value     = "1"
   }
 }
+
+
+# ----------------------------------------------------------------
+# DETECTION — CLOUDWATCH ALARM (DATABASE AUTH FAILURE)
+# ----------------------------------------------------------------
+
 # Alarm
 resource "aws_cloudwatch_metric_alarm" "alarm_lab_mysql_auth_failure" {
   alarm_name          = "alarm-lab-mysql-auth-failure"
@@ -81,7 +102,9 @@ resource "aws_cloudwatch_metric_alarm" "alarm_lab_mysql_auth_failure" {
 }
 
 
-
+# ----------------------------------------------------------------
+# DETECTION — CLOUDWATCH ALARM (CUSTOM ALB SERVER ERROR METRIC)
+# ----------------------------------------------------------------
 
 # Alarm - ALB 5xx Error Rate for RDS App
 resource "aws_cloudwatch_metric_alarm" "rds_app_alb_server_error_alarm" {
@@ -110,8 +133,9 @@ resource "aws_cloudwatch_metric_alarm" "rds_app_alb_server_error_alarm" {
 }
 
 
-
-
+# ----------------------------------------------------------------
+# DETECTION — CLOUDWATCH ALARM (ALB TARGET 5XX — NATIVE METRIC)
+# ----------------------------------------------------------------
 
 resource "aws_cloudwatch_metric_alarm" "rds_app_alb_target_5xx_alarm" {
   alarm_name          = "rds-app-alb-target-5xx"

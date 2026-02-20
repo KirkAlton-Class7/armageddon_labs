@@ -13,10 +13,8 @@ resource "aws_security_group" "vpc_endpoints" {
     Component = "security"
   }
 }
-
 # ----------------------------------------------------------------
-# SECURITY — VPC ENDPOINT INGRESS RULES
-# ----------------------------------------------------------------
+# SECURITY — Vpc Endpoint Ingress Rules# ----------------------------------------------------------------
 
 # SG Rule: Allow Internal HTTPS Inbound from EC2 RDS App SG
 resource "aws_vpc_security_group_ingress_rule" "allow_internal_app_https_to_vpc_endpoint" {
@@ -26,10 +24,8 @@ resource "aws_vpc_security_group_ingress_rule" "allow_internal_app_https_to_vpc_
   from_port         = 443
   to_port           = 443
 }
-
 # ----------------------------------------------------------------
-# SECURITY — VPC ENDPOINT EGRESS RULES
-# ----------------------------------------------------------------
+# SECURITY — Vpc Endpoint Egress Rules# ----------------------------------------------------------------
 
 # SG Rule: Allow all Outbound IPv4 for VPC Endpoint SG
 resource "aws_vpc_security_group_egress_rule" "allow_all_outbound_from_vpc_endpoint" {

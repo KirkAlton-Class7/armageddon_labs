@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# INPUT VARIABLES — NETWORKING
+# INPUT VARIABLES — Networking
 # ----------------------------------------------------------------
 
 # Input VPC CIDR Block
@@ -9,7 +9,7 @@ variable "vpc_cidr" {
 }
 
 # ----------------------------------------------------------------
-# INPUT VARIABLES — APPLICATION IDENTITY
+# INPUT VARIABLES — Application Identity
 # ----------------------------------------------------------------
 
 # Input Application Name
@@ -32,7 +32,7 @@ variable "env" {
 }
 
 # ----------------------------------------------------------------
-# INPUT VARIABLES — REGION SELECTION
+# INPUT VARIABLES — Region Selection
 # ----------------------------------------------------------------
 
 # Input Region Choice
@@ -68,7 +68,7 @@ variable "region_map" {
 }
 
 # ----------------------------------------------------------------
-# INPUT VARIABLES — DNS / ROUTE 53
+# INPUT VARIABLES — DNS / Route 53
 # ----------------------------------------------------------------
 
 # Toggle Route 53 in Terraform
@@ -93,7 +93,7 @@ variable "root_domain" {
 }
 
 # ----------------------------------------------------------------
-# INPUT VARIABLES — ALB LOGGING
+# INPUT VARIABLES — ALB Logging
 # ----------------------------------------------------------------
 
 # Toggle ALB Access Logs
@@ -111,7 +111,7 @@ variable "alb_access_logs_prefix" {
 }
 
 # ----------------------------------------------------------------
-# INPUT VARIABLES — WAF LOGGING & OBSERVABILITY
+# INPUT VARIABLES — WAF Logging & Observability
 # ----------------------------------------------------------------
 
 # Input WAF Log Destination

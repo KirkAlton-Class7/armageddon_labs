@@ -1,9 +1,9 @@
-# ----------------------------------------------------------------
-# AWS Providers
-# ----------------------------------------------------------------
+# =============================================================================
+# FOUNDATION — TERRAFORM & PROVIDER CONFIGURATION
+# =============================================================================
 
 # ----------------------------------------------------------------
-# Terraform & Provider Configuration
+# Required Providers
 # ----------------------------------------------------------------
 terraform {
   required_providers {
@@ -18,7 +18,9 @@ terraform {
   }
 }
 
-# Primary Regional Provider (Application Infrastructure)
+# ----------------------------------------------------------------
+# AWS Provider — Regional (Application Infrastructure)
+# ----------------------------------------------------------------
 provider "aws" {
   region  = local.region
   profile = "default" # Uses AWS credentials from [default] profile in ~/.aws/credentials
@@ -32,7 +34,9 @@ provider "aws" {
   }
 }
 
-# Global Provider (CloudFront/Edge Resources)
+# ----------------------------------------------------------------
+# AWS Provider — Global (Edge / CloudFront)
+# ----------------------------------------------------------------
 provider "aws" {
   alias  = "global"
   region = "us-east-1"
@@ -47,14 +51,14 @@ provider "aws" {
   }
 }
 
-
 # ----------------------------------------------------------------
-# Additional Providers and Helpers
+# Auxillary Providers
 # ----------------------------------------------------------------
-
 provider "local" {}
 
 provider "random" {}
 
-# Data for Current Account ID
+# ----------------------------------------------------------------
+# Account Identity (Data Source)
+# ----------------------------------------------------------------
 data "aws_caller_identity" "current" {}

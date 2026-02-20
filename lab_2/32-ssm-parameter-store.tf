@@ -15,10 +15,8 @@ resource "aws_ssm_parameter" "cloudwatch_agent_config" {
     DataClass    = "internal"
   }
 }
-
 # ----------------------------------------------------------------
-# SSM PARAMETER STORE — DATABASE CONNECTION PARAMETERS
-# ----------------------------------------------------------------
+# SSM PARAMETER STORE — Database Connection Parameters# ----------------------------------------------------------------
 
 # SSM Parameter Store - DB Name for LabMySQL DB
 resource "aws_ssm_parameter" "lab_mysql_db_name" {

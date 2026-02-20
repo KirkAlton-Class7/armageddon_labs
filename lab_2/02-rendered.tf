@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# LOCAL RENDERED FILES — DEBUG / ARTIFACT OUTPUT
+# LOCAL RENDERED FILES — Debug / Artifact Output
 # ----------------------------------------------------------------
 
 # Make it a habit to render template files with local_file resource. This is extremely helpful for debugging.

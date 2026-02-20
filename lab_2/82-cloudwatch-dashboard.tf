@@ -1,3 +1,7 @@
+# ----------------------------------------------------------------
+# OBSERVABILITY — CLOUDWATCH DASHBOARD (RDS APP STACK)
+# ----------------------------------------------------------------
+
 resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
   dashboard_name = "rds-app-dashboard"
 

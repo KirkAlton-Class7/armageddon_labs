@@ -2,10 +2,10 @@ digraph {
 	compound = "true"
 	newrank = "true"
 	subgraph "root" {
-		"[root] aws_acm_certificate.rds_app_cert" [label = "aws_acm_certificate.rds_app_cert", shape = "box"]
-		"[root] aws_acm_certificate.rds_app_cert (expand)" [label = "aws_acm_certificate.rds_app_cert", shape = "box"]
-		"[root] aws_acm_certificate_validation.rds_app_cert" [label = "aws_acm_certificate_validation.rds_app_cert", shape = "box"]
-		"[root] aws_acm_certificate_validation.rds_app_cert (expand)" [label = "aws_acm_certificate_validation.rds_app_cert", shape = "box"]
+		"[root] aws_acm_certificate.rds_app_cf_cert" [label = "aws_acm_certificate.rds_app_cf_cert", shape = "box"]
+		"[root] aws_acm_certificate.rds_app_cf_cert (expand)" [label = "aws_acm_certificate.rds_app_cf_cert", shape = "box"]
+		"[root] aws_acm_certificate_validation.rds_app_cf_cert" [label = "aws_acm_certificate_validation.rds_app_cf_cert", shape = "box"]
+		"[root] aws_acm_certificate_validation.rds_app_cf_cert (expand)" [label = "aws_acm_certificate_validation.rds_app_cf_cert", shape = "box"]
 		"[root] aws_autoscaling_attachment.rds_app_asg_tg_attachment" [label = "aws_autoscaling_attachment.rds_app_asg_tg_attachment", shape = "box"]
 		"[root] aws_autoscaling_attachment.rds_app_asg_tg_attachment (expand)" [label = "aws_autoscaling_attachment.rds_app_asg_tg_attachment", shape = "box"]
 		"[root] aws_autoscaling_group.rds_app_asg" [label = "aws_autoscaling_group.rds_app_asg", shape = "box"]
@@ -122,11 +122,11 @@ digraph {
 		"[root] aws_lb_target_group.rds_app_asg_tg (expand)" [label = "aws_lb_target_group.rds_app_asg_tg", shape = "box"]
 		"[root] aws_route53_record.rds_app_alias" [label = "aws_route53_record.rds_app_alias", shape = "box"]
 		"[root] aws_route53_record.rds_app_alias (expand)" [label = "aws_route53_record.rds_app_alias", shape = "box"]
-		"[root] aws_route53_record.rds_app_apex_alias" [label = "aws_route53_record.rds_app_apex_alias", shape = "box"]
-		"[root] aws_route53_record.rds_app_apex_alias (expand)" [label = "aws_route53_record.rds_app_apex_alias", shape = "box"]
-		"[root] aws_route53_record.rds_app_cert_validation (expand)" [label = "aws_route53_record.rds_app_cert_validation", shape = "box"]
-		"[root] aws_route53_record.rds_app_cert_validation[\"*.kirkdevsecops.com\"]" [label = "aws_route53_record.rds_app_cert_validation", shape = "box"]
-		"[root] aws_route53_record.rds_app_cert_validation[\"kirkdevsecops.com\"]" [label = "aws_route53_record.rds_app_cert_validation", shape = "box"]
+		"[root] aws_route53_record.rds_app_alias" [label = "aws_route53_record.rds_app_alias", shape = "box"]
+		"[root] aws_route53_record.rds_app_alias (expand)" [label = "aws_route53_record.rds_app_alias", shape = "box"]
+		"[root] aws_route53_record.rds_app_cf_cert_validation (expand)" [label = "aws_route53_record.rds_app_cf_cert_validation", shape = "box"]
+		"[root] aws_route53_record.rds_app_cf_cert_validation[\"*.kirkdevsecops.com\"]" [label = "aws_route53_record.rds_app_cf_cert_validation", shape = "box"]
+		"[root] aws_route53_record.rds_app_cf_cert_validation[\"kirkdevsecops.com\"]" [label = "aws_route53_record.rds_app_cf_cert_validation", shape = "box"]
 		"[root] aws_route53_zone.terraform_managed_zone (expand)" [label = "aws_route53_zone.terraform_managed_zone", shape = "box"]
 		"[root] aws_route_table.local" [label = "aws_route_table.local", shape = "box"]
 		"[root] aws_route_table.local (expand)" [label = "aws_route_table.local", shape = "box"]
@@ -168,8 +168,8 @@ digraph {
 		"[root] aws_secretsmanager_secret.lab_rds_mysql (expand)" [label = "aws_secretsmanager_secret.lab_rds_mysql", shape = "box"]
 		"[root] aws_secretsmanager_secret_version.lab_rds_mysql" [label = "aws_secretsmanager_secret_version.lab_rds_mysql", shape = "box"]
 		"[root] aws_secretsmanager_secret_version.lab_rds_mysql (expand)" [label = "aws_secretsmanager_secret_version.lab_rds_mysql", shape = "box"]
-		"[root] aws_security_group.alb" [label = "aws_security_group.alb", shape = "box"]
-		"[root] aws_security_group.alb (expand)" [label = "aws_security_group.alb", shape = "box"]
+		"[root] aws_security_group.alb_origin" [label = "aws_security_group.alb_origin", shape = "box"]
+		"[root] aws_security_group.alb_origin (expand)" [label = "aws_security_group.alb_origin", shape = "box"]
 		"[root] aws_security_group.private_db" [label = "aws_security_group.private_db", shape = "box"]
 		"[root] aws_security_group.private_db (expand)" [label = "aws_security_group.private_db", shape = "box"]
 		"[root] aws_security_group.rds_app_asg" [label = "aws_security_group.rds_app_asg", shape = "box"]
@@ -335,12 +335,12 @@ digraph {
 		"[root] var.vpc_cidr" [label = "var.vpc_cidr", shape = "note"]
 		"[root] var.waf_log_destination" [label = "var.waf_log_destination", shape = "note"]
 		"[root] var.waf_log_retention_days" [label = "var.waf_log_retention_days", shape = "note"]
-		"[root] aws_acm_certificate.rds_app_cert (expand)" -> "[root] local.root_domain (expand)"
-		"[root] aws_acm_certificate.rds_app_cert (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
-		"[root] aws_acm_certificate.rds_app_cert" -> "[root] aws_acm_certificate.rds_app_cert (expand)"
-		"[root] aws_acm_certificate_validation.rds_app_cert (expand)" -> "[root] aws_route53_record.rds_app_cert_validation[\"*.kirkdevsecops.com\"]"
-		"[root] aws_acm_certificate_validation.rds_app_cert (expand)" -> "[root] aws_route53_record.rds_app_cert_validation[\"kirkdevsecops.com\"]"
-		"[root] aws_acm_certificate_validation.rds_app_cert" -> "[root] aws_acm_certificate_validation.rds_app_cert (expand)"
+		"[root] aws_acm_certificate.rds_app_cf_cert (expand)" -> "[root] local.root_domain (expand)"
+		"[root] aws_acm_certificate.rds_app_cf_cert (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_acm_certificate.rds_app_cf_cert" -> "[root] aws_acm_certificate.rds_app_cf_cert (expand)"
+		"[root] aws_acm_certificate_validation.rds_app_cf_cert (expand)" -> "[root] aws_route53_record.rds_app_cf_cert_validation[\"*.kirkdevsecops.com\"]"
+		"[root] aws_acm_certificate_validation.rds_app_cf_cert (expand)" -> "[root] aws_route53_record.rds_app_cf_cert_validation[\"kirkdevsecops.com\"]"
+		"[root] aws_acm_certificate_validation.rds_app_cf_cert" -> "[root] aws_acm_certificate_validation.rds_app_cf_cert (expand)"
 		"[root] aws_autoscaling_attachment.rds_app_asg_tg_attachment (expand)" -> "[root] aws_autoscaling_group.rds_app_asg"
 		"[root] aws_autoscaling_attachment.rds_app_asg_tg_attachment" -> "[root] aws_autoscaling_attachment.rds_app_asg_tg_attachment (expand)"
 		"[root] aws_autoscaling_group.rds_app_asg (expand)" -> "[root] aws_launch_template.rds_app_asg"
@@ -501,13 +501,13 @@ digraph {
 		"[root] aws_launch_template.rds_app_asg (expand)" -> "[root] local.rds_app_user_data (expand)"
 		"[root] aws_launch_template.rds_app_asg" -> "[root] aws_launch_template.rds_app_asg (expand)"
 		"[root] aws_lb.rds_app_public_alb (expand)" -> "[root] aws_s3_bucket.alb_logs_bucket[0]"
-		"[root] aws_lb.rds_app_public_alb (expand)" -> "[root] aws_security_group.alb"
+		"[root] aws_lb.rds_app_public_alb (expand)" -> "[root] aws_security_group.alb_origin"
 		"[root] aws_lb.rds_app_public_alb (expand)" -> "[root] local.public_subnets (expand)"
 		"[root] aws_lb.rds_app_public_alb (expand)" -> "[root] var.alb_access_logs_prefix"
 		"[root] aws_lb.rds_app_public_alb" -> "[root] aws_lb.rds_app_public_alb (expand)"
 		"[root] aws_lb_listener.rds_app_http_80 (expand)" -> "[root] aws_lb.rds_app_public_alb"
 		"[root] aws_lb_listener.rds_app_http_80" -> "[root] aws_lb_listener.rds_app_http_80 (expand)"
-		"[root] aws_lb_listener.rds_app_https_443 (expand)" -> "[root] aws_acm_certificate_validation.rds_app_cert"
+		"[root] aws_lb_listener.rds_app_https_443 (expand)" -> "[root] aws_acm_certificate_validation.rds_app_cf_cert"
 		"[root] aws_lb_listener.rds_app_https_443 (expand)" -> "[root] aws_lb.rds_app_public_alb"
 		"[root] aws_lb_listener.rds_app_https_443 (expand)" -> "[root] aws_lb_target_group.rds_app_asg_tg"
 		"[root] aws_lb_listener.rds_app_https_443" -> "[root] aws_lb_listener.rds_app_https_443 (expand)"
@@ -517,13 +517,13 @@ digraph {
 		"[root] aws_route53_record.rds_app_alias (expand)" -> "[root] data.aws_route53_zone.rds_app_zone (expand)"
 		"[root] aws_route53_record.rds_app_alias (expand)" -> "[root] local.fqdn (expand)"
 		"[root] aws_route53_record.rds_app_alias" -> "[root] aws_route53_record.rds_app_alias (expand)"
-		"[root] aws_route53_record.rds_app_apex_alias (expand)" -> "[root] aws_lb.rds_app_public_alb"
-		"[root] aws_route53_record.rds_app_apex_alias (expand)" -> "[root] data.aws_route53_zone.rds_app_zone (expand)"
-		"[root] aws_route53_record.rds_app_apex_alias" -> "[root] aws_route53_record.rds_app_apex_alias (expand)"
-		"[root] aws_route53_record.rds_app_cert_validation (expand)" -> "[root] aws_acm_certificate.rds_app_cert"
-		"[root] aws_route53_record.rds_app_cert_validation (expand)" -> "[root] data.aws_route53_zone.rds_app_zone (expand)"
-		"[root] aws_route53_record.rds_app_cert_validation[\"*.kirkdevsecops.com\"]" -> "[root] aws_route53_record.rds_app_cert_validation (expand)"
-		"[root] aws_route53_record.rds_app_cert_validation[\"kirkdevsecops.com\"]" -> "[root] aws_route53_record.rds_app_cert_validation (expand)"
+		"[root] aws_route53_record.rds_app_alias (expand)" -> "[root] aws_lb.rds_app_public_alb"
+		"[root] aws_route53_record.rds_app_alias (expand)" -> "[root] data.aws_route53_zone.rds_app_zone (expand)"
+		"[root] aws_route53_record.rds_app_alias" -> "[root] aws_route53_record.rds_app_alias (expand)"
+		"[root] aws_route53_record.rds_app_cf_cert_validation (expand)" -> "[root] aws_acm_certificate.rds_app_cf_cert"
+		"[root] aws_route53_record.rds_app_cf_cert_validation (expand)" -> "[root] data.aws_route53_zone.rds_app_zone (expand)"
+		"[root] aws_route53_record.rds_app_cf_cert_validation[\"*.kirkdevsecops.com\"]" -> "[root] aws_route53_record.rds_app_cf_cert_validation (expand)"
+		"[root] aws_route53_record.rds_app_cf_cert_validation[\"kirkdevsecops.com\"]" -> "[root] aws_route53_record.rds_app_cf_cert_validation (expand)"
 		"[root] aws_route53_zone.terraform_managed_zone (expand)" -> "[root] local.root_domain (expand)"
 		"[root] aws_route53_zone.terraform_managed_zone (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] aws_route53_zone.terraform_managed_zone (expand)" -> "[root] var.manage_route53_in_terraform"
@@ -584,8 +584,8 @@ digraph {
 		"[root] aws_secretsmanager_secret_version.lab_rds_mysql (expand)" -> "[root] aws_db_instance.lab_mysql"
 		"[root] aws_secretsmanager_secret_version.lab_rds_mysql (expand)" -> "[root] aws_secretsmanager_secret.lab_rds_mysql"
 		"[root] aws_secretsmanager_secret_version.lab_rds_mysql" -> "[root] aws_secretsmanager_secret_version.lab_rds_mysql (expand)"
-		"[root] aws_security_group.alb (expand)" -> "[root] aws_vpc.main"
-		"[root] aws_security_group.alb" -> "[root] aws_security_group.alb (expand)"
+		"[root] aws_security_group.alb_origin (expand)" -> "[root] aws_vpc.main"
+		"[root] aws_security_group.alb_origin" -> "[root] aws_security_group.alb_origin (expand)"
 		"[root] aws_security_group.private_db (expand)" -> "[root] aws_vpc.main"
 		"[root] aws_security_group.private_db" -> "[root] aws_security_group.private_db (expand)"
 		"[root] aws_security_group.rds_app_asg (expand)" -> "[root] aws_vpc.main"
@@ -696,20 +696,20 @@ digraph {
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_from_vpc_endpoint" -> "[root] aws_vpc_security_group_egress_rule.allow_all_outbound_from_vpc_endpoint (expand)"
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db (expand)" -> "[root] aws_security_group.private_db"
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db" -> "[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db (expand)"
-		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)" -> "[root] aws_security_group.alb"
+		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)" -> "[root] aws_security_group.alb_origin"
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)" -> "[root] aws_security_group.rds_app_asg"
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb" -> "[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)"
-		"[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb (expand)" -> "[root] aws_security_group.alb"
+		"[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb (expand)" -> "[root] aws_security_group.alb_origin"
 		"[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb" -> "[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb (expand)"
-		"[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb (expand)" -> "[root] aws_security_group.alb"
+		"[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb (expand)" -> "[root] aws_security_group.alb_origin"
 		"[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb" -> "[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb (expand)"
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)" -> "[root] aws_security_group.private_db"
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)" -> "[root] aws_security_group.rds_app_asg"
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app" -> "[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)"
-		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg (expand)" -> "[root] aws_security_group.alb"
+		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg (expand)" -> "[root] aws_security_group.alb_origin"
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg (expand)" -> "[root] aws_security_group.rds_app_asg"
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg" -> "[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg (expand)"
-		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg (expand)" -> "[root] aws_security_group.alb"
+		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg (expand)" -> "[root] aws_security_group.alb_origin"
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg (expand)" -> "[root] aws_security_group.rds_app_asg"
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg" -> "[root] aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg (expand)"
 		"[root] aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint (expand)" -> "[root] aws_security_group.vpc_endpoints"
@@ -775,7 +775,7 @@ digraph {
 		"[root] data.aws_route53_zone.rds_app_zone (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] local.account_id (expand)" -> "[root] data.aws_caller_identity.current (expand)"
 		"[root] local.alb_log_mode (expand)" -> "[root] var.enable_alb_access_logs"
-		"[root] local.alb_sg_id (expand)" -> "[root] aws_security_group.alb"
+		"[root] local.alb_sg_id (expand)" -> "[root] aws_security_group.alb_origin"
 		"[root] local.app (expand)" -> "[root] var.app"
 		"[root] local.app_subdomain (expand)" -> "[root] var.app"
 		"[root] local.azs (expand)" -> "[root] data.aws_availability_zones.available (expand)"
@@ -881,7 +881,7 @@ digraph {
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_lb_listener.rds_app_http_80"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_lb_listener.rds_app_https_443"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route53_record.rds_app_alias"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route53_record.rds_app_apex_alias"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route53_record.rds_app_alias"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route53_zone.terraform_managed_zone (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.private_app_a"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.private_app_b"

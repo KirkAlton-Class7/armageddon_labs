@@ -7,10 +7,8 @@
 
 # TODO: Need to create Lambda function code to detect S3 PUT event for ALB logs and write data to CloudWatch Logs to track ALB server errors.
 # TODO: Correct Firehose No-Op Lambda. Chokes on S3 delivery. Likely due to permissions
-
 # ----------------------------------------------------------------
-# SERVERLESS — LAMBDA FUNCTION DEFINITION
-# ----------------------------------------------------------------
+# SERVERLESS — Lambda Function Definition# ----------------------------------------------------------------
 
 # Lambda Function - Firehose Network Telemetry Processor
 # resource "aws_lambda_function" "lambda_firehose_network_telemetry_processor" {

@@ -8,21 +8,21 @@
  viewBox="0.00 0.00 16180.00 1412.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1408)">
 <polygon fill="white" stroke="none" points="-4,4 -4,-1408 16176.45,-1408 16176.45,4 -4,4"/>
-<!-- [root] aws_acm_certificate.rds_app_cert -->
+<!-- [root] aws_acm_certificate.rds_app_cf_cert -->
 <g id="node1" class="node">
-<title>[root] aws_acm_certificate.rds_app_cert</title>
+<title>[root] aws_acm_certificate.rds_app_cf_cert</title>
 <polygon fill="none" stroke="black" points="3342,-828 3140.75,-828 3140.75,-792 3342,-792 3342,-828"/>
-<text xml:space="preserve" text-anchor="middle" x="3241.38" y="-804.95" font-family="Times,serif" font-size="14.00">aws_acm_certificate.rds_app_cert</text>
+<text xml:space="preserve" text-anchor="middle" x="3241.38" y="-804.95" font-family="Times,serif" font-size="14.00">aws_acm_certificate.rds_app_cf_cert</text>
 </g>
-<!-- [root] aws_acm_certificate.rds_app_cert (expand) -->
+<!-- [root] aws_acm_certificate.rds_app_cf_cert (expand) -->
 <g id="node2" class="node">
-<title>[root] aws_acm_certificate.rds_app_cert (expand)</title>
+<title>[root] aws_acm_certificate.rds_app_cf_cert (expand)</title>
 <polygon fill="none" stroke="black" points="3304,-756 3102.75,-756 3102.75,-720 3304,-720 3304,-756"/>
-<text xml:space="preserve" text-anchor="middle" x="3203.38" y="-732.95" font-family="Times,serif" font-size="14.00">aws_acm_certificate.rds_app_cert</text>
+<text xml:space="preserve" text-anchor="middle" x="3203.38" y="-732.95" font-family="Times,serif" font-size="14.00">aws_acm_certificate.rds_app_cf_cert</text>
 </g>
-<!-- [root] aws_acm_certificate.rds_app_cert&#45;&gt;[root] aws_acm_certificate.rds_app_cert (expand) -->
+<!-- [root] aws_acm_certificate.rds_app_cf_cert&#45;&gt;[root] aws_acm_certificate.rds_app_cf_cert (expand) -->
 <g id="edge3" class="edge">
-<title>[root] aws_acm_certificate.rds_app_cert&#45;&gt;[root] aws_acm_certificate.rds_app_cert (expand)</title>
+<title>[root] aws_acm_certificate.rds_app_cf_cert&#45;&gt;[root] aws_acm_certificate.rds_app_cf_cert (expand)</title>
 <path fill="none" stroke="black" d="M3231.98,-791.7C3227.79,-783.98 3222.76,-774.71 3218.09,-766.11"/>
 <polygon fill="black" stroke="black" points="3221.23,-764.55 3213.38,-757.43 3215.08,-767.89 3221.23,-764.55"/>
 </g>
@@ -32,9 +32,9 @@
 <polygon fill="none" stroke="black" points="4979.38,-252 4714.94,-234 4979.38,-216 5243.81,-234 4979.38,-252"/>
 <text xml:space="preserve" text-anchor="middle" x="4979.38" y="-228.95" font-family="Times,serif" font-size="14.00">provider[&quot;registry.terraform.io/hashicorp/aws&quot;]</text>
 </g>
-<!-- [root] aws_acm_certificate.rds_app_cert (expand)&#45;&gt;[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] -->
+<!-- [root] aws_acm_certificate.rds_app_cf_cert (expand)&#45;&gt;[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] -->
 <g id="edge2" class="edge">
-<title>[root] aws_acm_certificate.rds_app_cert (expand)&#45;&gt;[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;]</title>
+<title>[root] aws_acm_certificate.rds_app_cf_cert (expand)&#45;&gt;[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;]</title>
 <path fill="none" stroke="black" d="M3223.07,-719.55C3233.45,-709.75 3245.95,-696.91 3255.38,-684 3276.71,-654.78 3278.22,-644.86 3293.38,-612 3315.02,-565.09 3305.85,-545.69 3336.38,-504 3351.3,-483.61 3360.91,-484.11 3380.38,-468 3399.58,-452.11 3400.36,-441.56 3423.38,-432 3587.4,-363.88 3647.52,-432.33 3821.38,-396 3870.9,-385.65 3879.84,-370.32 3929.38,-360 4105.86,-323.25 4169.04,-398.1 4333.38,-324 4354.58,-314.44 4350.16,-297.54 4371.38,-288 4439.54,-257.34 4617.21,-244.38 4763,-238.92"/>
 <polygon fill="black" stroke="black" points="4762.95,-242.42 4772.82,-238.56 4762.7,-235.43 4762.95,-242.42"/>
 </g>
@@ -44,51 +44,51 @@
 <ellipse fill="none" stroke="black" cx="2981.38" cy="-666" rx="137.85" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="2981.38" y="-660.95" font-family="Times,serif" font-size="14.00">[root] local.root_domain (expand)</text>
 </g>
-<!-- [root] aws_acm_certificate.rds_app_cert (expand)&#45;&gt;[root] local.root_domain (expand) -->
+<!-- [root] aws_acm_certificate.rds_app_cf_cert (expand)&#45;&gt;[root] local.root_domain (expand) -->
 <g id="edge1" class="edge">
-<title>[root] aws_acm_certificate.rds_app_cert (expand)&#45;&gt;[root] local.root_domain (expand)</title>
+<title>[root] aws_acm_certificate.rds_app_cf_cert (expand)&#45;&gt;[root] local.root_domain (expand)</title>
 <path fill="none" stroke="black" d="M3147.93,-719.52C3116.08,-709.48 3076.02,-696.84 3043.16,-686.48"/>
 <polygon fill="black" stroke="black" points="3044.35,-683.19 3033.76,-683.52 3042.25,-689.86 3044.35,-683.19"/>
 </g>
-<!-- [root] aws_acm_certificate_validation.rds_app_cert -->
+<!-- [root] aws_acm_certificate_validation.rds_app_cf_cert -->
 <g id="node3" class="node">
-<title>[root] aws_acm_certificate_validation.rds_app_cert</title>
+<title>[root] aws_acm_certificate_validation.rds_app_cf_cert</title>
 <polygon fill="none" stroke="black" points="5518.38,-1116 5256.38,-1116 5256.38,-1080 5518.38,-1080 5518.38,-1116"/>
-<text xml:space="preserve" text-anchor="middle" x="5387.38" y="-1092.95" font-family="Times,serif" font-size="14.00">aws_acm_certificate_validation.rds_app_cert</text>
+<text xml:space="preserve" text-anchor="middle" x="5387.38" y="-1092.95" font-family="Times,serif" font-size="14.00">aws_acm_certificate_validation.rds_app_cf_cert</text>
 </g>
-<!-- [root] aws_acm_certificate_validation.rds_app_cert (expand) -->
+<!-- [root] aws_acm_certificate_validation.rds_app_cf_cert (expand) -->
 <g id="node4" class="node">
-<title>[root] aws_acm_certificate_validation.rds_app_cert (expand)</title>
+<title>[root] aws_acm_certificate_validation.rds_app_cf_cert (expand)</title>
 <polygon fill="none" stroke="black" points="3185.38,-1044 2923.38,-1044 2923.38,-1008 3185.38,-1008 3185.38,-1044"/>
-<text xml:space="preserve" text-anchor="middle" x="3054.38" y="-1020.95" font-family="Times,serif" font-size="14.00">aws_acm_certificate_validation.rds_app_cert</text>
+<text xml:space="preserve" text-anchor="middle" x="3054.38" y="-1020.95" font-family="Times,serif" font-size="14.00">aws_acm_certificate_validation.rds_app_cf_cert</text>
 </g>
-<!-- [root] aws_acm_certificate_validation.rds_app_cert&#45;&gt;[root] aws_acm_certificate_validation.rds_app_cert (expand) -->
+<!-- [root] aws_acm_certificate_validation.rds_app_cf_cert&#45;&gt;[root] aws_acm_certificate_validation.rds_app_cf_cert (expand) -->
 <g id="edge6" class="edge">
-<title>[root] aws_acm_certificate_validation.rds_app_cert&#45;&gt;[root] aws_acm_certificate_validation.rds_app_cert (expand)</title>
+<title>[root] aws_acm_certificate_validation.rds_app_cf_cert&#45;&gt;[root] aws_acm_certificate_validation.rds_app_cf_cert (expand)</title>
 <path fill="none" stroke="black" d="M5255.97,-1085C5230.58,-1083.03 5204.16,-1081.24 5179.38,-1080 4314.98,-1036.73 4096.46,-1093.18 3232.38,-1044 3220.87,-1043.34 3208.95,-1042.52 3196.99,-1041.59"/>
 <polygon fill="black" stroke="black" points="3197.28,-1038.11 3187.03,-1040.8 3196.72,-1045.08 3197.28,-1038.11"/>
 </g>
-<!-- [root] aws_route53_record.rds_app_cert_validation[&quot;*.kirkdevsecops.com&quot;] -->
+<!-- [root] aws_route53_record.rds_app_cf_cert_validation[&quot;*.kirkdevsecops.com&quot;] -->
 <g id="node124" class="node">
-<title>[root] aws_route53_record.rds_app_cert_validation[&quot;*.kirkdevsecops.com&quot;]</title>
+<title>[root] aws_route53_record.rds_app_cf_cert_validation[&quot;*.kirkdevsecops.com&quot;]</title>
 <polygon fill="none" stroke="black" points="3062.62,-972 2802.12,-972 2802.12,-936 3062.62,-936 3062.62,-972"/>
-<text xml:space="preserve" text-anchor="middle" x="2932.38" y="-948.95" font-family="Times,serif" font-size="14.00">aws_route53_record.rds_app_cert_validation</text>
+<text xml:space="preserve" text-anchor="middle" x="2932.38" y="-948.95" font-family="Times,serif" font-size="14.00">aws_route53_record.rds_app_cf_cert_validation</text>
 </g>
-<!-- [root] aws_acm_certificate_validation.rds_app_cert (expand)&#45;&gt;[root] aws_route53_record.rds_app_cert_validation[&quot;*.kirkdevsecops.com&quot;] -->
+<!-- [root] aws_acm_certificate_validation.rds_app_cf_cert (expand)&#45;&gt;[root] aws_route53_record.rds_app_cf_cert_validation[&quot;*.kirkdevsecops.com&quot;] -->
 <g id="edge4" class="edge">
-<title>[root] aws_acm_certificate_validation.rds_app_cert (expand)&#45;&gt;[root] aws_route53_record.rds_app_cert_validation[&quot;*.kirkdevsecops.com&quot;]</title>
+<title>[root] aws_acm_certificate_validation.rds_app_cf_cert (expand)&#45;&gt;[root] aws_route53_record.rds_app_cf_cert_validation[&quot;*.kirkdevsecops.com&quot;]</title>
 <path fill="none" stroke="black" d="M3023.9,-1007.52C3008.21,-998.51 2988.88,-987.42 2972.04,-977.76"/>
 <polygon fill="black" stroke="black" points="2974.19,-974.95 2963.77,-973.01 2970.7,-981.03 2974.19,-974.95"/>
 </g>
-<!-- [root] aws_route53_record.rds_app_cert_validation[&quot;kirkdevsecops.com&quot;] -->
+<!-- [root] aws_route53_record.rds_app_cf_cert_validation[&quot;kirkdevsecops.com&quot;] -->
 <g id="node125" class="node">
-<title>[root] aws_route53_record.rds_app_cert_validation[&quot;kirkdevsecops.com&quot;]</title>
+<title>[root] aws_route53_record.rds_app_cf_cert_validation[&quot;kirkdevsecops.com&quot;]</title>
 <polygon fill="none" stroke="black" points="3378.62,-972 3118.12,-972 3118.12,-936 3378.62,-936 3378.62,-972"/>
-<text xml:space="preserve" text-anchor="middle" x="3248.38" y="-948.95" font-family="Times,serif" font-size="14.00">aws_route53_record.rds_app_cert_validation</text>
+<text xml:space="preserve" text-anchor="middle" x="3248.38" y="-948.95" font-family="Times,serif" font-size="14.00">aws_route53_record.rds_app_cf_cert_validation</text>
 </g>
-<!-- [root] aws_acm_certificate_validation.rds_app_cert (expand)&#45;&gt;[root] aws_route53_record.rds_app_cert_validation[&quot;kirkdevsecops.com&quot;] -->
+<!-- [root] aws_acm_certificate_validation.rds_app_cf_cert (expand)&#45;&gt;[root] aws_route53_record.rds_app_cf_cert_validation[&quot;kirkdevsecops.com&quot;] -->
 <g id="edge5" class="edge">
-<title>[root] aws_acm_certificate_validation.rds_app_cert (expand)&#45;&gt;[root] aws_route53_record.rds_app_cert_validation[&quot;kirkdevsecops.com&quot;]</title>
+<title>[root] aws_acm_certificate_validation.rds_app_cf_cert (expand)&#45;&gt;[root] aws_route53_record.rds_app_cf_cert_validation[&quot;kirkdevsecops.com&quot;]</title>
 <path fill="none" stroke="black" d="M3102.83,-1007.52C3129.08,-998.04 3161.73,-986.26 3189.45,-976.26"/>
 <polygon fill="black" stroke="black" points="3190.56,-979.58 3198.78,-972.9 3188.18,-973 3190.56,-979.58"/>
 </g>
@@ -1966,15 +1966,15 @@
 <path fill="none" stroke="black" d="M6559.17,-1007.7C6557.38,-1000.32 6555.25,-991.52 6553.24,-983.25"/>
 <polygon fill="black" stroke="black" points="6556.65,-982.47 6550.89,-973.58 6549.85,-984.12 6556.65,-982.47"/>
 </g>
-<!-- [root] aws_security_group.alb -->
+<!-- [root] aws_security_group.alb_origin -->
 <g id="node167" class="node">
-<title>[root] aws_security_group.alb</title>
+<title>[root] aws_security_group.alb_origin</title>
 <polygon fill="none" stroke="black" points="8082.88,-972 7937.88,-972 7937.88,-936 8082.88,-936 8082.88,-972"/>
-<text xml:space="preserve" text-anchor="middle" x="8010.38" y="-948.95" font-family="Times,serif" font-size="14.00">aws_security_group.alb</text>
+<text xml:space="preserve" text-anchor="middle" x="8010.38" y="-948.95" font-family="Times,serif" font-size="14.00">aws_security_group.alb_origin</text>
 </g>
-<!-- [root] aws_lb.rds_app_public_alb (expand)&#45;&gt;[root] aws_security_group.alb -->
+<!-- [root] aws_lb.rds_app_public_alb (expand)&#45;&gt;[root] aws_security_group.alb_origin -->
 <g id="edge167" class="edge">
-<title>[root] aws_lb.rds_app_public_alb (expand)&#45;&gt;[root] aws_security_group.alb</title>
+<title>[root] aws_lb.rds_app_public_alb (expand)&#45;&gt;[root] aws_security_group.alb_origin</title>
 <path fill="none" stroke="black" d="M6645.75,-1021.53C6921.96,-1009.9 7798.77,-972.94 7813.38,-972 7850.47,-969.61 7891.43,-966.21 7926.35,-963.07"/>
 <polygon fill="black" stroke="black" points="7926.31,-966.58 7935.95,-962.19 7925.68,-959.61 7926.31,-966.58"/>
 </g>
@@ -2046,9 +2046,9 @@
 <path fill="none" stroke="black" d="M2885.07,-1233.16C2933.71,-1229.79 2992.49,-1226.13 3045.38,-1224 3536.75,-1204.22 4762.54,-1228.58 5272.51,-1188.06"/>
 <polygon fill="black" stroke="black" points="5272.49,-1191.57 5282.17,-1187.27 5271.92,-1184.59 5272.49,-1191.57"/>
 </g>
-<!-- [root] aws_lb_listener.rds_app_https_443 (expand)&#45;&gt;[root] aws_acm_certificate_validation.rds_app_cert -->
+<!-- [root] aws_lb_listener.rds_app_https_443 (expand)&#45;&gt;[root] aws_acm_certificate_validation.rds_app_cf_cert -->
 <g id="edge173" class="edge">
-<title>[root] aws_lb_listener.rds_app_https_443 (expand)&#45;&gt;[root] aws_acm_certificate_validation.rds_app_cert</title>
+<title>[root] aws_lb_listener.rds_app_https_443 (expand)&#45;&gt;[root] aws_acm_certificate_validation.rds_app_cf_cert</title>
 <path fill="none" stroke="black" d="M5387.38,-1151.7C5387.38,-1144.41 5387.38,-1135.73 5387.38,-1127.54"/>
 <polygon fill="black" stroke="black" points="5390.88,-1127.62 5387.38,-1117.62 5383.88,-1127.62 5390.88,-1127.62"/>
 </g>
@@ -2130,63 +2130,63 @@
 <path fill="none" stroke="black" d="M2179.91,-1152.89C2177.04,-1152.58 2174.19,-1152.28 2171.38,-1152 1805.67,-1116.13 1711.19,-1150.69 1345.38,-1116 1335.81,-1115.09 1325.82,-1113.94 1315.89,-1112.67"/>
 <polygon fill="black" stroke="black" points="1316.62,-1109.23 1306.24,-1111.38 1315.69,-1116.17 1316.62,-1109.23"/>
 </g>
-<!-- [root] aws_route53_record.rds_app_apex_alias -->
+<!-- [root] aws_route53_record.rds_app_alias -->
 <g id="node121" class="node">
-<title>[root] aws_route53_record.rds_app_apex_alias</title>
+<title>[root] aws_route53_record.rds_app_alias</title>
 <polygon fill="none" stroke="black" points="4602.62,-1260 4366.12,-1260 4366.12,-1224 4602.62,-1224 4602.62,-1260"/>
-<text xml:space="preserve" text-anchor="middle" x="4484.38" y="-1236.95" font-family="Times,serif" font-size="14.00">aws_route53_record.rds_app_apex_alias</text>
+<text xml:space="preserve" text-anchor="middle" x="4484.38" y="-1236.95" font-family="Times,serif" font-size="14.00">aws_route53_record.rds_app_alias</text>
 </g>
-<!-- [root] aws_route53_record.rds_app_apex_alias (expand) -->
+<!-- [root] aws_route53_record.rds_app_alias (expand) -->
 <g id="node122" class="node">
-<title>[root] aws_route53_record.rds_app_apex_alias (expand)</title>
+<title>[root] aws_route53_record.rds_app_alias (expand)</title>
 <polygon fill="none" stroke="black" points="4390.62,-1188 4154.12,-1188 4154.12,-1152 4390.62,-1152 4390.62,-1188"/>
-<text xml:space="preserve" text-anchor="middle" x="4272.38" y="-1164.95" font-family="Times,serif" font-size="14.00">aws_route53_record.rds_app_apex_alias</text>
+<text xml:space="preserve" text-anchor="middle" x="4272.38" y="-1164.95" font-family="Times,serif" font-size="14.00">aws_route53_record.rds_app_alias</text>
 </g>
-<!-- [root] aws_route53_record.rds_app_apex_alias&#45;&gt;[root] aws_route53_record.rds_app_apex_alias (expand) -->
+<!-- [root] aws_route53_record.rds_app_alias&#45;&gt;[root] aws_route53_record.rds_app_alias (expand) -->
 <g id="edge185" class="edge">
-<title>[root] aws_route53_record.rds_app_apex_alias&#45;&gt;[root] aws_route53_record.rds_app_apex_alias (expand)</title>
+<title>[root] aws_route53_record.rds_app_alias&#45;&gt;[root] aws_route53_record.rds_app_alias (expand)</title>
 <path fill="none" stroke="black" d="M4431.43,-1223.52C4402.35,-1213.92 4366.11,-1201.95 4335.56,-1191.86"/>
 <polygon fill="black" stroke="black" points="4337.05,-1188.67 4326.45,-1188.86 4334.85,-1195.32 4337.05,-1188.67"/>
 </g>
-<!-- [root] aws_route53_record.rds_app_apex_alias (expand)&#45;&gt;[root] aws_lb.rds_app_public_alb -->
+<!-- [root] aws_route53_record.rds_app_alias (expand)&#45;&gt;[root] aws_lb.rds_app_public_alb -->
 <g id="edge183" class="edge">
-<title>[root] aws_route53_record.rds_app_apex_alias (expand)&#45;&gt;[root] aws_lb.rds_app_public_alb</title>
+<title>[root] aws_route53_record.rds_app_alias (expand)&#45;&gt;[root] aws_lb.rds_app_public_alb</title>
 <path fill="none" stroke="black" d="M4390.97,-1152.74C4393.8,-1152.48 4396.6,-1152.23 4399.38,-1152 4895.47,-1110.99 5026.74,-1169.32 5524.18,-1116.25"/>
 <polygon fill="black" stroke="black" points="5524.56,-1119.73 5534.12,-1115.18 5523.81,-1112.77 5524.56,-1119.73"/>
 </g>
-<!-- [root] aws_route53_record.rds_app_apex_alias (expand)&#45;&gt;[root] data.aws_route53_zone.rds_app_zone (expand) -->
+<!-- [root] aws_route53_record.rds_app_alias (expand)&#45;&gt;[root] data.aws_route53_zone.rds_app_zone (expand) -->
 <g id="edge184" class="edge">
-<title>[root] aws_route53_record.rds_app_apex_alias (expand)&#45;&gt;[root] data.aws_route53_zone.rds_app_zone (expand)</title>
+<title>[root] aws_route53_record.rds_app_alias (expand)&#45;&gt;[root] data.aws_route53_zone.rds_app_zone (expand)</title>
 <path fill="none" stroke="black" d="M4153.86,-1152.92C4150.67,-1152.6 4147.5,-1152.29 4144.38,-1152 3838.59,-1123.76 3758.35,-1159.56 3454.38,-1116 3385.65,-1106.15 3370.88,-1091.23 3302.38,-1080 3131.47,-1051.97 3079.06,-1097.6 2914.38,-1044 2854.87,-1024.63 2824.31,-1026.4 2793.38,-972 2728.13,-857.25 2908.04,-985.35 2994.38,-900 3010.03,-884.52 3013.65,-859.37 3013.71,-839.74"/>
 <polygon fill="black" stroke="black" points="3017.22,-839.78 3013.42,-829.89 3010.22,-839.99 3017.22,-839.78"/>
 </g>
-<!-- [root] aws_route53_record.rds_app_cert_validation (expand) -->
+<!-- [root] aws_route53_record.rds_app_cf_cert_validation (expand) -->
 <g id="node123" class="node">
-<title>[root] aws_route53_record.rds_app_cert_validation (expand)</title>
+<title>[root] aws_route53_record.rds_app_cf_cert_validation (expand)</title>
 <polygon fill="none" stroke="black" points="3328.62,-900 3068.12,-900 3068.12,-864 3328.62,-864 3328.62,-900"/>
-<text xml:space="preserve" text-anchor="middle" x="3198.38" y="-876.95" font-family="Times,serif" font-size="14.00">aws_route53_record.rds_app_cert_validation</text>
+<text xml:space="preserve" text-anchor="middle" x="3198.38" y="-876.95" font-family="Times,serif" font-size="14.00">aws_route53_record.rds_app_cf_cert_validation</text>
 </g>
-<!-- [root] aws_route53_record.rds_app_cert_validation (expand)&#45;&gt;[root] aws_acm_certificate.rds_app_cert -->
+<!-- [root] aws_route53_record.rds_app_cf_cert_validation (expand)&#45;&gt;[root] aws_acm_certificate.rds_app_cf_cert -->
 <g id="edge186" class="edge">
-<title>[root] aws_route53_record.rds_app_cert_validation (expand)&#45;&gt;[root] aws_acm_certificate.rds_app_cert</title>
+<title>[root] aws_route53_record.rds_app_cf_cert_validation (expand)&#45;&gt;[root] aws_acm_certificate.rds_app_cf_cert</title>
 <path fill="none" stroke="black" d="M3209,-863.7C3213.79,-855.9 3219.56,-846.51 3224.89,-837.83"/>
 <polygon fill="black" stroke="black" points="3227.82,-839.75 3230.08,-829.39 3221.86,-836.08 3227.82,-839.75"/>
 </g>
-<!-- [root] aws_route53_record.rds_app_cert_validation (expand)&#45;&gt;[root] data.aws_route53_zone.rds_app_zone (expand) -->
+<!-- [root] aws_route53_record.rds_app_cf_cert_validation (expand)&#45;&gt;[root] data.aws_route53_zone.rds_app_zone (expand) -->
 <g id="edge187" class="edge">
-<title>[root] aws_route53_record.rds_app_cert_validation (expand)&#45;&gt;[root] data.aws_route53_zone.rds_app_zone (expand)</title>
+<title>[root] aws_route53_record.rds_app_cf_cert_validation (expand)&#45;&gt;[root] data.aws_route53_zone.rds_app_zone (expand)</title>
 <path fill="none" stroke="black" d="M3151.67,-863.52C3126.47,-854.08 3095.17,-842.37 3068.53,-832.39"/>
 <polygon fill="black" stroke="black" points="3069.82,-829.14 3059.23,-828.91 3067.36,-835.7 3069.82,-829.14"/>
 </g>
-<!-- [root] aws_route53_record.rds_app_cert_validation[&quot;*.kirkdevsecops.com&quot;]&#45;&gt;[root] aws_route53_record.rds_app_cert_validation (expand) -->
+<!-- [root] aws_route53_record.rds_app_cf_cert_validation[&quot;*.kirkdevsecops.com&quot;]&#45;&gt;[root] aws_route53_record.rds_app_cf_cert_validation (expand) -->
 <g id="edge188" class="edge">
-<title>[root] aws_route53_record.rds_app_cert_validation[&quot;*.kirkdevsecops.com&quot;]&#45;&gt;[root] aws_route53_record.rds_app_cert_validation (expand)</title>
+<title>[root] aws_route53_record.rds_app_cf_cert_validation[&quot;*.kirkdevsecops.com&quot;]&#45;&gt;[root] aws_route53_record.rds_app_cf_cert_validation (expand)</title>
 <path fill="none" stroke="black" d="M2998.81,-935.52C3036.09,-925.71 3082.76,-913.43 3121.59,-903.21"/>
 <polygon fill="black" stroke="black" points="3122.08,-906.7 3130.86,-900.77 3120.3,-899.93 3122.08,-906.7"/>
 </g>
-<!-- [root] aws_route53_record.rds_app_cert_validation[&quot;kirkdevsecops.com&quot;]&#45;&gt;[root] aws_route53_record.rds_app_cert_validation (expand) -->
+<!-- [root] aws_route53_record.rds_app_cf_cert_validation[&quot;kirkdevsecops.com&quot;]&#45;&gt;[root] aws_route53_record.rds_app_cf_cert_validation (expand) -->
 <g id="edge189" class="edge">
-<title>[root] aws_route53_record.rds_app_cert_validation[&quot;kirkdevsecops.com&quot;]&#45;&gt;[root] aws_route53_record.rds_app_cert_validation (expand)</title>
+<title>[root] aws_route53_record.rds_app_cf_cert_validation[&quot;kirkdevsecops.com&quot;]&#45;&gt;[root] aws_route53_record.rds_app_cf_cert_validation (expand)</title>
 <path fill="none" stroke="black" d="M3236.02,-935.7C3230.32,-927.73 3223.45,-918.1 3217.14,-909.26"/>
 <polygon fill="black" stroke="black" points="3220.13,-907.44 3211.47,-901.34 3214.44,-911.51 3220.13,-907.44"/>
 </g>
@@ -2846,21 +2846,21 @@
 <path fill="none" stroke="black" d="M3838.95,-1152.86C3835.73,-1152.57 3832.54,-1152.28 3829.38,-1152 3595.51,-1131.44 3528.72,-1178.33 3302.38,-1116 3268.26,-1106.61 3265.4,-1089.71 3231.38,-1080 3054.2,-1029.42 2991.62,-1106.72 2818.38,-1044 2765.69,-1024.92 2637.33,-949.66 2611.38,-900 2589.15,-857.46 2589.38,-834.66 2611.38,-792 2633.5,-749.09 2933.19,-575.99 2965.38,-540 3001.98,-499.07 2997.2,-479.13 3025.38,-432 3030.48,-423.46 3036.25,-414.3 3041.57,-406.03"/>
 <polygon fill="black" stroke="black" points="3044.43,-408.06 3046.94,-397.76 3038.56,-404.24 3044.43,-408.06"/>
 </g>
-<!-- [root] aws_security_group.alb (expand) -->
+<!-- [root] aws_security_group.alb_origin (expand) -->
 <g id="node168" class="node">
-<title>[root] aws_security_group.alb (expand)</title>
+<title>[root] aws_security_group.alb_origin (expand)</title>
 <polygon fill="none" stroke="black" points="8904.88,-684 8759.88,-684 8759.88,-648 8904.88,-648 8904.88,-684"/>
-<text xml:space="preserve" text-anchor="middle" x="8832.38" y="-660.95" font-family="Times,serif" font-size="14.00">aws_security_group.alb</text>
+<text xml:space="preserve" text-anchor="middle" x="8832.38" y="-660.95" font-family="Times,serif" font-size="14.00">aws_security_group.alb_origin</text>
 </g>
-<!-- [root] aws_security_group.alb&#45;&gt;[root] aws_security_group.alb (expand) -->
+<!-- [root] aws_security_group.alb_origin&#45;&gt;[root] aws_security_group.alb_origin (expand) -->
 <g id="edge251" class="edge">
-<title>[root] aws_security_group.alb&#45;&gt;[root] aws_security_group.alb (expand)</title>
+<title>[root] aws_security_group.alb_origin&#45;&gt;[root] aws_security_group.alb_origin (expand)</title>
 <path fill="none" stroke="black" d="M8083.27,-949.86C8226.17,-940.49 8548.15,-903.32 8766.38,-756 8789.35,-740.49 8807.37,-714.24 8818.74,-694.26"/>
 <polygon fill="black" stroke="black" points="8821.79,-695.98 8823.49,-685.52 8815.64,-692.63 8821.79,-695.98"/>
 </g>
-<!-- [root] aws_security_group.alb (expand)&#45;&gt;[root] aws_vpc.main -->
+<!-- [root] aws_security_group.alb_origin (expand)&#45;&gt;[root] aws_vpc.main -->
 <g id="edge250" class="edge">
-<title>[root] aws_security_group.alb (expand)&#45;&gt;[root] aws_vpc.main</title>
+<title>[root] aws_security_group.alb_origin (expand)&#45;&gt;[root] aws_vpc.main</title>
 <path fill="none" stroke="black" d="M8905.33,-662.31C9211.96,-651 10393.33,-607.43 10671.48,-597.17"/>
 <polygon fill="black" stroke="black" points="10671.52,-600.67 10681.39,-596.81 10671.27,-593.68 10671.52,-600.67"/>
 </g>
@@ -3932,9 +3932,9 @@
 <path fill="none" stroke="black" d="M9048.66,-1079.52C9026.46,-1070.21 8998.95,-1058.68 8975.37,-1048.79"/>
 <polygon fill="black" stroke="black" points="8976.81,-1045.6 8966.24,-1044.97 8974.11,-1052.06 8976.81,-1045.6"/>
 </g>
-<!-- [root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.alb -->
+<!-- [root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.alb_origin -->
 <g id="edge362" class="edge">
-<title>[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.alb</title>
+<title>[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.alb_origin</title>
 <path fill="none" stroke="black" d="M8710.18,-1008.65C8514.13,-993.62 8233.49,-972.11 8094.71,-961.47"/>
 <polygon fill="black" stroke="black" points="8095.1,-957.99 8084.86,-960.71 8094.56,-964.97 8095.1,-957.99"/>
 </g>
@@ -3962,9 +3962,9 @@
 <path fill="none" stroke="black" d="M8625.7,-1223.51C8546.18,-1214.73 8465.58,-1202.78 8429.38,-1188 8404.69,-1177.92 8406.28,-1161.52 8381.38,-1152 8363.55,-1145.19 8173.24,-1129.26 8010.22,-1116.63"/>
 <polygon fill="black" stroke="black" points="8010.78,-1113.16 8000.54,-1115.88 8010.24,-1120.14 8010.78,-1113.16"/>
 </g>
-<!-- [root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.alb -->
+<!-- [root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.alb_origin -->
 <g id="edge365" class="edge">
-<title>[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.alb</title>
+<title>[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_http_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.alb_origin</title>
 <path fill="none" stroke="black" d="M7758.75,-1079.84C7744.13,-1060.51 7726.1,-1029.05 7743.38,-1008 7749.32,-1000.75 7850.5,-982.13 7926.55,-969.01"/>
 <polygon fill="black" stroke="black" points="7926.82,-972.52 7936.09,-967.37 7925.64,-965.62 7926.82,-972.52"/>
 </g>
@@ -3986,9 +3986,9 @@
 <path fill="none" stroke="black" d="M8361.19,-1223.59C8363.39,-1203.11 8363.33,-1169.65 8343.38,-1152 8276.4,-1092.75 7619.06,-1156.58 7539.38,-1116 7513.46,-1102.8 7493.88,-1075.37 7481.91,-1054.43"/>
 <polygon fill="black" stroke="black" points="7485.08,-1052.92 7477.23,-1045.8 7478.92,-1056.26 7485.08,-1052.92"/>
 </g>
-<!-- [root] aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.alb -->
+<!-- [root] aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.alb_origin -->
 <g id="edge367" class="edge">
-<title>[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.alb</title>
+<title>[root] aws_vpc_security_group_ingress_rule.allow_all_inbound_https_ipv4_public_alb (expand)&#45;&gt;[root] aws_security_group.alb_origin</title>
 <path fill="none" stroke="black" d="M7617.9,-1007.51C7700.39,-997.61 7804.62,-984.7 7897.38,-972 7906.7,-970.72 7916.45,-969.34 7926.14,-967.92"/>
 <polygon fill="black" stroke="black" points="7926.59,-971.39 7935.97,-966.48 7925.57,-964.47 7926.59,-971.39"/>
 </g>
@@ -4040,9 +4040,9 @@
 <path fill="none" stroke="black" d="M9553.16,-1079.52C9536.48,-1070.47 9515.94,-1059.32 9498.07,-1049.62"/>
 <polygon fill="black" stroke="black" points="9499.97,-1046.68 9489.51,-1044.98 9496.63,-1052.83 9499.97,-1046.68"/>
 </g>
-<!-- [root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg (expand)&#45;&gt;[root] aws_security_group.alb -->
+<!-- [root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg (expand)&#45;&gt;[root] aws_security_group.alb_origin -->
 <g id="edge372" class="edge">
-<title>[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg (expand)&#45;&gt;[root] aws_security_group.alb</title>
+<title>[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg (expand)&#45;&gt;[root] aws_security_group.alb_origin</title>
 <path fill="none" stroke="black" d="M9229.63,-1012.4C9201.26,-1010.88 9172.65,-1009.38 9145.38,-1008 8752.44,-988.09 8282.84,-967.03 8094.54,-958.7"/>
 <polygon fill="black" stroke="black" points="8094.74,-955.21 8084.6,-958.26 8094.43,-962.2 8094.74,-955.21"/>
 </g>
@@ -4070,9 +4070,9 @@
 <path fill="none" stroke="black" d="M8319.59,-1079.52C8337.98,-1070.39 8360.69,-1059.11 8380.35,-1049.35"/>
 <polygon fill="black" stroke="black" points="8381.85,-1052.52 8389.25,-1044.93 8378.74,-1046.25 8381.85,-1052.52"/>
 </g>
-<!-- [root] aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg (expand)&#45;&gt;[root] aws_security_group.alb -->
+<!-- [root] aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg (expand)&#45;&gt;[root] aws_security_group.alb_origin -->
 <g id="edge375" class="edge">
-<title>[root] aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg (expand)&#45;&gt;[root] aws_security_group.alb</title>
+<title>[root] aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg (expand)&#45;&gt;[root] aws_security_group.alb_origin</title>
 <path fill="none" stroke="black" d="M8321.72,-1007.52C8251.48,-995.67 8159.85,-980.21 8094.21,-969.14"/>
 <polygon fill="black" stroke="black" points="8095.03,-965.73 8084.58,-967.52 8093.86,-972.63 8095.03,-965.73"/>
 </g>
@@ -5130,9 +5130,9 @@
 <ellipse fill="none" stroke="black" cx="7960.38" cy="-1314" rx="126.08" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="7960.38" y="-1308.95" font-family="Times,serif" font-size="14.00">[root] local.alb_sg_id (expand)</text>
 </g>
-<!-- [root] local.alb_sg_id (expand)&#45;&gt;[root] aws_security_group.alb -->
+<!-- [root] local.alb_sg_id (expand)&#45;&gt;[root] aws_security_group.alb_origin -->
 <g id="edge441" class="edge">
-<title>[root] local.alb_sg_id (expand)&#45;&gt;[root] aws_security_group.alb</title>
+<title>[root] local.alb_sg_id (expand)&#45;&gt;[root] aws_security_group.alb_origin</title>
 <path fill="none" stroke="black" d="M7834.6,-1312.49C7644.33,-1310.4 7301.3,-1300.91 7263.38,-1260 7252.5,-1248.27 7252.26,-1235.51 7263.38,-1224 7344.26,-1140.29 8229.49,-1271.71 8310.38,-1188 8321.49,-1176.49 8321.44,-1163.56 8310.38,-1152 8247.79,-1086.58 7578.7,-1153.66 7496.38,-1116 7476.36,-1106.84 7481.85,-1090.25 7462.38,-1080 7370.42,-1031.62 7298.95,-1122.93 7231.38,-1044 7220.97,-1031.85 7220.37,-1019.62 7231.38,-1008 7282.34,-954.2 7823.65,-979.52 7897.38,-972 7906.74,-971.04 7916.51,-969.86 7926.22,-968.56"/>
 <polygon fill="black" stroke="black" points="7926.63,-972.04 7936.06,-967.2 7925.68,-965.11 7926.63,-972.04"/>
 </g>
@@ -5742,9 +5742,9 @@
 <path fill="none" stroke="black" d="M8832.96,-1308.26C8637.61,-1304.36 8347.9,-1298.99 8095.38,-1296 7429.52,-1288.13 2767.16,-1298.58 2102.38,-1260 2089.37,-1259.25 2075.77,-1258.17 2062.27,-1256.92"/>
 <polygon fill="black" stroke="black" points="2062.76,-1253.45 2052.47,-1255.97 2062.09,-1260.41 2062.76,-1253.45"/>
 </g>
-<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_route53_record.rds_app_apex_alias -->
+<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_route53_record.rds_app_alias -->
 <g id="edge547" class="edge">
-<title>[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_route53_record.rds_app_apex_alias</title>
+<title>[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] aws_route53_record.rds_app_alias</title>
 <path fill="none" stroke="black" d="M8831.5,-1308.51C8636.16,-1304.78 8347.27,-1299.52 8095.38,-1296 7324.87,-1285.23 5402.07,-1315.18 4614.2,-1260.14"/>
 <polygon fill="black" stroke="black" points="4614.7,-1256.66 4604.48,-1259.45 4614.21,-1263.65 4614.7,-1256.66"/>
 </g>

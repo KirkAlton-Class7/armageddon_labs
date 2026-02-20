@@ -1,3 +1,7 @@
+# ----------------------------------------------------------------
+# COMPUTE — AMAZON LINUX 2023 AMI (DATA SOURCE)
+# ----------------------------------------------------------------
+
 # EC2 - Amazon Linux 2023 AMI Data Source
 data "aws_ami" "amazon_linux_2023" {
   most_recent = true
@@ -15,5 +19,10 @@ data "aws_ami" "amazon_linux_2023" {
   owners = ["137112412989"] # Amazon
 }
 
+# ----------------------------------------------------------------
+# COMPUTE — ALTERNATE AMI RESOLUTION METHOD (SSM PARAMETER)
+# ----------------------------------------------------------------
+
 # Alternate Method for image_id
-# image_id = data.aws_ssm_parameter.al2023.value    # Use latest AL2023 AMI via SSM Parameter Store
+# image_id = data.aws_ssm_parameter.al2023.value
+# Use latest AL2023 AMI via SSM Parameter Store

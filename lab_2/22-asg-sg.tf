@@ -23,7 +23,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_inbound_http_from_public_a
   ip_protocol                  = "tcp"
   to_port                      = 80
   from_port                    = 80
-  referenced_security_group_id = aws_security_group.alb.id
+  referenced_security_group_id = aws_security_group.alb_origin.id
 }
 
 # SG Rule: Allow HTTPS Inbound from Public ALB SG
@@ -32,12 +32,10 @@ resource "aws_vpc_security_group_ingress_rule" "allow_inbound_https_from_public_
   ip_protocol                  = "tcp"
   to_port                      = 443
   from_port                    = 443
-  referenced_security_group_id = aws_security_group.alb.id
+  referenced_security_group_id = aws_security_group.alb_origin.id
 }
-
 # ----------------------------------------------------------------
-# SECURITY — ASG EGRESS RULES
-# ----------------------------------------------------------------
+# SECURITY — Asg Egress Rules# ----------------------------------------------------------------
 
 # SG Rule: Allow all outbound IPv4 traffic from ASG
 resource "aws_vpc_security_group_egress_rule" "allow_all_internal_outbound_ipv4_rds_app_asg" {

@@ -2,7 +2,7 @@
 # Checks should only reference variables and locals, never resources.
 
 # ----------------------------------------------------------------
-# VALIDATION CHECKS — WAF LOG MODE
+# VALIDATION CHECKS — WAF Log Mode
 # ----------------------------------------------------------------
 
 # Check WAF Log Mode Validation

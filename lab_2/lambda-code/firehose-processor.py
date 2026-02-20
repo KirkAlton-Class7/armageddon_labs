@@ -1,13 +1,31 @@
+# ---------------------------------------------------------------------------
+# LAMBDA — FIREHOSE PROCESSOR (NO-OP / PASS-THROUGH)
+# ---------------------------------------------------------------------------
+# This Lambda is a minimal, no-op Firehose processor that:
+#   - Returns records unchanged
+#   - Always responds with result="Ok"
+#   - Enables future transformation logic without redesigning delivery stream
+# ---------------------------------------------------------------------------
+
+
 def handler(event, context):
     return {
         "records": [
             {
-                "recordId": r["recordId"],
+                "recordId": record["recordId"],
                 "result": "Ok",
-                "data": r["data"]
+                "data": record["data"]
             }
-            for r in event["records"]
+            for record in event["records"]
         ]
     }
-# NOTE: This Lambda is an intentional no-op Firehose processor that at preserves the delivery pipeline architecture.
-# The code is minimal, and the function can be expanded in the future without architectural changes.
+
+# ---------------------------------------------------------------------------
+# NOTES
+# ---------------------------------------------------------------------------
+# For future enhancements consider:
+#   - Filtering sensitive fields
+#   - Log normalization
+#   - Enrichment (GeoIP, tagging, correlation IDs)
+#   - Error routing to DLQ
+# ---------------------------------------------------------------------------

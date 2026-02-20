@@ -1,6 +1,6 @@
 locals {
   # -------------------------------------------------------------------
-  # Core Account, Environment, and Naming Locals
+  # Core Identity, Environment, and Naming
   # -------------------------------------------------------------------
   # Account ID
   account_id = data.aws_caller_identity.current.account_id
@@ -151,7 +151,7 @@ locals {
   # Security & Identity
   # -------------------------------------------------------------------
   # Security Group IDs
-  alb_sg_id = aws_security_group.alb.id
+  alb_sg_id = aws_security_group.alb_origin.id
   # rds_app_ec2_sg_id        = aws_security_group.rds_app_ec2.id
   rds_app_asg_sg_id = aws_security_group.rds_app_asg
   private_db_sg_id  = aws_security_group.private_db.id

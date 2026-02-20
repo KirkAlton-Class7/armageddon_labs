@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# NETWORKING — INTERNET GATEWAY
+# NETWORKING — Internet Gateway
 # ----------------------------------------------------------------
 
 resource "aws_internet_gateway" "main" {

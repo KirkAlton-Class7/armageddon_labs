@@ -1,6 +1,6 @@
-# -------------------------------------------------------------------------------
-# ALB Logs Bucket, Policies & Permissions
-# -------------------------------------------------------------------------------
+# ----------------------------------------------------------------
+# STORAGE — ALB ACCESS LOGS (S3 + POLICY)
+# ----------------------------------------------------------------
 
 # Conditional Terraform Managed S3 Bucket - ALB Logs
 resource "aws_s3_bucket" "alb_logs_bucket" {
@@ -48,6 +48,18 @@ data "aws_iam_policy_document" "rds_app_alb_logs" {
       identifiers = ["logdelivery.elasticloadbalancing.amazonaws.com"]
     }
 
+    condition {
+      test     = "StringEquals"
+      variable = "aws:SourceAccount"
+      values   = [local.account_id]
+    }
+
+    condition {
+      test     = "ArnLike"
+      variable = "aws:SourceArn"
+      values   = [aws_lb.rds_app_public_alb.arn]
+    }
+
     actions = [
       "s3:PutObject"
     ]
@@ -57,15 +69,15 @@ data "aws_iam_policy_document" "rds_app_alb_logs" {
 }
 
 
-# -------------------------------------------------------------------------------
-# WAF Logs Bucket, Policies & Permissions
-# -------------------------------------------------------------------------------
+# ----------------------------------------------------------------
+# STORAGE — WAF DIRECT LOGS (S3 + POLICY)
+# ----------------------------------------------------------------
 
 # Conditional Terraform Managed S3 Bucket - AWS WAF Logs
 resource "aws_s3_bucket" "waf_logs_bucket" {
   count = local.waf_log_mode.create_direct_resources ? 1 : 0 # Remember to use index when referencing a conditional resource
 
-  bucket = "aws-waf-logs-terraform-managed-bucket-${local.region}-${local.bucket_suffix}"
+  bucket = aws_s3_bucket.waf_logs_bucket[0].arn
 
   force_destroy = true
 
@@ -88,9 +100,54 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "waf_logs_bucket" 
   }
 }
 
-# -------------------------------------------------------------------------------
-# WAF Firehose Logs Bucket, Policies & Permissions
-# -------------------------------------------------------------------------------
+# S3 Bucket Policy Object - WAF Logs
+resource "aws_s3_bucket_policy" "waf_logs_bucket" {
+  count = local.waf_log_mode.create_direct_resources ? 1 : 0
+
+  bucket = aws_s3_bucket.waf_logs_bucket[0].id
+  policy = data.aws_iam_policy_document.waf_logs_bucket_policy[0].json
+}
+
+data "aws_iam_policy_document" "waf_logs_bucket_policy" {
+  count = local.waf_log_mode.create_direct_resources ? 1 : 0
+
+  statement {
+    sid    = "AllowWafDirectWrite"
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["delivery.logs.amazonaws.com"]
+    }
+
+    actions = [
+      "s3:PutObject"
+      # "s3:GetBucketAcl"
+      # Some AWS regions or validation flows may require s3:GetBucketAcl
+    ]
+
+    resources = [
+      "${aws_s3_bucket.waf_logs_bucket[0].arn}/*"
+    ]
+
+    condition {
+      test     = "StringEquals"
+      variable = "aws:SourceAccount"
+      values   = [local.account_id]
+    }
+
+    condition {
+      test     = "ArnLike"
+      variable = "aws:SourceArn"
+      values   = [aws_wafv2_web_acl.rds_app.arn]
+    }
+  }
+}
+
+
+# ----------------------------------------------------------------
+# STORAGE — WAF FIREHOSE LOGS (S3 + POLICY)
+# ----------------------------------------------------------------
 
 # Conditional Terraform Manged S3 Bucket - WAF Firehose Logs
 resource "aws_s3_bucket" "waf_firehose_logs" {

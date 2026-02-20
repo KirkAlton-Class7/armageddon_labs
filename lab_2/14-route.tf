@@ -1,7 +1,6 @@
 # ----------------------------------------------------------------
-# NETWORKING — ROUTE TABLES (PUBLIC)
+# NETWORKING — Route Tables (Public)
 # ----------------------------------------------------------------
-
 # Public Route Table
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.main.id
@@ -34,9 +33,8 @@ resource "aws_route_table_association" "public_c" {
 }
 
 # ----------------------------------------------------------------
-# NETWORKING — ROUTE TABLES (PRIVATE / LOCAL)
+# NETWORKING — Route Tables (Private / Local)
 # ----------------------------------------------------------------
-
 # Local Route Table
 resource "aws_route_table" "local" {
   vpc_id = aws_vpc.main.id
@@ -53,9 +51,8 @@ resource "aws_route_table" "local" {
 }
 
 # ----------------------------------------------------------------
-# NETWORKING — VPC ENDPOINT ROUTE ASSOCIATIONS
+# NETWORKING — VPC Endpoint Route Associations
 # ----------------------------------------------------------------
-
 # S3 VPC Endpoint Route Table Associations
 resource "aws_vpc_endpoint_route_table_association" "s3_private_app_a" {
   vpc_endpoint_id = aws_vpc_endpoint.s3.id
@@ -63,9 +60,8 @@ resource "aws_vpc_endpoint_route_table_association" "s3_private_app_a" {
 }
 
 # ----------------------------------------------------------------
-# NETWORKING — PRIVATE APP SUBNET ROUTE ASSOCIATIONS
+# NETWORKING — Private App Subnet Route Associations
 # ----------------------------------------------------------------
-
 resource "aws_route_table_association" "private_app_a" {
   subnet_id      = aws_subnet.private_app_a.id
   route_table_id = aws_route_table.local.id
@@ -82,9 +78,8 @@ resource "aws_route_table_association" "private_app_c" {
 }
 
 # ----------------------------------------------------------------
-# NETWORKING — PRIVATE DATA SUBNET ROUTE ASSOCIATIONS
+# NETWORKING — Private Data Subnet Route Associations
 # ----------------------------------------------------------------
-
 resource "aws_route_table_association" "private_data_a" {
   subnet_id      = aws_subnet.private_data_a.id
   route_table_id = aws_route_table.local.id

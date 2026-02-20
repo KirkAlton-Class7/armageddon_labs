@@ -15,7 +15,7 @@ resource "aws_vpc" "main" {
 }
 
 # ----------------------------------------------------------------
-# NETWORKING — AVAILABILITY ZONES
+# NETWORKING — Availability Zones
 # ----------------------------------------------------------------
 
 data "aws_availability_zones" "available" {

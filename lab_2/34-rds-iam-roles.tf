@@ -32,10 +32,8 @@ data "aws_iam_policy_document" "rds_enhanced_monitoring_assume_role" {
     }
   }
 }
-
 # ----------------------------------------------------------------
-# IAM — ROLE POLICY ATTACHMENT
-# ----------------------------------------------------------------
+# IAM — Role Policy Attachment# ----------------------------------------------------------------
 
 # Policy Attachment - RDS Enhanced Monitoring --> RDS Monitoring Role (CloudWatch)
 resource "aws_iam_role_policy_attachment" "attach_rds_enhanced_monitoring_policy" {

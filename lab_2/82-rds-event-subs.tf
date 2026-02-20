@@ -1,3 +1,7 @@
+# ----------------------------------------------------------------
+# ALERTING — RDS EVENT SUBSCRIPTIONS (DATABASE FAILURE EVENTS)
+# ----------------------------------------------------------------
+
 resource "aws_db_event_subscription" "rds_failure_events" {
   name      = "rds-failure-events"
   sns_topic = aws_sns_topic.rds_failure_alert.arn
@@ -8,5 +12,6 @@ resource "aws_db_event_subscription" "rds_failure_events" {
   event_categories = [
     "failure"
   ]
+
   enabled = true
 }

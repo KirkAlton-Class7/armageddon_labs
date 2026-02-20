@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# NETWORKING — PUBLIC SUBNETS
+# NETWORKING — Public Subnets
 # ----------------------------------------------------------------
 
 # Public Subnet Configuration
@@ -46,7 +46,7 @@ resource "aws_subnet" "public_c" {
 }
 
 # ----------------------------------------------------------------
-# NETWORKING — PRIVATE APPLICATION SUBNETS
+# NETWORKING — Private Application Subnets
 # ----------------------------------------------------------------
 
 # Private App Subnet Configuration
@@ -90,7 +90,7 @@ resource "aws_subnet" "private_app_c" {
 }
 
 # ----------------------------------------------------------------
-# NETWORKING — PRIVATE DATA SUBNETS
+# NETWORKING — Private Data Subnets
 # ----------------------------------------------------------------
 
 # Private Data Subnet Configuration

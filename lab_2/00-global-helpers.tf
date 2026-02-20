@@ -1,14 +1,14 @@
 # ----------------------------------------------------------------
-# Naming Helpers
+# Naming Suffix Generators
 # ----------------------------------------------------------------
 
-# Random string for suffixes
+# Random string for resource name suffixes
 resource "random_string" "suffix" {
   length  = 5
   special = false
 }
 
-# Random Hex ID for unique bucket names
+# Random Hex ID for globally unique bucket names
 resource "random_id" "bucket_suffix" {
   byte_length = 4
 }

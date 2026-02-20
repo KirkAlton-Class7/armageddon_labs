@@ -1,3 +1,7 @@
+# ----------------------------------------------------------------
+# ALERTING — SNS TOPICS (DATABASE AVAILABILITY)
+# ----------------------------------------------------------------
+
 # RDS Failure Alert
 resource "aws_sns_topic" "rds_failure_alert" {
   name = "rds-failure-alert"
@@ -11,6 +15,7 @@ resource "aws_sns_topic" "rds_failure_alert" {
     Severity    = "high"
   }
 }
+
 # Email Subscription - RDS Failure Alert
 resource "aws_sns_topic_subscription" "rds_failure_email_alert" {
   topic_arn = aws_sns_topic.rds_failure_alert.arn
@@ -18,6 +23,10 @@ resource "aws_sns_topic_subscription" "rds_failure_email_alert" {
   endpoint  = "email@icloud.com" # Replace with your email address
 }
 
+
+# ----------------------------------------------------------------
+# ALERTING — SNS TOPICS (APPLICATION → DATABASE CONNECTIVITY)
+# ----------------------------------------------------------------
 
 # RDS App to RDS Connection Failure Alert
 resource "aws_sns_topic" "app_to_rds_connection_failure_alert" {
@@ -32,6 +41,7 @@ resource "aws_sns_topic" "app_to_rds_connection_failure_alert" {
     Severity    = "medium"
   }
 }
+
 # Email Subscription - App to RDS Connection Failure Alert
 resource "aws_sns_topic_subscription" "app_to_rds_connection_failure_email_alert" {
   topic_arn = aws_sns_topic.app_to_rds_connection_failure_alert.arn
@@ -39,6 +49,10 @@ resource "aws_sns_topic_subscription" "app_to_rds_connection_failure_email_alert
   endpoint  = "email@icloud.com" # Replace with your email address
 }
 
+
+# ----------------------------------------------------------------
+# ALERTING — SNS TOPICS (DATABASE AUTHENTICATION)
+# ----------------------------------------------------------------
 
 # Lab MySQL DB Auth Failure Alert
 resource "aws_sns_topic" "lab_mysql_auth_failure_alert" {
@@ -53,6 +67,7 @@ resource "aws_sns_topic" "lab_mysql_auth_failure_alert" {
     Severity    = "medium"
   }
 }
+
 # Email Subscription - Lab MySQL DB Auth Failure Alert
 resource "aws_sns_topic_subscription" "lab_mysql_auth_failure_email_alert" {
   topic_arn = aws_sns_topic.lab_mysql_auth_failure_alert.arn
@@ -60,6 +75,10 @@ resource "aws_sns_topic_subscription" "lab_mysql_auth_failure_email_alert" {
   endpoint  = "email@icloud.com" # Replace with your email address
 }
 
+
+# ----------------------------------------------------------------
+# ALERTING — SNS TOPICS (APPLICATION LOAD BALANCER ERRORS)
+# ----------------------------------------------------------------
 
 # RDS App ALB Server Error Alert
 resource "aws_sns_topic" "rds_app_alb_server_error_alert" {

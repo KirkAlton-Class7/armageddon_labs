@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# OUTPUTS — APPLICATION CONTEXT
+# OUTPUTS — Application Context
 # ----------------------------------------------------------------
 
 output "application_name" {
@@ -28,7 +28,7 @@ output "availability_zones" {
 }
 
 # ----------------------------------------------------------------
-# OUTPUTS — NETWORKING
+# OUTPUTS — Networking
 # ----------------------------------------------------------------
 
 output "vpc_info" {
@@ -41,7 +41,7 @@ output "vpc_info" {
 }
 
 # ----------------------------------------------------------------
-# OUTPUTS — DATABASE
+# OUTPUTS — Database
 # ----------------------------------------------------------------
 
 output "rds_info" {
@@ -58,10 +58,8 @@ output "rds_subnets" {
   value       = aws_db_subnet_group.lab_mysql.subnet_ids
   description = "RDS Subnets"
 }
-
 # ----------------------------------------------------------------
-# OUTPUTS — DNS
-# ----------------------------------------------------------------
+# OUTPUTS — Dns# ----------------------------------------------------------------
 
 # Route53 Hosted Zone Info
 output "route53_zone" {
@@ -77,7 +75,7 @@ output "route53_zone" {
 }
 
 # ----------------------------------------------------------------
-# OUTPUTS — SECURITY (WAF)
+# OUTPUTS — Security WAF
 # ----------------------------------------------------------------
 
 # WAF Info
@@ -104,7 +102,7 @@ output "waf_info" {
 }
 
 # ----------------------------------------------------------------
-# OUTPUTS — LOAD BALANCING
+# OUTPUTS — Load Balancing
 # ----------------------------------------------------------------
 
 # RDS App ALB Info
@@ -130,7 +128,7 @@ output "alb_listeners" {
 }
 
 # ----------------------------------------------------------------
-# OUTPUTS — APPLICATION ACCESS
+# OUTPUTS — Application Access
 # ----------------------------------------------------------------
 
 # Application URL
@@ -142,7 +140,7 @@ output "application_url" {
 }
 
 # ----------------------------------------------------------------
-# OUTPUTS — LOGGING & OBSERVABILITY
+# OUTPUTS — Logging & Observability
 # ----------------------------------------------------------------
 
 # Logging Info
