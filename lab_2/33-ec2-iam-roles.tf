@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# IAM — RDS APP ROLE
+# IAM — RDS App Role
 # ----------------------------------------------------------------
 
 # IAM Role - RDS App Role
@@ -17,7 +17,7 @@ resource "aws_iam_role" "rds_app" {
 }
 
 # ----------------------------------------------------------------
-# IAM — TRUST POLICY (EC2 ASSUME ROLE)
+# IAM — Trust Policy (EC2 Assume Role)
 # ----------------------------------------------------------------
 
 # Trust Policy Data for RDS App role
@@ -36,7 +36,7 @@ data "aws_iam_policy_document" "rds_app_assume_role" {
 }
 
 # ----------------------------------------------------------------
-# IAM — ROLE POLICY ATTACHMENTS (RDS APP ROLE)
+# IAM — Role Policy Attachments (RDS App Role)
 # ----------------------------------------------------------------
 
 # Policy Attachment - SSM Agent Policy --> RDS App role

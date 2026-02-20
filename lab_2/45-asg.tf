@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# COMPUTE — AUTO SCALING GROUP (RDS APP)
+# COMPUTE — Auto Scaling Group (RDS App)
 # ----------------------------------------------------------------
 
 # Auto Scaling Group for RDS App ASG
@@ -37,7 +37,7 @@ resource "aws_autoscaling_group" "rds_app_asg" {
 }
 
 # ----------------------------------------------------------------
-# COMPUTE — AUTO SCALING POLICY (TARGET TRACKING)
+# COMPUTE — Auto Scaling Policy (Target Tracking)
 # ----------------------------------------------------------------
 
 # ASG Policy

@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# DETECTION — VPC FLOW LOG METRIC FILTER (APP → DB REJECT)
+# DETECTION — VPC Flow Log Metric Filter (App → DB Reject)
 # ----------------------------------------------------------------
 
 # CloudWatch Alarm - Public App to MySQL Connection Failure
@@ -21,7 +21,7 @@ resource "aws_cloudwatch_log_metric_filter" "rds_app_to_lab_mysql_connection_fai
 
 
 # ----------------------------------------------------------------
-# DETECTION — CLOUDWATCH ALARM (APP → DB CONNECTIVITY FAILURE)
+# DETECTION — Cloudwatch Alarm (App → DB Connectivity Failure)
 # ----------------------------------------------------------------
 
 # Alarm
@@ -52,7 +52,7 @@ resource "aws_cloudwatch_metric_alarm" "rds_app_to_lab_mysql_connection_failure"
 
 
 # ----------------------------------------------------------------
-# DETECTION — RDS ERROR LOG METRIC FILTER (AUTH FAILURE)
+# DETECTION — RDS Error Log Metric Filter (Auth Failure)
 # ----------------------------------------------------------------
 
 # CloudWatch Alarm - LabMySQL Auth Failure
@@ -72,7 +72,7 @@ resource "aws_cloudwatch_log_metric_filter" "lab_mysql_auth_failure" {
 
 
 # ----------------------------------------------------------------
-# DETECTION — CLOUDWATCH ALARM (DATABASE AUTH FAILURE)
+# DETECTION — Cloudwatch Alarm (Database Auth Failure)
 # ----------------------------------------------------------------
 
 # Alarm
@@ -103,7 +103,7 @@ resource "aws_cloudwatch_metric_alarm" "alarm_lab_mysql_auth_failure" {
 
 
 # ----------------------------------------------------------------
-# DETECTION — CLOUDWATCH ALARM (CUSTOM ALB SERVER ERROR METRIC)
+# DETECTION — Cloudwatch Alarm (Custom ALB Server Error Metric)
 # ----------------------------------------------------------------
 
 # Alarm - ALB 5xx Error Rate for RDS App
@@ -134,7 +134,7 @@ resource "aws_cloudwatch_metric_alarm" "rds_app_alb_server_error_alarm" {
 
 
 # ----------------------------------------------------------------
-# DETECTION — CLOUDWATCH ALARM (ALB TARGET 5XX — NATIVE METRIC)
+# DETECTION — Cloudwatch Alarm (ALB Target 5xx — Native Metric)
 # ----------------------------------------------------------------
 
 resource "aws_cloudwatch_metric_alarm" "rds_app_alb_target_5xx_alarm" {

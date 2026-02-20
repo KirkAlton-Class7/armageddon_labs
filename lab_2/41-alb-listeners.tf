@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# LOAD BALANCING — ALB LISTENERS
+# LOAD BALANCING — ALB Listeners
 # ----------------------------------------------------------------
 
 # ALB Listeners for RDS App Public ALB
@@ -34,7 +34,7 @@ resource "aws_lb_listener" "rds_app_https_443" {
   protocol          = "HTTPS"
   port              = 443
   ssl_policy        = "ELBSecurityPolicy-TLS13-1-2-2021-06" # Newer SSL Policy. ELBSecurityPolicy-2016-08 is outdated; legacy support"
-  certificate_arn   = aws_acm_certificate_validation.rds_app_cf_cert.certificate_arn
+  certificate_arn   = aws_acm_certificate_validation.rds_app_cert.certificate_arn
 
   tags = {
     Name        = "rds-app-https-443-listener"
@@ -50,7 +50,7 @@ resource "aws_lb_listener" "rds_app_https_443" {
 }
 
 # ----------------------------------------------------------------
-# LOAD BALANCING — ORIGIN PROTECTION (CLOUDFRONT HEADER TOKEN)
+# LOAD BALANCING — Origin Protection (Cloudfront Header Token)
 # ----------------------------------------------------------------
 
 # Edge Auth Token (Header Value)

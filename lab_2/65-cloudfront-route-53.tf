@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# DNS — CLOUDFRONT ALIAS RECORDS (EDGE ENTRYPOINT)
+# DNS — Cloudfront Alias Records (Edge Entrypoint)
 # ----------------------------------------------------------------
 
 # Apex Domain → CloudFront Distribution
@@ -30,7 +30,7 @@ resource "aws_route53_record" "rds_app_subdomain_to_cloudfront" {
 
 
 # ----------------------------------------------------------------
-# DNS — CLOUDFRONT ORIGIN RECORD (ALB BACKEND)
+# DNS — Cloudfront Origin Record (ALB Backend)
 # ----------------------------------------------------------------
 
 resource "aws_route53_record" "rds_app_origin_to_alb" {

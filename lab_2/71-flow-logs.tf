@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# OBSERVABILITY — VPC FLOW LOG (NETWORK TELEMETRY)
+# OBSERVABILITY — VPC Flow Log (Network Telemetry)
 # ----------------------------------------------------------------
 
 # VPC Flow Log

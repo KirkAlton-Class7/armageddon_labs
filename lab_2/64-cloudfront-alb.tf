@@ -1,27 +1,36 @@
 # ================================================================
-# EDGE — CLOUDFRONT POLICIES
+# EDGE — Cloudfront Policies
 # ================================================================
 
 # ----------------------------------------------------------------
 # EDGE — Cloudfront Managed Cache Policies (Data Sources)
 # ----------------------------------------------------------------
-
+# Managed Policy — Disable Caching (Dynamic / API)
 data "aws_cloudfront_cache_policy" "caching_disabled" {
-  name = "Managed-CachingDisabled"
+  provider = aws.global
+  name     = "Managed-CachingDisabled"
 }
 
+# Managed Policy — Use Origin Cache-Control Headers
+data "aws_cloudfront_cache_policy" "use_origin_cache_control" {
+  provider = aws.global
+  name     = "UseOriginCacheControlHeaders"
+}
+
+# Managed Policy — Forward All Viewer Headers Except Host
 data "aws_cloudfront_origin_request_policy" "all_viewer_except_host" {
-  name = "Managed-AllViewerExceptHostHeader"
+  provider = aws.global
+  name     = "Managed-AllViewerExceptHostHeader"
 }
-
 
 # ----------------------------------------------------------------
 # EDGE — Cloudfront Response Headers Policy (Static)
 # ----------------------------------------------------------------
 
 resource "aws_cloudfront_response_headers_policy" "static" {
-  name    = "rds-app-static-response-headers-${local.name_suffix}"
-  comment = "Explicit Cache-Control for static assets"
+  provider = aws.global
+  name     = "rds-app-static-response-headers-${local.name_suffix}"
+  comment  = "Explicit Cache-Control for static assets"
 
   custom_headers_config {
     items {
@@ -38,10 +47,11 @@ resource "aws_cloudfront_response_headers_policy" "static" {
 # ----------------------------------------------------------------
 
 resource "aws_cloudfront_cache_policy" "cache_static" {
+  provider    = aws.global
   name        = "rds-app-cache-static-${local.name_suffix}"
   comment     = "Aggressive caching for /static/*"
-  default_ttl = 86400        # 1 day
-  max_ttl     = 31536000     # 1 year
+  default_ttl = 86400    # 1 day
+  max_ttl     = 31536000 # 1 year
   min_ttl     = 0
 
   parameters_in_cache_key_and_forwarded_to_origin {
@@ -68,8 +78,9 @@ resource "aws_cloudfront_cache_policy" "cache_static" {
 # ----------------------------------------------------------------
 
 resource "aws_cloudfront_origin_request_policy" "static" {
-  name    = "rds-app-orp-static-${local.name_suffix}"
-  comment = "Minimal forwarding for static assets"
+  provider = aws.global
+  name     = "rds-app-orp-static-${local.name_suffix}"
+  comment  = "Minimal forwarding for static assets"
 
   cookies_config {
     cookie_behavior = "none"
@@ -86,18 +97,22 @@ resource "aws_cloudfront_origin_request_policy" "static" {
 
 
 # ================================================================
-# EDGE — DISTRIBUTION (ALB)
+# EDGE — Distribution (ALB)
 # ================================================================
 
 # ----------------------------------------------------------------
 # EDGE — Cloudfront Distribution (ALB Origin)
 # ----------------------------------------------------------------
 resource "aws_cloudfront_distribution" "rds_app" {
-
+  provider            = aws.global
   enabled             = true
   is_ipv6_enabled     = true
   comment             = "rds-app-cloudfront-${local.name_suffix}"
   default_root_object = ""
+
+  depends_on = [
+    aws_acm_certificate_validation.rds_app_cf_cert
+  ]
 
   # ---------------------------
   # Origin — ALB
@@ -135,9 +150,39 @@ resource "aws_cloudfront_distribution" "rds_app" {
     origin_request_policy_id = data.aws_cloudfront_origin_request_policy.all_viewer_except_host.id
   }
 
-  # --------------------------------
-  # Ordered Cache Behavior - Static
-  # --------------------------------
+  # ----------------------------------------------------------------
+  # Ordered Cache Behavior — API Public Feed (Origin-Driven Caching)
+  # ----------------------------------------------------------------
+  ordered_cache_behavior {
+    path_pattern           = "/api/public-feed"
+    target_origin_id       = "rds-app-alb-origin"
+    viewer_protocol_policy = "redirect-to-https"
+
+    allowed_methods = ["GET", "HEAD"]
+    cached_methods  = ["GET", "HEAD"]
+
+    cache_policy_id          = data.aws_cloudfront_cache_policy.use_origin_cache_control.id
+    origin_request_policy_id = data.aws_cloudfront_origin_request_policy.all_viewer_except_host.id
+  }
+
+  # ----------------------------------------------------------------
+  # Ordered Cache Behavior — API Default (Caching Disabled/Fallback)
+  # ----------------------------------------------------------------
+  ordered_cache_behavior {
+    path_pattern           = "/api/*"
+    target_origin_id       = "rds-app-alb-origin"
+    viewer_protocol_policy = "redirect-to-https"
+
+    allowed_methods = ["GET", "HEAD", "OPTIONS", "PUT", "POST", "PATCH", "DELETE"]
+    cached_methods  = ["GET", "HEAD"]
+
+    cache_policy_id          = data.aws_cloudfront_cache_policy.caching_disabled.id
+    origin_request_policy_id = data.aws_cloudfront_origin_request_policy.all_viewer_except_host.id
+  }
+
+  # ----------------------------------------------------------------
+  # Ordered Cache Behavior — Static Assets (Aggressive Edge Caching)
+  # ----------------------------------------------------------------
   ordered_cache_behavior {
     path_pattern           = "/static/*"
     target_origin_id       = "rds-app-alb-origin"
@@ -146,8 +191,8 @@ resource "aws_cloudfront_distribution" "rds_app" {
     allowed_methods = ["GET", "HEAD"]
     cached_methods  = ["GET", "HEAD"]
 
-    cache_policy_id          = aws_cloudfront_cache_policy.cache_static.id
-    origin_request_policy_id = aws_cloudfront_origin_request_policy.static.id
+    cache_policy_id            = aws_cloudfront_cache_policy.cache_static.id
+    origin_request_policy_id   = aws_cloudfront_origin_request_policy.static.id
     response_headers_policy_id = aws_cloudfront_response_headers_policy.static.id
   }
 
@@ -169,7 +214,7 @@ resource "aws_cloudfront_distribution" "rds_app" {
   ]
 
   # ---------------------------
-  # GEO Restrictions
+  # Geo Restrictions
   # ---------------------------
   restrictions {
     geo_restriction {

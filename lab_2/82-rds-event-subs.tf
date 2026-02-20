@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# ALERTING — RDS EVENT SUBSCRIPTIONS (DATABASE FAILURE EVENTS)
+# ALERTING — RDS Event Subscriptions (Database Failure Events)
 # ----------------------------------------------------------------
 
 resource "aws_db_event_subscription" "rds_failure_events" {

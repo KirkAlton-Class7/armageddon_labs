@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# DATABASE — RDS SUBNET GROUP (PRIVATE DATA TIER)
+# DATABASE — RDS Subnet Group (Private Data Tier)
 # ----------------------------------------------------------------
 
 resource "aws_db_subnet_group" "lab_mysql" {

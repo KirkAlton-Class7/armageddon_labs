@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# VPC ENDPOINTS — KEY MANAGEMENT
+# VPC ENDPOINTS — Key Management
 # ----------------------------------------------------------------
 
 # Interface Endpoint - KMS
@@ -23,7 +23,8 @@ resource "aws_vpc_endpoint" "kms" {
   )
 }
 # ----------------------------------------------------------------
-# VPC ENDPOINTS — Storage# ----------------------------------------------------------------
+# VPC ENDPOINTS — Storage
+# ----------------------------------------------------------------
 
 # S3 Gateway Endpoint
 resource "aws_vpc_endpoint" "s3" {
@@ -40,7 +41,7 @@ resource "aws_vpc_endpoint" "s3" {
 }
 
 # ----------------------------------------------------------------
-# VPC ENDPOINTS — SECRETS & CONFIGURATION
+# VPC ENDPOINTS — Secrets & Configuration
 # ----------------------------------------------------------------
 
 # Interface Endpoint - Secrets Manager
@@ -67,7 +68,7 @@ resource "aws_vpc_endpoint" "secretsmanager" {
 }
 
 # ----------------------------------------------------------------
-# VPC ENDPOINTS — SYSTEMS MANAGER (SSM)
+# VPC ENDPOINTS — Systems Manager (ssm)
 # ----------------------------------------------------------------
 
 # Interface Endpoint - Systems Manager
@@ -138,7 +139,8 @@ resource "aws_vpc_endpoint" "ec2_messages" {
   )
 }
 # ----------------------------------------------------------------
-# VPC ENDPOINTS — Compute# ----------------------------------------------------------------
+# VPC ENDPOINTS — Compute
+# ----------------------------------------------------------------
 
 # Interface Endpoint - EC2
 resource "aws_vpc_endpoint" "ec2" {
@@ -164,7 +166,7 @@ resource "aws_vpc_endpoint" "ec2" {
 }
 
 # ----------------------------------------------------------------
-# VPC ENDPOINTS — MONITORING & LOGGING
+# VPC ENDPOINTS — Monitoring & Logging
 # ----------------------------------------------------------------
 
 # Interface Endpoint - CloudWatch Monitoring

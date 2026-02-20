@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# STORAGE — ALB ACCESS LOGS (S3 + POLICY)
+# STORAGE — ALB Access Logs (S3 + Policy)
 # ----------------------------------------------------------------
 
 # Conditional Terraform Managed S3 Bucket - ALB Logs
@@ -41,23 +41,11 @@ resource "aws_s3_bucket_policy" "rds_app_alb_logs" {
 data "aws_iam_policy_document" "rds_app_alb_logs" {
   count = local.alb_log_mode ? 1 : 0
   statement {
-    sid    = "AllowWritesToRdsAppAlbLogs"
+    sid    = "AllowALBAccessLogs"
     effect = "Allow"
     principals {
       type        = "Service"
       identifiers = ["logdelivery.elasticloadbalancing.amazonaws.com"]
-    }
-
-    condition {
-      test     = "StringEquals"
-      variable = "aws:SourceAccount"
-      values   = [local.account_id]
-    }
-
-    condition {
-      test     = "ArnLike"
-      variable = "aws:SourceArn"
-      values   = [aws_lb.rds_app_public_alb.arn]
     }
 
     actions = [
@@ -70,15 +58,14 @@ data "aws_iam_policy_document" "rds_app_alb_logs" {
 
 
 # ----------------------------------------------------------------
-# STORAGE — WAF DIRECT LOGS (S3 + POLICY)
+# STORAGE — WAF Direct Logs (S3 + Policy)
 # ----------------------------------------------------------------
 
 # Conditional Terraform Managed S3 Bucket - AWS WAF Logs
 resource "aws_s3_bucket" "waf_logs_bucket" {
   count = local.waf_log_mode.create_direct_resources ? 1 : 0 # Remember to use index when referencing a conditional resource
 
-  bucket = aws_s3_bucket.waf_logs_bucket[0].arn
-
+  bucket = "aws-waf-logs-${local.region}-${local.bucket_suffix}"
   force_destroy = true
 
   tags = {
@@ -146,7 +133,7 @@ data "aws_iam_policy_document" "waf_logs_bucket_policy" {
 
 
 # ----------------------------------------------------------------
-# STORAGE — WAF FIREHOSE LOGS (S3 + POLICY)
+# STORAGE — WAF Firehose Logs (S3 + Policy)
 # ----------------------------------------------------------------
 
 # Conditional Terraform Manged S3 Bucket - WAF Firehose Logs

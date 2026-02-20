@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# DATABASE — HELPER RESOURCES (CREDENTIAL GENERATION)
+# DATABASE — Helper Resources (Credential Generation)
 # ----------------------------------------------------------------
 
 # DB Helper Resources
@@ -10,7 +10,7 @@ resource "random_password" "db_password" { # local.db_credentials.password
 }
 
 # ----------------------------------------------------------------
-# DATABASE — RDS INSTANCE (LAB MYSQL)
+# DATABASE — RDS Instance (Lab Mysql)
 # ----------------------------------------------------------------
 
 # DB - Lab-MySQL

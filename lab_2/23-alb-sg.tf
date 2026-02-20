@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# DATA — CLOUDFRONT ORIGIN-FACING PREFIX LIST
+# DATA — Cloudfront Origin-facing Prefix List
 # ----------------------------------------------------------------
 
 data "aws_ec2_managed_prefix_list" "cloudfront_origin_facing" {
@@ -7,7 +7,8 @@ data "aws_ec2_managed_prefix_list" "cloudfront_origin_facing" {
 }
 
 # ----------------------------------------------------------------
-# SECURITY — Public Alb Security Group# ----------------------------------------------------------------
+# SECURITY — Public Alb Security Group
+# ----------------------------------------------------------------
 
 # Public Application Load Balancer Security Group
 resource "aws_security_group" "alb_origin" {
@@ -21,7 +22,7 @@ resource "aws_security_group" "alb_origin" {
 }
 
 # ----------------------------------------------------------------
-# SECURITY — ALB INGRESS RULES (INTERNET-FACING)
+# SECURITY — ALB Ingress Rules (internet-facing)
 # ----------------------------------------------------------------
 
 # # SG Rule: Allow all HTTP Inbound for Public ALB SG
@@ -44,7 +45,7 @@ resource "aws_security_group" "alb_origin" {
 
 
 # ----------------------------------------------------------------
-# SECURITY — ALB INGRESS RULES (CLOUDFRONT ORIGIN ONLY)
+# SECURITY — ALB Ingress Rules (cloudfront Origin Only)
 # ----------------------------------------------------------------
 
 # Allow HTTPS only from CloudFront origin-facing IP ranges
@@ -58,7 +59,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_https_from_cloudfront" {
 
 
 # ----------------------------------------------------------------
-# SECURITY — ALB EGRESS RULES (TIER TRUST)
+# SECURITY — ALB Egress Rules (tier Trust)
 # ----------------------------------------------------------------
 
 # SG Rule: Only Allow Outbound IPv4 to RDS App ASG SG

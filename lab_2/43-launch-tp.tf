@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# COMPUTE — LAUNCH TEMPLATE (RDS APP ASG)
+# COMPUTE — Launch Template (RDS App ASG)
 # ----------------------------------------------------------------
 
 # Launch Template for RDS App Auto Scaling Group

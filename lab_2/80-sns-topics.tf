@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# ALERTING — SNS TOPICS (DATABASE AVAILABILITY)
+# ALERTING — SNS Topics (Database Availability)
 # ----------------------------------------------------------------
 
 # RDS Failure Alert
@@ -25,7 +25,7 @@ resource "aws_sns_topic_subscription" "rds_failure_email_alert" {
 
 
 # ----------------------------------------------------------------
-# ALERTING — SNS TOPICS (APPLICATION → DATABASE CONNECTIVITY)
+# ALERTING — SNS Topics (Application → Database Connectivity)
 # ----------------------------------------------------------------
 
 # RDS App to RDS Connection Failure Alert
@@ -51,7 +51,7 @@ resource "aws_sns_topic_subscription" "app_to_rds_connection_failure_email_alert
 
 
 # ----------------------------------------------------------------
-# ALERTING — SNS TOPICS (DATABASE AUTHENTICATION)
+# ALERTING — SNS Topics (Database Authentication)
 # ----------------------------------------------------------------
 
 # Lab MySQL DB Auth Failure Alert
@@ -77,7 +77,7 @@ resource "aws_sns_topic_subscription" "lab_mysql_auth_failure_email_alert" {
 
 
 # ----------------------------------------------------------------
-# ALERTING — SNS TOPICS (APPLICATION LOAD BALANCER ERRORS)
+# ALERTING — SNS Topics (Application Load Balancer Errors)
 # ----------------------------------------------------------------
 
 # RDS App ALB Server Error Alert

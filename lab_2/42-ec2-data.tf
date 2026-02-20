@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# COMPUTE — AMAZON LINUX 2023 AMI (DATA SOURCE)
+# COMPUTE — Amazon Linux 2023 AMI (Data Source)
 # ----------------------------------------------------------------
 
 # EC2 - Amazon Linux 2023 AMI Data Source
@@ -20,7 +20,7 @@ data "aws_ami" "amazon_linux_2023" {
 }
 
 # ----------------------------------------------------------------
-# COMPUTE — ALTERNATE AMI RESOLUTION METHOD (SSM PARAMETER)
+# COMPUTE — Alternate AMI Resolution Method (SSM Parameter)
 # ----------------------------------------------------------------
 
 # Alternate Method for image_id

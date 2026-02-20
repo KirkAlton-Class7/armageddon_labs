@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# LOAD BALANCING — APPLICATION LOAD BALANCER (PUBLIC)
+# LOAD BALANCING — Application Load Balancer (Public)
 # ----------------------------------------------------------------
 
 # Public Application Load Balancer

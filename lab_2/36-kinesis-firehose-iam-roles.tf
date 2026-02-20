@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# IAM — FIREHOSE NETWORK TELEMETRY ROLE (CONDITIONAL)
+# IAM — Firehose Network Telemetry Role (Conditional)
 # ----------------------------------------------------------------
 
 # IAM Role - Firehose Network Telemetry Role
@@ -10,7 +10,7 @@ resource "aws_iam_role" "firehose_network_telemetry_role" {
 }
 
 # ----------------------------------------------------------------
-# IAM — TRUST POLICY (FIREHOSE SERVICE)
+# IAM — Trust Policy (Firehose Service)
 # ----------------------------------------------------------------
 
 # Trust Policy Data - Firehose Network Telemetry Assume Role Policy
@@ -30,7 +30,7 @@ data "aws_iam_policy_document" "firehose_network_telemetry_assume_role" {
 }
 
 # ----------------------------------------------------------------
-# IAM — ROLE POLICY ATTACHMENTS (FIREHOSE)
+# IAM — Role Policy Attachments (Firehose)
 # ----------------------------------------------------------------
 
 # Policy Attachment - Firehose Network Telemetry Logs Policy --> Firehose Network Telemetry Role

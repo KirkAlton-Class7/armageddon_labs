@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# IAM — RDS ENHANCED MONITORING ROLE
+# IAM — RDS Enhanced Monitoring Role
 # ----------------------------------------------------------------
 
 # IAM Role - RDS Monitoring Role (CloudWatch)
@@ -18,7 +18,7 @@ resource "aws_iam_role" "rds_enhanced_monitoring_role" {
 }
 
 # ----------------------------------------------------------------
-# IAM — TRUST POLICY (RDS MONITORING SERVICE)
+# IAM — Trust Policy (RDS Monitoring Service)
 # ----------------------------------------------------------------
 
 data "aws_iam_policy_document" "rds_enhanced_monitoring_assume_role" {
@@ -33,7 +33,8 @@ data "aws_iam_policy_document" "rds_enhanced_monitoring_assume_role" {
   }
 }
 # ----------------------------------------------------------------
-# IAM — Role Policy Attachment# ----------------------------------------------------------------
+# IAM — Role Policy Attachment
+# ----------------------------------------------------------------
 
 # Policy Attachment - RDS Enhanced Monitoring --> RDS Monitoring Role (CloudWatch)
 resource "aws_iam_role_policy_attachment" "attach_rds_enhanced_monitoring_policy" {

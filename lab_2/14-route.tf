@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# NETWORKING — Route Tables (Public)
+# NETWORKING — Route Tables (public)
 # ----------------------------------------------------------------
 # Public Route Table
 resource "aws_route_table" "public" {
@@ -33,7 +33,7 @@ resource "aws_route_table_association" "public_c" {
 }
 
 # ----------------------------------------------------------------
-# NETWORKING — Route Tables (Private / Local)
+# NETWORKING — Route Tables (private / Local)
 # ----------------------------------------------------------------
 # Local Route Table
 resource "aws_route_table" "local" {

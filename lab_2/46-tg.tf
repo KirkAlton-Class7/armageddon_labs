@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# LOAD BALANCING — TARGET GROUP (RDS APP ASG)
+# LOAD BALANCING — Target Group (RDS App ASG)
 # ----------------------------------------------------------------
 
 # Target Group Configurations

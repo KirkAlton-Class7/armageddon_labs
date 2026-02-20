@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# LOAD BALANCING — ASG TARGET GROUP ATTACHMENT
+# LOAD BALANCING — ASG Target Group Attachment
 # ----------------------------------------------------------------
 
 # Already attached in ASG. Redundant. Consider Removing.

@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# SSM PARAMETER STORE — APPLICATION CONFIGURATION
+# SSM PARAMETER STORE — Application Configuration
 # ----------------------------------------------------------------
 
 # SSM Parameter Store - CloudWatch Agent Configuration
@@ -16,7 +16,8 @@ resource "aws_ssm_parameter" "cloudwatch_agent_config" {
   }
 }
 # ----------------------------------------------------------------
-# SSM PARAMETER STORE — Database Connection Parameters# ----------------------------------------------------------------
+# SSM PARAMETER STORE — Database Connection Parameters
+# ----------------------------------------------------------------
 
 # SSM Parameter Store - DB Name for LabMySQL DB
 resource "aws_ssm_parameter" "lab_mysql_db_name" {

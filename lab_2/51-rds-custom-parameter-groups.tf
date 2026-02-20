@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# DATABASE — RDS PARAMETER GROUP (MYSQL 8.0)
+# DATABASE — RDS Parameter Group (MySQL 8.0)
 # ----------------------------------------------------------------
 
 # Custom Parameter Groups - LabMySQL DB

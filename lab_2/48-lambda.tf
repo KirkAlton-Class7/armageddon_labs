@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# SERVERLESS — LAMBDA (FIREHOSE TELEMETRY PROCESSOR) — OPTIONAL
+# SERVERLESS — Lambda (Firehose Telemetry Processor) — Optional
 # ----------------------------------------------------------------
 
 # Lab Uses Firehose to S3, but this file experiments with adding Lambda.
@@ -8,7 +8,8 @@
 # TODO: Need to create Lambda function code to detect S3 PUT event for ALB logs and write data to CloudWatch Logs to track ALB server errors.
 # TODO: Correct Firehose No-Op Lambda. Chokes on S3 delivery. Likely due to permissions
 # ----------------------------------------------------------------
-# SERVERLESS — Lambda Function Definition# ----------------------------------------------------------------
+# SERVERLESS — Lambda Function Definition
+# ----------------------------------------------------------------
 
 # Lambda Function - Firehose Network Telemetry Processor
 # resource "aws_lambda_function" "lambda_firehose_network_telemetry_processor" {
@@ -23,7 +24,7 @@
 # }
 
 # ----------------------------------------------------------------
-# SERVERLESS — LAMBDA PACKAGE (ARCHIVE BUILD)
+# SERVERLESS — Lambda Package (Archive Build)
 # ----------------------------------------------------------------
 
 # Zip Archive - Lambda Firehose Processor
@@ -37,7 +38,7 @@
 # The code is minimal, and the function can be expanded in the future without architectural changes.
 
 # ----------------------------------------------------------------
-# SERVERLESS — LAMBDA INVOCATION PERMISSIONS (FIREHOSE)
+# SERVERLESS — Lambda Invocation Permissions (Firehose)
 # ----------------------------------------------------------------
 
 # Lambda Permission - Firehose Invoke

@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# OBSERVABILITY — KINESIS FIREHOSE (CONDITIONAL)
+# OBSERVABILITY — Kinesis Firehose (Conditional)
 # ----------------------------------------------------------------
 # Kinesis Firehose – Network Telemetry
 resource "aws_kinesis_firehose_delivery_stream" "network_telemetry" {
@@ -8,13 +8,14 @@ resource "aws_kinesis_firehose_delivery_stream" "network_telemetry" {
   name        = "aws-waf-logs-${local.env}-network-telemetry"
   destination = "extended_s3"
 
+
   extended_s3_configuration {
     role_arn   = aws_iam_role.firehose_network_telemetry_role[0].arn
     bucket_arn = aws_s3_bucket.waf_firehose_logs[0].arn
     prefix     = "waf-logs/"
 
     # ----------------------------------------------------------------
-    # FIREHOSE — BUFFERING CONFIGURATION
+    # FIREHOSE — Buffering Configuration
     # ----------------------------------------------------------------
     # This small buffer is helpful in labs.
     # It forces Firehose to quickly flush records to S3.
@@ -22,7 +23,7 @@ resource "aws_kinesis_firehose_delivery_stream" "network_telemetry" {
     buffering_size     = 1  # MB
 
     # ----------------------------------------------------------------
-    # FIREHOSE — CLOUDWATCH DELIVERY LOGGING (OPTIONAL)
+    # FIREHOSE — CloudWatch Delivery Logging (Optional)
     # ----------------------------------------------------------------
     # cloudwatch_logging_options {
     #   enabled         = true
@@ -31,7 +32,7 @@ resource "aws_kinesis_firehose_delivery_stream" "network_telemetry" {
     # }
 
     # ----------------------------------------------------------------
-    # FIREHOSE — LAMBDA TRANSFORMATION (OPTIONAL)
+    # FIREHOSE — Lambda Transformation (Optional)
     # ----------------------------------------------------------------
     # Firehose No-Op Lambda. Chokes on S3 delivery. Likely due to permissions.
     # Processing configuration is commented out so Firehose functions properly.

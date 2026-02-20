@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# OBSERVABILITY — CLOUDWATCH DASHBOARD (RDS APP STACK)
+# OBSERVABILITY — Cloudwatch Dashboard (RDS App Stack)
 # ----------------------------------------------------------------
 
 resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {

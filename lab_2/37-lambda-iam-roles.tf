@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# IAM — LAMBDA FIREHOSE NETWORK TELEMETRY ROLE (OPTIONAL / FUTURE)
+# IAM — Lambda Firehose Network Telemetry Role (Optional / Future)
 # ----------------------------------------------------------------
 
 # # IAM Role - Lambda Network Telemetry Role
@@ -9,7 +9,7 @@
 # }
 
 # ----------------------------------------------------------------
-# IAM — TRUST POLICY (LAMBDA SERVICE)
+# IAM — Trust Policy (Lambda Service)
 # ----------------------------------------------------------------
 
 # # Trust Policy Data -Lambda Firehose Network Telemetry Role
@@ -27,7 +27,7 @@
 # }
 
 # ----------------------------------------------------------------
-# IAM — ROLE POLICY ATTACHMENTS (LAMBDA PROCESSOR)
+# IAM — Role Policy Attachments (Lambda Processor)
 # ----------------------------------------------------------------
 
 # # Policy Attachment - Lambda Firehose Network Telemetry Logs --> Lambda Firehose Network Telemetry Role

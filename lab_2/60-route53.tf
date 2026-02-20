@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# DNS — ROUTE53 HOSTED ZONE (OPTIONAL TERRAFORM MANAGEMENT)
+# DNS — Route53 Hosted Zone (Optional Terraform Management)
 # ----------------------------------------------------------------
 # Use data if the zone already exists.
 # Use the conditional resource if you want to create a Terraform managed zone.
@@ -18,7 +18,8 @@ data "aws_route53_zone" "rds_app_zone" {
 }
 
 # ----------------------------------------------------------------
-# DNS — Acm Certificate Validation Records# ----------------------------------------------------------------
+# DNS — Acm Certificate Validation Records
+# ----------------------------------------------------------------
 
 # DNS Validation Records for ACM Certificate
 resource "aws_route53_record" "rds_app_cf_cert_validation" {
@@ -40,7 +41,7 @@ resource "aws_route53_record" "rds_app_cf_cert_validation" {
 
 
 # ----------------------------------------------------------------
-# DNS — APPLICATION ALIAS RECORDS (CLOUDFRONT)
+# DNS — Application Alias Records (Cloudfront)
 # ----------------------------------------------------------------
 
 # Alias record for RDS App on Sub Domain (CloudFront)

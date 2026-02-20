@@ -2,6 +2,7 @@
 # WAF Web ACL for CloudFront (Edge Protection)
 # ----------------------------------------------------------------
 resource "aws_wafv2_web_acl" "rds_app" {
+  provider    = aws.global
   name        = "web-acl-rds-app-${local.name_suffix}"
   description = "WAF Web ACL for CloudFront resources"
   scope       = "CLOUDFRONT"

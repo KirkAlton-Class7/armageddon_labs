@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# SECURITY — SECRETS MANAGER (DATABASE CREDENTIALS)
+# SECURITY — Secrets Manager (database Credentials)
 # ----------------------------------------------------------------
 
 # DB Secret - Lab MySQL
@@ -16,7 +16,7 @@ resource "aws_secretsmanager_secret" "lab_rds_mysql" {
 }
 
 # ----------------------------------------------------------------
-# SECURITY — SECRET VERSION (DATABASE CONNECTION DETAILS)
+# SECURITY — Secret Version (database Connection Details)
 # ----------------------------------------------------------------
 
 # DB Secret Contents - Lab MySQl

@@ -118,7 +118,7 @@ variable "alb_access_logs_prefix" {
 variable "waf_log_destination" {
   type        = string
   description = "Where AWS WAF delivers logs: cloudwatch | s3 | firehose"
-  default     = "firehose"
+  default     = "cloudwatch"
 
   validation {
     condition     = contains(["cloudwatch", "s3", "firehose"], lower(var.waf_log_destination))

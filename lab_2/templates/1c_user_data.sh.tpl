@@ -11,7 +11,8 @@ import json
 import os
 import boto3
 import pymysql
-from flask import Flask, request
+from datetime import datetime
+from flask import Flask, request, make_response, jsonify
 
 REGION = os.environ.get("AWS_REGION", "us-east-1")
 SECRET_ID = os.environ.get("SECRET_ID", "lab/rds/mysql")
@@ -77,6 +78,21 @@ def add_note():
     conn.close()
     return f"Inserted note: {note}"
 
+# New Endpoint for Public Feed
+@app.route("/api/public-feed")
+def public_feed():
+    now = datetime.utcnow().isoformat()
+
+    body = {
+        "server_time_utc": now,
+        "message": "origin response"
+    }
+
+    response = make_response(jsonify(body))
+    response.headers["Cache-Control"] = "public, s-maxage=30, max-age=0"
+    return response
+
+# Modified List Notes Endpoint
 @app.route("/list")
 def list_notes():
     conn = get_conn()
@@ -85,11 +101,16 @@ def list_notes():
     rows = cur.fetchall()
     cur.close()
     conn.close()
+
     out = "<h3>Notes</h3><ul>"
     for r in rows:
         out += f"<li>{r[0]}: {r[1]}</li>"
     out += "</ul>"
-    return out
+    
+    response = make_response(out)
+    #response.headers["Cache-Control"] = "public, max-age=30"
+    response.headers["Cache-Control"] = "private, no-store"
+    return response
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=80)
