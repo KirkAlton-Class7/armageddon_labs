@@ -24,12 +24,12 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
 
           metrics = [
             [
-              "AWS/ApplicationELB",
-              "RequestCount",
-              "TargetGroup",
-              aws_lb_target_group.rds_app_asg_tg.arn_suffix,
-              "LoadBalancer",
-              aws_lb.rds_app_public_alb.arn_suffix
+              "AWS/ApplicationELB", # Namespace
+              "RequestCount",       # Metric Name
+              
+              # Dimensions
+              "TargetGroup", aws_lb_target_group.rds_app_asg_tg.arn_suffix,
+              "LoadBalancer", aws_lb.rds_app_public_alb.arn_suffix
             ]
           ]
 
@@ -53,8 +53,8 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
             [
               "AWS/EC2",
               "CPUUtilization",
-              "AutoScalingGroupName",
-              aws_autoscaling_group.rds_app_asg.name
+
+              "AutoScalingGroupName", aws_autoscaling_group.rds_app_asg.name
             ]
           ]
 
@@ -78,14 +78,14 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
             [
               "AWS/RDS",
               "CPUUtilization",
-              "DBInstanceIdentifier",
-              aws_db_instance.lab_mysql.identifier
+
+              "DBInstanceIdentifier", aws_db_instance.lab_mysql.identifier
             ],
             [
-              ".",
-              "FreeableMemory",
-              ".",
-              "."
+              ".", # Reuse Namespace.
+              "FreeableMemory", # New Metric for same DB Instance
+              
+              ".", "." # Reuse DBInstnceIdentifier
             ]
           ]
 
@@ -104,18 +104,20 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
         height = 6
 
         properties = {
-          title = "WAF Blocked Requests"
+          title = "CloudFront WAF Blocked Requests"
 
           metrics = [
             [
               "AWS/WAFV2",
               "BlockedRequests",
-              "WebACL",
-              aws_wafv2_web_acl.rds_app.name
+              
+
+              "WebACL", aws_wafv2_web_acl.rds_app.name,
+              "Region", "Global",
+              "Rule", "ALL"
             ]
           ]
-
-          region = local.region
+          region = "us-east-1"
           period = 300
           view   = "timeSeries"
         }
@@ -128,21 +130,36 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
         height = 6
 
         properties = {
-          title = "ALB Server Errors (5xx)"
+          title = "ALB 5xx Errors (Target vs Infra)"
 
           metrics = [
             [
-              "Custom/VPC",
-              "RdsAppAlbServerError",
+              "AWS/ApplicationELB",
+              "HTTPCode_Target_5XX_Count",
+             
+              "LoadBalancer", aws_lb.rds_app_public_alb.arn_suffix,
+              "TargetGroup", aws_lb_target_group.rds_app_asg_tg.arn_suffix,
               {
-                stat = "Sum"
+                stat  = "Sum",
+                label = "Target 5xx (App)"
+              }
+            ],
+            [
+              "AWS/ApplicationELB",
+              "HTTPCode_ELB_5XX_Count",
+
+              "LoadBalancer", aws_lb.rds_app_public_alb.arn_suffix,
+              {
+                stat  = "Sum",
+                label = "ELB 5xx (Infra)"
               }
             ]
           ]
 
-          region = local.region
-          view   = "timeSeries"
-          period = 60
+          region  = local.region
+          period  = 60
+          view    = "timeSeries"
+          stacked = false
         }
       },
       {
@@ -173,46 +190,21 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
 
       ## ========== ALARMS ==========
       {
-        type   = "metric"
-        x      = 8
-        y      = 6
+        type   = "alarm"
+        x      = 0
+        y      = 12
         width  = 8
         height = 6
 
         properties = {
-          title = "ALB 5xx Errors (Target vs Infra)"
-
-          metrics = [
-            [
-              "AWS/ApplicationELB",
-              "HTTPCode_Target_5XX_Count",
-              "LoadBalancer",
-              aws_lb.rds_app_public_alb.arn_suffix,
-              "TargetGroup",
-              aws_lb_target_group.rds_app_asg_tg.arn_suffix,
-              {
-                stat  = "Sum",
-                label = "Target 5xx (App)"
-              }
-            ],
-            [
-              ".",
-              "HTTPCode_ELB_5XX_Count",
-              "LoadBalancer",
-              aws_lb.rds_app_public_alb.arn_suffix,
-              {
-                stat  = "Sum",
-                label = "ELB 5xx (Infra)"
-              }
-            ]
+          title = "ALB Target 5xx Alarm"
+          alarms = [
+            aws_cloudwatch_metric_alarm.rds_app_alb_target_5xx_alarm.arn
           ]
-
-          region  = local.region
-          period  = 60
-          view    = "timeSeries"
-          stacked = false
         }
       },
+
+
       {
         type   = "alarm"
         x      = 8

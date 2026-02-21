@@ -34,7 +34,7 @@ provider "aws" {
 }
 
 # ----------------------------------------------------------------
-# AWS Provider — Global (Edge / CloudFront)
+# AWS Provider — Global Services
 # ----------------------------------------------------------------
 provider "aws" {
   alias  = "global"

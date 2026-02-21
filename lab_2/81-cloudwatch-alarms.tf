@@ -103,37 +103,6 @@ resource "aws_cloudwatch_metric_alarm" "alarm_lab_mysql_auth_failure" {
 
 
 # ----------------------------------------------------------------
-# DETECTION — Cloudwatch Alarm (Custom ALB Server Error Metric)
-# ----------------------------------------------------------------
-
-# Alarm - ALB 5xx Error Rate for RDS App
-resource "aws_cloudwatch_metric_alarm" "rds_app_alb_server_error_alarm" {
-  alarm_name          = "rds-app-alb-server-error"
-  comparison_operator = "GreaterThanThreshold"
-  evaluation_periods  = 2
-  metric_name         = "RdsAppAlbServerError"
-  namespace           = "Custom/VPC"
-  period              = 60
-  statistic           = "Sum"
-  threshold           = 5
-
-  alarm_description = "Triggers when RDS App ALB returns 5 or more server errors in 2 minutes"
-  alarm_actions     = [aws_sns_topic.rds_app_alb_server_error_alert.arn]
-
-  treat_missing_data = "notBreaching" # Alarm stays in OK state when CloudWatch has no data points (prevents noisy insufficient data state on error-count metrics)
-
-  tags = {
-    Name        = "rds-app-alb-server-error"
-    App         = "${local.app}"
-    Environment = "${local.env}"
-    Component   = "alarm-alb"
-    Scope       = "monitoring-backend"
-    Severity    = "high"
-  }
-}
-
-
-# ----------------------------------------------------------------
 # DETECTION — Cloudwatch Alarm (ALB Target 5xx — Native Metric)
 # ----------------------------------------------------------------
 

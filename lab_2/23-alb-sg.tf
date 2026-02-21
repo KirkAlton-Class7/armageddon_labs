@@ -21,28 +21,6 @@ resource "aws_security_group" "alb_origin" {
   }
 }
 
-# ----------------------------------------------------------------
-# SECURITY — ALB Ingress Rules (internet-facing)
-# ----------------------------------------------------------------
-
-# # SG Rule: Allow all HTTP Inbound for Public ALB SG
-# resource "aws_vpc_security_group_ingress_rule" "allow_all_inbound_http_ipv4_public_alb" {
-#   security_group_id = aws_security_group.alb_origin.id
-#   cidr_ipv4         = "0.0.0.0/0"
-#   ip_protocol       = "tcp"
-#   from_port         = 80
-#   to_port           = 80
-# }
-
-# # SG Rule: Allow all HTTPS Inbound for Public ALB SG
-# resource "aws_vpc_security_group_ingress_rule" "allow_all_inbound_https_ipv4_public_alb" {
-#   security_group_id = aws_security_group.alb_origin.id
-#   cidr_ipv4         = "0.0.0.0/0"
-#   ip_protocol       = "tcp"
-#   from_port         = 443
-#   to_port           = 443
-# }
-
 
 # ----------------------------------------------------------------
 # SECURITY — ALB Ingress Rules (Cloudfront Origin Only)
@@ -55,16 +33,6 @@ resource "aws_vpc_security_group_ingress_rule" "allow_https_from_cloudfront" {
   ip_protocol       = "tcp"
   from_port         = 443
   to_port           = 443
-}
-
-
-# Allow HTTP from CloudFront origin-facing IP ranges
-resource "aws_vpc_security_group_ingress_rule" "allow_http_from_cloudfront" {
-  security_group_id = aws_security_group.alb_origin.id
-  prefix_list_id    = data.aws_ec2_managed_prefix_list.cloudfront_origin_facing.id
-  ip_protocol       = "tcp"
-  from_port         = 80
-  to_port           = 80
 }
 
 

@@ -13,6 +13,7 @@ digraph {
 		"[root] aws_cloudfront_distribution.rds_app (expand)" [label = "aws_cloudfront_distribution.rds_app", shape = "box"]
 		"[root] aws_cloudfront_origin_request_policy.static (expand)" [label = "aws_cloudfront_origin_request_policy.static", shape = "box"]
 		"[root] aws_cloudfront_response_headers_policy.static (expand)" [label = "aws_cloudfront_response_headers_policy.static", shape = "box"]
+		"[root] aws_cloudwatch_dashboard.rds_app_dashboard" [label = "aws_cloudwatch_dashboard.rds_app_dashboard", shape = "box"]
 		"[root] aws_cloudwatch_dashboard.rds_app_dashboard (expand)" [label = "aws_cloudwatch_dashboard.rds_app_dashboard", shape = "box"]
 		"[root] aws_cloudwatch_log_group.rds_app_alb_server_error (expand)" [label = "aws_cloudwatch_log_group.rds_app_alb_server_error", shape = "box"]
 		"[root] aws_cloudwatch_log_group.vpc_flow_log (expand)" [label = "aws_cloudwatch_log_group.vpc_flow_log", shape = "box"]
@@ -22,7 +23,7 @@ digraph {
 		"[root] aws_cloudwatch_log_metric_filter.rds_app_to_lab_mysql_connection_failure (expand)" [label = "aws_cloudwatch_log_metric_filter.rds_app_to_lab_mysql_connection_failure", shape = "box"]
 		"[root] aws_cloudwatch_log_resource_policy.waf_direct (expand)" [label = "aws_cloudwatch_log_resource_policy.waf_direct", shape = "box"]
 		"[root] aws_cloudwatch_metric_alarm.alarm_lab_mysql_auth_failure (expand)" [label = "aws_cloudwatch_metric_alarm.alarm_lab_mysql_auth_failure", shape = "box"]
-		"[root] aws_cloudwatch_metric_alarm.rds_app_alb_server_error_alarm (expand)" [label = "aws_cloudwatch_metric_alarm.rds_app_alb_server_error_alarm", shape = "box"]
+		"[root] aws_cloudwatch_metric_alarm.rds_app_alb_server_error_alarm (destroy)" [label = "aws_cloudwatch_metric_alarm.rds_app_alb_server_error_alarm", shape = "box"]
 		"[root] aws_cloudwatch_metric_alarm.rds_app_alb_target_5xx_alarm (expand)" [label = "aws_cloudwatch_metric_alarm.rds_app_alb_target_5xx_alarm", shape = "box"]
 		"[root] aws_cloudwatch_metric_alarm.rds_app_to_lab_mysql_connection_failure (expand)" [label = "aws_cloudwatch_metric_alarm.rds_app_to_lab_mysql_connection_failure", shape = "box"]
 		"[root] aws_db_event_subscription.rds_failure_events (expand)" [label = "aws_db_event_subscription.rds_failure_events", shape = "box"]
@@ -138,8 +139,6 @@ digraph {
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_from_vpc_endpoint (expand)" [label = "aws_vpc_security_group_egress_rule.allow_all_outbound_from_vpc_endpoint", shape = "box"]
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db (expand)" [label = "aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db", shape = "box"]
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)" [label = "aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb", shape = "box"]
-		"[root] aws_vpc_security_group_ingress_rule.allow_http_from_cloudfront" [label = "aws_vpc_security_group_ingress_rule.allow_http_from_cloudfront", shape = "box"]
-		"[root] aws_vpc_security_group_ingress_rule.allow_http_from_cloudfront (expand)" [label = "aws_vpc_security_group_ingress_rule.allow_http_from_cloudfront", shape = "box"]
 		"[root] aws_vpc_security_group_ingress_rule.allow_https_from_cloudfront (expand)" [label = "aws_vpc_security_group_ingress_rule.allow_https_from_cloudfront", shape = "box"]
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)" [label = "aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app", shape = "box"]
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg (expand)" [label = "aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg", shape = "box"]
@@ -238,10 +237,11 @@ digraph {
 		"[root] aws_cloudfront_response_headers_policy.static (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"].global"
 		"[root] aws_cloudwatch_dashboard.rds_app_dashboard (expand)" -> "[root] aws_autoscaling_group.rds_app_asg (expand)"
 		"[root] aws_cloudwatch_dashboard.rds_app_dashboard (expand)" -> "[root] aws_cloudwatch_metric_alarm.alarm_lab_mysql_auth_failure (expand)"
+		"[root] aws_cloudwatch_dashboard.rds_app_dashboard (expand)" -> "[root] aws_cloudwatch_metric_alarm.rds_app_alb_target_5xx_alarm (expand)"
 		"[root] aws_cloudwatch_dashboard.rds_app_dashboard (expand)" -> "[root] aws_cloudwatch_metric_alarm.rds_app_to_lab_mysql_connection_failure (expand)"
 		"[root] aws_cloudwatch_dashboard.rds_app_dashboard (expand)" -> "[root] aws_db_instance.lab_mysql (expand)"
-		"[root] aws_cloudwatch_dashboard.rds_app_dashboard (expand)" -> "[root] aws_lb.rds_app_public_alb (expand)"
 		"[root] aws_cloudwatch_dashboard.rds_app_dashboard (expand)" -> "[root] aws_wafv2_web_acl.rds_app (expand)"
+		"[root] aws_cloudwatch_dashboard.rds_app_dashboard" -> "[root] aws_cloudwatch_dashboard.rds_app_dashboard (expand)"
 		"[root] aws_cloudwatch_log_group.rds_app_alb_server_error (expand)" -> "[root] local.name_suffix (expand)"
 		"[root] aws_cloudwatch_log_group.rds_app_alb_server_error (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] aws_cloudwatch_log_group.vpc_flow_log (expand)" -> "[root] local.name_suffix (expand)"
@@ -257,7 +257,7 @@ digraph {
 		"[root] aws_cloudwatch_log_resource_policy.waf_direct (expand)" -> "[root] data.aws_iam_policy_document.waf_direct (expand)"
 		"[root] aws_cloudwatch_log_resource_policy.waf_direct (expand)" -> "[root] var.enable_direct_service_log_delivery"
 		"[root] aws_cloudwatch_metric_alarm.alarm_lab_mysql_auth_failure (expand)" -> "[root] aws_sns_topic.lab_mysql_auth_failure_alert (expand)"
-		"[root] aws_cloudwatch_metric_alarm.rds_app_alb_server_error_alarm (expand)" -> "[root] aws_sns_topic.rds_app_alb_server_error_alert (expand)"
+		"[root] aws_cloudwatch_metric_alarm.rds_app_alb_server_error_alarm (destroy)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] aws_cloudwatch_metric_alarm.rds_app_alb_target_5xx_alarm (expand)" -> "[root] aws_lb.rds_app_public_alb (expand)"
 		"[root] aws_cloudwatch_metric_alarm.rds_app_alb_target_5xx_alarm (expand)" -> "[root] aws_lb_target_group.rds_app_asg_tg (expand)"
 		"[root] aws_cloudwatch_metric_alarm.rds_app_alb_target_5xx_alarm (expand)" -> "[root] aws_sns_topic.rds_app_alb_server_error_alert (expand)"
@@ -472,9 +472,6 @@ digraph {
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db (expand)" -> "[root] aws_security_group.private_db (expand)"
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)" -> "[root] aws_security_group.alb_origin (expand)"
 		"[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)" -> "[root] aws_security_group.rds_app_asg (expand)"
-		"[root] aws_vpc_security_group_ingress_rule.allow_http_from_cloudfront (expand)" -> "[root] aws_security_group.alb_origin (expand)"
-		"[root] aws_vpc_security_group_ingress_rule.allow_http_from_cloudfront (expand)" -> "[root] data.aws_ec2_managed_prefix_list.cloudfront_origin_facing (expand)"
-		"[root] aws_vpc_security_group_ingress_rule.allow_http_from_cloudfront" -> "[root] aws_vpc_security_group_ingress_rule.allow_http_from_cloudfront (expand)"
 		"[root] aws_vpc_security_group_ingress_rule.allow_https_from_cloudfront (expand)" -> "[root] aws_security_group.alb_origin (expand)"
 		"[root] aws_vpc_security_group_ingress_rule.allow_https_from_cloudfront (expand)" -> "[root] data.aws_ec2_managed_prefix_list.cloudfront_origin_facing (expand)"
 		"[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)" -> "[root] aws_security_group.private_db (expand)"
@@ -626,13 +623,12 @@ digraph {
 		"[root] output.waf_info (expand)" -> "[root] aws_wafv2_web_acl.rds_app (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_autoscaling_attachment.rds_app_asg_tg_attachment (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_autoscaling_policy.rds_app_asg (expand)"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudwatch_dashboard.rds_app_dashboard (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudwatch_dashboard.rds_app_dashboard"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudwatch_log_group.rds_app_alb_server_error (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudwatch_log_metric_filter.lab_mysql_auth_failure (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudwatch_log_metric_filter.rds_app_to_lab_mysql_connection_failure (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudwatch_log_resource_policy.waf_direct (expand)"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudwatch_metric_alarm.rds_app_alb_server_error_alarm (expand)"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudwatch_metric_alarm.rds_app_alb_target_5xx_alarm (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudwatch_metric_alarm.rds_app_alb_server_error_alarm (destroy)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_db_event_subscription.rds_failure_events (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_flow_log.vpc (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_iam_policy.lambda_firehose_network_telemetry_logs (expand)"
@@ -681,7 +677,6 @@ digraph {
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_egress_rule.allow_all_outbound_from_vpc_endpoint (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_private_db (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_egress_rule.allow_all_outbound_ipv4_public_alb (expand)"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_ingress_rule.allow_http_from_cloudfront"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_ingress_rule.allow_https_from_cloudfront (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_ec2_internal_app (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_vpc_security_group_ingress_rule.allow_inbound_http_from_public_alb_sg (expand)"
