@@ -2,6 +2,27 @@
 # INPUT VARIABLES — WAF Logging & Observability
 # ----------------------------------------------------------------
 
+# VPC CIDR
+variable "vpc_cidr" {
+  type        = string
+  description = "VPC CIDR Block"
+}
+
+
+variable "vpc_id" {
+  type        = string
+  description = "VPC ID"
+}
+
+variable "context" {
+  type = object({
+    region = string
+    app  = string
+    env  = string
+    tags = map(string)
+  })
+}
+
 # Input WAF Log Destination
 variable "waf_log_destination" {
   type        = string

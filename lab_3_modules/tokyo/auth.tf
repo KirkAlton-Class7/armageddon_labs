@@ -28,8 +28,8 @@ provider "aws" {
   default_tags {
     tags = {
       ManagedBy   = "terraform"
-      Environment = local.env
-      Application = local.app
+      Environment = local.context.env
+      Application = local.context.app
     }
   }
 }
@@ -44,8 +44,8 @@ provider "aws" {
   default_tags {
     tags = {
       ManagedBy   = "terraform"
-      Environment = local.env
-      Application = local.app
+      Environment = local.context.env
+      Application = local.context.app
       Scope       = "global-edge"
     }
   }

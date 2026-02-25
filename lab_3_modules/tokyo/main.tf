@@ -6,11 +6,9 @@ module "network" {
 
 module "security" {
   source = "../modules/security"
-
-  vpc_id = module.network.vpc_id
-  app    = var.app
-  env    = var.env
-  tags   = module.core.tags
+  vpc_cidr = ""
+  context = local.context
+  vpc_id = module.network.aws_vpc.main.id
 }
 
 module "iam" {

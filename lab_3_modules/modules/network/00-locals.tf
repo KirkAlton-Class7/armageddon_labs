@@ -9,7 +9,6 @@ locals{
   tags = var.context.tags
   region = var.context.region
   
-  
   # Accessibility Zones
   azs    = data.aws_availability_zones.available.names
   
@@ -76,7 +75,6 @@ locals{
   # Assigns random private data subnet using shared random index
   random_private_data_subnet = local.private_data_subnets[local.subnet_index]
 
-
   # -------------------------------------------------------------------
   # Shared Network Tags
   # -------------------------------------------------------------------
@@ -92,7 +90,6 @@ locals{
     Egress    = "none"
     Component = "network"
   }
-
 
   # Shared tags for vpc endpoints
   vpc_endpoint_tags = {
