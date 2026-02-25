@@ -1,0 +1,19 @@
+locals {
+  # Locals for Rendering Template Files
+
+  # EC2 User Data for RDS App Instances
+  rds_app_user_data = templatefile("${path.module}/templates/1c_user_data.sh.tpl",
+    {
+      region      = var.region,
+      secret_id   = var.secret_arn
+      name_suffix = local.name_suffix
+    }
+  )
+
+  # CloudWatch Agent Configuration File
+  cloudwatch_agent_config = templatefile("${path.module}/templates/cloudwatch-agent-config.json.tpl",
+    {
+      name_suffix = local.name_suffix
+    }
+  )
+}
