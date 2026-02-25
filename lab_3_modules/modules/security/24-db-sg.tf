@@ -32,6 +32,6 @@ resource "aws_vpc_security_group_ingress_rule" "allow_inbound_http_from_ec2_inte
 # SG Rule: Allow Internal Outbound IPv4 for Private DB SG
 resource "aws_vpc_security_group_egress_rule" "allow_all_outbound_ipv4_private_db" {
   security_group_id = aws_security_group.private_db.id
-  cidr_ipv4         = local.vpc_cidr
+  cidr_ipv4         = var.vpc_cidr
   ip_protocol       = "-1" # semantically equivalent to all ports
 }

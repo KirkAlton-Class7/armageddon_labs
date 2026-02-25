@@ -6,9 +6,9 @@ module "network" {
 
 module "security" {
   source = "../modules/security"
-  vpc_cidr = ""
+  vpc_cidr = module.network.vpc_cidr
+  vpc_id = module.network.vpc_id
   context = local.context
-  vpc_id = module.network.aws_vpc.main.id
 }
 
 module "iam" {
