@@ -97,4 +97,9 @@ locals{
     Egress    = "vpc-endpoint"
     Component = "network"
   }
+
+    # Naming helpers
+  name_prefix   = "${local.app}-${local.env}"
+  name_suffix   = lower(var.name_suffix)
+  #bucket_suffix = var.bucket_suffix
 }

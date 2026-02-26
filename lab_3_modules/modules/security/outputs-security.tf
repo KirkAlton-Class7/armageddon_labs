@@ -1,20 +1,23 @@
-# ----------------------------------------------------------------
-# OUTPUTS — Security Groups
-# ----------------------------------------------------------------
+# -------------------------------------------------------------------
+# CONTRACT OUTPUTS
+# Values consumed by other modules. Defines the dependency contract.
+# -------------------------------------------------------------------
+
+# ALB SG ID
 output "alb_sg_id" {
-  value = module.aws_security_group.alb_origin.id
+  value = aws_security_group.alb_origin.id
 }
 
+# DB SG ID
 output "db_sg_id" {
-  value = module.aws_security_group.private_db.id
+  value = aws_security_group.private_db.id
 }
 
+output "enable_direct_service_log_delivery" {
+  value = var.enable_direct_service_log_delivery
+}
 
-# ----------------------------------------------------------------
-# OUTPUTS — Security WAF
-# ----------------------------------------------------------------
-
-# WAF Info
+# WAF Info - Contract + Operator
 output "waf_info" {
   description = "WAF Web ACL details"
 
@@ -36,3 +39,9 @@ output "waf_info" {
     ]
   }
 }
+
+
+# -------------------------------------------------------------------
+# OPERATOR OUTPUTS (Observability)
+# For human visibility. Not used for modules.
+# -------------------------------------------------------------------

@@ -4,7 +4,7 @@
 
 # Region Variable (set in .tfvars)
 variable "region" {
-  type = string
+  type        = string
   description = "AWS region"
 }
 
@@ -33,9 +33,9 @@ variable "env" {
 
 # Input VPC CIDR Block
 variable "vpc_cidr" {
-  type    = string
+  type        = string
   description = "CIDR block for the VPC"
-  default = "10.10.0.0/16"
+  default     = "10.10.0.0/16"
 }
 
 # ----------------------------------------------------------------
@@ -70,3 +70,9 @@ variable "secret_arn" {
   type        = string
   description = "ARN of database credentials secret"
 }
+
+
+variable "waf_log_destination" {}
+variable "waf_log_retention_days" {}
+variable "enable_waf_sampled_requests_only" {}
+variable "enable_direct_service_log_delivery" {}

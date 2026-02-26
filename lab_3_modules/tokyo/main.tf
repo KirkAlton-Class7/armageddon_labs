@@ -1,22 +1,28 @@
 module "network" {
-  source  = "../modules/network"
-  context = local.context
+  source   = "../modules/network"
+  context  = local.context
+  account_id = local.account_id
   vpc_cidr = var.vpc_cidr
+  name_suffix = random_string_suffix.result
 }
 
 module "security" {
-  source = "../modules/security"
+  source   = "../modules/security"
+  context  = local.context
+  account_id = local.account_id
   vpc_cidr = module.network.vpc_cidr
-  vpc_id = module.network.vpc_id
-  context = local.context
+  vpc_id   = module.network.vpc_id
+  name_suffix = random_string_suffix.result
+
 }
 
 module "iam" {
   source = "../modules/iam"
-
-  app  = var.app
-  env  = var.env
-  tags = module.core.tags
+  context = local.context
+  account_id = local.account_id
+  enable_direct_service_log_delivery = module.security.enable_direct_service_log_delivery
+  name_suffix = random_string_suffix.result
+  #bucket_suffix = random_id.bucket_suffix.hex
 }
 
 module "database" {
@@ -34,9 +40,9 @@ module "database" {
 module "compute" {
   source = "../modules/compute"
 
-  vpc_id              = module.network.vpc_id
-  public_subnet_ids   = module.network.public_subnet_ids
-  private_subnet_ids  = module.network.private_subnet_ids
+  vpc_id             = module.network.vpc_id
+  public_subnet_ids  = module.network.public_subnet_ids
+  private_subnet_ids = module.network.private_subnet_ids
 
   alb_sg_id = module.security.alb_sg_id
   ec2_sg_id = module.security.ec2_sg_id
@@ -58,8 +64,8 @@ module "edge_dns_cdn" {
   tags = module.core.tags
 }
 
-module "observability_logging" {
-  source = "../modules/observability-logging"
+module "observability" {
+  source = "../modules/observability"
 
   vpc_id = module.network.vpc_id
 

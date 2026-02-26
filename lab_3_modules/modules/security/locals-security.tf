@@ -1,8 +1,16 @@
 locals {
-  # -------------------------------------------------------------------
-  # ALB Logging Configuration
-  # -------------------------------------------------------------------
-  alb_log_mode = var.enable_alb_access_logs
+  # VPC CIDR
+  vpc_cidr = var.vpc_cidr
+
+  # VPC ID
+  vpc_id      = local.vpc_id
+  
+  # Environment
+  app  = var.context.app
+  env  = var.context.env
+  tags = var.context.tags
+  region = var.context.region
+
 
   # -------------------------------------------------------------------
   # WAF Logging Configuration
@@ -49,9 +57,22 @@ locals {
   # This will be false if both log modes are true.
   # A check against this value gives an error to prevent issues on apply.
   waf_log_mode_valid = (local.waf_log_mode.create_direct_resources && !local.waf_log_mode.create_firehose_resources) || (!local.waf_log_mode.create_direct_resources && local.waf_log_mode.create_firehose_resources)
+
+
+  # Naming helpers
+  name_prefix   = "${local.app}-${local.env}"
+  name_suffix   = lower(var.name_suffix)
+  #bucket_suffix = var.bucket_suffix
 }
 
-locals {
-  # Edge Authentication Header Name
-  edge_auth_header_name = "X-${local.name_prefix}-edge-auth-v1" # Cycle versions as needed
-}
+
+
+  # # -------------------------------------------------------------------
+  # # ALB Logging Configuration
+  # # -------------------------------------------------------------------
+  # alb_log_mode = var.enable_alb_access_logs
+
+  # locals {
+#   # Edge Authentication Header Name
+#   edge_auth_header_name = "X-${local.name_prefix}-edge-auth-v1" # Cycle versions as needed
+# }

@@ -133,9 +133,9 @@ data "aws_iam_policy_document" "ec2_cloudwatch_agent_role" {
       "logs:DescribeLogGroups",
     ]
     resources = [
-      "arn:aws:logs:${var.region}:${local.account_id}:log-group:*",
-      "arn:aws:logs:${var.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/rds-app-${local.name_suffix}",
-      "arn:aws:logs:${var.region}:${local.account_id}:log-group:/ec2-system-logs-${local.name_suffix}"
+      "arn:aws:logs:${local.region}:${local.account_id}:log-group:*",
+      "arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/rds-app-${local.name_suffix}",
+      "arn:aws:logs:${local.region}:${local.account_id}:log-group:/ec2-system-logs-${local.name_suffix}"
     ]
   }
 
@@ -150,8 +150,8 @@ data "aws_iam_policy_document" "ec2_cloudwatch_agent_role" {
     ]
 
     resources = [
-      "arn:aws:logs:${var.region}:${local.account_id}:log-group:/ec2-system-logs-${local.name_suffix}:log-stream:*",
-      "arn:aws:logs:${var.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/rds-app-${local.name_suffix}:log-stream:*"
+      "arn:aws:logs:${local.region}:${local.account_id}:log-group:/ec2-system-logs-${local.name_suffix}:log-stream:*",
+      "arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/rds-app-${local.name_suffix}:log-stream:*"
     ]
   }
 }
@@ -213,7 +213,7 @@ data "aws_iam_policy_document" "read_cloudwatch_agent_config" {
       "ssm:GetParametersByPath"
     ]
     resources = [
-      "arn:aws:ssm:${var.region}:${local.account_id}:parameter/rds-app/cloudwatch-agent/config-${local.name_suffix}"
+      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/rds-app/cloudwatch-agent/config-${local.name_suffix}"
     ]
   }
 }
@@ -245,7 +245,7 @@ data "aws_iam_policy_document" "read_db_name_parameter" {
       "ssm:GetParametersByPath"
     ]
     resources = [
-      "arn:aws:ssm:${var.region}:${local.account_id}:parameter/lab/rds/mysql/db-name-${local.name_suffix}"
+      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/lab/rds/mysql/db-name-${local.name_suffix}"
     ]
   }
 }
@@ -277,7 +277,7 @@ data "aws_iam_policy_document" "read_db_username_parameter" {
       "ssm:GetParametersByPath"
     ]
     resources = [
-      "arn:aws:ssm:${var.region}:${local.account_id}:parameter/lab/rds/mysql/db-username-${local.name_suffix}"
+      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/lab/rds/mysql/db-username-${local.name_suffix}"
     ]
   }
 }
@@ -309,7 +309,7 @@ data "aws_iam_policy_document" "read_db_host_parameter" {
       "ssm:GetParametersByPath"
     ]
     resources = [
-      "arn:aws:ssm:${var.region}:${local.account_id}:parameter/lab/rds/mysql/db-host-${local.name_suffix}"
+      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/lab/rds/mysql/db-host-${local.name_suffix}"
     ]
   }
 }
@@ -341,7 +341,7 @@ data "aws_iam_policy_document" "read_db_port_parameter" {
       "ssm:GetParametersByPath"
     ]
     resources = [
-      "arn:aws:ssm:${var.region}:${local.account_id}:parameter/lab/rds/mysql/db-port-${local.name_suffix}"
+      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/lab/rds/mysql/db-port-${local.name_suffix}"
     ]
   }
 }
@@ -584,7 +584,7 @@ data "aws_iam_policy_document" "waf_direct" {
       test     = "ArnLike"
       variable = "aws:SourceArn"
       values = [
-        "arn:aws:logs:${var.region}:${local.account_id}:*"
+        "arn:aws:logs:${local.region}:${local.account_id}:*"
       ]
     }
 

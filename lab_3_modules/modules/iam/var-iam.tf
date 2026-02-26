@@ -1,8 +1,7 @@
 # ----------------------------------------------------------------
-# INPUT VARIABLES — Networking
+# INPUT VARIABLES — WAF Logging & Observability
 # ----------------------------------------------------------------
 
-# Input Account ID
 variable "account_id" {
     type = string
     description = "AWS Account ID"
@@ -17,11 +16,10 @@ variable "context" {
   })
 }
 
-
-# Input VPC CIDR Block
-variable "vpc_cidr" {
-  type    = string
-  description = "CIDR block for the VPC"
+# Toggle Direct Service Log Delivery
+variable "enable_direct_service_log_delivery" {
+  type        = bool
+  description = "Whether AWS services deliver logs directly to CloudWatch Logs (requires resource policy)."
 }
 
 # Name Suffix

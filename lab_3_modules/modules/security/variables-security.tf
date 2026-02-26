@@ -2,13 +2,18 @@
 # INPUT VARIABLES — WAF Logging & Observability
 # ----------------------------------------------------------------
 
+# Account ID
+variable "account_id" {
+    type = string
+    description = "AWS Account ID"
+}
 # VPC CIDR
 variable "vpc_cidr" {
   type        = string
   description = "VPC CIDR Block"
 }
 
-
+# VPC ID
 variable "vpc_id" {
   type        = string
   description = "VPC ID"
@@ -55,3 +60,13 @@ variable "enable_direct_service_log_delivery" {
   description = "Whether AWS services deliver logs directly to CloudWatch Logs (requires resource policy)."
   default     = false
 }
+
+# Name Suffix
+variable "name_suffix" {
+  type = string
+}
+
+# # Bucket Suffix
+# variable "bucket_suffix" {
+#   type = string
+# }

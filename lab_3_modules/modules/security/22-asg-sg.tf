@@ -6,7 +6,7 @@
 resource "aws_security_group" "rds_app_asg" {
   name        = "rds-app-asg-sg"
   description = "Only allow inbound traffic from public-application-lb-sg"
-  vpc_id      = module.network.vpc_id
+  vpc_id      = local.vpc_id
 
   tags = {
     Name = "private-asg-sg"
@@ -23,7 +23,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_inbound_http_from_public_a
   ip_protocol                  = "tcp"
   to_port                      = 80
   from_port                    = 80
-  referenced_security_group_id = module.aws_security_group.alb_origin.id
+  referenced_security_group_id = aws_security_group.alb_origin.id
 }
 
 # SG Rule: Allow HTTPS Inbound from Public ALB SG
@@ -32,7 +32,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_inbound_https_from_public_
   ip_protocol                  = "tcp"
   to_port                      = 443
   from_port                    = 443
-  referenced_security_group_id = module.aws_security_group.alb_origin.id
+  referenced_security_group_id = aws_security_group.alb_origin.id
 }
 # ----------------------------------------------------------------
 # SECURITY — Asg Egress Rules
