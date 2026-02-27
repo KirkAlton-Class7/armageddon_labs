@@ -85,14 +85,15 @@ resource "aws_wafv2_web_acl" "rds_app" {
     sampled_requests_enabled   = true
   }
 
-  tags = {
-    Name        = "waf-rds-app"
-    App         = "${local.app}"
-    Environment = "${local.env}"
-    Component   = "security-edge"
-    Scope       = "cloudfront"
-    DataClass   = "confidential"
-  }
+  tags = merge(
+    {
+      Name      = "waf-rds-app"
+      Component = "security-edge"
+      Scope     = "cloudfront"
+      DataClass = "confidential"
+    },
+    var.context.tags
+  )
 }
 
 # CloudFront WAF association is done directly in the distribution. No need for a separate resource

@@ -8,7 +8,7 @@ resource "aws_nat_gateway" "main" {
   allocation_id = aws_eip.main.id
   subnet_id     = aws_subnet.public_a.id
 
-  tags = merge(local.tags, local.public_subnet_tags, {
+  tags = merge(var.context.tags, local.public_subnet_tags, {
     Name      = "main-nat-gw"
     Component = "network"
   })

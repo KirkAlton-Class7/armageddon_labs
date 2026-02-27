@@ -26,7 +26,7 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
             [
               "AWS/ApplicationELB", # Namespace
               "RequestCount",       # Metric Name
-              
+
               # Dimensions
               "TargetGroup", aws_lb_target_group.rds_app_asg_tg.arn_suffix,
               "LoadBalancer", aws_lb.rds_app_public_alb.arn_suffix
@@ -82,9 +82,9 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
               "DBInstanceIdentifier", aws_db_instance.lab_mysql.identifier
             ],
             [
-              ".", # Reuse Namespace.
+              ".",              # Reuse Namespace.
               "FreeableMemory", # New Metric for same DB Instance
-              
+
               ".", "." # Reuse DBInstnceIdentifier
             ]
           ]
@@ -110,7 +110,7 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
             [
               "AWS/WAFV2",
               "BlockedRequests",
-              
+
 
               "WebACL", aws_wafv2_web_acl.rds_app.name,
               "Region", "Global",
@@ -136,7 +136,7 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
             [
               "AWS/ApplicationELB",
               "HTTPCode_Target_5XX_Count",
-             
+
               "LoadBalancer", aws_lb.rds_app_public_alb.arn_suffix,
               "TargetGroup", aws_lb_target_group.rds_app_asg_tg.arn_suffix,
               {

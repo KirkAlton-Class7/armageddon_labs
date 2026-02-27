@@ -4,7 +4,7 @@
 
 # DB Secret - Lab MySQL
 resource "aws_secretsmanager_secret" "lab_rds_mysql" {
-  name                    = "lab/rds/mysql-${local.name_suffix}"
+  name                    = "lab/rds/mysql-${var.name_suffix}"
   recovery_window_in_days = 0
 
   tags = {

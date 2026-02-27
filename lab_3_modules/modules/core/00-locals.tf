@@ -1,4 +1,4 @@
 locals {
 
- base_tags = var.context.tags
+  base_tags = var.context.tags
 }

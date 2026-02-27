@@ -9,10 +9,12 @@ resource "aws_subnet" "public_a" {
   availability_zone       = local.azs[0]
   map_public_ip_on_launch = true
 
-  tags = merge(local.public_subnet_tags,
+  tags = merge(
     {
       Name = "public-a"
+      Component = "network"
     },
+    var.context.tags, local.public_subnet_tags
 
   )
 }
@@ -26,8 +28,9 @@ resource "aws_subnet" "public_b" {
   tags = merge(
     {
       Name = "public-b"
+      Component = "network"
     },
-    local.public_subnet_tags
+    var.context.tags, local.public_subnet_tags
   )
 }
 
@@ -40,8 +43,9 @@ resource "aws_subnet" "public_c" {
   tags = merge(
     {
       Name = "public-c"
+      Component = "network"
     },
-    local.public_subnet_tags
+    var.context.tags, local.public_subnet_tags
   )
 }
 
@@ -58,8 +62,9 @@ resource "aws_subnet" "private_app_a" {
   tags = merge(
     {
       Name = "private-app-a"
+      Component = "network"
     },
-    local.private_subnet_tags
+    var.context.tags, local.private_subnet_tags
   )
 }
 
@@ -71,8 +76,9 @@ resource "aws_subnet" "private_app_b" {
   tags = merge(
     {
       Name = "private-app-b"
+      Component = "network"
     },
-    local.private_subnet_tags
+    var.context.tags, local.private_app_subnet_tags 
   )
 }
 
@@ -84,8 +90,9 @@ resource "aws_subnet" "private_app_c" {
   tags = merge(
     {
       Name = "private-app-c"
+      Component = "network"
     },
-    local.private_subnet_tags
+    var.context.tags, local.private_subnet_tags
   )
 }
 
@@ -102,8 +109,9 @@ resource "aws_subnet" "private_data_a" {
   tags = merge(
     {
       Name = "private-data-a"
+      Component = "network"
     },
-    local.private_subnet_tags
+    var.context.tags, local.private_subnet_tags
   )
 }
 
@@ -115,8 +123,9 @@ resource "aws_subnet" "private_data_b" {
   tags = merge(
     {
       Name = "private-data-b"
+      Component = "network"
     },
-    local.private_subnet_tags
+    var.context.tags, local.private_subnet_tags
   )
 }
 
@@ -128,7 +137,8 @@ resource "aws_subnet" "private_data_c" {
   tags = merge(
     {
       Name = "private-data-c"
+      Component = "network"
     },
-    local.private_subnet_tags
+    var.context.tags, local.private_subnet_tags
   )
 }

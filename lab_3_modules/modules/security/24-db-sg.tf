@@ -6,11 +6,14 @@
 resource "aws_security_group" "private_db" {
   name        = "private-db-sg"
   description = "Only allow inbound traffic from ec2-rds-app"
-  vpc_id      = local.vpc_id
-  tags = {
-    Name      = "private-db-sg"
-    Component = "security"
-  }
+  vpc_id      = var.vpc_id
+  tags = merge(
+    {
+      Name      = "private-db-sg"
+      Component = "security"
+    },
+    var.context.tags
+  )
 }
 # ----------------------------------------------------------------
 # SECURITY — Database Ingress Rules
@@ -31,6 +34,6 @@ resource "aws_vpc_security_group_ingress_rule" "allow_inbound_http_from_ec2_inte
 # SG Rule: Allow Internal Outbound IPv4 for Private DB SG
 resource "aws_vpc_security_group_egress_rule" "allow_all_outbound_ipv4_private_db" {
   security_group_id = aws_security_group.private_db.id
-  cidr_ipv4         = local.vpc_cidr
+  cidr_ipv4         = var.vpc_cidr
   ip_protocol       = "-1" # semantically equivalent to all ports
 }

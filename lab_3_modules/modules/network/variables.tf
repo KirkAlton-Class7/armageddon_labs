@@ -1,7 +1,8 @@
 # ----------------------------------------------------------------
-# INPUT VARIABLES — WAF Logging & Observability
+# INPUT VARIABLES — Networking
 # ----------------------------------------------------------------
 
+# Input Account ID
 variable "account_id" {
   type        = string
   description = "AWS Account ID"
@@ -18,12 +19,12 @@ variable "context" {
   )
 }
 
-# Toggle Direct Service Log Delivery
-variable "enable_direct_service_log_delivery" {
-  type        = bool
-  description = "Whether AWS services deliver logs directly to CloudWatch Logs (requires resource policy)."
-}
 
+# Input VPC CIDR Block
+variable "vpc_cidr" {
+  type        = string
+  description = "CIDR block for the VPC"
+}
 
 
 # Name Prefix
@@ -40,3 +41,13 @@ variable "name_suffix" {
 # variable "bucket_suffix" {
 #   type = string
 # }
+
+# ----------------------------------------------------------------
+# INPUT VARIABLES — Demonstration (not used in deployment)
+# ----------------------------------------------------------------
+
+# Demo Owner
+variable "demo_owner" { # Module variable
+  type        = string
+  description = "Demonstration variable received from root module"
+}

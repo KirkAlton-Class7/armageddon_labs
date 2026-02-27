@@ -3,13 +3,24 @@
 # Values consumed by other modules. Defines the dependency contract.
 # -------------------------------------------------------------------
 
+
+# VPC Endpoint SG ID
+output "vpc_endpoint_sg_id" {
+  value = aws_security_group.vpc_endpoints.id
+}
+
+# ASG SG ID
+output "rds_app_asg_sg_id" {
+  value = aws_security_group.rds_app_asg.id
+}
+
 # ALB SG ID
-output "alb_sg_id" {
+output "alb_origin_sg_id" {
   value = aws_security_group.alb_origin.id
 }
 
 # DB SG ID
-output "db_sg_id" {
+output "private_db_sg_id" {
   value = aws_security_group.private_db.id
 }
 

@@ -76,3 +76,15 @@ variable "waf_log_destination" {}
 variable "waf_log_retention_days" {}
 variable "enable_waf_sampled_requests_only" {}
 variable "enable_direct_service_log_delivery" {}
+
+
+# ----------------------------------------------------------------
+# INPUT VARIABLES — Demonstration (not used in deployment)
+# ----------------------------------------------------------------
+
+# Demo Owner
+variable "demo_owner" { # Root Variable
+  type        = string
+  description = "Demonstration variable for module-level normalization patterns."
+  default     = "DevSecOpsTeam"
+}

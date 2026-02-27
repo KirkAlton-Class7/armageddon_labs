@@ -6,11 +6,14 @@
 resource "aws_security_group" "rds_app_asg" {
   name        = "rds-app-asg-sg"
   description = "Only allow inbound traffic from public-application-lb-sg"
-  vpc_id      = local.vpc_id
+  vpc_id      = var.vpc_id
 
-  tags = {
-    Name = "private-asg-sg"
-  }
+  tags = merge(
+    {
+      Name = "private-asg-sg"
+    },
+    var.context.tags
+  )
 }
 
 # ----------------------------------------------------------------

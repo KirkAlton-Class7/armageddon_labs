@@ -24,8 +24,8 @@ resource "aws_db_parameter_group" "lab_mysql_parameters" {
 
   tags = {
     Name        = "lab-mysql-parameters"
-    App         = "${local.app}"
-    Environment = "${local.env}"
+    App         = "${var.context.app}"
+    Environment = "${var.context.env}"
     Component   = "db-parameters"
     Scope       = "logging"
     Engine      = "mysql"

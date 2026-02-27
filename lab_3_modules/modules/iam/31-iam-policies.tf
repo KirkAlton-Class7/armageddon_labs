@@ -277,7 +277,7 @@ data "aws_iam_policy_document" "read_db_username_parameter" {
       "ssm:GetParametersByPath"
     ]
     resources = [
-      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/lab/rds/mysql/db-username-${local.name_suffix}"
+      "arn:aws:ssm:${local.region}:${var.account_id}:parameter/lab/rds/mysql/db-username-${var.name_suffix}"
     ]
   }
 }
@@ -285,7 +285,7 @@ data "aws_iam_policy_document" "read_db_username_parameter" {
 
 # IAM Policy Object - Read DB Host Parameter
 resource "aws_iam_policy" "read_db_host_parameter" {
-  name        = "read-db-host-parameter-${local.name_suffix}"
+  name        = "read-db-host-parameter-${var.name_suffix}"
   path        = "/"
   description = "Allows EC2 to read DB host from SSM Parameter Store"
 
@@ -309,7 +309,7 @@ data "aws_iam_policy_document" "read_db_host_parameter" {
       "ssm:GetParametersByPath"
     ]
     resources = [
-      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/lab/rds/mysql/db-host-${local.name_suffix}"
+      "arn:aws:ssm:${local.region}:${var.account_id}:parameter/lab/rds/mysql/db-host-${var.name_suffix}"
     ]
   }
 }
@@ -317,7 +317,7 @@ data "aws_iam_policy_document" "read_db_host_parameter" {
 
 # IAM Policy Object - Read DB Port Parameter
 resource "aws_iam_policy" "read_db_port_parameter" {
-  name        = "read-db-port-parameter-${local.name_suffix}"
+  name        = "read-db-port-parameter-${var.name_suffix}"
   path        = "/"
   description = "Allows EC2 to read DB port from SSM Parameter Store"
 
@@ -341,7 +341,7 @@ data "aws_iam_policy_document" "read_db_port_parameter" {
       "ssm:GetParametersByPath"
     ]
     resources = [
-      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/lab/rds/mysql/db-port-${local.name_suffix}"
+      "arn:aws:ssm:${local.region}:${var.account_id}:parameter/lab/rds/mysql/db-port-${var.name_suffix}"
     ]
   }
 }
@@ -353,7 +353,7 @@ data "aws_iam_policy_document" "read_db_port_parameter" {
 
 # IAM Policy Object - RDS Enhanced Monitoring Role (CloudWatch)
 resource "aws_iam_policy" "rds_enhanced_monitoring_role" {
-  name        = "rds-enhanced-monitoring-role-${local.name_suffix}"
+  name        = "rds-enhanced-monitoring-role-${var.name_suffix}"
   path        = "/"
   description = "Gives RDS permission to create CloudWatch log groups and streams, and write logs to them."
 

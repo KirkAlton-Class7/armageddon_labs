@@ -16,21 +16,41 @@ output "vpc_id" {
 }
 
 # Public Subnet IDs
-output "public_subnet_ids" {
+output "public_subnets" {
   description = "Public subnet IDs"
-  value       = aws_subnet.public_app[*].id
+  value       = local.public_subnets
 }
 
 # Private App Subnet IDs
-output "private_app_subnet_ids" {
+output "private_app_subnets" {
   description = "Private app subnet IDs"
-  value       = aws_subnet.private_app[*].id
+  value       = local.private_app_subnets
 }
 
 # Private Data Subnet IDs
-output "private_data_subnet_ids" {
+output "private_data_subnets" {
   description = "Private data subnet IDs"
-  value       = aws_subnet.private_data[*].id
+  value       = local.private_data_subnets
+}
+
+
+
+  # Shared tags for public subnets and resources
+output "public_subnet_tags" {
+  description = "Tags for public subnets and resources"
+  value = local.public_subnet_tags
+}
+
+  # Shared tags for private app subnets and resources
+output "private_app_subnet_tags" {
+  description = "Tags for private app subnets and resources"
+  value = local.private_app_subnet_tags
+}
+
+  # Shared tags for private subnets and resources
+output "private_subnet_tags" {
+  description = "Tags for private subnets and resources"
+  value = local.private_subnet_tags
 }
 
 
@@ -43,4 +63,15 @@ output "private_data_subnet_ids" {
 output "vpc_name" {
   description = "Name tag of the VPC"
   value       = aws_vpc.main.tags["Name"]
+}
+
+
+# ----------------------------------------------------------------
+# DEMONSTRATION OUTPUTS (Not used in deployment)
+# ----------------------------------------------------------------
+
+# Demo Owner
+output "demo_owner_normalized" {
+  description = "DEMO: Transformed module value returned to root."
+  value       = local.demo_owner
 }

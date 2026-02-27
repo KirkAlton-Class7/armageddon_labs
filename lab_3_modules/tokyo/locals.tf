@@ -10,24 +10,13 @@ locals {
   account_id = data.aws_caller_identity.current.account_id
 
   # Environment
-  app  = var.context.app
-  env  = var.context.env
-  tags = var.context.tags
+  app    = var.context.app
+  env    = var.context.env
+  tags   = var.context.tags
   region = var.context.region
 
-  # Naming helpers
-  name_prefix   = "${local.app}-${local.env}"
-  name_suffix   = lower(random_string.suffix.result)
-  bucket_suffix = random_id.bucket_suffix.hex
-
-
-  # Route53 Naming
-  root_domain   = var.root_domain
-  app_subdomain = var.app
-  fqdn          = "${local.app_subdomain}.${local.root_domain}"
-
   # Normalized Environment Names
-  normalized_app = lower(var.app)
+  normalized_app = lower(var.app) # Normalization defines identity here, so transformation belongs in root.
   normalized_env = lower(var.env)
 
   # Base Tags
@@ -44,4 +33,15 @@ locals {
     env    = local.normalized_env
     tags   = local.base_tags
   }
+
+  # Naming helpers
+  name_prefix   = "${local.app}-${local.env}"
+  name_suffix   = lower(random_string.suffix.result) # Root level normalization; preferred only if normalization defines deployment identity. 
+  bucket_suffix = lower(random_id.bucket_suffix.hex)
+
+
+  # Route53 Naming
+  root_domain   = var.root_domain
+  app_subdomain = var.app
+  fqdn          = "${local.app_subdomain}.${local.root_domain}"
 }

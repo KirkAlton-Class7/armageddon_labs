@@ -10,10 +10,13 @@ resource "aws_route_table" "public" {
     gateway_id = aws_internet_gateway.main.id
   }
 
-  tags = {
-    Name      = "public-route-table"
-    Component = "network"
-  }
+  tags = merge(
+    {
+      Name      = "public-route-table"
+      Component = "network"
+    },
+    var.context.tags
+  )
 }
 
 # Public Route Table Associations
@@ -40,14 +43,17 @@ resource "aws_route_table" "local" {
   vpc_id = aws_vpc.main.id
 
   route {
-    cidr_block = local.vpc_cidr
+    cidr_block = var.vpc_cidr
     gateway_id = "local"
   }
 
-  tags = {
-    Name      = "local-route-table"
-    Component = "network"
-  }
+  tags = merge(
+    {
+      Name      = "local-route-table"
+      Component = "network"
+    },
+    var.context.tags
+  )
 }
 
 # ----------------------------------------------------------------

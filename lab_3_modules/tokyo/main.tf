@@ -1,40 +1,54 @@
 module "network" {
-  source   = "../modules/network"
-  context  = local.context
-  account_id = local.account_id
-  vpc_cidr = var.vpc_cidr
-  name_suffix = random_string_suffix.result
+  source      = "../modules/network"
+  context     = local.context
+  account_id  = local.account_id
+
+  vpc_cidr    = var.vpc_cidr
+
+  name_prefix = local.name_prefix
+  name_suffix = local.name_suffix
+  demo_owner  = var.demo_owner # DEMO: Root variable (var.demo_owner) is passed into module variable (demo_owner)
 }
 
 module "security" {
-  source   = "../modules/security"
-  context  = local.context
-  account_id = local.account_id
-  vpc_cidr = module.network.vpc_cidr
-  vpc_id   = module.network.vpc_id
-  name_suffix = random_string_suffix.result
+  source      = "../modules/security"
+  context     = local.context
+  account_id  = local.account_id
 
+  vpc_cidr    = module.network.vpc_cidr
+  vpc_id      = module.network.vpc_id
+
+  name_prefix = local.name_prefix
+  name_suffix = local.name_suffix
 }
 
 module "iam" {
-  source = "../modules/iam"
-  context = local.context
-  account_id = local.account_id
+  source                             = "../modules/iam"
+  context                            = local.context
+  account_id                         = local.account_id
+ 
   enable_direct_service_log_delivery = module.security.enable_direct_service_log_delivery
-  name_suffix = random_string_suffix.result
+ 
+  name_prefix                        = local.name_prefix
+  name_suffix                        = local.name_suffix
   #bucket_suffix = random_id.bucket_suffix.hex
 }
 
 module "database" {
-  source = "../modules/database"
-
-  subnet_ids = module.network.private_subnet_ids
-  vpc_id     = module.network.vpc_id
-  sg_id      = module.security.db_sg_id
-
-  db_instance_class = local.db_instance_class
-
-  tags = module.core.tags
+  source             = "../modules/database"
+  context            = local.context
+  
+  public_subnets       = module.network.public_subnet_ids
+  private_app_subnets  = module.network.private_app_subnet_ids
+  private_data_subnets = module.network.private_data_subnet_ids
+  public_subnet_tags = module.network.public_subnet_tags
+  private_app_subnet_tags = module.network.private_app_subnet_tags
+  private_subnet_tags = module.network.private_app_subnet_tags
+  
+  private_db_sg_id  = module.security.private_db_sg_id
+ 
+  name_prefix        = local.name_prefix
+  name_suffix        = local.name_suffix
 }
 
 module "compute" {

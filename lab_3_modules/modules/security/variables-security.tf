@@ -4,8 +4,8 @@
 
 # Account ID
 variable "account_id" {
-    type = string
-    description = "AWS Account ID"
+  type        = string
+  description = "AWS Account ID"
 }
 # VPC CIDR
 variable "vpc_cidr" {
@@ -20,12 +20,14 @@ variable "vpc_id" {
 }
 
 variable "context" {
-  type = object({
-    region = string
-    app  = string
-    env  = string
-    tags = map(string)
-  })
+  type = object(
+    {
+      region = string
+      app    = string
+      env    = string
+      tags   = map(string)
+    }
+  )
 }
 
 # Input WAF Log Destination
@@ -59,6 +61,12 @@ variable "enable_direct_service_log_delivery" {
   type        = bool
   description = "Whether AWS services deliver logs directly to CloudWatch Logs (requires resource policy)."
   default     = false
+}
+
+
+# Name Prefix
+variable "name_prefix" {
+  type = string
 }
 
 # Name Suffix

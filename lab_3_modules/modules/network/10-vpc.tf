@@ -3,13 +3,13 @@
 # ----------------------------------------------------------------
 
 resource "aws_vpc" "main" {
-  cidr_block           = local.vpc_cidr
+  cidr_block           = var.vpc_cidr
   instance_tenancy     = "default"
   enable_dns_support   = true
   enable_dns_hostnames = true
 
-  tags = merge(local.tags, {
-    Name      = "vpc-${local.app}-${local.env}"
+  tags = merge(var.context.tags, {
+    Name      = "vpc-${var.context.app}-${var.context.env}"
     Component = "network"
   })
 }

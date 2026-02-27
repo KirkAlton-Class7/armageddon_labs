@@ -15,9 +15,9 @@ resource "random_password" "db_password" { # local.db_credentials.password
 
 # DB - Lab-MySQL
 resource "aws_db_instance" "lab_mysql" {
-  identifier             = "lab-mysql-${local.name_suffix}"
+  identifier             = "lab-mysql-${var.name_suffix}"
   db_subnet_group_name   = aws_db_subnet_group.lab_mysql.name
-  vpc_security_group_ids = [local.private_db_sg_id]
+  vpc_security_group_ids = [var.private_db_sg_id]
 
   engine            = "mysql"
   engine_version    = "8.0"
@@ -36,8 +36,8 @@ resource "aws_db_instance" "lab_mysql" {
 
   tags = {
     Name        = "lab-mysql"
-    App         = "${local.app}"
-    Environment = "${local.env}"
+    App         = "${var.context.app}"
+    Environment = "${var.context.env}"
     Service     = "post-notes"
     Component   = "data-db"
     Scope       = "backend"

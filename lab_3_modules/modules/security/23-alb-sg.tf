@@ -14,11 +14,14 @@ data "aws_ec2_managed_prefix_list" "cloudfront_origin_facing" {
 resource "aws_security_group" "alb_origin" {
   name        = "alb-sg"
   description = "Allow HTTPS only from CloudFront origin-facing prefix list"
-  vpc_id      = local.vpc_id
+  vpc_id      = var.vpc_id
 
-  tags = {
-    Name = "public-application-lb-sg"
-  }
+  tags = merge(
+    {
+      Name = "public-application-lb-sg"
+    },
+    var.context.tags
+  )
 }
 
 
