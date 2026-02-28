@@ -12,6 +12,14 @@ resource "aws_wafv2_web_acl_logging_configuration" "rds_app_waf_direct" {
   log_destination_configs = [
     local.waf_log_destination_arn
   ]
+  tags = merge(
+    {
+      Name      = "rds-app-waf-log-configuration"
+      Component = "configuration"
+      Scope     = "cloudfront"
+    },
+    var.context.tags
+  )
 }
 
 

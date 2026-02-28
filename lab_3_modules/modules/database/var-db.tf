@@ -63,8 +63,8 @@ variable "private_app_subnet_tags" {
   description = "Tags for private app subnets and resources"
 }
 
-  # Shared tags for private subnets and resources
-variable "private_subnet_tags" {
+  # Shared tags for private data subnets and resources
+variable "private_data_subnet_tags" {
   type = map(string)
   description = "Tags for private subnets and resources"
 }
@@ -76,4 +76,16 @@ variable "private_subnet_tags" {
 variable "private_db_sg_id" {
   type = string
   description = "Security Group ID for Private DB"
+}
+
+# FROM ROOT
+variable "db_engine" {
+  description = "Database engine."
+  type        = string
+}
+
+# DB Username
+variable "db_username" {
+  type        = string
+  description = "Database admin username"
 }

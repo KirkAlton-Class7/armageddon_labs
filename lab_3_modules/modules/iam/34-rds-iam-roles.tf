@@ -8,13 +8,16 @@ resource "aws_iam_role" "rds_enhanced_monitoring_role" {
   assume_role_policy = data.aws_iam_policy_document.rds_enhanced_monitoring_assume_role.json
   description        = "Enhanced RDS Monitoring role for CloudWatch"
 
-  tags = {
+  tags = merge(
+    {
     Name        = "rds-enhanced-monitoring-role"
     Component   = "iam"
     AccessLevel = "read-only"
     Service     = "rds"
     Scope       = "monitoring-db"
-  }
+  },
+  var.context.tags
+  )
 }
 
 # ----------------------------------------------------------------

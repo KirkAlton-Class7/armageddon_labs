@@ -9,8 +9,7 @@ resource "aws_db_subnet_group" "lab_mysql" {
   tags = merge(
     {
       Name = "labmysql-db-subnet-group"
-      #Scope = aws_db_instance.lab_mysql.name
     },
-    var.private_subnet_tags
+    var.private_data_subnet_tags, var.context.tags
   )
 }

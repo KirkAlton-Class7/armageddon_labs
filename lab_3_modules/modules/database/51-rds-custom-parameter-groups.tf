@@ -22,7 +22,8 @@ resource "aws_db_parameter_group" "lab_mysql_parameters" {
     value = "3" # Value 3 outputs ERROR, WARNING and INFORMATION to error logs
   }
 
-  tags = {
+  tags = merge(
+    {
     Name        = "lab-mysql-parameters"
     App         = "${var.context.app}"
     Environment = "${var.context.env}"
@@ -30,5 +31,7 @@ resource "aws_db_parameter_group" "lab_mysql_parameters" {
     Scope       = "logging"
     Engine      = "mysql"
     DataClass   = "confidential"
-  }
+  },
+    var.context.tags
+  )
 }

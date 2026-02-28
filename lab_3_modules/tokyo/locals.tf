@@ -40,6 +40,14 @@ locals {
   bucket_suffix = lower(random_id.bucket_suffix.hex)
 
 
+  # Normalized DB Engine
+  normalized_db_engine = lower(var.db_engine)
+
+
+
+# Your work proves that you belong there. Your results [and] your outcomes prove that you belong . . . and your mindset must also prove it. Don't ever let anybody make you feel as if you don't belong.
+
+
   # Route53 Naming
   root_domain   = var.root_domain
   app_subdomain = var.app

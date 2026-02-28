@@ -64,7 +64,7 @@ resource "aws_subnet" "private_app_a" {
       Name = "private-app-a"
       Component = "network"
     },
-    var.context.tags, local.private_subnet_tags
+    var.context.tags, local.private_data_subnet_tags
   )
 }
 
@@ -92,7 +92,7 @@ resource "aws_subnet" "private_app_c" {
       Name = "private-app-c"
       Component = "network"
     },
-    var.context.tags, local.private_subnet_tags
+    var.context.tags, local.private_data_subnet_tags
   )
 }
 
@@ -111,7 +111,7 @@ resource "aws_subnet" "private_data_a" {
       Name = "private-data-a"
       Component = "network"
     },
-    var.context.tags, local.private_subnet_tags
+    var.context.tags, local.private_data_subnet_tags
   )
 }
 
@@ -125,7 +125,7 @@ resource "aws_subnet" "private_data_b" {
       Name = "private-data-b"
       Component = "network"
     },
-    var.context.tags, local.private_subnet_tags
+    var.context.tags, local.private_data_subnet_tags
   )
 }
 
@@ -139,6 +139,6 @@ resource "aws_subnet" "private_data_c" {
       Name = "private-data-c"
       Component = "network"
     },
-    var.context.tags, local.private_subnet_tags
+    var.context.tags, local.private_data_subnet_tags
   )
 }

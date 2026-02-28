@@ -72,6 +72,29 @@ variable "secret_arn" {
 }
 
 
+# DB Engine
+variable "db_engine" {
+  description = "Database engine."
+  type        = string
+  default     = "mysql"
+
+  validation {
+    condition     = contains(["mysql", "postgres", "sqlserver", "oracle"], lower(var.db_engine))
+    error_message = "db_engine must be one of: mysql, postgres, sqlserver, oracle."
+  }
+}
+
+
+# DB Username
+variable "db_username" {
+  type        = string
+  description = "Database admin username"
+  default     = "admin"
+}
+
+
+
+
 variable "waf_log_destination" {}
 variable "waf_log_retention_days" {}
 variable "enable_waf_sampled_requests_only" {}
@@ -87,4 +110,14 @@ variable "demo_owner" { # Root Variable
   type        = string
   description = "Demonstration variable for module-level normalization patterns."
   default     = "DevSecOpsTeam"
+}
+
+
+
+
+# Input ALB Access Logs Prefix
+variable "alb_access_logs_prefix" {
+  type        = string
+  description = "S3 prefix for ALB access logs (NO leading or trailing slash)"
+  default     = "alb-access-logs"
 }

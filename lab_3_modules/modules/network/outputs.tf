@@ -50,7 +50,7 @@ output "private_app_subnet_tags" {
   # Shared tags for private subnets and resources
 output "private_subnet_tags" {
   description = "Tags for private subnets and resources"
-  value = local.private_subnet_tags
+  value = local.private_data_subnet_tags
 }
 
 

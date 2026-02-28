@@ -8,10 +8,13 @@ resource "aws_vpc" "main" {
   enable_dns_support   = true
   enable_dns_hostnames = true
 
-  tags = merge(var.context.tags, {
+  tags = merge(
+    {
     Name      = "vpc-${var.context.app}-${var.context.env}"
     Component = "network"
-  })
+  },
+    var.context.tags
+  )
 }
 
 # ----------------------------------------------------------------

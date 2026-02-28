@@ -6,6 +6,14 @@
 # resource "aws_iam_role" "lambda_firehose_network_telemetry_processor_role" {
 #   name               = "lambda-firehose-network-telemetry-processor-role"
 #   assume_role_policy = data.aws_iam_policy_document.lambda_firehose_network_telemetry_processor_assume_role.json
+
+#   tags = merge(
+#     {
+#     Name      = "lambda-firehose-network-telemetry-role"
+#     Component = "iam"
+#   },
+#   var.context.tags
+#   )
 # }
 
 # ----------------------------------------------------------------

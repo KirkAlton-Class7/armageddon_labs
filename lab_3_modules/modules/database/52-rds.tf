@@ -1,15 +1,4 @@
 # ----------------------------------------------------------------
-# DATABASE — Helper Resources (Credential Generation)
-# ----------------------------------------------------------------
-
-# DB Helper Resources
-resource "random_password" "db_password" { # local.db_credentials.password
-  length           = 20
-  special          = true
-  override_special = "!#$%&*()-_=+[]{}<>:?"
-}
-
-# ----------------------------------------------------------------
 # DATABASE — RDS Instance (Lab Mysql)
 # ----------------------------------------------------------------
 
@@ -34,7 +23,8 @@ resource "aws_db_instance" "lab_mysql" {
   parameter_group_name = aws_db_parameter_group.lab_mysql_parameters.name
   skip_final_snapshot  = true
 
-  tags = {
+  tags = merge(
+    {
     Name        = "lab-mysql"
     App         = "${var.context.app}"
     Environment = "${var.context.env}"
@@ -43,5 +33,7 @@ resource "aws_db_instance" "lab_mysql" {
     Scope       = "backend"
     Engine      = "mysql"
     DataClass   = "confidential"
-  }
+  },
+  var.private_data_subnet_tags, var.context.tags
+  )
 }

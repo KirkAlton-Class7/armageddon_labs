@@ -1,5 +1,17 @@
 # ----------------------------------------------------------------
-# Secrets Manager (Database Credentials)
+# DATABASE — Credential Generation
+# ----------------------------------------------------------------
+
+# DB - Lab RDS MySQL Password
+resource "random_password" "db_password" {
+  length           = 24
+  special          = true
+  override_special = "!#$%&*()-_=+[]{}<>:?"
+}
+
+
+# ----------------------------------------------------------------
+# Secrets Manager Secret (Database Credentials)
 # ----------------------------------------------------------------
 
 # DB Secret - Lab MySQL
@@ -7,12 +19,15 @@ resource "aws_secretsmanager_secret" "lab_rds_mysql" {
   name                    = "lab/rds/mysql-${var.name_suffix}"
   recovery_window_in_days = 0
 
-  tags = {
+  tags = merge(
+    {
     Name         = "lab-rds-mysql"
     Component    = "security"
     AppComponent = "credentials"
     DataClass    = "confidential"
-  }
+  },
+    var.context.tags
+  )
 }
 
 # ----------------------------------------------------------------
@@ -27,6 +42,6 @@ resource "aws_secretsmanager_secret_version" "lab_rds_mysql" {
     username = local.db_credentials.username
     password = local.db_credentials.password
     host     = aws_db_instance.lab_mysql.address
-    port     = 3306
+    port     = local.db_port
   })
 }

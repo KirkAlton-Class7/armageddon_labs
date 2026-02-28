@@ -66,8 +66,8 @@ locals {
     Egress   = "nat"
   }
 
-  # Shared tags for private subnets and resources
-  private_subnet_tags = {
+  # Shared tags for private data subnets and resources
+  private_data_subnet_tags = {
     Exposure  = "internal-only"
     Egress    = "none"
   }
@@ -79,7 +79,6 @@ locals {
     Component = "network"
   }
 }
-
 
 # ----------------------------------------------------------------
 # DEMONSTRATION LOCALS (Not used in deployment)

@@ -10,10 +10,13 @@ resource "aws_iam_policy" "ssm_agent_policy" {
 
   policy = data.aws_iam_policy_document.ssm_agent_policy.json
 
-  tags = {
+  tags = merge(
+  {
     Name      = "ssm-agent-policy"
     Component = "instance-management"
-  }
+  },
+  var.context.tags
+  )
 
 }
 # IAM Policy Data - SSM Agent Policy (SSM Agent Permissions, Messaging, and Legacy Messaging)
@@ -74,11 +77,14 @@ resource "aws_iam_policy" "ec2_linux_repo_access" {
   name   = "ec2-linux-repo-access-policy"
   policy = data.aws_iam_policy_document.ec2_linux_repo_access.json
 
-  tags = {
+  tags = merge(
+  {
     Name        = "ec2-linux-repo-access"
     Component   = "iam"
     AccessLevel = "read-only"
-  }
+  },
+  var.context.tags
+  )
 }
 # IAM Policy Data - Allow EC2 to Access Amazon Linux Repo via VPC Endpoint
 data "aws_iam_policy_document" "ec2_linux_repo_access" {
@@ -98,11 +104,14 @@ resource "aws_iam_policy" "ec2_cloudwatch_agent_role" {
   name   = "ec2-cloudwatch-agent-role"
   policy = data.aws_iam_policy_document.ec2_cloudwatch_agent_role.json
 
-  tags = {
-    Name        = "ec2-cloudwatch-agent-role"
+  tags = merge(
+  {
+    Name        = "ec2-cloudwatch-agent-role-policy"
     Component   = "iam"
     AccessLevel = "write"
-  }
+  },
+  var.context.tags
+  )
 }
 # IAM Policy Data - EC2 CloudWatch Agent Role
 data "aws_iam_policy_document" "ec2_cloudwatch_agent_role" {
@@ -164,11 +173,14 @@ resource "aws_iam_policy" "read_db_secret" {
 
   policy = data.aws_iam_policy_document.read_db_secret.json
 
-  tags = {
+  tags = merge(
+    {
     Name      = "read-db-secret"
     Component = "iam"
     DataClass = "confidential"
-  }
+  },
+  var.context.tags
+  )
 }
 # IAM Policy Data - Read DB Secret
 data "aws_iam_policy_document" "read_db_secret" {
@@ -194,13 +206,16 @@ resource "aws_iam_policy" "read_cloudwatch_agent_config" {
 
   policy = data.aws_iam_policy_document.read_cloudwatch_agent_config.json
 
-  tags = {
+  tags = merge(
+  {
     Name         = "read-cloudwatch-agent-config"
     Component    = "iam"
     AppComponent = "logging-configuration"
     DataClass    = "internal"
     AccessLevel  = "read-only"
-  }
+  },
+  var.context.tags
+  )
 }
 # IAM Policy Data - CloudWatch Agent Config File
 data "aws_iam_policy_document" "read_cloudwatch_agent_config" {
@@ -227,13 +242,16 @@ resource "aws_iam_policy" "read_db_name_parameter" {
 
   policy = data.aws_iam_policy_document.read_db_name_parameter.json
 
-  tags = {
+  tags = merge(
+  {
     Name         = "read-db-name-parameter"
     Component    = "iam"
     AppComponent = "credentials"
     DataClass    = "internal"
     AccessLevel  = "read-only"
-  }
+  },
+  var.context.tags
+  )
 }
 # IAM Policy Data - Read DB Name Parameter
 data "aws_iam_policy_document" "read_db_name_parameter" {
@@ -259,13 +277,16 @@ resource "aws_iam_policy" "read_db_username_parameter" {
 
   policy = data.aws_iam_policy_document.read_db_username_parameter.json
 
-  tags = {
+  tags = merge(
+  {
     Name         = "read-db-username-parameter"
     Component    = "iam"
     AppComponent = "credentials"
     DataClass    = "internal"
     AccessLevel  = "read-only"
-  }
+  },
+  var.context.tags
+  )
 }
 # IAM Policy Data - Read DB Username Parameter
 data "aws_iam_policy_document" "read_db_username_parameter" {
@@ -291,13 +312,16 @@ resource "aws_iam_policy" "read_db_host_parameter" {
 
   policy = data.aws_iam_policy_document.read_db_host_parameter.json
 
-  tags = {
+  tags = merge(
+  {
     Name         = "read-db-host-parameter"
     Component    = "iam"
     AppComponent = "credentials"
     DataClass    = "internal"
     AccessLevel  = "read-only"
-  }
+  },
+  var.context.tags
+  )
 }
 # IAM Policy Data - Read DB Host Parameter
 data "aws_iam_policy_document" "read_db_host_parameter" {
@@ -323,13 +347,16 @@ resource "aws_iam_policy" "read_db_port_parameter" {
 
   policy = data.aws_iam_policy_document.read_db_port_parameter.json
 
-  tags = {
+  tags = merge(
+  {
     Name         = "read-db-port-parameter"
     Component    = "iam"
     AppComponent = "credentials"
     DataClass    = "internal"
     AccessLevel  = "read-only"
-  }
+  },
+  var.context.tags
+  )
 }
 # IAM Policy Data - Read DB Port Parameter
 data "aws_iam_policy_document" "read_db_port_parameter" {
@@ -359,10 +386,13 @@ resource "aws_iam_policy" "rds_enhanced_monitoring_role" {
 
   policy = data.aws_iam_policy_document.rds_enhanced_monitoring_role.json
 
-  tags = {
-    Name      = "rds-enhanced-monitoring-role"
+  tags = merge(
+    {
+    Name      = "rds-enhanced-monitoring-role-policy"
     Component = "iam"
-  }
+  },
+  var.context.tags
+  )
 }
 # IAM Policy Data - RDS Enhanced Monitoring Role
 data "aws_iam_policy_document" "rds_enhanced_monitoring_role" {
@@ -389,6 +419,14 @@ data "aws_iam_policy_document" "rds_enhanced_monitoring_role" {
 resource "aws_iam_policy" "vpc_flow_log_role" {
   name   = "vpc-flow-log-role-policy"
   policy = data.aws_iam_policy_document.vpc_flow_log_role.json
+
+  tags = merge(
+  {
+  Name      = "vpc-flow-log-role-policy"
+  Component = "iam"
+  },
+  var.context.tags
+  )
 }
 # IAM Policy Data - VPC Flow Log
 data "aws_iam_policy_document" "vpc_flow_log_role" {
@@ -430,6 +468,14 @@ resource "aws_iam_policy" "firehose_network_telemetry_logs" {
 
   name   = "firehose-network-telemetry-logs"
   policy = data.aws_iam_policy_document.firehose_network_telemetry_logs[0].json
+
+    tags = merge(
+    {
+    Name      = "firehose-network-telemetry-logs-policy"
+    Component = "iam"
+  },
+  var.context.tags
+  )
 }
 
 # Conditional IAM Policy Data - Firehose Network Telemetry Logs
@@ -498,6 +544,14 @@ data "aws_iam_policy_document" "firehose_network_telemetry_logs" {
 resource "aws_iam_policy" "lambda_firehose_network_telemetry_logs" {
   name   = "lambda-firehose-network-telemetry-logs"
   policy = data.aws_iam_policy_document.lambda_firehose_network_telemetry_logs.json
+
+    tags = merge(
+    {
+    Name      = "lambda-firehose-network-telemetry-logs-policy"
+    Component = "iam"
+  },
+  var.context.tags
+  )
 }
 # IAM Policy Data - Lambda Firehose Network Telemetry Logs
 data "aws_iam_policy_document" "lambda_firehose_network_telemetry_logs" {

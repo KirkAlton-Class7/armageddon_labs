@@ -19,7 +19,7 @@ resource "aws_vpc_endpoint" "kms" {
     {
       Name = "vpc-endpoint-kms"
     },
-    var.context.tags, local.private_subnet_tags
+    var.context.tags, local.private_data_subnet_tags
   )
 }
 # ----------------------------------------------------------------
@@ -36,7 +36,7 @@ resource "aws_vpc_endpoint" "s3" {
       Name = "vpc-endpoint-s3"
 
     },
-    var.context.tags, local.private_subnet_tags
+    var.context.tags, local.private_data_subnet_tags
   )
 }
 
@@ -63,7 +63,7 @@ resource "aws_vpc_endpoint" "secretsmanager" {
       Name = "vpc-endpoint-secretsmanager"
 
     },
-    var.context.tags, local.private_subnet_tags,
+    var.context.tags, local.private_data_subnet_tags,
   )
 }
 
@@ -90,7 +90,7 @@ resource "aws_vpc_endpoint" "ssm" {
       Name = "vpc-endpoint-ssm"
 
     },
-    var.context.tags, local.private_subnet_tags
+    var.context.tags, local.private_data_subnet_tags
   )
 }
 
@@ -112,7 +112,7 @@ resource "aws_vpc_endpoint" "ssm_messages" {
     {
       Name = "vpc-endpoint-ssm-messages"
     },
-    var.context.tags, local.private_subnet_tags
+    var.context.tags, local.private_data_subnet_tags
   )
 }
 
@@ -135,7 +135,7 @@ resource "aws_vpc_endpoint" "ec2_messages" {
       Name = "vpc-endpoint-ec2-messages"
 
     },
-    var.context.tags, local.private_subnet_tags
+    var.context.tags, local.private_data_subnet_tags
   )
 }
 # ----------------------------------------------------------------
@@ -161,7 +161,7 @@ resource "aws_vpc_endpoint" "ec2" {
       Name = "vpc-endpoint-ec2"
 
     },
-    var.context.tags, local.private_subnet_tags,
+    var.context.tags, local.private_data_subnet_tags,
   )
 }
 
@@ -188,7 +188,7 @@ resource "aws_vpc_endpoint" "monitoring" {
       Name = "vpc-endpoint-monitoring"
 
     },
-    var.context.tags, local.private_subnet_tags
+    var.context.tags, local.private_data_subnet_tags
   )
 }
 
@@ -211,6 +211,6 @@ resource "aws_vpc_endpoint" "logs" {
       Name = "vpc-endpoint-logs"
 
     },
-    var.context.tags, local.private_subnet_tags
+    var.context.tags, local.private_data_subnet_tags
   )
 }
