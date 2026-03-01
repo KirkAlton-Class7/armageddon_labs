@@ -6,7 +6,7 @@
 output "application_url" {
   description = "URL for accessing the application"
   value = {
-    url = "https://${local.fqdn}"
+    url = "https://${var.dns_context.fqdn}"
   }
 }
 
@@ -64,8 +64,8 @@ output "cloudfront_endpoints" {
   description = "Public DNS endpoints routed to CloudFront"
 
   value = {
-    apex_domain     = local.root_domain
-    subdomain       = local.fqdn
+    apex_domain     = var.dns_context.root_domain
+    subdomain       = var.dns_context.fqdn
     cloudfront_host = aws_cloudfront_distribution.rds_app.domain_name
   }
 }
@@ -80,7 +80,7 @@ output "cloudfront_origin" {
   description = "CloudFront origin configuration"
 
   value = {
-    origin_domain          = "origin.${local.root_domain}"
+    origin_domain          = "origin.${var.dns_context.root_domain}"
     origin_alb_dns         = aws_lb.rds_app_public_alb.dns_name
     origin_protocol_policy = "https-only"
   }

@@ -13,7 +13,7 @@ resource "aws_lb_listener" "rds_app_http_80" {
   tags = {
     Name        = "rds-app-http-80-listener"
     Component   = "load-balancing"
-    Environment = "${local.env}"
+    Environment = "${var.context.env}"
     Service     = "post-notes"
   }
 
@@ -39,7 +39,7 @@ resource "aws_lb_listener" "rds_app_https_443" {
   tags = {
     Name        = "rds-app-https-443-listener"
     Component   = "load-balancing"
-    Environment = "${local.env}"
+    Environment = "${var.context.env}"
     Service     = "post-notes"
   }
 
@@ -71,7 +71,7 @@ resource "aws_lb_listener_rule" "accept_edge_auth" {
 
   condition {
     http_header {
-      http_header_name = local.edge_auth_header_name
+      http_header_name = var.edge_auth_header_name
       values           = [random_password.edge_auth_value.result]
     }
   }

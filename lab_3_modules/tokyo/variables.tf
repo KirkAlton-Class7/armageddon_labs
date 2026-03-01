@@ -29,7 +29,7 @@ variable "env" {
 
 # ----------------------------------------------------------------
 # INPUT VARIABLES — Networking
-# ----------------------------------------------------------------
+# ------------------------------------------------------
 
 # Input VPC CIDR Block
 variable "vpc_cidr" {
@@ -120,4 +120,44 @@ variable "alb_access_logs_prefix" {
   type        = string
   description = "S3 prefix for ALB access logs (NO leading or trailing slash)"
   default     = "alb-access-logs"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ----------------------------------------------------------------
+# INPUT VARIABLES — EDGE / DNS / Route 53
+# ----------------------------------------------------------------
+
+# Toggle Route 53 Zone Management in Terraform
+variable "manage_route53_in_terraform" {
+  description = "If true, create/manage Route53 hosted zone and records in Terraform."
+  type        = bool
+  default     = false
+}
+
+
+
+# Toggle Private Route 53 Zone
+variable "route53_private_zone" {
+  type        = bool
+  description = "If true, the Route53 hosted zone is private."
+  default     = false
+}
+
+
+# Input Root Domain (Apex)
+variable "root_domain" {
+  type        = string
+  description = "Root DNS name (no subdomain)"
+  default     = "kirkdevsecops.com"
 }

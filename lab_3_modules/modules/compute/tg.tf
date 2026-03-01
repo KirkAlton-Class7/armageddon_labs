@@ -29,8 +29,8 @@ resource "aws_lb_target_group" "rds_app_asg_tg" {
 
   tags = {
     Name        = "rds-app-asg-tg"
-    App         = "${local.app}"
-    Environment = "${local.env}"
+    App         = "${var.context.app}"
+    Environment = "${var.context.env}"
     Service     = "post-notes"
     Component   = "load-balancing"
     Scope       = "frontend"

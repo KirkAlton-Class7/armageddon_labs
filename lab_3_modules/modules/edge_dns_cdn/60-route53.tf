@@ -12,14 +12,14 @@
 resource "aws_route53_zone" "terraform_managed_zone" {
   count = var.manage_route53_in_terraform ? 1 : 0
 
-  name = local.root_domain
+  name = var.dns_context.root_domain
 }
 
 # Hosted Zone Data for RDS App
 data "aws_route53_zone" "rds_app_zone" {
   count = var.manage_route53_in_terraform ? 0 : 1
 
-  name         = local.root_domain
+  name         = var.dns_context.root_domain
   private_zone = false
 }
 

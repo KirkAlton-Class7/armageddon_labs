@@ -101,15 +101,23 @@ module "compute" {
   private_app_subnet_tags = module.network.private_app_subnet_tags
 }
 
-# module "edge_dns_cdn" {
-#   source = "../modules/edge-dns-cdn"
+module "edge_dns_cdn" {
+  source = "../modules/edge_dns_cdn"
 
-#   domain_name = var.root_domain
-#   alb_dns     = module.compute.alb_dns_name
-#   waf_arn     = module.security.waf_arn
+  # Variables - Identity
+  context     = local.context
+  name_prefix = local.name_prefix
+  name_suffix = local.name_suffix
 
-#   tags = module.core.tags
-# }
+  dns_context = local.dns_context
+
+  manage_route53_in_terraform = var.manage_route53_in_terraform
+
+  route53_private_zone = var.route53_private_zone
+
+
+
+}
 
 # module "observability" {
 #   source = "../modules/observability"
