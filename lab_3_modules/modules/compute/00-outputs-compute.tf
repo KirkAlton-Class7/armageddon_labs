@@ -9,8 +9,8 @@ output "rds_app_alb" {
   value = {
     application = var.context.app
     name        = aws_lb.rds_app_public_alb.name
-    dns_name    = aws_lb.rds_app_public_alb.dns_name
-    zone_id     = aws_lb.rds_app_public_alb.zone_id
+    dns_name    = var.alb_dns
+    zone_id     = var.alb_zone_id
     a_record    = aws_route53_record.rds_app_origin_to_alb.name
   }
 }
@@ -22,4 +22,23 @@ output "alb_listeners" {
     http  = aws_lb_listener.rds_app_http_80.port
     https = aws_lb_listener.rds_app_https_443.port
   }
+}
+
+
+
+
+
+
+
+
+output "alb_dns" {
+  value = var.alb_dns
+}
+
+output "alb_zone_id" {
+  value = var.alb_zone_id
+}
+
+output "target_group_arn" {
+  value = aws_lb_target_group.rds_app_asg_tg.arn
 }

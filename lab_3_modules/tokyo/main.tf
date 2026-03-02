@@ -88,8 +88,7 @@ module "compute" {
   name_suffix = local.name_suffix
 
   # Variables - VPC
-  vpc_id = module.network.vpc_id
-
+  vpc_id = var.vpc_id
   # Variables - Security
   rds_app_asg_security_group_id = module.security.aws_security_group.rds_app_asg.id
 

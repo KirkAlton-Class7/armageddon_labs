@@ -69,3 +69,24 @@ output "demo_owner_from_module" {
   description = "DEMO: Transformed value returned from module."
   value       = module.network.demo_owner_normalized
 } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+output "alb_dns" {
+  value = module.compute.alb_dns
+}
+
+output "cloudfront_domain" {
+  value = module.edge_dns_cdn.cloudfront_domain
+}
+

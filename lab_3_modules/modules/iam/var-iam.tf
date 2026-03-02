@@ -40,3 +40,22 @@ variable "name_suffix" {
 # variable "bucket_suffix" {
 #   type = string
 # }
+
+
+
+
+
+
+
+
+
+
+
+
+variable "db_secret_arn" {
+  type = string
+}
+
+variable "vpc_flow_log_group_arn" {
+  type = string
+}

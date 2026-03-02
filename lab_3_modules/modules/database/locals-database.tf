@@ -21,5 +21,5 @@ locals {
 
 
   # DB Secret ID
-  secret_id = aws_secretsmanager_secret.lab_rds_mysql.arn
+  secret_id = var.db_secret_arn
 }

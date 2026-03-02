@@ -53,3 +53,34 @@ variable "edge_auth_header_name" {
   type        = string
   description = "Edge authentication header name."
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+variable "alb_dns" {
+  type = string
+}
+
+variable "alb_zone_id" {
+  type = string
+}
+
+variable "context" {
+  type = object({
+    root_domain = string
+    fqdn        = string
+  })
+}

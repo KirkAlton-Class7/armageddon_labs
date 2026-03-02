@@ -50,3 +50,21 @@ variable "alb_access_logs_prefix" {
   type        = string
   description = "S3 prefix for ALB access logs (NO leading or trailing slash)"
 }
+
+
+
+variable "vpc_id" {
+  type = string
+}
+
+variable "alb_arn_suffix" {
+  type = string
+}
+
+variable "tg_arn_suffix" {
+  type = string
+}
+
+variable "db_identifier" {
+  type = string
+}

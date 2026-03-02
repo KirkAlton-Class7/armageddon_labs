@@ -96,3 +96,13 @@ variable "aws_iam_role_rds_app_name" {
   type        = string
   description = "RDS App IAM Role Name"
 }
+
+
+
+
+
+
+
+variable "vpc_id" {
+  type = string
+}

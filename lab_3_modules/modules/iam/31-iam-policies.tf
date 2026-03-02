@@ -191,8 +191,8 @@ data "aws_iam_policy_document" "read_db_secret" {
       "secretsmanager:GetSecretValue"
     ]
     resources = [
-      aws_secretsmanager_secret.lab_rds_mysql.arn,
-      "${aws_secretsmanager_secret.lab_rds_mysql.arn}-*"
+      var.db_secret_arn,
+      "${var.db_secret_arn}-*"
     ]
   }
 }
