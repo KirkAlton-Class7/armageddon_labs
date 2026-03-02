@@ -33,7 +33,7 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
             ]
           ]
 
-          region = var.region
+          region = var.context.region
           stat   = "Sum"
           period = 60
           view   = "timeSeries"
@@ -59,7 +59,7 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
           ]
 
           stat   = "Average"
-          region = var.region
+          region = var.context.region
           period = 300
           view   = "timeSeries"
         }
@@ -89,7 +89,7 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
             ]
           ]
 
-          region = var.region
+          region = var.context.region
           period = 300
           view   = "timeSeries"
         }
@@ -156,7 +156,7 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
             ]
           ]
 
-          region  = var.region
+          region  = var.context.region
           period  = 60
           view    = "timeSeries"
           stacked = false
@@ -182,7 +182,7 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
             ]
           ]
 
-          region = var.region
+          region = var.context.region
           view   = "timeSeries"
           period = 60
         }

@@ -5,7 +5,7 @@
 resource "aws_kinesis_firehose_delivery_stream" "network_telemetry" {
   count = local.waf_log_mode.create_firehose_resources ? 1 : 0
 
-  name        = "aws-waf-logs-${local.env}-network-telemetry"
+  name        = "aws-waf-logs-${var.context.env}-network-telemetry"
   destination = "extended_s3"
 
 

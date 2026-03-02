@@ -16,7 +16,7 @@ resource "aws_lb" "rds_app_public_alb" {
   access_logs {
     bucket  = aws_s3_bucket.alb_logs_bucket[0].id
     prefix  = var.alb_access_logs_prefix
-    enabled = var.alb_log_mode
+    enabled = var.alb_log_s3
   }
 
   tags = {

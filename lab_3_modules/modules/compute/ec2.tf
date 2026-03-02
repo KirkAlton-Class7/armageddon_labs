@@ -7,7 +7,7 @@
 # Instance Profile - RDS App
 resource "aws_iam_instance_profile" "rds_app" {
   name = "rds-app-instance-profile"
-  role = aws_iam_role.rds_app.name
+  role = var.aws_iam_role_rds_app_name
 
   tags = {
     Name        = "rds-app-instance-profile"

@@ -42,8 +42,8 @@ resource "aws_cloudwatch_metric_alarm" "rds_app_to_lab_mysql_connection_failure"
 
   tags = {
     Name        = "app-to-lab-mysql-connection-failure"
-    App         = "${local.app}"
-    Environment = "${local.env}"
+    App         = "${var.context.app}"
+    Environment = "${var.context.env}"
     Component   = "alarm-db"
     Scope       = "monitoring-connectivity"
     Severity    = "medium"
@@ -93,8 +93,8 @@ resource "aws_cloudwatch_metric_alarm" "alarm_lab_mysql_auth_failure" {
 
   tags = {
     Name        = "alarm-lab-mysql-auth-failures"
-    App         = "${local.app}"
-    Environment = "${local.env}"
+    App         = "${var.context.app}"
+    Environment = "${var.context.env}"
     Component   = "alarm-db"
     Scope       = "monitoring-login"
     Severity    = "medium"
@@ -131,8 +131,8 @@ resource "aws_cloudwatch_metric_alarm" "rds_app_alb_target_5xx_alarm" {
 
   tags = {
     Name        = "rds-app-alb-target-5xx"
-    App         = local.app
-    Environment = local.env
+    App         = var.context.app
+    Environment = var.context.env
     Component   = "alarm-alb"
     Scope       = "monitoring-backend"
     Severity    = "high"

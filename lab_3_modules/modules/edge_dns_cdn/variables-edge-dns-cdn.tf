@@ -47,3 +47,9 @@ variable "dns_context" {
     fqdn          = string
   })
 }
+
+  # Edge Authentication Header Name
+variable "edge_auth_header_name" {
+  type        = string
+  description = "Edge authentication header name."
+}

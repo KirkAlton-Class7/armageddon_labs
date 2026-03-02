@@ -4,7 +4,7 @@
 
 # IAM Role - RDS App Role
 resource "aws_iam_role" "rds_app" {
-  name               = "rds-app-role-${local.name_suffix}"
+  name               = "rds-app-role-${var.name_suffix}"
   assume_role_policy = data.aws_iam_policy_document.rds_app_assume_role.json
   description        = "EC2 role that reads a db secret."
 

@@ -9,11 +9,11 @@ locals {
   # Account ID
   account_id = data.aws_caller_identity.current.account_id
 
-  # Environment
-  app    = var.context.app
-  env    = var.context.env
-  tags   = var.context.tags
-  region = var.context.region
+  # # Environment
+  # app    = var.context.app
+  # env    = var.context.env
+  # tags   = var.context.tags
+  # region = var.context.region
 
   # Normalized Environment Names
   normalized_app = lower(var.app) # Normalization defines identity here, so transformation belongs in root.
@@ -35,7 +35,7 @@ locals {
   }
 
   # Naming helpers
-  name_prefix   = "${local.app}-${local.env}"
+  name_prefix   = "${local.context.app}-${local.context.env}"
   name_suffix   = lower(random_string.suffix.result) # Root level normalization; preferred only if normalization defines deployment identity. 
   bucket_suffix = lower(random_id.bucket_suffix.hex)
 
@@ -51,7 +51,10 @@ locals {
   # DNS Context - Route53 Naming
     dns_context = {
     root_domain = var.root_domain
-    app_subdomain    = var.app
-    fqdn    = "${var.app}.${var.root_domain}"
+    app_subdomain    = local.normalized_app
+    fqdn    = "${local.normalized_app}.${var.root_domain}"
   }
+
+  # Edge Authentication Header Name
+  edge_auth_header_name = "X-${local.name_prefix}-edge-auth-v1" # Cycle versions as needed
 }

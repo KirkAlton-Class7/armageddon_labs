@@ -143,8 +143,8 @@ data "aws_iam_policy_document" "ec2_cloudwatch_agent_role" {
     ]
     resources = [
       "arn:aws:logs:${local.region}:${local.account_id}:log-group:*",
-      "arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/rds-app-${local.name_suffix}",
-      "arn:aws:logs:${local.region}:${local.account_id}:log-group:/ec2-system-logs-${local.name_suffix}"
+      "arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/rds-app-${var.name_suffix}",
+      "arn:aws:logs:${local.region}:${local.account_id}:log-group:/ec2-system-logs-${var.name_suffix}"
     ]
   }
 
@@ -159,15 +159,15 @@ data "aws_iam_policy_document" "ec2_cloudwatch_agent_role" {
     ]
 
     resources = [
-      "arn:aws:logs:${local.region}:${local.account_id}:log-group:/ec2-system-logs-${local.name_suffix}:log-stream:*",
-      "arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/rds-app-${local.name_suffix}:log-stream:*"
+      "arn:aws:logs:${local.region}:${local.account_id}:log-group:/ec2-system-logs-${var.name_suffix}:log-stream:*",
+      "arn:aws:logs:${local.region}:${local.account_id}:log-group:/aws/ec2/cloudwatch-agent/rds-app-${var.name_suffix}:log-stream:*"
     ]
   }
 }
 
 # IAM Policy Object - Read DB Secret
 resource "aws_iam_policy" "read_db_secret" {
-  name        = "read-db-secret-${local.name_suffix}"
+  name        = "read-db-secret-${var.name_suffix}"
   path        = "/"
   description = "Read specific secret for db."
 
@@ -200,7 +200,7 @@ data "aws_iam_policy_document" "read_db_secret" {
 
 # IAM Policy Object - Read CloudWatch Agent Config File
 resource "aws_iam_policy" "read_cloudwatch_agent_config" {
-  name        = "read-cloudwatch-agent-config-${local.name_suffix}"
+  name        = "read-cloudwatch-agent-config-${var.name_suffix}"
   path        = "/"
   description = "Allows EC2 to read CloudWatch Agent Config File"
 
@@ -228,7 +228,7 @@ data "aws_iam_policy_document" "read_cloudwatch_agent_config" {
       "ssm:GetParametersByPath"
     ]
     resources = [
-      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/rds-app/cloudwatch-agent/config-${local.name_suffix}"
+      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/rds-app/cloudwatch-agent/config-${var.name_suffix}"
     ]
   }
 }
@@ -236,7 +236,7 @@ data "aws_iam_policy_document" "read_cloudwatch_agent_config" {
 
 # IAM Policy Object - Read DB Name Parameter
 resource "aws_iam_policy" "read_db_name_parameter" {
-  name        = "read-db-name-parameter-${local.name_suffix}"
+  name        = "read-db-name-parameter-${var.name_suffix}"
   path        = "/"
   description = "Allows EC2 to read DB name from SSM Parameter Store"
 
@@ -263,7 +263,7 @@ data "aws_iam_policy_document" "read_db_name_parameter" {
       "ssm:GetParametersByPath"
     ]
     resources = [
-      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/lab/rds/mysql/db-name-${local.name_suffix}"
+      "arn:aws:ssm:${local.region}:${local.account_id}:parameter/lab/rds/mysql/db-name-${var.name_suffix}"
     ]
   }
 }
@@ -271,7 +271,7 @@ data "aws_iam_policy_document" "read_db_name_parameter" {
 
 # IAM Policy Object - Read DB Username Parameter
 resource "aws_iam_policy" "read_db_username_parameter" {
-  name        = "read-db-username-parameter-${local.name_suffix}"
+  name        = "read-db-username-parameter-${var.name_suffix}"
   path        = "/"
   description = "Allows EC2 to read DB username from SSM Parameter Store"
 
@@ -588,7 +588,7 @@ data "aws_iam_policy_document" "lambda_firehose_network_telemetry_logs" {
 #     ]
 
 #     resources = [
-#       "arn:aws:s3:::aws-waf-logs-${local.env}-{local.bucket_suffix}/*"
+#       "arn:aws:s3:::aws-waf-logs-${var.context.env}-{var.bucket_suffix}/*"
 #     ]
 #   }
 # }

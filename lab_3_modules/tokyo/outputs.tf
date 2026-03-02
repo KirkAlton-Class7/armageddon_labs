@@ -4,22 +4,26 @@
 
 output "application_name" {
   description = "Application name"
-  value       = local.app
+  value       = local.context.app
 }
 
 output "environment" {
   description = "Environment"
-  value       = local.env
+  value       = local.context.env
 }
 
 output "region" {
   description = "Region (name)"
-  value       = var.region
+  value       = local.context.region
 }
 
 
 
 
+output "db_endpoint" {
+  description = "Database endpoint"
+  value       = module.database.db_endpoint
+}
 
 
 # SUBNETS
@@ -64,4 +68,4 @@ output "private_data_subnets" {
 output "demo_owner_from_module" {
   description = "DEMO: Transformed value returned from module."
   value       = module.network.demo_owner_normalized
-}
+} 

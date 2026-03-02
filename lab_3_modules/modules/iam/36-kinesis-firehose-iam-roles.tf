@@ -5,7 +5,7 @@
 # IAM Role - Firehose Network Telemetry Role
 resource "aws_iam_role" "firehose_network_telemetry_role" {
   count              = local.waf_log_mode.create_firehose_resources ? 1 : 0
-  name               = "firehose-network-telemetry-role-${local.name_suffix}"
+  name               = "firehose-network-telemetry-role-${var.name_suffix}"
   assume_role_policy = data.aws_iam_policy_document.firehose_network_telemetry_assume_role[0].json
 
     tags = merge(

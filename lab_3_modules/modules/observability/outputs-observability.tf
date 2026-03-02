@@ -9,12 +9,12 @@ output "logging_info" {
 
   value = {
     alb_access_logs = {
-      enabled = local.alb_log_mode
+      enabled = var.alb_log_s3
       bucket = {
         name = try(aws_s3_bucket.alb_logs_bucket[0].bucket, null)
         arn  = try(aws_s3_bucket.alb_logs_bucket[0].arn, null)
       }
-      prefix = local.alb_log_mode ? var.alb_access_logs_prefix : null
+      prefix = var.alb_log_s3 ? var.alb_access_logs_prefix : null
     }
 
     waf_direct_logs = {

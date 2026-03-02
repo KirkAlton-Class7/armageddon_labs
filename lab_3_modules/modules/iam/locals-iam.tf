@@ -10,7 +10,7 @@ locals {
   region = var.context.region
 
   # Naming helpers
-  name_prefix = "${local.app}-${local.env}"
+  name_prefix = "${var.context.app}-${var.context.env}"
   name_suffix = lower(var.name_suffix) # Unless normalization defines identity, transformation belongs in modules.
   #bucket_suffix = var.bucket_suffix
 }

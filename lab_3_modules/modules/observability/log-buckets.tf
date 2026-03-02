@@ -4,9 +4,9 @@
 
 # Conditional Terraform Managed S3 Bucket - ALB Logs
 resource "aws_s3_bucket" "alb_logs_bucket" {
-  count = local.alb_log_mode ? 1 : 0
+  count = var.alb_log_s3 ? 1 : 0
 
-  bucket = "alb-logs-${var.region}-${local.bucket_suffix}"
+  bucket = "alb-logs-${var.context.region}-${var.bucket_suffix}"
 
   force_destroy = true
 
@@ -14,12 +14,12 @@ resource "aws_s3_bucket" "alb_logs_bucket" {
     Name        = "alb-logs-bucket"
     Component   = "storage"
     DataClass   = "confidential"
-    Environment = "${local.env}"
+    Environment = "${var.context.env}"
   }
 }
 # Conditional Server Side Encryption - ALB Logs
 resource "aws_s3_bucket_server_side_encryption_configuration" "alb_logs_bucket" {
-  count  = local.alb_log_mode ? 1 : 0
+  count  = var.alb_log_s3 ? 1 : 0
   bucket = aws_s3_bucket.alb_logs_bucket[0].id
 
   rule {
@@ -32,14 +32,14 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "alb_logs_bucket" 
 
 # S3 Bucket Policy Object - ALB Logs
 resource "aws_s3_bucket_policy" "rds_app_alb_logs" {
-  count = local.alb_log_mode ? 1 : 0
+  count = var.alb_log_s3 ? 1 : 0
 
   bucket = aws_s3_bucket.alb_logs_bucket[0].id
   policy = data.aws_iam_policy_document.rds_app_alb_logs[0].json
 }
 # S3 Bucket Policy Data - ALB Logs
 data "aws_iam_policy_document" "rds_app_alb_logs" {
-  count = local.alb_log_mode ? 1 : 0
+  count = var.alb_log_s3 ? 1 : 0
   statement {
     sid    = "AllowALBAccessLogs"
     effect = "Allow"
@@ -65,14 +65,14 @@ data "aws_iam_policy_document" "rds_app_alb_logs" {
 resource "aws_s3_bucket" "waf_logs_bucket" {
   count = local.waf_log_mode.create_direct_resources ? 1 : 0 # Remember to use index when referencing a conditional resource
 
-  bucket        = "aws-waf-logs-${var.region}-${local.bucket_suffix}"
+  bucket        = "aws-waf-logs-${var.context.region}-${var.bucket_suffix}"
   force_destroy = true
 
   tags = {
     Name        = "aws-waf-logs-terraform-managed-bucket"
     Component   = "storage"
     DataClass   = "confidential"
-    Environment = "${local.env}"
+    Environment = "${var.context.env}"
   }
 }
 # Conditional Server Side Encryption - AWS WAF Logs Bucket (Conditional)
@@ -120,7 +120,7 @@ data "aws_iam_policy_document" "waf_logs_bucket_policy" {
     condition {
       test     = "StringEquals"
       variable = "aws:SourceAccount"
-      values   = [local.account_id]
+      values   = [var.account_id]
     }
 
     condition {
@@ -140,7 +140,7 @@ data "aws_iam_policy_document" "waf_logs_bucket_policy" {
 resource "aws_s3_bucket" "waf_firehose_logs" {
   count = local.waf_log_mode.create_firehose_resources ? 1 : 0
 
-  bucket        = "aws-waf-logs-firehose-${var.region}-${local.bucket_suffix}"
+  bucket        = "aws-waf-logs-firehose-${var.context.region}-${var.bucket_suffix}"
   force_destroy = true
 
 }
@@ -195,7 +195,7 @@ data "aws_iam_policy_document" "waf_firehose_logs_bucket_policy" {
     condition {
       test     = "StringEquals"
       variable = "aws:SourceAccount"
-      values   = [local.account_id]
+      values   = [var.account_id]
     }
   }
 }

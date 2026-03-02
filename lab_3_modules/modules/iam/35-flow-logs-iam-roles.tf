@@ -4,7 +4,7 @@
 
 # IAM Role - VPC Flow Log
 resource "aws_iam_role" "vpc_flow_log_role" {
-  name               = "vpc-flow-log-role-${local.name_suffix}"
+  name               = "vpc-flow-log-role-${var.name_suffix}"
   assume_role_policy = data.aws_iam_policy_document.vpc_flow_log_assume_role.json
 
   tags = merge(

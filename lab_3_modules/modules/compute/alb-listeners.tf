@@ -53,12 +53,6 @@ resource "aws_lb_listener" "rds_app_https_443" {
 # LOAD BALANCING — Origin Protection (Cloudfront Header Token)
 # ----------------------------------------------------------------
 
-# Edge Auth Token (Header Value)
-resource "random_password" "edge_auth_value" {
-  length  = 32
-  special = false
-}
-
 # Allow Rule - Valid Edge Auth Header
 resource "aws_lb_listener_rule" "accept_edge_auth" {
   listener_arn = aws_lb_listener.rds_app_https_443.arn

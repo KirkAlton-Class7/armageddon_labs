@@ -2,6 +2,14 @@
 # EDGE — Cloudfront Policies
 # ================================================================
 
+
+# Edge Auth Token (Header Value)
+resource "random_password" "edge_auth_value" {
+  length  = 32
+  special = false
+}
+
+
 # ----------------------------------------------------------------
 # EDGE — Cloudfront Managed Cache Policies (Data Sources)
 # ----------------------------------------------------------------
@@ -29,7 +37,7 @@ data "aws_cloudfront_origin_request_policy" "all_viewer_except_host" {
 
 resource "aws_cloudfront_response_headers_policy" "static" {
   provider = aws.global
-  name     = "rds-app-static-response-headers-${local.name_suffix}"
+  name     = "rds-app-static-response-headers-${var.name_suffix}"
   comment  = "Explicit Cache-Control for static assets"
 
   custom_headers_config {
@@ -48,7 +56,7 @@ resource "aws_cloudfront_response_headers_policy" "static" {
 
 resource "aws_cloudfront_cache_policy" "cache_static" {
   provider    = aws.global
-  name        = "rds-app-cache-static-${local.name_suffix}"
+  name        = "rds-app-cache-static-${var.name_suffix}"
   comment     = "Aggressive caching for /static/*"
   default_ttl = 86400    # 1 day
   max_ttl     = 31536000 # 1 year
@@ -79,7 +87,7 @@ resource "aws_cloudfront_cache_policy" "cache_static" {
 
 resource "aws_cloudfront_origin_request_policy" "static" {
   provider = aws.global
-  name     = "rds-app-orp-static-${local.name_suffix}"
+  name     = "rds-app-orp-static-${var.name_suffix}"
   comment  = "Minimal forwarding for static assets"
 
   cookies_config {
@@ -107,7 +115,7 @@ resource "aws_cloudfront_distribution" "rds_app" {
   provider            = aws.global
   enabled             = true
   is_ipv6_enabled     = true
-  comment             = "rds-app-cloudfront-${local.name_suffix}"
+  comment             = "rds-app-cloudfront-${var.name_suffix}"
   default_root_object = ""
 
   depends_on = [
@@ -119,7 +127,7 @@ resource "aws_cloudfront_distribution" "rds_app" {
   # ---------------------------
   origin {
     origin_id   = "rds-app-alb-origin"
-    domain_name = "origin.${local.root_domain}"
+    domain_name = "origin.${var.dns_context.root_domain}"
 
     custom_origin_config {
       http_port              = 80
@@ -130,7 +138,7 @@ resource "aws_cloudfront_distribution" "rds_app" {
 
     # Secret origin header (must match your ALB listener rule)
     custom_header {
-      name  = local.edge_auth_header_name
+      name  = var.edge_auth_header_name
       value = random_password.edge_auth_value.result
     }
   }
@@ -209,8 +217,8 @@ resource "aws_cloudfront_distribution" "rds_app" {
   # Domain Aliases
   # ---------------------------
   aliases = [
-    local.root_domain,
-    local.fqdn
+    var.context.root_domain,
+    var.context.fqdn
   ]
 
   # ---------------------------

@@ -17,6 +17,11 @@ module "network" {
 module "security" {
   source      = "../modules/security"
   
+  # Providers
+  providers = {
+    aws.global = aws.global
+  }
+
   # Variables - Identity
   context     = local.context
   account_id  = local.account_id
@@ -26,8 +31,14 @@ module "security" {
   # Variables - VPC
   vpc_cidr    = module.network.vpc_cidr
   vpc_id      = module.network.vpc_id
-}
+waf_log_destination = var.waf_log_destination
 
+waf_log_retention_days = var.waf_log_retention_days
+
+enable_waf_sampled_requests_only = var.enable_waf_sampled_requests_only
+
+enable_direct_service_log_delivery = var.enable_direct_service_log_delivery
+}
 module "iam" {
   source                             = "../modules/iam"
 
@@ -89,7 +100,6 @@ module "compute" {
   alb_access_logs_prefix = var.alb_access_logs_prefix
   
   # Variables - RDS Secrets
-  secret_id = "???"
   secret_arn = module.database.secret_arn
   
   # Variables - Subnet IDs
@@ -99,10 +109,21 @@ module "compute" {
   # Variables - Subnet & Resource Tags
   public_subnet_tags = module.network.public_subnet_tags
   private_app_subnet_tags = module.network.private_app_subnet_tags
+  
+  edge_auth_header_name = local.edge_auth_header_name
+
+  alb_log_s3 = var.alb_log_s3
+
+  aws_iam_role_rds_app_name = module.iam.aws_iam_role.rds_app.name
 }
 
 module "edge_dns_cdn" {
   source = "../modules/edge_dns_cdn"
+
+  # Providers
+  providers = {
+    aws.global = aws.global
+    }
 
   # Variables - Identity
   context     = local.context
@@ -115,22 +136,27 @@ module "edge_dns_cdn" {
 
   route53_private_zone = var.route53_private_zone
 
-
-
+  edge_auth_header_name = local.edge_auth_header_name
 }
 
-# module "observability" {
-#   source = "../modules/observability"
+module "observability" {
+  source = "../modules/observability"
+  # Providers
+  providers = {
+    aws.global = aws.global
+    }
 
-#   vpc_id = module.network.vpc_id
+  # Variables - Identity
+  context     = local.context
+  account_id  = local.account_id
 
-#   tags = module.core.tags
-# }
+  name_prefix = local.name_prefix
+  name_suffix = local.name_suffix
+  bucket_suffix = local.bucket_suffix
 
-# module "secrets_config" {
-#   source = "../modules/secrets-config"
+  vpc_id      = module.network.vpc_id
 
-#   db_endpoint = module.database.db_endpoint
+  alb_access_logs_prefix = var.alb_access_logs_prefix
 
-#   tags = module.core.tags
-# }
+  alb_log_s3 = var.alb_log_s3
+}

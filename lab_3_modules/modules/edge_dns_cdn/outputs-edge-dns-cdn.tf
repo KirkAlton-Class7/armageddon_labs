@@ -75,6 +75,13 @@ output "cloudfront_endpoints" {
 # OUTPUTS — CloudFront (Edge Origin)
 # ----------------------------------------------------------------
 
+
+# Edge Auth Token (Header Value)
+output "edge_auth_value" {
+  description = "Edge Auth Token (Header Value)"
+  value = random_password.edge_auth_value.result
+}
+
 # CloudFront Origin Configuration
 output "cloudfront_origin" {
   description = "CloudFront origin configuration"

@@ -45,14 +45,5 @@ locals {
   # This will be false if both log modes are true.
   # A check against this value gives an error to prevent issues on apply.
   waf_log_mode_valid = (local.waf_log_mode.create_direct_resources && !local.waf_log_mode.create_firehose_resources) || (!local.waf_log_mode.create_direct_resources && local.waf_log_mode.create_firehose_resources)
+
 }
-
-# # -------------------------------------------------------------------
-# # ALB Logging Configuration
-# # -------------------------------------------------------------------
-# alb_log_mode = var.enable_alb_access_logs
-
-# locals {
-#   # Edge Authentication Header Name
-#   edge_auth_header_name = "X-${local.name_prefix}-edge-auth-v1" # Cycle versions as needed
-# }

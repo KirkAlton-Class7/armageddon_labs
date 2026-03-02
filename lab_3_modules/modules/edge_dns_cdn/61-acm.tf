@@ -7,12 +7,12 @@
 # ----------------------------------------------------------------
 resource "aws_acm_certificate" "rds_app_cf_cert" {
   provider                  = aws.global # us-east-1 required for CloudFront
-  domain_name               = local.root_domain
-  subject_alternative_names = ["*.${local.root_domain}"] # Use wildcard to cover one level subdomains
+  domain_name               = var.dns_context.root_domain
+  subject_alternative_names = ["*.${var.dns_context.root_domain}"] # Use wildcard to cover one level subdomains
   validation_method         = "DNS"
 
   tags = {
-    Name = "${local.app}-cert"
+    Name = "${var.context.app}-cert"
   }
 
   lifecycle {

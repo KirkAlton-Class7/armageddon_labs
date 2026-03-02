@@ -4,7 +4,7 @@
 
 # IAM Role - RDS Monitoring Role (CloudWatch)
 resource "aws_iam_role" "rds_enhanced_monitoring_role" {
-  name               = "rds-enhanced-monitoring-role-${local.name_suffix}"
+  name               = "rds-enhanced-monitoring-role-${var.name_suffix}"
   assume_role_policy = data.aws_iam_policy_document.rds_enhanced_monitoring_assume_role.json
   description        = "Enhanced RDS Monitoring role for CloudWatch"
 

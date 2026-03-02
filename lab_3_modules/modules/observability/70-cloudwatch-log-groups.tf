@@ -4,13 +4,13 @@
 
 # CWL Group - VPC Traffic
 resource "aws_cloudwatch_log_group" "vpc_flow_log" {
-  name              = "vpc-flow-log-${local.name_suffix}"
+  name              = "vpc-flow-log-${var.name_suffix}"
   retention_in_days = 1
 
   tags = {
     Name        = "vpc-flow-log"
-    App         = "${local.app}"
-    Environment = "${local.env}"
+    App         = "${var.context.app}"
+    Environment = "${var.context.env}"
     Component   = "logs-vpc"
     Scope       = "logging-conectivity"
     DataClass   = "confidential"
@@ -24,13 +24,13 @@ resource "aws_cloudwatch_log_group" "vpc_flow_log" {
 
 # CWL Group - RDS App ALB Logs
 resource "aws_cloudwatch_log_group" "rds_app_alb_server_error" {
-  name              = "rds-app-alb-server-error-${local.name_suffix}"
+  name              = "rds-app-alb-server-error-${var.name_suffix}"
   retention_in_days = 1
 
   tags = {
     Name        = "rds-app-alb-server-error"
-    App         = "${local.app}"
-    Environment = "${local.env}"
+    App         = "${var.context.app}"
+    Environment = "${var.context.env}"
     Component   = "logs-alb"
     Scope       = "logging-backend"
     DataClass   = "confidential"
@@ -46,13 +46,13 @@ resource "aws_cloudwatch_log_group" "rds_app_alb_server_error" {
 resource "aws_cloudwatch_log_group" "waf_logs" {
   count             = local.waf_log_mode.create_direct_resources ? 1 : 0
   provider          = aws.global
-  name              = "aws-waf-logs-${local.env}-${local.bucket_suffix}"
+  name              = "aws-waf-logs-${var.context.env}-${var.bucket_suffix}"
   retention_in_days = 1
 
   tags = {
     Name        = "waf-logs-network-telemetry"
-    App         = "${local.app}"
-    Environment = "${local.env}"
+    App         = "${var.context.app}"
+    Environment = "${var.context.env}"
     Component   = "logs-waf"
     Scope       = "logging-security-edge"
     DataClass   = "confidential"
@@ -68,13 +68,13 @@ resource "aws_cloudwatch_log_group" "waf_logs" {
 resource "aws_cloudwatch_log_group" "waf_firehose_logs" {
   count = local.waf_log_mode.create_firehose_resources ? 1 : 0
 
-  name              = "aws-waf-logs-firehose-${local.env}-${local.bucket_suffix}"
+  name              = "aws-waf-logs-firehose-${var.context.env}-${var.bucket_suffix}"
   retention_in_days = 1
 
   tags = {
     Name        = "waf-firehose-logs"
-    App         = "${local.app}"
-    Environment = "${local.env}"
+    App         = "${var.context.app}"
+    Environment = "${var.context.env}"
     Component   = "logs-waf"
     Scope       = "logging-security-edge"
     DataClass   = "confidential"

@@ -2,12 +2,12 @@
 # INPUT VARIABLES — ALB Logging
 # ----------------------------------------------------------------
 
-# Toggle ALB Access Logs
-variable "enable_alb_access_logs" {
+# Toggle ALB Access Logs (S3)
+variable "alb_log_s3" {
   type        = bool
-  default     = true
   description = "If true, enable ALB access logging to S3."
 }
+
 
 # Input ALB Access Logs Prefix
 variable "alb_access_logs_prefix" {
@@ -41,11 +41,6 @@ variable "name_suffix" {
 variable "secret_arn" {
   type        = string
   description = "ARN of database credentials secret"
-}
-
-variable "secret_id" {
-  type        = string
-  description = "ID of database credentials secret"
 }
 
 variable "rds_app_iam_role" {
@@ -86,4 +81,18 @@ variable "public_subnet_tags" {
 variable "private_app_subnet_tags" {
   type = map(string)
   description = "Tags for private app subnets and resources"
+}
+
+
+# Edge Authentication Header
+variable "edge_auth_header_name" {
+  type        = string
+  description = "Edge authentication header name."
+}
+
+
+# RDS App IAM Role Name
+variable "aws_iam_role_rds_app_name" {
+  type        = string
+  description = "RDS App IAM Role Name"
 }
