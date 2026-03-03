@@ -10,7 +10,7 @@ resource "aws_lb_target_group" "rds_app_asg_tg" {
   target_type = "instance"
   protocol    = "HTTP"
   port        = 80
-  vpc_id      = module.network.vpc_id
+  vpc_id      = var.vpc_id
 
   load_balancing_algorithm_type     = "round_robin"
   load_balancing_cross_zone_enabled = true

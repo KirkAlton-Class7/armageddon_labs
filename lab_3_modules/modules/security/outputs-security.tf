@@ -28,6 +28,8 @@ output "enable_direct_service_log_delivery" {
   value = var.enable_direct_service_log_delivery
 }
 
+
+
 # WAF Info - Contract + Operator
 output "waf_info" {
   description = "WAF Web ACL details"

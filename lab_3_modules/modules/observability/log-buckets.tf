@@ -63,7 +63,7 @@ data "aws_iam_policy_document" "rds_app_alb_logs" {
 
 # Conditional Terraform Managed S3 Bucket - AWS WAF Logs
 resource "aws_s3_bucket" "waf_logs_bucket" {
-  count = local.waf_log_mode.create_direct_resources ? 1 : 0 # Remember to use index when referencing a conditional resource
+  count = var.waf_log_mode.create_direct_resources ? 1 : 0 # Remember to use index when referencing a conditional resource
 
   bucket        = "aws-waf-logs-${var.context.region}-${var.bucket_suffix}"
   force_destroy = true
@@ -77,7 +77,7 @@ resource "aws_s3_bucket" "waf_logs_bucket" {
 }
 # Conditional Server Side Encryption - AWS WAF Logs Bucket (Conditional)
 resource "aws_s3_bucket_server_side_encryption_configuration" "waf_logs_bucket" {
-  count  = local.waf_log_mode.create_direct_resources ? 1 : 0
+  count  = var.waf_log_mode.create_direct_resources ? 1 : 0
   bucket = aws_s3_bucket.waf_logs_bucket[0].id # Index is required for reference to a conditional resource
 
   rule {
@@ -89,14 +89,14 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "waf_logs_bucket" 
 
 # S3 Bucket Policy Object - WAF Logs
 resource "aws_s3_bucket_policy" "waf_logs_bucket" {
-  count = local.waf_log_mode.create_direct_resources ? 1 : 0
+  count = var.waf_log_mode.create_direct_resources ? 1 : 0
 
   bucket = aws_s3_bucket.waf_logs_bucket[0].id
   policy = data.aws_iam_policy_document.waf_logs_bucket_policy[0].json
 }
 
 data "aws_iam_policy_document" "waf_logs_bucket_policy" {
-  count = local.waf_log_mode.create_direct_resources ? 1 : 0
+  count = var.waf_log_mode.create_direct_resources ? 1 : 0
 
   statement {
     sid    = "AllowWafDirectWrite"
@@ -138,7 +138,7 @@ data "aws_iam_policy_document" "waf_logs_bucket_policy" {
 
 # Conditional Terraform Manged S3 Bucket - WAF Firehose Logs
 resource "aws_s3_bucket" "waf_firehose_logs" {
-  count = local.waf_log_mode.create_firehose_resources ? 1 : 0
+  count = var.waf_log_mode.create_firehose_resources ? 1 : 0
 
   bucket        = "aws-waf-logs-firehose-${var.context.region}-${var.bucket_suffix}"
   force_destroy = true
@@ -147,7 +147,7 @@ resource "aws_s3_bucket" "waf_firehose_logs" {
 
 # Conditional Server Side Encryption - WAF Firehose Logs Bucket
 resource "aws_s3_bucket_server_side_encryption_configuration" "waf_firehose_logs" {
-  count = local.waf_log_mode.create_firehose_resources ? 1 : 0
+  count = var.waf_log_mode.create_firehose_resources ? 1 : 0
 
   bucket = aws_s3_bucket.waf_firehose_logs[0].id
 
@@ -160,7 +160,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "waf_firehose_logs
 
 # Conditional WAF Firehose Logs Bucket Policy Object
 resource "aws_s3_bucket_policy" "waf_firehose_logs" {
-  count = local.waf_log_mode.create_firehose_resources ? 1 : 0
+  count = var.waf_log_mode.create_firehose_resources ? 1 : 0
 
   bucket = aws_s3_bucket.waf_firehose_logs[0].id
   policy = data.aws_iam_policy_document.waf_firehose_logs_bucket_policy[0].json
@@ -170,7 +170,7 @@ resource "aws_s3_bucket_policy" "waf_firehose_logs" {
 # WAF Firehose Logs Bucket Policy Data
 
 data "aws_iam_policy_document" "waf_firehose_logs_bucket_policy" {
-  count = local.waf_log_mode.create_firehose_resources ? 1 : 0
+  count = var.waf_log_mode.create_firehose_resources ? 1 : 0
   statement {
     sid    = "AllowFirehoseWrite"
     effect = "Allow"

@@ -18,6 +18,7 @@ resource "aws_lb" "rds_app_public_alb" {
     prefix  = var.alb_access_logs_prefix
     enabled = var.alb_log_s3
   }
+  
 
   tags = {
     Name        = "rds-app-alb"

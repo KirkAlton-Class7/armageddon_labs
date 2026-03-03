@@ -2,6 +2,34 @@
 # OUTPUTS — Logging & Observability
 # ----------------------------------------------------------------
 
+
+
+
+output "vpc_flow_log_group_arn" {
+  value = aws_cloudwatch_log_group.vpc_flow_log.arn
+
+}
+
+
+output "waf_firehose_log_group_arn" {
+  value = aws_cloudwatch_log_group.waf_firehose_logs[0].arn
+}
+
+
+output "waf_firehose_log_bucket_arn" {
+  value = aws_s3_bucket.waf_firehose_logs[0].arn
+}
+
+output "waf_log_destination_arn" {
+  value = local.waf_log_destination_arn
+}
+
+
+output "waf_direct_log_group_arn" {
+  value = aws_cloudwatch_log_group.waf_logs[0].arn
+}
+
+
 # Logging Info
 # Maps in maps is helpful but slants in CLI.
 output "logging_info" {
@@ -18,7 +46,7 @@ output "logging_info" {
     }
 
     waf_direct_logs = {
-      enabled = local.waf_log_mode.create_direct_resources
+      enabled = var.waf_log_mode.create_direct_resources
       bucket = {
         name = try(aws_s3_bucket.waf_logs_bucket[0].bucket, null)
         arn  = try(aws_s3_bucket.waf_logs_bucket[0].arn, null)
@@ -26,7 +54,7 @@ output "logging_info" {
     }
 
     waf_firehose_logs = {
-      enabled = local.waf_log_mode.create_firehose_resources
+      enabled = var.waf_log_mode.create_firehose_resources
 
       firehose = {
         name = try(aws_kinesis_firehose_delivery_stream.network_telemetry[0].name, null)
@@ -35,7 +63,7 @@ output "logging_info" {
 
       firehose_destination = {
         bucket_arn = try(aws_s3_bucket.waf_firehose_logs[0].arn, null)
-        prefix     = local.waf_log_mode.create_firehose_resources ? "waf-logs/" : null
+        prefix     = var.waf_log_mode.create_firehose_resources ? "waf-logs/" : null
       }
 
       cloudwath_log_groups = {
@@ -46,13 +74,13 @@ output "logging_info" {
           }
 
           waf_direct_logs = {
-            enabled = local.waf_log_mode.create_direct_resources
+            enabled = var.waf_log_mode.create_direct_resources
             name    = try(aws_cloudwatch_log_group.waf_logs[0].name, null)
             arn     = try(aws_cloudwatch_log_group.waf_logs[0].arn, null)
           }
 
           waf_firehose_logs = {
-            enabled = local.waf_log_mode.create_firehose_resources
+            enabled = var.waf_log_mode.create_firehose_resources
             name    = try(aws_cloudwatch_log_group.waf_firehose_logs[0].name, null)
             arn     = try(aws_cloudwatch_log_group.waf_firehose_logs[0].arn, null)
           }

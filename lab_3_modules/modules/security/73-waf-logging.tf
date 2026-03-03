@@ -5,23 +5,14 @@
 # Conditional WAF Logging - Direct (CloudWatch or S3)
 resource "aws_wafv2_web_acl_logging_configuration" "rds_app_waf_direct" {
   provider = aws.global
-  count    = local.waf_log_mode.create_direct_resources ? 1 : 0
+  count    = var.waf_log_mode.create_direct_resources ? 1 : 0
 
   resource_arn = aws_wafv2_web_acl.rds_app.arn
 
   log_destination_configs = [
-    local.waf_log_destination_arn
+  var.waf_log_destination_arn
   ]
-  tags = merge(
-    {
-      Name      = "rds-app-waf-log-configuration"
-      Component = "configuration"
-      Scope     = "cloudfront"
-    },
-    var.context.tags
-  )
 }
-
 
 # When using count, Terraform transforms this resource into a LIST.
 # The resource must be accessed by index:
@@ -36,11 +27,11 @@ resource "aws_wafv2_web_acl_logging_configuration" "rds_app_waf_direct" {
 
 # Conditional WAF Logging - Firehose
 resource "aws_wafv2_web_acl_logging_configuration" "rds_app_waf_firehose" {
-  count = local.waf_log_mode.create_firehose_resources ? 1 : 0
+  count = var.waf_log_mode.create_firehose_resources ? 1 : 0
 
   resource_arn = aws_wafv2_web_acl.rds_app.arn
 
   log_destination_configs = [
-    local.waf_log_destination_arn
+    var.waf_log_destination_arn
   ]
 }

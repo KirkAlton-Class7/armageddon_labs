@@ -89,3 +89,8 @@ variable "db_username" {
   type        = string
   description = "Database admin username"
 }
+
+
+variable "db_secret_arn" {
+  type = string
+}

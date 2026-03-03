@@ -31,13 +31,16 @@ module "security" {
   # Variables - VPC
   vpc_cidr    = module.network.vpc_cidr
   vpc_id      = module.network.vpc_id
-waf_log_destination = var.waf_log_destination
 
-waf_log_retention_days = var.waf_log_retention_days
+  waf_log_retention_days = var.waf_log_retention_days
 
-enable_waf_sampled_requests_only = var.enable_waf_sampled_requests_only
+  enable_waf_sampled_requests_only = var.enable_waf_sampled_requests_only
 
-enable_direct_service_log_delivery = var.enable_direct_service_log_delivery
+  enable_direct_service_log_delivery = var.enable_direct_service_log_delivery
+
+  waf_log_mode = local.waf_log_mode
+
+  waf_log_destination_arn = module.observability.waf_log_destination_arn
 }
 module "iam" {
   source                             = "../modules/iam"
@@ -51,6 +54,14 @@ module "iam" {
 
   # Variables - WAF Log Delivery Toggle
   enable_direct_service_log_delivery = module.security.enable_direct_service_log_delivery
+
+  db_secret_arn = module.database.db_secret_arn
+
+  waf_log_mode = local.waf_log_mode
+  vpc_flow_log_group_arn = module.observability.vpc_flow_log_group_arn
+  waf_firehose_log_group_arn = module.observability.waf_firehose_log_group_arn
+  waf_firehose_log_bucket_arn = module.observability.waf_firehose_log_bucket_arn
+  waf_direct_log_group_arn = module.observability.waf_direct_log_group_arn
 }
 
 module "database" {
@@ -77,6 +88,8 @@ module "database" {
   public_subnet_tags = module.network.public_subnet_tags
   private_app_subnet_tags = module.network.private_app_subnet_tags
   private_data_subnet_tags = module.network.private_subnet_tags
+
+  db_secret_arn = module.database.db_secret_arn
 }
 
 module "compute" {
@@ -88,18 +101,18 @@ module "compute" {
   name_suffix = local.name_suffix
 
   # Variables - VPC
-  vpc_id = var.vpc_id
+  vpc_id = module.network.aws_vpc.main.id
   # Variables - Security
   rds_app_asg_security_group_id = module.security.aws_security_group.rds_app_asg.id
 
   # Variables - IAM
-  rds_app_iam_role = module.iam.aws_iam_role.rds_app.name
+  rds_app_iam_role = ""
 
   # Variables - ALB Access Logs Prefix
   alb_access_logs_prefix = var.alb_access_logs_prefix
   
   # Variables - RDS Secrets
-  secret_arn = module.database.secret_arn
+  db_secret_arn = module.database.db_secret_arn
   
   # Variables - Subnet IDs
   public_subnet_ids  = module.network.public_subnet_ids
@@ -136,6 +149,10 @@ module "edge_dns_cdn" {
   route53_private_zone = var.route53_private_zone
 
   edge_auth_header_name = local.edge_auth_header_name
+
+  alb_zone_id = module.compute.alb_zone_id
+
+  alb_dns = module.compute.alb_dns
 }
 
 module "observability" {
@@ -158,4 +175,12 @@ module "observability" {
   alb_access_logs_prefix = var.alb_access_logs_prefix
 
   alb_log_s3 = var.alb_log_s3
+
+  db_identifier = module.database.db_identifier
+
+  alb_arn_suffix = module.compute.alb_arn_suffix
+
+  tg_arn_suffix = module.compute.tg_arn_suffix
+
+  waf_log_mode = local.waf_log_mode
 }

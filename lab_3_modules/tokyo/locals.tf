@@ -57,4 +57,43 @@ locals {
 
   # Edge Authentication Header Name
   edge_auth_header_name = "X-${local.name_prefix}-edge-auth-v1" # Cycle versions as needed
+
+
+
+
+
+# -------------------------------------------------------------------
+  # WAF Logging Configuration
+  # -------------------------------------------------------------------
+  # WAF Log Mode Definitions
+  waf_log_mode_map = {
+    cloudwatch = {
+      create_direct_resources   = true
+      create_firehose_resources = false
+      target                    = "cloudwatch"
+    }
+
+    firehose = {
+      create_direct_resources   = false
+      create_firehose_resources = true
+      target                    = "firehose"
+    }
+
+    s3 = {
+      create_direct_resources   = true
+      create_firehose_resources = false
+      target                    = "s3"
+    }
+  }
+
+  # WAF Log Mode Selection
+  waf_log_mode = local.waf_log_mode_map[var.waf_log_destination]
+
+  # -------------------------------------------------------------------
+  # Validation & Safety Logic
+  # -------------------------------------------------------------------
+  # WAF Log Mode Validation Logic
+  # This will be false if both log modes are true.
+  # A check against this value gives an error to prevent issues on apply.
+  waf_log_mode_valid = (local.waf_log_mode.create_direct_resources && !local.waf_log_mode.create_firehose_resources) || (!local.waf_log_mode.create_direct_resources && local.waf_log_mode.create_firehose_resources)  
 }

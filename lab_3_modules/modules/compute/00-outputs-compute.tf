@@ -32,13 +32,24 @@ output "alb_listeners" {
 
 
 output "alb_dns" {
-  value = var.alb_dns
+  value = aws_lb.rds_app_public_alb.dns_name
 }
 
 output "alb_zone_id" {
-  value = var.alb_zone_id
+  value = aws_lb.rds_app_public_alb.zone_id
 }
 
 output "target_group_arn" {
   value = aws_lb_target_group.rds_app_asg_tg.arn
 }
+
+
+output "alb_arn_suffix" {
+  value = aws_lb.rds_app_public_alb.arn_suffix
+}
+
+
+output "tg_arn_suffix" {
+  value = aws_lb_target_group.rds_app_asg_tg.arn_suffix
+}
+

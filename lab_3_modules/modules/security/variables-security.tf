@@ -58,16 +58,6 @@ variable "name_suffix" {
 # INPUT VARIABLES — WAF Logging & Observability
 # ----------------------------------------------------------------
 
-# Input WAF Log Destination
-variable "waf_log_destination" {
-  type        = string
-  description = "Where AWS WAF delivers logs: cloudwatch | s3 | firehose"
-
-  validation {
-    condition     = contains(["cloudwatch", "s3", "firehose"], lower(var.waf_log_destination))
-    error_message = "waf_log_destination must be one of: cloudwatch, s3, firehose"
-  }
-}
 
 # Input WAF Log Retention Period
 variable "waf_log_retention_days" {
@@ -85,4 +75,19 @@ variable "enable_waf_sampled_requests_only" {
 variable "enable_direct_service_log_delivery" {
   type        = bool
   description = "Whether AWS services deliver logs directly to CloudWatch Logs (requires resource policy)."
+}
+
+variable "waf_log_mode" {
+  type = object({
+    create_direct_resources   = bool
+    create_firehose_resources = bool
+    target                    = string
+  })
+}
+
+
+
+variable "waf_log_destination_arn" {
+  type        = string
+  description = "Where AWS WAF delivers logs: cloudwatch | s3 | firehose"
 }

@@ -20,6 +20,4 @@ locals {
   db_port = local.db_ports[lower(var.db_engine)]
 
 
-  # DB Secret ID
-  secret_id = var.db_secret_arn
 }

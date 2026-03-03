@@ -30,6 +30,7 @@ resource "aws_secretsmanager_secret" "lab_rds_mysql" {
   )
 }
 
+
 # ----------------------------------------------------------------
 # Secret Version (Database Connection Details)
 # ----------------------------------------------------------------

@@ -53,9 +53,7 @@ variable "alb_access_logs_prefix" {
 
 
 
-variable "vpc_id" {
-  type = string
-}
+
 
 variable "alb_arn_suffix" {
   type = string
@@ -67,4 +65,12 @@ variable "tg_arn_suffix" {
 
 variable "db_identifier" {
   type = string
+}
+
+variable "waf_log_mode" {
+  type = object({
+    create_direct_resources   = bool
+    create_firehose_resources = bool
+    target                    = string
+  })
 }

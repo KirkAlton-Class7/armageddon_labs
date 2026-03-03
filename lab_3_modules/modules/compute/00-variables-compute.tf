@@ -38,7 +38,7 @@ variable "name_suffix" {
 
 
 
-variable "secret_arn" {
+variable "db_secret_arn" {
   type        = string
   description = "ARN of database credentials secret"
 }
@@ -95,14 +95,4 @@ variable "edge_auth_header_name" {
 variable "aws_iam_role_rds_app_name" {
   type        = string
   description = "RDS App IAM Role Name"
-}
-
-
-
-
-
-
-
-variable "vpc_id" {
-  type = string
 }

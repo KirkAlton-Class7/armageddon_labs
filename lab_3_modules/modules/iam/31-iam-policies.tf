@@ -439,7 +439,7 @@ data "aws_iam_policy_document" "vpc_flow_log_role" {
       "logs:DescribeLogGroups",
     ]
 
-    resources = ["${aws_cloudwatch_log_group.vpc_flow_log.arn}"]
+    resources = ["${var.vpc_flow_log_group_arn}"]
   }
 
   statement {
@@ -452,7 +452,7 @@ data "aws_iam_policy_document" "vpc_flow_log_role" {
       "logs:DescribeLogStreams",
     ]
 
-    resources = ["${aws_cloudwatch_log_group.vpc_flow_log.arn}:log-stream:*"]
+    resources = ["${var.vpc_flow_log_group_arn}:log-stream:*"]
   }
 }
 
@@ -464,7 +464,7 @@ data "aws_iam_policy_document" "vpc_flow_log_role" {
 
 # IAM Policy Object - Firehose Network Telemetry Logs
 resource "aws_iam_policy" "firehose_network_telemetry_logs" {
-  count = local.waf_log_mode.create_firehose_resources ? 1 : 0
+  count = var.waf_log_mode.create_firehose_resources ? 1 : 0
 
   name   = "firehose-network-telemetry-logs"
   policy = data.aws_iam_policy_document.firehose_network_telemetry_logs[0].json
@@ -480,7 +480,7 @@ resource "aws_iam_policy" "firehose_network_telemetry_logs" {
 
 # Conditional IAM Policy Data - Firehose Network Telemetry Logs
 data "aws_iam_policy_document" "firehose_network_telemetry_logs" {
-  count = local.waf_log_mode.create_firehose_resources ? 1 : 0
+  count = var.waf_log_mode.create_firehose_resources ? 1 : 0
 
   # Allow Firehose to write diagnostic logs to CloudWatch
   statement {
@@ -492,7 +492,7 @@ data "aws_iam_policy_document" "firehose_network_telemetry_logs" {
     ]
 
     resources = [
-      "${aws_cloudwatch_log_group.waf_firehose_logs[0].arn}:*"
+      "${var.waf_firehose_log_group_arn}:*"
     ]
   }
 
@@ -503,14 +503,14 @@ data "aws_iam_policy_document" "firehose_network_telemetry_logs" {
   statement {
     sid       = "FirehoseBucketMetadata"
     actions   = ["s3:GetBucketLocation", "s3:ListBucket"]
-    resources = [aws_s3_bucket.waf_firehose_logs[0].arn]
+    resources = [var.waf_firehose_log_bucket_arn]
   }
 
   # Object-level permissions
   statement {
     sid       = "FirehoseObjectWrite"
     actions   = ["s3:PutObject", "s3:AbortMultipartUpload"]
-    resources = ["${aws_s3_bucket.waf_firehose_logs[0].arn}/*"]
+    resources = ["${var.waf_firehose_log_bucket_arn}/*"]
   }
 }
 
@@ -613,7 +613,7 @@ resource "aws_cloudwatch_log_resource_policy" "waf_direct" {
 }
 # Conditional IAM Policy Data - WAF Direct Log Delivery to CloudWatch
 data "aws_iam_policy_document" "waf_direct" {
-  count = local.waf_log_mode.create_direct_resources ? 1 : 0
+  count = var.waf_log_mode.create_direct_resources ? 1 : 0
 
   version = "2012-10-17"
 
@@ -631,7 +631,7 @@ data "aws_iam_policy_document" "waf_direct" {
     ]
 
     resources = [
-      "${aws_cloudwatch_log_group.waf_logs[0].arn}:*"
+      "${var.waf_direct_log_group_arn}:*"
     ]
 
     condition {

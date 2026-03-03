@@ -217,8 +217,8 @@ resource "aws_cloudfront_distribution" "rds_app" {
   # Domain Aliases
   # ---------------------------
   aliases = [
-    var.context.root_domain,
-    var.context.fqdn
+    var.dns_context.root_domain,
+    var.dns_context.fqdn
   ]
 
   # ---------------------------

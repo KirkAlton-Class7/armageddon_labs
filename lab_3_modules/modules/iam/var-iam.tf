@@ -59,3 +59,27 @@ variable "db_secret_arn" {
 variable "vpc_flow_log_group_arn" {
   type = string
 }
+
+
+
+variable "waf_firehose_log_group_arn" {
+  type = string
+}
+
+
+variable "waf_firehose_log_bucket_arn" {
+  type = string
+}
+
+
+variable "waf_direct_log_group_arn" {
+  type = string
+}
+
+variable "waf_log_mode" {
+  type = object({
+    create_direct_resources   = bool
+    create_firehose_resources = bool
+    target                    = string
+  })
+}

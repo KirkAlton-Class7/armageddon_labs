@@ -77,10 +77,3 @@ variable "alb_dns" {
 variable "alb_zone_id" {
   type = string
 }
-
-variable "context" {
-  type = object({
-    root_domain = string
-    fqdn        = string
-  })
-}
