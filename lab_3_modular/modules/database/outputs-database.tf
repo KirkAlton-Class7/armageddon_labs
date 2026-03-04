@@ -22,6 +22,13 @@ output "db_identifier" {
   value = aws_db_instance.lab_mysql.identifier
 }
 
+# ----------------------------------------------------------------
+# VARIABLE — RDS DB Identifier
+# ----------------------------------------------------------------
+# variable "db_identifier" {
+#   description = "Identifier of the RDS database instance"
+#   type        = string
+# }
 
 output "db_secret_arn" {
   value = aws_secretsmanager_secret.lab_rds_mysql.arn

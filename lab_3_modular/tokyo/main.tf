@@ -115,7 +115,7 @@ module "compute" {
   rds_app_asg_sg_id = module.security.rds_app_asg_sg_id
 
   # Variables - IAM
-  rds_app_iam_role = ""
+ 
 
   # Variables - ALB Access Logs Prefix
   alb_access_logs_prefix = var.alb_access_logs_prefix

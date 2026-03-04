@@ -6,7 +6,7 @@
 variable "region" {
   type        = string
   description = "AWS region"
-  default = "us-east-2"
+  default = "us-west-2"
 }
 
 # Input Application Name
@@ -92,14 +92,6 @@ variable "db_username" {
   description = "Database admin username"
   default     = "admin"
 }
-
-
-
-
-
-
-
-
 
 
 # ----------------------------------------------------------------

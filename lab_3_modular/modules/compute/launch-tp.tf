@@ -5,7 +5,7 @@
 # Launch Template for RDS App Auto Scaling Group
 resource "aws_launch_template" "rds_app_asg" {
   name     = "rds-app-asg-lt"
-  image_id = "ami-0365298ecd8182a83" # Replace with the AMI for your Golden Image (AL2023).
+  image_id = "ami-0365298ecd8182a83" # Replace with AMI ID of your image.
   #image_id = data.aws_ssm_parameter.al2023.value  # Alternatively, use latest AL2023 AMI via SSM Parameter Store (From Aaron's code. Looks simpler)
 
   instance_type          = "t3.micro"

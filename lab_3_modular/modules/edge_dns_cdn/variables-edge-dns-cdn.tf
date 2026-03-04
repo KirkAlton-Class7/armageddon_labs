@@ -55,13 +55,6 @@ variable "edge_auth_header_name" {
 }
 
 
-
-
-
-
-
-
-
 # ----------------------------------------------------------------
 # INPUT — ALB DNS Name
 # ----------------------------------------------------------------
@@ -69,8 +62,6 @@ variable "rds_app_public_alb_dns_name" {
   description = "DNS name of the public ALB"
   type        = string
 }
-
-
 
 
 # ----------------------------------------------------------------

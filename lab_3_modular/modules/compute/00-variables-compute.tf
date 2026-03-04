@@ -2,8 +2,6 @@
 # INPUT VARIABLES — ALB Logging
 # ----------------------------------------------------------------
 
-
-
 # Toggle ALB Access Logs (S3)
 variable "alb_log_s3" {
   type        = bool
@@ -44,13 +42,6 @@ variable "db_secret_arn" {
   type        = string
   description = "ARN of database credentials secret"
 }
-
-variable "rds_app_iam_role" {
-  type        = string
-  description = "ARN of RDS App IAM role"
-}
-
-
 
 # VPC ID
 variable "vpc_id" {
