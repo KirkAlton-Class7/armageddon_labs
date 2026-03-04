@@ -15,13 +15,7 @@ resource "aws_autoscaling_group" "rds_app_asg" {
   force_delete      = true
 
   depends_on = [
-    aws_vpc_endpoint.s3,
-    aws_vpc_endpoint.secretsmanager,
-    aws_vpc_endpoint.ssm,
-    aws_vpc_endpoint.ssm_messages,
-    aws_vpc_endpoint.ec2_messages,
-    aws_vpc_endpoint.ec2,
-    aws_vpc_endpoint.logs
+    var.ec2_vpc_endpoints_ready
   ]
 
   launch_template {

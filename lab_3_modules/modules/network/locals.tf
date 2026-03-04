@@ -6,7 +6,7 @@ locals {
   # -------------------------------------------------------------------
   # Public Subnets
   # -------------------------------------------------------------------
-  public_subnets = [
+  public_subnet_ids = [
     aws_subnet.public_a.id,
     aws_subnet.public_b.id,
     aws_subnet.public_c.id
@@ -22,7 +22,7 @@ locals {
   # -------------------------------------------------------------------
   # Private Application Subnets
   # -------------------------------------------------------------------
-  private_app_subnets = [
+  private_app_subnet_ids = [
     aws_subnet.private_app_a.id,
     aws_subnet.private_app_b.id,
     aws_subnet.private_app_c.id
@@ -38,7 +38,7 @@ locals {
   # -------------------------------------------------------------------
   # Private Data Subnets
   # -------------------------------------------------------------------
-  private_data_subnets = [
+  private_data_subnet_ids = [
     aws_subnet.private_data_a.id,
     aws_subnet.private_data_b.id,
     aws_subnet.private_data_c.id

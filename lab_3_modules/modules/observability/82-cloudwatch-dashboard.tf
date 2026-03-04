@@ -28,8 +28,8 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
               "RequestCount",       # Metric Name
 
               # Dimensions
-              "TargetGroup", aws_lb_target_group.rds_app_asg_tg.arn_suffix,
-              "LoadBalancer", aws_lb.rds_app_public_alb.arn_suffix
+              "TargetGroup", var.rds_app_asg_tg_arn_suffix,
+              "LoadBalancer", var.rds_app_public_alb_arn_suffix
             ]
           ]
 
@@ -54,7 +54,7 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
               "AWS/EC2",
               "CPUUtilization",
 
-              "AutoScalingGroupName", aws_autoscaling_group.rds_app_asg.name
+              "AutoScalingGroupName", var.rds_app_asg_name
             ]
           ]
 
@@ -79,7 +79,7 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
               "AWS/RDS",
               "CPUUtilization",
 
-              "DBInstanceIdentifier", aws_db_instance.lab_mysql.identifier
+              "DBInstanceIdentifier", var.db_identifier
             ],
             [
               ".",              # Reuse Namespace.
@@ -112,7 +112,7 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
               "BlockedRequests",
 
 
-              "WebACL", aws_wafv2_web_acl.rds_app.name,
+              "WebACL", var.rds_app_waf_name,
               "Region", "Global",
               "Rule", "ALL"
             ]
@@ -137,8 +137,8 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
               "AWS/ApplicationELB",
               "HTTPCode_Target_5XX_Count",
 
-              "LoadBalancer", aws_lb.rds_app_public_alb.arn_suffix,
-              "TargetGroup", aws_lb_target_group.rds_app_asg_tg.arn_suffix,
+              "LoadBalancer", var.rds_app_public_alb_arn_suffix,
+              "TargetGroup", var.rds_app_asg_tg_arn_suffix,
               {
                 stat  = "Sum",
                 label = "Target 5xx (App)"
@@ -148,7 +148,7 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
               "AWS/ApplicationELB",
               "HTTPCode_ELB_5XX_Count",
 
-              "LoadBalancer", aws_lb.rds_app_public_alb.arn_suffix,
+              "LoadBalancer", var.rds_app_public_alb_arn_suffix,
               {
                 stat  = "Sum",
                 label = "ELB 5xx (Infra)"

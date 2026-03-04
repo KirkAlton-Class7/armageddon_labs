@@ -2,6 +2,8 @@
 # INPUT VARIABLES — ALB Logging
 # ----------------------------------------------------------------
 
+
+
 # Toggle ALB Access Logs (S3)
 variable "alb_log_s3" {
   type        = bool
@@ -49,12 +51,6 @@ variable "rds_app_iam_role" {
 }
 
 
-variable "rds_app_asg_security_group_id" {
-  type        = string
-  description = "Security group ID for application ASG (RDS access)"
-}
-
-
 
 # VPC ID
 variable "vpc_id" {
@@ -92,7 +88,65 @@ variable "edge_auth_header_name" {
 
 
 # RDS App IAM Role Name
-variable "aws_iam_role_rds_app_name" {
+variable "iam_role_rds_app_name" {
   type        = string
   description = "RDS App IAM Role Name"
+}
+
+
+variable "rds_app_instance_profile_name" {
+  type        = string
+  description = "RDS App Instance Profile Name"
+}
+
+
+
+variable "rds_app_asg_sg_id" {
+  type = string
+  description = "RDS App ASG Security Group ID"
+}
+
+
+
+
+variable "alb_origin_sg_id" {
+  type = string
+  description = "ALB Origin Security Group ID"
+}
+
+
+variable "alb_logs_bucket_id" {
+  description = "ID of ALB logs S3 bucket (null if disabled)"
+  type        = string
+  default     = null
+}
+
+
+
+
+
+variable "rds_app_cert_arn" {
+  description = "ARN of ACM certificate for the ALB HTTPS listener"
+  type        = string
+}
+
+
+
+
+variable "ec2_vpc_endpoints_ready" {
+  description = "Ensures VPC endpoints exist before compute launches"
+  type        = list(string)
+}
+
+
+
+
+
+# ----------------------------------------------------------------
+# VARIABLE — Edge Auth Token (Header Value)
+# ----------------------------------------------------------------
+variable "edge_auth_value" {
+  description = "Edge authentication token used as a header value between edge and origin"
+  type        = string
+  sensitive   = true
 }

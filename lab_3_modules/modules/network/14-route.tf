@@ -3,7 +3,7 @@
 # ----------------------------------------------------------------
 # Public Route Table
 resource "aws_route_table" "public" {
-  vpc_id = module.network.vpc_id
+  vpc_id = aws_vpc.main.id
 
   route {
     cidr_block = "0.0.0.0/0"
@@ -21,17 +21,17 @@ resource "aws_route_table" "public" {
 
 # Public Route Table Associations
 resource "aws_route_table_association" "public_a" {
-  subnet_id      = local.public_subnets[0]
+  subnet_id      = local.public_subnet_ids[0]
   route_table_id = aws_route_table.public.id
 }
 
 resource "aws_route_table_association" "public_b" {
-  subnet_id      = local.public_subnets[1]
+  subnet_id      = local.public_subnet_ids[1]
   route_table_id = aws_route_table.public.id
 }
 
 resource "aws_route_table_association" "public_c" {
-  subnet_id      = local.public_subnets[2]
+  subnet_id      = local.public_subnet_ids[2]
   route_table_id = aws_route_table.public.id
 }
 

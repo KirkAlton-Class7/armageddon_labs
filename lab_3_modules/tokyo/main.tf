@@ -12,6 +12,10 @@ module "network" {
 
   # Variables - DEMO OWNER (not used for deployment)
   demo_owner  = var.demo_owner # DEMO: Root variable (var.demo_owner) is passed into module variable (demo_owner)
+
+  azs = local.azs
+
+  vpc_endpoints_sg_id = module.security.vpc_endpoints_sg_id
 }
 
 module "security" {
@@ -60,10 +64,9 @@ module "iam" {
   waf_log_mode = local.waf_log_mode
   vpc_flow_log_group_arn = module.observability.vpc_flow_log_group_arn
   waf_firehose_log_group_arn = module.observability.waf_firehose_log_group_arn
-  waf_firehose_log_bucket_arn = module.observability.waf_firehose_log_bucket_arn
+  waf_firehose_log_bucket_arn = module.observability.waf_firehose_logs_bucket_arn
   waf_direct_log_group_arn = module.observability.waf_direct_log_group_arn
 }
-
 module "database" {
   source             = "../modules/database"
 
@@ -90,6 +93,12 @@ module "database" {
   private_data_subnet_tags = module.network.private_subnet_tags
 
   db_secret_arn = module.database.db_secret_arn
+
+  rds_enhanced_monitoring_role_arn = module.iam.rds_enhanced_monitoring_role_arn
+
+  rds_failure_alert_topic_arn                     = module.observability.rds_failure_alert_topic_arn
+
+
 }
 
 module "compute" {
@@ -101,9 +110,9 @@ module "compute" {
   name_suffix = local.name_suffix
 
   # Variables - VPC
-  vpc_id = module.network.aws_vpc.main.id
+  vpc_id = module.network.vpc_id
   # Variables - Security
-  rds_app_asg_security_group_id = module.security.aws_security_group.rds_app_asg.id
+  rds_app_asg_sg_id = module.security.rds_app_asg_sg_id
 
   # Variables - IAM
   rds_app_iam_role = ""
@@ -116,7 +125,7 @@ module "compute" {
   
   # Variables - Subnet IDs
   public_subnet_ids  = module.network.public_subnet_ids
-  private_app_subnet_ids = module.network.private_subnet_ids
+  private_app_subnet_ids = module.network.private_app_subnet_ids
 
   # Variables - Subnet & Resource Tags
   public_subnet_tags = module.network.public_subnet_tags
@@ -126,7 +135,19 @@ module "compute" {
 
   alb_log_s3 = var.alb_log_s3
 
-  aws_iam_role_rds_app_name = module.iam.aws_iam_role.rds_app.name
+  iam_role_rds_app_name = module.iam.rds_app_role_name
+
+  rds_app_instance_profile_name = module.iam.rds_app_instance_profile_name
+  
+  alb_origin_sg_id = module.security.alb_origin_sg_id
+
+  alb_logs_bucket_id = module.observability.alb_logs_bucket_id
+
+  rds_app_cert_arn = module.edge_dns_cdn.rds_app_cert_arn
+
+  ec2_vpc_endpoints_ready = module.network.ec2_vpc_endpoints_ready
+
+  edge_auth_value = module.edge_dns_cdn.edge_auth_value
 }
 
 module "edge_dns_cdn" {
@@ -150,11 +171,9 @@ module "edge_dns_cdn" {
 
   edge_auth_header_name = local.edge_auth_header_name
 
-  alb_zone_id = module.compute.alb_zone_id
-
-  alb_dns = module.compute.alb_dns
+  rds_app_public_alb_dns_name = module.compute.rds_app_public_alb_dns_name
+  rds_app_public_alb_zone_id = module.compute.rds_app_public_alb_zone_id
 }
-
 module "observability" {
   source = "../modules/observability"
   # Providers
@@ -178,9 +197,17 @@ module "observability" {
 
   db_identifier = module.database.db_identifier
 
-  alb_arn_suffix = module.compute.alb_arn_suffix
+  rds_app_public_alb_arn_suffix = module.compute.rds_app_public_alb_arn_suffix
 
-  tg_arn_suffix = module.compute.tg_arn_suffix
+  rds_app_asg_tg_arn_suffix = module.compute.rds_app_asg_tg_arn_suffix
 
   waf_log_mode = local.waf_log_mode
+
+  vpc_flow_log_role_arn = module.iam.vpc_flow_log_role_arn
+
+  rds_app_asg_name             = module.compute.rds_app_asg_name
+  
+  rds_app_waf_name     = module.security.rds_app_waf_name
+
+  rds_app_waf_arn      = module.security.rds_app_waf_arn
 }

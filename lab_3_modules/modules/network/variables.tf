@@ -2,6 +2,17 @@
 # INPUT VARIABLES — Networking
 # ----------------------------------------------------------------
 
+
+# VPC ID
+# variable "vpc_id" {
+#   type        = string
+#   description = "VPC ID"
+# }
+
+variable "azs" {
+  type = list(string)
+}
+
 # Input Account ID
 variable "account_id" {
   type        = string
@@ -41,6 +52,12 @@ variable "name_suffix" {
 # variable "bucket_suffix" {
 #   type = string
 # }
+
+
+variable "vpc_endpoints_sg_id" {
+  description = "Security Group ID for VPC endpoints"
+  type        = string
+}
 
 # ----------------------------------------------------------------
 # INPUT VARIABLES — Demonstration (not used in deployment)

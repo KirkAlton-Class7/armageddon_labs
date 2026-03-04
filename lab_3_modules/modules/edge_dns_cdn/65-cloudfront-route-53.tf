@@ -39,8 +39,8 @@ resource "aws_route53_record" "rds_app_origin_to_alb" {
   type    = "A"
 
   alias {
-    name                   = var.alb_dns
-    zone_id                = var.alb_zone_id
+    name                   = var.rds_app_public_alb_dns_name
+    zone_id                = var.rds_app_public_alb_zone_id
     evaluate_target_health = false
   }
 }

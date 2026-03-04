@@ -4,7 +4,7 @@
 
 # VPC Flow Log
 resource "aws_flow_log" "vpc" {
-  iam_role_arn = aws_iam_role.vpc_flow_log_role.arn
+  iam_role_arn = var.vpc_flow_log_role_arn
 
   log_format = "$${version} $${account-id} $${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport} $${protocol} $${packets} $${bytes} $${start} $${end} $${action} $${log-status}"
   # Default fields for AWS Flow Logs.
@@ -14,5 +14,5 @@ resource "aws_flow_log" "vpc" {
   # CloudWatch as a destination doesn't require log_destination_type
 
   traffic_type = "ALL"
-  vpc_id       = module.network.vpc_id
+  vpc_id       = var.vpc_id
 }

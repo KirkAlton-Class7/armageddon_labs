@@ -7,10 +7,10 @@ resource "aws_vpc_endpoint" "kms" {
   vpc_id            = aws_vpc.main.id
   service_name      = "com.amazonaws.${var.context.region}.kms"
   vpc_endpoint_type = "Interface"
-  subnet_ids        = local.private_app_subnets
+  subnet_ids        = local.private_app_subnet_ids
 
   security_group_ids = [
-    aws_security_group.vpc_endpoints.id
+    var.vpc_endpoints_sg_id
   ]
 
   private_dns_enabled = true
@@ -50,10 +50,10 @@ resource "aws_vpc_endpoint" "secretsmanager" {
   service_name      = "com.amazonaws.${var.context.region}.secretsmanager"
   vpc_endpoint_type = "Interface"
 
-  subnet_ids = local.private_app_subnets
+  subnet_ids = local.private_app_subnet_ids
 
   security_group_ids = [
-    aws_security_group.vpc_endpoints.id
+    var.vpc_endpoints_sg_id
   ]
 
   private_dns_enabled = true
@@ -77,10 +77,10 @@ resource "aws_vpc_endpoint" "ssm" {
   service_name      = "com.amazonaws.${var.context.region}.ssm"
   vpc_endpoint_type = "Interface"
 
-  subnet_ids = local.private_app_subnets
+  subnet_ids = local.private_app_subnet_ids
 
   security_group_ids = [
-    aws_security_group.vpc_endpoints.id
+    var.vpc_endpoints_sg_id
   ]
 
   private_dns_enabled = true
@@ -100,10 +100,10 @@ resource "aws_vpc_endpoint" "ssm_messages" {
   service_name      = "com.amazonaws.${var.context.region}.ssmmessages"
   vpc_endpoint_type = "Interface"
 
-  subnet_ids = local.private_app_subnets
+  subnet_ids = local.private_app_subnet_ids
 
   security_group_ids = [
-    aws_security_group.vpc_endpoints.id
+    var.vpc_endpoints_sg_id
   ]
 
   private_dns_enabled = true
@@ -122,10 +122,10 @@ resource "aws_vpc_endpoint" "ec2_messages" {
   service_name      = "com.amazonaws.${var.context.region}.ec2messages"
   vpc_endpoint_type = "Interface"
 
-  subnet_ids = local.private_app_subnets
+  subnet_ids = local.private_app_subnet_ids
 
   security_group_ids = [
-    aws_security_group.vpc_endpoints.id
+    var.vpc_endpoints_sg_id
   ]
 
   private_dns_enabled = true
@@ -148,10 +148,10 @@ resource "aws_vpc_endpoint" "ec2" {
   service_name      = "com.amazonaws.${var.context.region}.ec2"
   vpc_endpoint_type = "Interface"
 
-  subnet_ids = local.private_app_subnets
+  subnet_ids = local.private_app_subnet_ids
 
   security_group_ids = [
-    aws_security_group.vpc_endpoints.id
+    var.vpc_endpoints_sg_id
   ]
 
   private_dns_enabled = true
@@ -175,10 +175,10 @@ resource "aws_vpc_endpoint" "monitoring" {
   service_name      = "com.amazonaws.${var.context.region}.monitoring"
   vpc_endpoint_type = "Interface"
 
-  subnet_ids = local.private_app_subnets
+  subnet_ids = local.private_app_subnet_ids
 
   security_group_ids = [
-    aws_security_group.vpc_endpoints.id
+    var.vpc_endpoints_sg_id
   ]
 
   private_dns_enabled = true
@@ -198,10 +198,10 @@ resource "aws_vpc_endpoint" "logs" {
   service_name      = "com.amazonaws.${var.context.region}.logs"
   vpc_endpoint_type = "Interface"
 
-  subnet_ids = local.private_app_subnets
+  subnet_ids = local.private_app_subnet_ids
 
   security_group_ids = [
-    aws_security_group.vpc_endpoints.id
+    var.vpc_endpoints_sg_id
   ]
 
   private_dns_enabled = true

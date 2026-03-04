@@ -62,18 +62,21 @@ variable "edge_auth_header_name" {
 
 
 
-
-
-
-
-
-
-
-
-variable "alb_dns" {
-  type = string
+# ----------------------------------------------------------------
+# INPUT — ALB DNS Name
+# ----------------------------------------------------------------
+variable "rds_app_public_alb_dns_name" {
+  description = "DNS name of the public ALB"
+  type        = string
 }
 
-variable "alb_zone_id" {
-  type = string
+
+
+
+# ----------------------------------------------------------------
+# INPUT — ALB Zone ID
+# ----------------------------------------------------------------
+variable "rds_app_public_alb_zone_id" {
+  description = "Canonical hosted zone ID of the ALB"
+  type        = string
 }

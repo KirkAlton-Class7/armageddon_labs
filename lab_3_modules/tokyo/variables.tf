@@ -6,6 +6,7 @@
 variable "region" {
   type        = string
   description = "AWS region"
+  default = "us-east-2"
 }
 
 # Input Application Name
@@ -63,13 +64,13 @@ variable "root_domain" {
   default     = "kirkdevsecops.com"
 }
 
-# ----------------------------------------------------------------
-# INPUT VARIABLES — Database
-# ----------------------------------------------------------------
-variable "db_secret_arn" {
-  type        = string
-  description = "ARN of database credentials secret"
-}
+# # ----------------------------------------------------------------
+# # INPUT VARIABLES — Database
+# # ----------------------------------------------------------------
+# variable "db_secret_arn" {
+#   type        = string
+#   description = "ARN of database credentials secret"
+# }
 
 
 # DB Engine
@@ -167,152 +168,4 @@ variable "alb_log_s3" {
   type        = bool
   default     = true
   description = "If true, enable ALB access logging to S3."
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-############################################################################
-# VARIABLES
-# ----------------------------------------------------------------
-# INPUT — RDS Enhanced Monitoring Role Name
-# ----------------------------------------------------------------
-variable "rds_enhanced_monitoring_role_name" {
-  description = "Name of the RDS Enhanced Monitoring IAM role"
-  type        = string
-}
-
-# ----------------------------------------------------------------
-# INPUT — RDS Enhanced Monitoring Role ARN
-# ----------------------------------------------------------------
-variable "rds_enhanced_monitoring_role_arn" {
-  description = "ARN of the RDS Enhanced Monitoring IAM role"
-  type        = string
-}
-
-# ----------------------------------------------------------------
-# INPUT — RDS Enhanced Monitoring Role ID
-# ----------------------------------------------------------------
-variable "rds_enhanced_monitoring_role_id" {
-  description = "Unique ID of the RDS Enhanced Monitoring IAM role"
-  type        = string
-}
-
-
-
-
-
-# ----------------------------------------------------------------
-# INPUT — RDS App Role Name
-# ----------------------------------------------------------------
-variable "rds_app_role_name" {
-  description = "Name of the EC2 RDS App IAM role"
-  type        = string
-}
-
-# ----------------------------------------------------------------
-# INPUT — RDS App Role ARN
-# ----------------------------------------------------------------
-variable "rds_app_role_arn" {
-  description = "ARN of the EC2 RDS App IAM role"
-  type        = string
-}
-
-# ----------------------------------------------------------------
-# INPUT — RDS App Role ID
-# ----------------------------------------------------------------
-variable "rds_app_role_id" {
-  description = "Unique ID of the EC2 RDS App IAM role"
-  type        = string
-}
-
-# ----------------------------------------------------------------
-# INPUT — RDS App Instance Profile Name
-# ----------------------------------------------------------------
-variable "rds_app_instance_profile_name" {
-  description = "Instance profile name for EC2 RDS App"
-  type        = string
-}
-
-# ----------------------------------------------------------------
-# INPUT — RDS App Instance Profile ARN
-# ----------------------------------------------------------------
-variable "rds_app_instance_profile_arn" {
-  description = "Instance profile ARN for EC2 RDS App"
-  type        = string
-}
-
-
-
-
-# ----------------------------------------------------------------
-# INPUT — VPC Flow Log Role Name
-# ----------------------------------------------------------------
-variable "vpc_flow_log_role_name" {
-  description = "Name of the VPC Flow Log IAM role"
-  type        = string
-}
-
-# ----------------------------------------------------------------
-# INPUT — VPC Flow Log Role ARN
-# ----------------------------------------------------------------
-variable "vpc_flow_log_role_arn" {
-  description = "ARN of the VPC Flow Log IAM role"
-  type        = string
-}
-
-# ----------------------------------------------------------------
-# INPUT — VPC Flow Log Role ID
-# ----------------------------------------------------------------
-variable "vpc_flow_log_role_id" {
-  description = "Unique ID of the VPC Flow Log IAM role"
-  type        = string
-}
-
-# ----------------------------------------------------------------
-# INPUT — Firehose Network Telemetry Role Name
-# ----------------------------------------------------------------
-variable "firehose_network_telemetry_role_name" {
-  description = "Name of the Firehose Network Telemetry IAM role"
-  type        = string
-  default     = null
-}
-
-# ----------------------------------------------------------------
-# INPUT — Firehose Network Telemetry Role ARN
-# ----------------------------------------------------------------
-variable "firehose_network_telemetry_role_arn" {
-  description = "ARN of the Firehose Network Telemetry IAM role"
-  type        = string
-  default     = null
-}
-
-# ----------------------------------------------------------------
-# INPUT — Firehose Network Telemetry Role ID
-# ----------------------------------------------------------------
-variable "firehose_network_telemetry_role_id" {
-  description = "Unique ID of the Firehose Network Telemetry IAM role"
-  type        = string
-  default     = null
 }

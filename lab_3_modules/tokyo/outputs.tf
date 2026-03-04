@@ -78,7 +78,7 @@ output "demo_owner_from_module" {
 # VPC ID
 output "vpc_id" {
   description = "VPC ID for downstream modules"
-  value       = module.network.aws_vpc.main.id
+  value       = module.network.vpc_id
 }
 
 
@@ -86,9 +86,7 @@ output "vpc_id" {
 
 
 
-output "alb_dns" {
-  value = module.compute.alb_dns
-}
+
 
 output "cloudfront_domain" {
   value = module.edge_dns_cdn.cloudfront_domain
@@ -96,10 +94,32 @@ output "cloudfront_domain" {
 
 
 output "db_secret_arn" {
-  value = module.database.aws_secretsmanager_secret.lab_rds_mysql.arn
-}
+  value = module.database.db_secret_arn
+  }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+# output "rds_info" {
+#   description = "RDS Information"
+#   value = {
+#     name     = aws_db_instance.lab_mysql.tags["Name"]
+#     endpoint = module.aws_db_instance.lab_mysql.endpoint
+#     address  = aws_db_instance.lab_mysql.address
+#     port     = aws_db_instance.lab_mysql.port
+#   }
+# }
 
 
 
@@ -113,8 +133,8 @@ output "waf_firehose_log_group_arn" {
   value = module.observability.waf_firehose_log_group_arn
   }
 
-output "waf_firehose_log_bucket_arn" {
-  value = module.observability.waf_firehose_log_bucket_arn
+output "waf_firehose_logs_bucket_arn" {
+  value = module.observability.waf_firehose_logs_bucket_arn
 }
 
 output "waf_direct_log_group_arn" {
@@ -149,3 +169,20 @@ output "rds_enhanced_monitoring_role_id" {
   description = "Unique ID of the RDS Enhanced Monitoring IAM role"
   value       = module.iam.rds_enhanced_monitoring_role_id
 }
+
+
+
+
+
+# RDS App ALB Info
+# output "rds_app_alb" {
+#   description = "ALB Information"
+
+#   value = {
+#     application = var.context.app
+#     name        = aws_lb.rds_app_public_alb.name
+#     dns_name    = var.alb_dns
+#     zone_id     = var.rds_app_origin_record.zone_id
+#     a_record    = aws_route53_record.rds_app_origin_to_alb.name
+#   }
+# }

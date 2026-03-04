@@ -74,10 +74,6 @@ output "rds_app_instance_profile_arn" {
 
 
 
-
-
-
-
 # ----------------------------------------------------------------
 # OUTPUT — VPC Flow Log Role Name
 # ----------------------------------------------------------------
@@ -127,3 +123,30 @@ output "firehose_network_telemetry_role_id" {
   description = "Unique ID of the Firehose Network Telemetry IAM role"
   value       = try(aws_iam_role.firehose_network_telemetry_role[0].id, null)
 }
+
+# ----------------------------------------------------------------
+# VARIABLE — Firehose Network Telemetry Role Name
+# ----------------------------------------------------------------
+# variable "firehose_network_telemetry_role_name" {
+#   description = "Name of the Firehose Network Telemetry IAM role"
+#   type        = string
+#   default     = null
+# }
+
+# ----------------------------------------------------------------
+# VARIABLE — Firehose Network Telemetry Role ARN
+# ----------------------------------------------------------------
+# variable "firehose_network_telemetry_role_arn" {
+#   description = "ARN of the Firehose Network Telemetry IAM role"
+#   type        = string
+#   default     = null
+# }
+
+# ----------------------------------------------------------------
+# VARIABLE — Firehose Network Telemetry Role ID
+# ----------------------------------------------------------------
+# variable "firehose_network_telemetry_role_id" {
+#   description = "Unique ID of the Firehose Network Telemetry IAM role"
+#   type        = string
+#   default     = null
+# }

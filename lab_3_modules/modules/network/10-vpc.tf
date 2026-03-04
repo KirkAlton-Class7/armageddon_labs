@@ -16,10 +16,3 @@ resource "aws_vpc" "main" {
     var.context.tags
   )
 }
-
-# ----------------------------------------------------------------
-# NETWORKING — Availability Zones
-# ----------------------------------------------------------------
-data "aws_availability_zones" "available" {
-  state = "available"
-}

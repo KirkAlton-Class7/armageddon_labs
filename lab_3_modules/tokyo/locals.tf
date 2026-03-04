@@ -9,6 +9,9 @@ locals {
   # Account ID
   account_id = data.aws_caller_identity.current.account_id
 
+  # Availability Zones
+  azs = slice(data.aws_availability_zones.available.names, 0, 3)
+
   # # Environment
   # app    = var.context.app
   # env    = var.context.env

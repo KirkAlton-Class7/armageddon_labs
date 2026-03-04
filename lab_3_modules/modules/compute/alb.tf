@@ -7,18 +7,21 @@ resource "aws_lb" "rds_app_public_alb" {
   name               = "rds-app-alb-${var.name_suffix}"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [module.aws_security_group.alb_origin.id]
+  security_groups    = [var.alb_origin_sg_id]
   subnets            = var.public_subnet_ids
 
   enable_deletion_protection = false
 
-  # Access Logs for ALB
-  access_logs {
-    bucket  = aws_s3_bucket.alb_logs_bucket[0].id
-    prefix  = var.alb_access_logs_prefix
-    enabled = var.alb_log_s3
+  # Dynamic Access Logs for ALB
+   dynamic "access_logs" {
+    for_each = var.alb_log_s3 ? [true] : []
+
+    content {
+      bucket  = var.alb_logs_bucket_id
+      prefix  = var.alb_access_logs_prefix
+      enabled = true
+    }
   }
-  
 
   tags = {
     Name        = "rds-app-alb"
@@ -27,3 +30,5 @@ resource "aws_lb" "rds_app_public_alb" {
     Service     = "post-notes"
   }
 }
+
+#aws_lb.rds_app_public_alb.arn_suffix

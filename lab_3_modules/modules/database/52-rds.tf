@@ -18,7 +18,7 @@ resource "aws_db_instance" "lab_mysql" {
 
   enabled_cloudwatch_logs_exports = ["audit", "error", "general", "iam-db-auth-error"]
   monitoring_interval             = 60
-  monitoring_role_arn             = aws_iam_role.rds_enhanced_monitoring_role.arn
+  monitoring_role_arn             =var.rds_enhanced_monitoring_role_arn
 
   parameter_group_name = aws_db_parameter_group.lab_mysql_parameters.name
   skip_final_snapshot  = true

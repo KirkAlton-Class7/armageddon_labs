@@ -126,7 +126,7 @@ data "aws_iam_policy_document" "waf_logs_bucket_policy" {
     condition {
       test     = "ArnLike"
       variable = "aws:SourceArn"
-      values   = [aws_wafv2_web_acl.rds_app.arn]
+      values   = [var.rds_app_waf_arn]
     }
   }
 }

@@ -10,7 +10,7 @@ resource "aws_kinesis_firehose_delivery_stream" "network_telemetry" {
 
 
   extended_s3_configuration {
-    role_arn   = aws_iam_role.firehose_network_telemetry_role[0].arn
+    role_arn   = var.firehose_network_telemetry_role_arn
     bucket_arn = aws_s3_bucket.waf_firehose_logs[0].arn
     prefix     = "waf-logs/"
 

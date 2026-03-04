@@ -18,19 +18,19 @@ output "vpc_id" {
 # Public Subnet IDs
 output "public_subnets" {
   description = "Public subnet IDs"
-  value       = local.public_subnets
+  value       = local.public_subnet_ids
 }
 
 # Private App Subnet IDs
 output "private_app_subnets" {
   description = "Private app subnet IDs"
-  value       = local.private_app_subnets
+  value       = local.private_app_subnet_ids
 }
 
 # Private Data Subnet IDs
 output "private_data_subnets" {
   description = "Private data subnet IDs"
-  value       = local.private_data_subnets
+  value       = local.private_data_subnet_ids
 }
 
 
@@ -85,13 +85,33 @@ output "demo_owner_normalized" {
 
 
 output "public_subnet_ids" {
-  value = aws_subnet.public[*].id
+  value = local.public_subnet_ids
 }
 
 output "private_app_subnet_ids" {
-  value = aws_subnet.private_app[*].id
+  value = local.private_app_subnet_ids
 }
 
 output "private_data_subnet_ids" {
-  value = aws_subnet.private_data[*].id
+  value = local.private_data_subnet_ids
 }
+
+
+output "ec2_vpc_endpoints_ready" {
+  value = [
+    aws_vpc_endpoint.s3.id,
+    aws_vpc_endpoint.ssm.id,
+    aws_vpc_endpoint.ssm_messages.id,
+    aws_vpc_endpoint.ec2_messages.id,
+    aws_vpc_endpoint.secretsmanager.id,
+    aws_vpc_endpoint.logs.id
+  ]
+}
+
+
+# variable "endpoints_ready" {
+#   description = "Ensures VPC endpoints exist before compute launches"
+#   type        = list(string)
+# }
+
+#ec2_vpc_endpoints_ready        = module.network.ec2_vpc_endpoints_ready

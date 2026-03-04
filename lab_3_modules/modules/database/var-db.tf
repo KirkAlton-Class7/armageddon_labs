@@ -94,3 +94,24 @@ variable "db_username" {
 variable "db_secret_arn" {
   type = string
 }
+
+
+
+# ----------------------------------------------------------------
+# VARIABLE — RDS Enhanced Monitoring Role ARN
+# ----------------------------------------------------------------
+variable "rds_enhanced_monitoring_role_arn" {
+  description = "ARN of the IAM role used for RDS Enhanced Monitoring"
+  type        = string
+}
+
+
+
+
+# ----------------------------------------------------------------
+# VARIABLE — RDS Failure Alert Topic ARN
+# ----------------------------------------------------------------
+variable "rds_failure_alert_topic_arn" {
+  description = "SNS topic ARN used for RDS failure alerts"
+  type        = string
+}

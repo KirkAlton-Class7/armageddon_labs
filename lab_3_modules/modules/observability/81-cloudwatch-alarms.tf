@@ -59,7 +59,7 @@ resource "aws_cloudwatch_metric_alarm" "rds_app_to_lab_mysql_connection_failure"
 # Metric
 resource "aws_cloudwatch_log_metric_filter" "lab_mysql_auth_failure" {
   name           = "lab-mysql-auth-failure"
-  log_group_name = "/aws/rds/instance/${aws_db_instance.lab_mysql.identifier}/error" # RDS creates and manages this log group, so use a direct string reference (or a data source), not a Terraform resource.
+  log_group_name = "/aws/rds/instance/${var.db_identifier}/error" # RDS creates and manages this log group, so use a direct string reference (or a data source), not a Terraform resource.
 
   pattern = "Access denied for user"
 
@@ -119,8 +119,8 @@ resource "aws_cloudwatch_metric_alarm" "rds_app_alb_target_5xx_alarm" {
   metric_name = "HTTPCode_Target_5XX_Count"
 
   dimensions = {
-    LoadBalancer = aws_lb.rds_app_public_alb.arn_suffix
-    TargetGroup  = aws_lb_target_group.rds_app_asg_tg.arn_suffix
+    LoadBalancer = var.rds_app_public_alb_arn_suffix
+    TargetGroup  = var.rds_app_asg_tg_arn_suffix
   }
 
   alarm_description = "Triggers when RDS App targets return 5 or more 5xx errors in 2 minutes"

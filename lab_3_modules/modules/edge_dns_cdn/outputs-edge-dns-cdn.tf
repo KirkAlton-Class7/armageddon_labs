@@ -88,7 +88,7 @@ output "cloudfront_origin" {
 
   value = {
     origin_domain          = "origin.${var.dns_context.root_domain}"
-    origin_alb_dns         = var.alb_dns
+    origin_alb_dns         = var.rds_app_public_alb_zone_id
     origin_protocol_policy = "https-only"
   }
 }
@@ -97,3 +97,60 @@ output "cloudfront_origin" {
 output "cloudfront_domain" {
   value = aws_cloudfront_distribution.rds_app.domain_name
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+output "rds_app_origin_record" {
+  description = "Route53 A record pointing origin to ALB"
+  value = {
+    fqdn    = aws_route53_record.rds_app_origin_to_alb.fqdn
+    name    = aws_route53_record.rds_app_origin_to_alb.name
+    zone_id = aws_route53_record.rds_app_origin_to_alb.zone_id
+    type    = aws_route53_record.rds_app_origin_to_alb.type
+  }
+}
+
+
+# variable "rds_app_origin_record" {
+#   description = "Route53 origin record pointing to ALB"
+#   type = object({
+#     fqdn    = string
+#     name    = string
+#     zone_id = string
+#     type    = string
+#   })
+# }
+
+
+
+
+
+
+
+
+
+# ----------------------------------------------------------------
+# OUTPUT — RDS App ACM Certificate ARN
+# ----------------------------------------------------------------
+output "rds_app_cert_arn" {
+  description = "ARN of the ACM certificate used by the ALB"
+  value       = aws_acm_certificate.rds_app_cert.arn
+}
+
+# variable "rds_app_cert_arn" {
+#   description = "ARN of ACM certificate for the ALB HTTPS listener"
+#   type        = string
+# }
