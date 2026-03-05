@@ -8,7 +8,7 @@ resource "aws_db_instance" "lab_mysql" {
   db_subnet_group_name   = aws_db_subnet_group.lab_mysql.name
   vpc_security_group_ids = [var.private_db_sg_id]
 
-  engine            = "mysql"
+  engine            = var.db_engine
   engine_version    = "8.0"
   instance_class    = "db.t3.micro"
   allocated_storage = 10
@@ -31,7 +31,7 @@ resource "aws_db_instance" "lab_mysql" {
       Service     = "post-notes"
       Component   = "data-db"
       Scope       = "backend"
-      Engine      = "mysql"
+      Engine      = var.db_engine
       DataClass   = "confidential"
     },
     var.private_data_subnet_tags,

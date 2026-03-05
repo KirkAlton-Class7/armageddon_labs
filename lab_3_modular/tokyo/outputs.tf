@@ -1,117 +1,106 @@
 # ----------------------------------------------------------------
-# OUTPUTS — Application Context
+# TOKYO OUTPUTS — Application Context
 # ----------------------------------------------------------------
 
-output "application_name" {
-  description = "Application name"
-  value       = local.context.app
-}
+output "application_context" {
+  description = "Deployment context information."
 
-output "environment" {
-  description = "Environment"
-  value       = local.context.env
-}
-
-output "region" {
-  description = "Region (name)"
-  value       = local.context.region
+  value = {
+    application = local.context.app
+    environment = local.context.env
+    region      = local.context.region
+  }
 }
 
 # ----------------------------------------------------------------
-# OUTPUTS — Database
+# TOKYO OUTPUTS — Application Access
 # ----------------------------------------------------------------
 
-output "db_endpoint" {
-  description = "Database endpoint"
-  value       = module.database.db_endpoint
-}
+output "application_access" {
+  description = "Primary application endpoints."
 
-output "db_secret_arn" {
-  description = "ARN of the database secret"
-  value       = module.database.db_secret_arn
-}
-
-# ----------------------------------------------------------------
-# OUTPUTS — Networking
-# ----------------------------------------------------------------
-
-output "vpc_id" {
-  description = "VPC ID for downstream modules"
-  value       = module.network.vpc_id
-}
-
-output "public_subnets" {
-  description = "Public subnet IDs"
-  value       = module.network.public_subnets
-}
-
-output "private_app_subnets" {
-  description = "Private application subnet IDs"
-  value       = module.network.private_app_subnets
-}
-
-output "private_data_subnets" {
-  description = "Private data subnet IDs"
-  value       = module.network.private_data_subnets
+  value = {
+    application_url   = module.edge_dns_cdn.application_url.url
+    cloudfront_domain = module.edge_dns_cdn.cloudfront_domain
+    alb_dns_name      = module.compute.rds_app_public_alb_dns_name
+    database_endpoint = module.database.db_endpoint
+  }
 }
 
 # ----------------------------------------------------------------
-# OUTPUTS — Edge / CDN
+# TOKYO OUTPUTS — Infrastructure Summary
 # ----------------------------------------------------------------
 
-output "cloudfront_domain" {
-  description = "CloudFront distribution domain name"
-  value       = module.edge_dns_cdn.cloudfront_domain
-}
+output "infrastructure_summary" {
+  description = "High-level infrastructure summary."
 
-# ----------------------------------------------------------------
-# OUTPUTS — Observability
-# ----------------------------------------------------------------
+  value = {
+    vpc_id   = module.network.vpc_id
+    vpc_cidr = module.network.vpc_cidr
 
-output "vpc_flow_log_group_arn" {
-  description = "CloudWatch log group ARN for VPC Flow Logs"
-  value       = module.observability.vpc_flow_log_group_arn
-}
+    public_subnets       = module.network.public_subnets
+    private_app_subnets  = module.network.private_app_subnets
+    private_data_subnets = module.network.private_data_subnets
 
-output "waf_firehose_log_group_arn" {
-  description = "CloudWatch log group ARN for WAF Firehose logs"
-  value       = module.observability.waf_firehose_log_group_arn
-}
-
-output "waf_firehose_logs_bucket_arn" {
-  description = "S3 bucket ARN for WAF Firehose logs"
-  value       = module.observability.waf_firehose_logs_bucket_arn
-}
-
-output "waf_direct_log_group_arn" {
-  description = "CloudWatch log group ARN for direct WAF logs"
-  value       = module.observability.waf_direct_log_group_arn
+    alb_name      = module.compute.rds_app_public_alb_name
+    asg_name      = module.compute.rds_app_asg_name
+    db_identifier = module.database.db_identifier
+  }
 }
 
 # ----------------------------------------------------------------
-# OUTPUTS — IAM
+# TOKYO OUTPUTS — Compute Capacity
 # ----------------------------------------------------------------
 
-output "rds_enhanced_monitoring_role_name" {
-  description = "Name of the RDS Enhanced Monitoring IAM role"
-  value       = module.iam.rds_enhanced_monitoring_role_name
-}
+output "compute_capacity" {
+  description = "Auto Scaling configuration."
 
-output "rds_enhanced_monitoring_role_arn" {
-  description = "ARN of the RDS Enhanced Monitoring IAM role"
-  value       = module.iam.rds_enhanced_monitoring_role_arn
-}
-
-output "rds_enhanced_monitoring_role_id" {
-  description = "Unique ID of the RDS Enhanced Monitoring IAM role"
-  value       = module.iam.rds_enhanced_monitoring_role_id
+  value = {
+    asg_name         = module.compute.rds_app_asg_name
+    desired_capacity = module.compute.rds_app_asg_desired_capacity
+    min_size         = module.compute.rds_app_asg_min_size
+    max_size         = module.compute.rds_app_asg_max_size
+  }
 }
 
 # ----------------------------------------------------------------
-# OUTPUTS — Demonstration (Not used in deployment)
+# TOKYO OUTPUTS — Security Summary
 # ----------------------------------------------------------------
 
-output "demo_owner_from_module" {
-  description = "DEMO: Transformed value returned from module."
-  value       = module.network.demo_owner_normalized
+output "security_summary" {
+  description = "Security configuration summary."
+
+  value = {
+    waf_name     = module.security.rds_app_waf_name
+    waf_capacity = module.security.rds_app_waf_capacity
+
+    alb_security_group = module.security.alb_origin_sg_id
+    app_security_group = module.security.rds_app_asg_sg_id
+    db_security_group  = module.security.private_db_sg_id
+  }
 }
+
+# ----------------------------------------------------------------
+# TOKYO OUTPUTS — Deployment Logging Configuration
+# ----------------------------------------------------------------
+
+output "deployment_logging_configuration" {
+  description = "Deployment logging configuration and log destinations for ALB, WAF, and VPC flow logs."
+  value       = module.observability.logging_info
+}
+
+# ----------------------------------------------------------------
+# TOKYO OUTPUTS — Deployment Metadata
+# ----------------------------------------------------------------
+
+output "deployment_metadata" {
+  description = "Deployment metadata."
+
+  value = {
+    region      = local.context.region
+    environment = local.context.env
+    application = local.context.app
+    vpc_id      = module.network.vpc_id
+  }
+}
+

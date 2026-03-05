@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# FOUNDATION — Terraform Configuration
+# TOKYO — Terraform Configuration
 # ----------------------------------------------------------------
 
 terraform {

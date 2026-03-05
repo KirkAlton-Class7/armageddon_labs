@@ -1,99 +1,90 @@
 # ----------------------------------------------------------------
-# OUTPUTS — Networking (Contract)
+# NETWORKING OUTPUTS — VPC Resources
 # ----------------------------------------------------------------
-# Values consumed by other modules. Defines the dependency contract.
 
-# VPC CIDR - Contract + Operator
 output "vpc_cidr" {
-  description = "CIDR block of the VPC"
+  description = "CIDR block of the VPC."
   value       = aws_vpc.main.cidr_block
 }
 
-# VPC ID - Contract + Operator
 output "vpc_id" {
-  description = "VPC ID for downstream modules"
+  description = "VPC ID."
   value       = aws_vpc.main.id
 }
 
-# Public Subnet IDs
 output "public_subnets" {
-  description = "Public subnet IDs"
+  description = "Public subnet IDs."
   value       = local.public_subnet_ids
 }
 
-# Private App Subnet IDs
 output "private_app_subnets" {
-  description = "Private app subnet IDs"
+  description = "Private application subnet IDs."
   value       = local.private_app_subnet_ids
 }
 
-# Private Data Subnet IDs
 output "private_data_subnets" {
-  description = "Private data subnet IDs"
+  description = "Private data subnet IDs."
   value       = local.private_data_subnet_ids
 }
 
-# Shared tags for public subnets and resources
 output "public_subnet_tags" {
-  description = "Tags for public subnets and resources"
+  description = "Tags applied to public subnet resources."
   value       = local.public_subnet_tags
 }
 
-# Shared tags for private app subnets and resources
 output "private_app_subnet_tags" {
-  description = "Tags for private app subnets and resources"
+  description = "Tags applied to private application subnet resources."
   value       = local.private_app_subnet_tags
 }
 
-# Shared tags for private subnets and resources
 output "private_subnet_tags" {
-  description = "Tags for private subnets and resources"
+  description = "Tags applied to private data subnet resources."
   value       = local.private_data_subnet_tags
 }
 
 # ----------------------------------------------------------------
-# OUTPUTS — Networking (Operator / Observability)
+# NETWORKING OUTPUTS — Operator / Observability
 # ----------------------------------------------------------------
-# For human visibility. Not used for modules.
 
-# VPC Name
 output "vpc_name" {
-  description = "Name tag of the VPC"
+  description = "Name tag of the VPC."
   value       = aws_vpc.main.tags["Name"]
 }
 
 # ----------------------------------------------------------------
-# OUTPUTS — Networking (Demonstration)
+# NETWORKING OUTPUTS — Demonstration
 # ----------------------------------------------------------------
-# Not used in deployment.
 
-# Demo Owner
 output "demo_owner_normalized" {
-  description = "DEMO: Transformed module value returned to root."
+  description = "Transformed demo owner value returned to the root module."
   value       = local.demo_owner
 }
 
 # ----------------------------------------------------------------
-# OUTPUTS — Networking (Subnet References)
+# NETWORKING OUTPUTS — Subnet References
 # ----------------------------------------------------------------
 
 output "public_subnet_ids" {
-  value = local.public_subnet_ids
+  description = "Public subnet IDs."
+  value       = local.public_subnet_ids
 }
 
 output "private_app_subnet_ids" {
-  value = local.private_app_subnet_ids
+  description = "Private application subnet IDs."
+  value       = local.private_app_subnet_ids
 }
 
 output "private_data_subnet_ids" {
-  value = local.private_data_subnet_ids
+  description = "Private data subnet IDs."
+  value       = local.private_data_subnet_ids
 }
 
 # ----------------------------------------------------------------
-# OUTPUTS — Networking (Endpoint Readiness)
+# NETWORKING OUTPUTS — Endpoint Readiness
 # ----------------------------------------------------------------
 
 output "ec2_vpc_endpoints_ready" {
+  description = "VPC endpoint IDs used as dependency guard for compute resources."
   value = [
     aws_vpc_endpoint.s3.id,
     aws_vpc_endpoint.ssm.id,
@@ -103,10 +94,3 @@ output "ec2_vpc_endpoints_ready" {
     aws_vpc_endpoint.logs.id
   ]
 }
-
-# variable "endpoints_ready" {
-#   description = "Ensures VPC endpoints exist before compute launches"
-#   type        = list(string)
-# }
-
-# ec2_vpc_endpoints_ready = module.network.ec2_vpc_endpoints_ready

@@ -1,8 +1,9 @@
 # ----------------------------------------------------------------
-# COMPUTE — Input Variables (Application Context)
+# COMPUTE VARIABLES — Application Context
 # ----------------------------------------------------------------
 
 variable "context" {
+  description = "Deployment context containing region, application name, environment, and common tags."
   type = object(
     {
       region = string
@@ -14,128 +15,130 @@ variable "context" {
 }
 
 variable "name_prefix" {
-  type = string
+  description = "Prefix for resource names."
+  type        = string
 }
 
 variable "name_suffix" {
-  type = string
+  description = "Suffix for resource names."
+  type        = string
 }
 
 # ----------------------------------------------------------------
-# COMPUTE — Input Variables (Networking)
+# COMPUTE VARIABLES — Networking
 # ----------------------------------------------------------------
 
 variable "vpc_id" {
+  description = "VPC ID for compute resources."
   type        = string
-  description = "VPC ID"
 }
 
 variable "public_subnet_ids" {
-  description = "Public subnet IDs"
+  description = "Public subnet IDs for internet-facing resources."
   type        = list(string)
 }
 
 variable "private_app_subnet_ids" {
-  description = "Private app subnet IDs"
+  description = "Private subnet IDs for application compute resources."
   type        = list(string)
 }
 
 variable "public_subnet_tags" {
+  description = "Tags applied to public subnet resources."
   type        = map(string)
-  description = "Tags for public subnets and resources"
 }
 
 variable "private_app_subnet_tags" {
+  description = "Tags applied to private application subnet resources."
   type        = map(string)
-  description = "Tags for private app subnets and resources"
 }
 
 # ----------------------------------------------------------------
-# COMPUTE — Input Variables (Security)
+# COMPUTE VARIABLES — Security
 # ----------------------------------------------------------------
 
 variable "edge_auth_header_name" {
+  description = "Header name used for edge-to-origin authentication."
   type        = string
-  description = "Edge authentication header name."
 }
 
 variable "edge_auth_value" {
-  description = "Edge authentication token used as a header value between edge and origin"
+  description = "Header value used for edge-to-origin authentication."
   type        = string
   sensitive   = true
 }
 
 # ----------------------------------------------------------------
-# COMPUTE — Input Variables (IAM)
+# COMPUTE VARIABLES — IAM
 # ----------------------------------------------------------------
 
 variable "iam_role_rds_app_name" {
+  description = "IAM role name for RDS application instances."
   type        = string
-  description = "RDS App IAM Role Name"
 }
 
 variable "rds_app_instance_profile_name" {
+  description = "Instance profile name for RDS application instances."
   type        = string
-  description = "RDS App Instance Profile Name"
 }
 
 # ----------------------------------------------------------------
-# COMPUTE — Input Variables (Security Groups)
+# COMPUTE VARIABLES — Security Groups
 # ----------------------------------------------------------------
 
 variable "rds_app_asg_sg_id" {
+  description = "Security group ID for RDS application Auto Scaling instances."
   type        = string
-  description = "RDS App ASG Security Group ID"
 }
 
 variable "alb_origin_sg_id" {
+  description = "Security group ID for the origin Application Load Balancer."
   type        = string
-  description = "ALB Origin Security Group ID"
 }
 
 # ----------------------------------------------------------------
-# COMPUTE — Input Variables (Certificates)
+# COMPUTE VARIABLES — Certificates
 # ----------------------------------------------------------------
 
 variable "rds_app_cert_arn" {
-  description = "ARN of ACM certificate for the ALB HTTPS listener"
+  description = "ACM certificate ARN for the ALB HTTPS listener."
   type        = string
 }
 
 # ----------------------------------------------------------------
-# COMPUTE — Input Variables (Secrets)
+# COMPUTE VARIABLES — Secrets
 # ----------------------------------------------------------------
 
 variable "db_secret_arn" {
+  description = "Secrets Manager ARN containing database credentials."
   type        = string
-  description = "ARN of database credentials secret"
 }
 
 # ----------------------------------------------------------------
-# COMPUTE — Input Variables (ALB Logging)
+# COMPUTE VARIABLES — ALB Logging
 # ----------------------------------------------------------------
 
 variable "alb_log_s3" {
+  description = "Enable ALB access logging to S3."
   type        = bool
-  description = "If true, enable ALB access logging to S3."
 }
 
 variable "alb_access_logs_prefix" {
+  description = "S3 key prefix for ALB access logs."
   type        = string
-  description = "S3 prefix for ALB access logs (NO leading or trailing slash)"
 }
 
 variable "alb_logs_bucket_id" {
-  description = "ID of ALB logs S3 bucket (null if disabled)"
+  description = "S3 bucket ID for ALB access logs."
   type        = string
   default     = null
 }
 
 # ----------------------------------------------------------------
-# COMPUTE — Input Variables (Dependencies)
+# COMPUTE VARIABLES — Dependencies
 # ----------------------------------------------------------------
 
 variable "ec2_vpc_endpoints_ready" {
-  description = "Ensures VPC endpoints exist before compute launches"
+  description = "Dependency guard to ensure VPC endpoints exist before compute resources."
   type        = list(string)
 }

@@ -1,4 +1,8 @@
 # ----------------------------------------------------------------
+# TOKYO MAIN — MODULES
+# ----------------------------------------------------------------
+
+# ----------------------------------------------------------------
 # MODULE — NETWORK
 # ----------------------------------------------------------------
 
@@ -19,7 +23,7 @@ module "network" {
   vpc_endpoints_sg_id = module.security.vpc_endpoints_sg_id
 
   # Demo Metadata (Not used for deployment)
-  demo_owner = var.demo_owner #DEMO: Root variable (var.demo_owner) is passed into module variable (demo_owner)
+  demo_owner = var.demo_owner #DEMO: Root variable var.demo_owner is passed into module variable demo_owner
 }
 
 # ----------------------------------------------------------------
@@ -100,12 +104,10 @@ module "database" {
   db_username = var.db_username
 
   # Network Subnets
-  public_subnets       = module.network.public_subnet_ids
-  private_app_subnets  = module.network.private_app_subnet_ids
-  private_data_subnets = module.network.private_data_subnet_ids
+  private_app_subnet_ids  = module.network.private_app_subnet_ids
+  private_data_subnet_ids = module.network.private_data_subnet_ids
 
   # Subnet Metadata
-  public_subnet_tags       = module.network.public_subnet_tags
   private_app_subnet_tags  = module.network.private_app_subnet_tags
   private_data_subnet_tags = module.network.private_subnet_tags
 

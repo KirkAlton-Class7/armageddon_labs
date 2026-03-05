@@ -72,9 +72,9 @@ data "aws_iam_policy_document" "rds_enhanced_monitoring_role" {
   }
 
   statement {
-    sid       = "AllowRdsLogStreamActions"
-    effect    = "Allow"
-    actions   = [
+    sid    = "AllowRdsLogStreamActions"
+    effect = "Allow"
+    actions = [
       "logs:CreateLogStream",
       "logs:PutLogEvents",
       "logs:DescribeLogStreams",

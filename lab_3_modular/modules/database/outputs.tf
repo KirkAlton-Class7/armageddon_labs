@@ -3,18 +3,21 @@
 # ----------------------------------------------------------------
 
 output "rds_subnets" {
+  description = "Subnet IDs used by the RDS subnet group."
   value       = aws_db_subnet_group.lab_mysql.subnet_ids
-  description = "RDS Subnets"
 }
 
 output "db_endpoint" {
-  value = aws_db_instance.lab_mysql.endpoint
+  description = "Endpoint address of the RDS instance."
+  value       = aws_db_instance.lab_mysql.endpoint
 }
 
 output "db_identifier" {
-  value = aws_db_instance.lab_mysql.identifier
+  description = "Identifier of the RDS instance."
+  value       = aws_db_instance.lab_mysql.identifier
 }
 
 output "db_secret_arn" {
-  value = aws_secretsmanager_secret.lab_rds_mysql.arn
+  description = "Secrets Manager ARN containing database credentials."
+  value       = aws_secretsmanager_secret.lab_rds_mysql.arn
 }

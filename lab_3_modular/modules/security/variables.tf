@@ -1,27 +1,28 @@
 # ----------------------------------------------------------------
-# SECURITY — Account and Networking Inputs
+# SECURITY VARIABLES — Account and Networking Inputs
 # ----------------------------------------------------------------
 
 variable "account_id" {
+  description = "AWS account ID."
   type        = string
-  description = "AWS Account ID"
 }
 
 variable "vpc_id" {
+  description = "VPC ID."
   type        = string
-  description = "VPC ID"
 }
 
 variable "vpc_cidr" {
+  description = "VPC CIDR block."
   type        = string
-  description = "VPC CIDR Block"
 }
 
 # ----------------------------------------------------------------
-# SECURITY — Deployment Context
+# SECURITY VARIABLES — Deployment Context
 # ----------------------------------------------------------------
 
 variable "context" {
+  description = "Deployment context containing region, application name, environment, and common tags."
   type = object({
     region = string
     app    = string
@@ -31,41 +32,44 @@ variable "context" {
 }
 
 # ----------------------------------------------------------------
-# SECURITY — Naming Configuration
+# SECURITY VARIABLES — Naming Configuration
 # ----------------------------------------------------------------
 
 variable "name_prefix" {
-  type = string
+  description = "Prefix for resource names."
+  type        = string
 }
 
 variable "name_suffix" {
-  type = string
+  description = "Suffix for resource names."
+  type        = string
 }
 
 # ----------------------------------------------------------------
-# SECURITY — WAF Logging Configuration
+# SECURITY VARIABLES — WAF Logging Configuration
 # ----------------------------------------------------------------
 
 variable "waf_log_retention_days" {
+  description = "Retention period for WAF CloudWatch logs (days)."
   type        = number
-  description = "Retention period for WAF CloudWatch log group (days)."
 }
 
 variable "enable_waf_sampled_requests_only" {
+  description = "Enable sampled request visibility only."
   type        = bool
-  description = "If true, use sampled request visibility only (lower cost). If false, allows a full WAF logging design to be introduced later."
 }
 
 variable "enable_direct_service_log_delivery" {
+  description = "Enable direct AWS service log delivery to CloudWatch Logs."
   type        = bool
-  description = "Whether AWS services deliver logs directly to CloudWatch Logs (requires resource policy)."
 }
 
 # ----------------------------------------------------------------
-# SECURITY — WAF Logging Mode Configuration
+# SECURITY VARIABLES — WAF Logging Mode Configuration
 # ----------------------------------------------------------------
 
 variable "waf_log_mode" {
+  description = "WAF logging configuration."
   type = object({
     create_direct_resources   = bool
     create_firehose_resources = bool
@@ -74,6 +78,6 @@ variable "waf_log_mode" {
 }
 
 variable "waf_log_destination_arn" {
+  description = "WAF log destination ARN."
   type        = string
-  description = "Where AWS WAF delivers logs: cloudwatch | s3 | firehose"
 }

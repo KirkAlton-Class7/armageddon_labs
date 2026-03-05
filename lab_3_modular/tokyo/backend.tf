@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# TOKYO ROOT — Terraform Backend Configuration
+# TOKYO BACKEND — Terraform Backend Configuration
 # ----------------------------------------------------------------
 # Remote state backend configuration.
 # The backend bucket may exist in a different region than the infrastructure.

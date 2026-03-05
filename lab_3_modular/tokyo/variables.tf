@@ -1,26 +1,23 @@
 # ----------------------------------------------------------------
-# INPUT VARIABLES — Application Identity
+# TOKYO VARIABLES — Application Identity
 # ----------------------------------------------------------------
 
-# Region Variable (set in .tfvars)
 variable "region" {
+  description = "AWS region."
   type        = string
-  description = "AWS region"
-  default = "us-west-2"
+  default     = "us-west-2"
 }
 
-# Input Application Name
 variable "app" {
+  description = "Application name."
   type        = string
-  description = "Application name (short)"
   default     = "rds-app"
 }
 
-# Input Environment 
 variable "env" {
+  description = "Deployment environment (dev, test, prod)."
   type        = string
   default     = "dev"
-  description = "Input environment name (dev, test, prod)."
 
   validation {
     condition     = contains(["dev", "test", "prod"], var.env)
@@ -29,53 +26,43 @@ variable "env" {
 }
 
 # ----------------------------------------------------------------
-# INPUT VARIABLES — Networking
-# ------------------------------------------------------
+# TOKYO VARIABLES — Networking
+# ----------------------------------------------------------------
 
-# Input VPC CIDR Block
 variable "vpc_cidr" {
+  description = "VPC CIDR block."
   type        = string
-  description = "CIDR block for the VPC"
   default     = "10.10.0.0/16"
 }
 
 # ----------------------------------------------------------------
-# INPUT VARIABLES — EDGE / DNS / Route 53
+# TOKYO VARIABLES — Edge / DNS / CDN
 # ----------------------------------------------------------------
 
-# Toggle Route 53 in Terraform
 variable "manage_route53_in_terraform" {
-  description = "If true, create/manage Route53 hosted zone and records in Terraform."
+  description = "Manage Route53 hosted zone and records in Terraform."
   type        = bool
   default     = false
 }
 
-# Toggle Private Route 53 Zone
 variable "route53_private_zone" {
+  description = "Whether the Route53 hosted zone is private."
   type        = bool
-  description = "If true, the Route53 hosted zone is private."
   default     = false
 }
 
-# Input Root Domain (Apex)
 variable "root_domain" {
+  description = "Root DNS domain."
   type        = string
-  description = "Root DNS name (no subdomain)"
   default     = "kirkdevsecops.com"
 }
 
-# # ----------------------------------------------------------------
-# # INPUT VARIABLES — Database
-# # ----------------------------------------------------------------
-# variable "db_secret_arn" {
-#   type        = string
-#   description = "ARN of database credentials secret"
-# }
+# ----------------------------------------------------------------
+# TOKYO VARIABLES — Database
+# ----------------------------------------------------------------
 
-
-# DB Engine
 variable "db_engine" {
-  description = "Database engine."
+  description = "Database engine type."
   type        = string
   default     = "mysql"
 
@@ -85,79 +72,67 @@ variable "db_engine" {
   }
 }
 
-
-# DB Username
 variable "db_username" {
+  description = "Database admin username."
   type        = string
-  description = "Database admin username"
   default     = "admin"
 }
 
-
 # ----------------------------------------------------------------
-# INPUT VARIABLES — WAF Logging & Observability
+# TOKYO VARIABLES — WAF Logging & Observability
 # ----------------------------------------------------------------
 
-# Input WAF Log Destination
 variable "waf_log_destination" {
+  description = "WAF log destination: cloudwatch, s3, or firehose."
   type        = string
-  description = "Where AWS WAF delivers logs: cloudwatch | s3 | firehose"
   default     = "cloudwatch"
 
   validation {
     condition     = contains(["cloudwatch", "s3", "firehose"], lower(var.waf_log_destination))
-    error_message = "waf_log_destination must be one of: cloudwatch, s3, firehose"
+    error_message = "waf_log_destination must be one of: cloudwatch, s3, firehose."
   }
 }
 
-# Input WAF Log Retention Period
 variable "waf_log_retention_days" {
+  description = "Retention period for WAF CloudWatch logs (days)."
   type        = number
-  description = "Retention period for WAF CloudWatch log group (days)."
   default     = 14
 }
 
-# Toggle WAF Sampled Requests Only
 variable "enable_waf_sampled_requests_only" {
+  description = "Enable sampled request visibility only."
   type        = bool
   default     = false
-  description = "If true, use sampled request visibility only (lower cost). If false, allows a full WAF logging design to be introduced later."
 }
 
-# Toggle Direct Service Log Delivery
 variable "enable_direct_service_log_delivery" {
+  description = "Enable direct AWS service log delivery to CloudWatch Logs."
   type        = bool
-  description = "Whether AWS services deliver logs directly to CloudWatch Logs (requires resource policy)."
   default     = false
 }
 
-
 # ----------------------------------------------------------------
-# INPUT VARIABLES — Demonstration (not used in deployment)
+# TOKYO VARIABLES — Demonstration
 # ----------------------------------------------------------------
 
-# Demo Owner
-variable "demo_owner" { # Root Variable
+variable "demo_owner" {
+  description = "Demo variable for module normalization patterns."
   type        = string
-  description = "Demonstration variable for module-level normalization patterns."
   default     = "DevSecOpsTeam"
 }
 
+# ----------------------------------------------------------------
+# TOKYO VARIABLES — ALB Logging
+# ----------------------------------------------------------------
 
-
-
-# Input ALB Access Logs Prefix
 variable "alb_access_logs_prefix" {
+  description = "S3 key prefix for ALB access logs."
   type        = string
-  description = "S3 prefix for ALB access logs (NO leading or trailing slash)"
   default     = "alb-access-logs"
 }
 
-
-
-# Toggle ALB Access Logs (S3)
 variable "alb_log_s3" {
+  description = "Enable ALB access logging to S3."
   type        = bool
   default     = true
-  description = "If true, enable ALB access logging to S3."
 }

@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# TOKYO ROOT — Input Validation Checks
+# TOKYO CHECKS — Input Validation Checks
 # ----------------------------------------------------------------
 # Checks run before resource creation and raise errors when input
 # conditions are invalid. Checks should reference only variables

@@ -29,7 +29,7 @@ resource "aws_db_parameter_group" "lab_mysql_parameters" {
       Environment = "${var.context.env}"
       Component   = "db-parameters"
       Scope       = "logging"
-      Engine      = "mysql"
+      Engine      = var.db_engine
       DataClass   = "confidential"
     },
     var.context.tags

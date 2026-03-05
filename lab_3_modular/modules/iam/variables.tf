@@ -1,13 +1,14 @@
 # ----------------------------------------------------------------
-# IAM — INPUT VARIABLES (Logging & Observability)
+# IAM VARIABLES — Logging & Observability
 # ----------------------------------------------------------------
 
 variable "account_id" {
+  description = "AWS account ID."
   type        = string
-  description = "AWS Account ID"
 }
 
 variable "context" {
+  description = "Deployment context containing region, application name, environment, and common tags."
   type = object({
     region = string
     app    = string
@@ -16,24 +17,23 @@ variable "context" {
   })
 }
 
-# Toggle Direct Service Log Delivery
 variable "enable_direct_service_log_delivery" {
+  description = "Enable direct AWS service log delivery to CloudWatch Logs."
   type        = bool
-  description = "Whether AWS services deliver logs directly to CloudWatch Logs (requires resource policy)."
 }
 
 # ----------------------------------------------------------------
-# IAM — INPUT VARIABLES (Naming)
+# IAM VARIABLES — Naming
 # ----------------------------------------------------------------
 
-# Name Prefix
 variable "name_prefix" {
-  type = string
+  description = "Prefix for resource names."
+  type        = string
 }
 
-# Name Suffix
 variable "name_suffix" {
-  type = string
+  description = "Suffix for resource names."
+  type        = string
 }
 
 # # Bucket Suffix
@@ -42,38 +42,44 @@ variable "name_suffix" {
 # }
 
 # ----------------------------------------------------------------
-# IAM — INPUT VARIABLES (Secrets & Database)
+# IAM VARIABLES — Secrets & Database
 # ----------------------------------------------------------------
 
 variable "db_secret_arn" {
-  type = string
+  description = "Secrets Manager ARN containing database credentials."
+  type        = string
 }
 
 # ----------------------------------------------------------------
-# IAM — INPUT VARIABLES (Log Destinations)
+# IAM VARIABLES — Log Destinations
 # ----------------------------------------------------------------
 
 variable "vpc_flow_log_group_arn" {
-  type = string
+  description = "CloudWatch log group ARN for VPC flow logs."
+  type        = string
 }
 
 variable "waf_firehose_log_group_arn" {
-  type = string
+  description = "CloudWatch log group ARN for WAF Firehose delivery."
+  type        = string
 }
 
 variable "waf_firehose_log_bucket_arn" {
-  type = string
+  description = "S3 bucket ARN for WAF Firehose log delivery."
+  type        = string
 }
 
 variable "waf_direct_log_group_arn" {
-  type = string
+  description = "CloudWatch log group ARN for direct WAF logging."
+  type        = string
 }
 
 # ----------------------------------------------------------------
-# IAM — INPUT VARIABLES (WAF Logging Mode)
+# IAM VARIABLES — WAF Logging Mode
 # ----------------------------------------------------------------
 
 variable "waf_log_mode" {
+  description = "WAF logging configuration."
   type = object({
     create_direct_resources   = bool
     create_firehose_resources = bool

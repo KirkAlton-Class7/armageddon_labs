@@ -1,8 +1,9 @@
 # ----------------------------------------------------------------
-# DATABASE — Input Variables (Application Context)
+# DATABASE VARIABLES — Application Context
 # ----------------------------------------------------------------
 
 variable "context" {
+  description = "Deployment context containing region, application name, environment, and common tags."
   type = object(
     {
       region = string
@@ -14,84 +15,77 @@ variable "context" {
 }
 
 variable "name_prefix" {
-  type = string
+  description = "Prefix for resource names."
+  type        = string
 }
 
 variable "name_suffix" {
-  type = string
+  description = "Suffix for resource names."
+  type        = string
 }
 
 # ----------------------------------------------------------------
-# DATABASE — Input Variables (Networking)
+# DATABASE VARIABLES — Networking
 # ----------------------------------------------------------------
 
-variable "public_subnets" {
-  description = "Public subnet IDs"
+variable "private_app_subnet_ids" {
+  description = "Private application subnet IDs."
   type        = list(string)
 }
 
-variable "private_app_subnets" {
-  description = "Private app subnet IDs"
+variable "private_data_subnet_ids" {
+  description = "Private data subnet IDs."
   type        = list(string)
-}
-
-variable "private_data_subnets" {
-  description = "Private data subnet IDs"
-  type        = list(string)
-}
-
-variable "public_subnet_tags" {
-  type        = map(string)
-  description = "Tags for public subnets and resources"
 }
 
 variable "private_app_subnet_tags" {
+  description = "Tags applied to private application subnet resources."
   type        = map(string)
-  description = "Tags for private app subnets and resources"
 }
 
 variable "private_data_subnet_tags" {
+  description = "Tags applied to private data subnet resources."
   type        = map(string)
-  description = "Tags for private subnets and resources"
 }
 
 # ----------------------------------------------------------------
-# DATABASE — Input Variables (Security Groups)
+# DATABASE VARIABLES — Security Groups
 # ----------------------------------------------------------------
 
 variable "private_db_sg_id" {
+  description = "Security group ID for the private database."
   type        = string
-  description = "Security Group ID for Private DB"
 }
 
 # ----------------------------------------------------------------
-# DATABASE — Input Variables (Database Configuration)
+# DATABASE VARIABLES — Database Configuration
 # ----------------------------------------------------------------
 
 variable "db_engine" {
-  description = "Database engine."
+  description = "Database engine type."
   type        = string
 }
 
 variable "db_username" {
+  description = "Database admin username."
   type        = string
-  description = "Database admin username"
 }
 
 variable "db_secret_arn" {
-  type = string
+  description = "Secrets Manager ARN containing database credentials."
+  type        = string
 }
 
 # ----------------------------------------------------------------
-# DATABASE — Input Variables (Monitoring & Alerting)
+# DATABASE VARIABLES — Monitoring & Alerting
 # ----------------------------------------------------------------
 
 variable "rds_enhanced_monitoring_role_arn" {
-  description = "ARN of the IAM role used for RDS Enhanced Monitoring"
+  description = "IAM role ARN for RDS enhanced monitoring."
   type        = string
 }
 
 variable "rds_failure_alert_topic_arn" {
-  description = "SNS topic ARN used for RDS failure alerts"
+  description = "SNS topic ARN for RDS failure alerts."
   type        = string
 }

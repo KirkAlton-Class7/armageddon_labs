@@ -1,18 +1,19 @@
 # ----------------------------------------------------------------
-# NETWORKING — INPUT VARIABLES
+# NETWORKING VARIABLES — Core Inputs
 # ----------------------------------------------------------------
 
 variable "azs" {
-  type = list(string)
+  description = "Availability zones for subnet deployment."
+  type        = list(string)
 }
 
-# Input Account ID
 variable "account_id" {
+  description = "AWS account ID."
   type        = string
-  description = "AWS Account ID"
 }
 
 variable "context" {
+  description = "Deployment context containing region, application name, environment, and common tags."
   type = object({
     region = string
     app    = string
@@ -21,20 +22,19 @@ variable "context" {
   })
 }
 
-# Input VPC CIDR Block
 variable "vpc_cidr" {
+  description = "CIDR block for the VPC."
   type        = string
-  description = "CIDR block for the VPC"
 }
 
-# Name Prefix
 variable "name_prefix" {
-  type = string
+  description = "Prefix for resource names."
+  type        = string
 }
 
-# Name Suffix
 variable "name_suffix" {
-  type = string
+  description = "Suffix for resource names."
+  type        = string
 }
 
 # # Bucket Suffix
@@ -43,17 +43,16 @@ variable "name_suffix" {
 # }
 
 variable "vpc_endpoints_sg_id" {
-  description = "Security Group ID for VPC endpoints"
+  description = "Security group ID for VPC endpoints."
   type        = string
 }
 
 # ----------------------------------------------------------------
-# NETWORKING — INPUT VARIABLES (Demonstration)
+# NETWORKING VARIABLES — Demonstration
 # ----------------------------------------------------------------
-# Not used in deployment.
+# DEMO: Not used in deployment.
 
-# Demo Owner
 variable "demo_owner" {
+  description = "Demo owner identifier from the root module."
   type        = string
-  description = "Demonstration variable received from root module"
 }

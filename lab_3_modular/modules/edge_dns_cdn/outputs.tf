@@ -3,7 +3,7 @@
 # ----------------------------------------------------------------
 
 output "application_url" {
-  description = "URL for accessing the application"
+  description = "Application HTTPS URL."
   value = {
     url = "https://${var.dns_context.fqdn}"
   }
@@ -14,7 +14,7 @@ output "application_url" {
 # ----------------------------------------------------------------
 
 output "route53_zone" {
-  description = "Route53 hosted zone information"
+  description = "Route53 hosted zone details."
 
   value = {
     arn          = data.aws_route53_zone.rds_app_zone[0].arn
@@ -30,7 +30,7 @@ output "route53_zone" {
 # ---------------------------------------------------------------------
 
 output "cloudfront_distribution" {
-  description = "CloudFront distribution information"
+  description = "CloudFront distribution details."
 
   value = {
     id          = aws_cloudfront_distribution.rds_app.id
@@ -41,7 +41,7 @@ output "cloudfront_distribution" {
 }
 
 output "cloudfront_tls" {
-  description = "CloudFront TLS certificate configuration"
+  description = "CloudFront TLS configuration."
 
   value = {
     certificate_arn          = aws_acm_certificate.rds_app_cf_cert.arn
@@ -55,7 +55,7 @@ output "cloudfront_tls" {
 # ----------------------------------------------------------------
 
 output "cloudfront_endpoints" {
-  description = "Public DNS endpoints routed to CloudFront"
+  description = "Public DNS endpoints for CloudFront."
 
   value = {
     apex_domain     = var.dns_context.root_domain
@@ -69,12 +69,12 @@ output "cloudfront_endpoints" {
 # ----------------------------------------------------------------
 
 output "edge_auth_value" {
-  description = "Edge Auth Token (Header Value)"
+  description = "Edge authentication header value."
   value       = random_password.edge_auth_value.result
 }
 
 output "cloudfront_origin" {
-  description = "CloudFront origin configuration"
+  description = "CloudFront origin configuration."
 
   value = {
     origin_domain          = "origin.${var.dns_context.root_domain}"
@@ -84,7 +84,8 @@ output "cloudfront_origin" {
 }
 
 output "cloudfront_domain" {
-  value = aws_cloudfront_distribution.rds_app.domain_name
+  description = "CloudFront distribution domain name."
+  value       = aws_cloudfront_distribution.rds_app.domain_name
 }
 
 # ----------------------------------------------------------------
@@ -92,7 +93,7 @@ output "cloudfront_domain" {
 # ----------------------------------------------------------------
 
 output "rds_app_origin_record" {
-  description = "Route53 A record pointing origin to ALB"
+  description = "Route53 origin A record pointing to the ALB."
   value = {
     fqdn    = aws_route53_record.rds_app_origin_to_alb.fqdn
     name    = aws_route53_record.rds_app_origin_to_alb.name
@@ -106,6 +107,6 @@ output "rds_app_origin_record" {
 # ----------------------------------------------------------------
 
 output "rds_app_cert_arn" {
-  description = "ARN of the ACM certificate used by the ALB"
+  description = "ACM certificate ARN used by the ALB."
   value       = aws_acm_certificate.rds_app_cert.arn
 }
