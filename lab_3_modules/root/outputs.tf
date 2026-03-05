@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# TOKYO OUTPUTS — Application Context
+# ROOT OUTPUTS — Application Context
 # ----------------------------------------------------------------
 
 output "application_context" {
@@ -13,7 +13,7 @@ output "application_context" {
 }
 
 # ----------------------------------------------------------------
-# TOKYO OUTPUTS — Application Access
+# ROOT OUTPUTS — Application Access
 # ----------------------------------------------------------------
 
 output "application_access" {
@@ -28,7 +28,7 @@ output "application_access" {
 }
 
 # ----------------------------------------------------------------
-# TOKYO OUTPUTS — Infrastructure Summary
+# ROOT OUTPUTS — Infrastructure Summary
 # ----------------------------------------------------------------
 
 output "infrastructure_summary" {
@@ -49,7 +49,7 @@ output "infrastructure_summary" {
 }
 
 # ----------------------------------------------------------------
-# TOKYO OUTPUTS — Compute Capacity
+# ROOT OUTPUTS — Compute Capacity
 # ----------------------------------------------------------------
 
 output "compute_capacity" {
@@ -64,7 +64,7 @@ output "compute_capacity" {
 }
 
 # ----------------------------------------------------------------
-# TOKYO OUTPUTS — Security Summary
+# ROOT OUTPUTS — Security Summary
 # ----------------------------------------------------------------
 
 output "security_summary" {
@@ -81,16 +81,16 @@ output "security_summary" {
 }
 
 # ----------------------------------------------------------------
-# TOKYO OUTPUTS — Deployment Logging Configuration
+# ROOT OUTPUTS — Deployment Logging Configuration
 # ----------------------------------------------------------------
 
 output "deployment_logging_configuration" {
   description = "Deployment logging configuration and log destinations for ALB, WAF, and VPC flow logs."
-  value       = module.observability.logging_info
+  value       = module.observability.logging_configuration
 }
 
 # ----------------------------------------------------------------
-# TOKYO OUTPUTS — Deployment Metadata
+# ROOT OUTPUTS — Deployment Metadata
 # ----------------------------------------------------------------
 
 output "deployment_metadata" {
