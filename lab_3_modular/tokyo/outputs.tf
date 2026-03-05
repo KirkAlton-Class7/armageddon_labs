@@ -17,172 +17,101 @@ output "region" {
   value       = local.context.region
 }
 
-
-
+# ----------------------------------------------------------------
+# OUTPUTS — Database
+# ----------------------------------------------------------------
 
 output "db_endpoint" {
   description = "Database endpoint"
   value       = module.database.db_endpoint
 }
 
-
-# SUBNETS
-# Public Subnet IDs
-output "public_subnets" {
-  description = "Public subnet IDs"
-  value       = module.network.public_subnets
+output "db_secret_arn" {
+  description = "ARN of the database secret"
+  value       = module.database.db_secret_arn
 }
-
-# Private App Subnet IDs
-output "private_app_subnets" {
-  description = "Private app subnet IDs"
-  value       = module.network.public_subnets
-}
-
-# Private Data Subnet IDs
-output "private_data_subnets" {
-  description = "Private data subnet IDs"
-  value       = module.network.public_subnets
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # ----------------------------------------------------------------
-# DEMONSTRATION OUTPUTS (Not used in deployment)
+# OUTPUTS — Networking
 # ----------------------------------------------------------------
 
-# Demo Owner from Module
-output "demo_owner_from_module" {
-  description = "DEMO: Transformed value returned from module."
-  value       = module.network.demo_owner_normalized
-} 
-
-
-
-
-
-
-# VPC ID
 output "vpc_id" {
   description = "VPC ID for downstream modules"
   value       = module.network.vpc_id
 }
 
+output "public_subnets" {
+  description = "Public subnet IDs"
+  value       = module.network.public_subnets
+}
 
+output "private_app_subnets" {
+  description = "Private application subnet IDs"
+  value       = module.network.private_app_subnets
+}
 
+output "private_data_subnets" {
+  description = "Private data subnet IDs"
+  value       = module.network.private_data_subnets
+}
 
-
-
-
+# ----------------------------------------------------------------
+# OUTPUTS — Edge / CDN
+# ----------------------------------------------------------------
 
 output "cloudfront_domain" {
-  value = module.edge_dns_cdn.cloudfront_domain
+  description = "CloudFront distribution domain name"
+  value       = module.edge_dns_cdn.cloudfront_domain
 }
 
-
-output "db_secret_arn" {
-  value = module.database.db_secret_arn
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# output "rds_info" {
-#   description = "RDS Information"
-#   value = {
-#     name     = aws_db_instance.lab_mysql.tags["Name"]
-#     endpoint = module.aws_db_instance.lab_mysql.endpoint
-#     address  = aws_db_instance.lab_mysql.address
-#     port     = aws_db_instance.lab_mysql.port
-#   }
-# }
-
-
-
+# ----------------------------------------------------------------
+# OUTPUTS — Observability
+# ----------------------------------------------------------------
 
 output "vpc_flow_log_group_arn" {
-  value = module.observability.vpc_flow_log_group_arn
+  description = "CloudWatch log group ARN for VPC Flow Logs"
+  value       = module.observability.vpc_flow_log_group_arn
 }
 
-
 output "waf_firehose_log_group_arn" {
-  value = module.observability.waf_firehose_log_group_arn
-  }
+  description = "CloudWatch log group ARN for WAF Firehose logs"
+  value       = module.observability.waf_firehose_log_group_arn
+}
 
 output "waf_firehose_logs_bucket_arn" {
-  value = module.observability.waf_firehose_logs_bucket_arn
+  description = "S3 bucket ARN for WAF Firehose logs"
+  value       = module.observability.waf_firehose_logs_bucket_arn
 }
 
 output "waf_direct_log_group_arn" {
-  value = module.observability.waf_direct_log_group_arn
+  description = "CloudWatch log group ARN for direct WAF logs"
+  value       = module.observability.waf_direct_log_group_arn
 }
 
-
-
-
-
-
 # ----------------------------------------------------------------
-# ROOT OUTPUT — RDS Enhanced Monitoring Role Name
+# OUTPUTS — IAM
 # ----------------------------------------------------------------
+
 output "rds_enhanced_monitoring_role_name" {
   description = "Name of the RDS Enhanced Monitoring IAM role"
   value       = module.iam.rds_enhanced_monitoring_role_name
 }
 
-# ----------------------------------------------------------------
-# ROOT OUTPUT — RDS Enhanced Monitoring Role ARN
-# ----------------------------------------------------------------
 output "rds_enhanced_monitoring_role_arn" {
   description = "ARN of the RDS Enhanced Monitoring IAM role"
   value       = module.iam.rds_enhanced_monitoring_role_arn
 }
 
-# ----------------------------------------------------------------
-# ROOT OUTPUT — RDS Enhanced Monitoring Role ID
-# ----------------------------------------------------------------
 output "rds_enhanced_monitoring_role_id" {
   description = "Unique ID of the RDS Enhanced Monitoring IAM role"
   value       = module.iam.rds_enhanced_monitoring_role_id
 }
 
+# ----------------------------------------------------------------
+# OUTPUTS — Demonstration (Not used in deployment)
+# ----------------------------------------------------------------
 
-
-
-
-# RDS App ALB Info
-# output "rds_app_alb" {
-#   description = "ALB Information"
-
-#   value = {
-#     application = var.context.app
-#     name        = aws_lb.rds_app_public_alb.name
-#     dns_name    = var.alb_dns
-#     zone_id     = var.rds_app_origin_record.zone_id
-#     a_record    = aws_route53_record.rds_app_origin_to_alb.name
-#   }
-# }
+output "demo_owner_from_module" {
+  description = "DEMO: Transformed value returned from module."
+  value       = module.network.demo_owner_normalized
+}

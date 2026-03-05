@@ -1964,33 +1964,33 @@
 <path fill="none" stroke="black" d="M26401.54,-719.88C26401.54,-717.03 26401.54,-715 26401.54,-715 26401.54,-715 22438.28,-715 22438.28,-715 22438.28,-715 22438.28,-686.5 22438.28,-686.5"/>
 <polygon fill="black" stroke="black" points="22441.78,-686.5 22438.28,-676.5 22434.78,-686.5 22441.78,-686.5"/>
 </g>
-<!-- [root] module.iam.aws_iam_policy.read_cloudwatch_agent_config -->
+<!-- [root] module.iam.aws_iam_policy.ec2_read_cloudwatch_agent_config -->
 <g id="node101" class="node">
-<title>[root] module.iam.aws_iam_policy.read_cloudwatch_agent_config</title>
+<title>[root] module.iam.aws_iam_policy.ec2_read_cloudwatch_agent_config</title>
 <polygon fill="none" stroke="black" points="25743.29,-1044 25395.79,-1044 25395.79,-1008 25743.29,-1008 25743.29,-1044"/>
-<text xml:space="preserve" text-anchor="middle" x="25569.54" y="-1020.95" font-family="Times,serif" font-size="14.00">module.iam.aws_iam_policy.read_cloudwatch_agent_config</text>
+<text xml:space="preserve" text-anchor="middle" x="25569.54" y="-1020.95" font-family="Times,serif" font-size="14.00">module.iam.aws_iam_policy.ec2_read_cloudwatch_agent_config</text>
 </g>
-<!-- [root] module.iam.aws_iam_policy.read_cloudwatch_agent_config (expand) -->
+<!-- [root] module.iam.aws_iam_policy.ec2_read_cloudwatch_agent_config (expand) -->
 <g id="node102" class="node">
-<title>[root] module.iam.aws_iam_policy.read_cloudwatch_agent_config (expand)</title>
+<title>[root] module.iam.aws_iam_policy.ec2_read_cloudwatch_agent_config (expand)</title>
 <polygon fill="none" stroke="black" points="25506.29,-972 25158.79,-972 25158.79,-936 25506.29,-936 25506.29,-972"/>
-<text xml:space="preserve" text-anchor="middle" x="25332.54" y="-948.95" font-family="Times,serif" font-size="14.00">module.iam.aws_iam_policy.read_cloudwatch_agent_config</text>
+<text xml:space="preserve" text-anchor="middle" x="25332.54" y="-948.95" font-family="Times,serif" font-size="14.00">module.iam.aws_iam_policy.ec2_read_cloudwatch_agent_config</text>
 </g>
-<!-- [root] module.iam.aws_iam_policy.read_cloudwatch_agent_config&#45;&gt;[root] module.iam.aws_iam_policy.read_cloudwatch_agent_config (expand) -->
+<!-- [root] module.iam.aws_iam_policy.ec2_read_cloudwatch_agent_config&#45;&gt;[root] module.iam.aws_iam_policy.ec2_read_cloudwatch_agent_config (expand) -->
 <g id="edge422" class="edge">
-<title>[root] module.iam.aws_iam_policy.read_cloudwatch_agent_config&#45;&gt;[root] module.iam.aws_iam_policy.read_cloudwatch_agent_config (expand)</title>
+<title>[root] module.iam.aws_iam_policy.ec2_read_cloudwatch_agent_config&#45;&gt;[root] module.iam.aws_iam_policy.ec2_read_cloudwatch_agent_config (expand)</title>
 <path fill="none" stroke="black" d="M25451.04,-1007.83C25451.04,-1007.83 25451.04,-983.93 25451.04,-983.93"/>
 <polygon fill="black" stroke="black" points="25454.54,-983.93 25451.04,-973.93 25447.54,-983.93 25454.54,-983.93"/>
 </g>
-<!-- [root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config -->
+<!-- [root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config -->
 <g id="node156" class="node">
-<title>[root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config</title>
+<title>[root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config</title>
 <polygon fill="none" stroke="black" points="25128.16,-900 24692.91,-900 24692.91,-864 25128.16,-864 25128.16,-900"/>
-<text xml:space="preserve" text-anchor="middle" x="24910.54" y="-876.95" font-family="Times,serif" font-size="14.00">module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config</text>
+<text xml:space="preserve" text-anchor="middle" x="24910.54" y="-876.95" font-family="Times,serif" font-size="14.00">module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config</text>
 </g>
-<!-- [root] module.iam.aws_iam_policy.read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config -->
+<!-- [root] module.iam.aws_iam_policy.ec2_read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config -->
 <g id="edge421" class="edge">
-<title>[root] module.iam.aws_iam_policy.read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config</title>
+<title>[root] module.iam.aws_iam_policy.ec2_read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config</title>
 <path fill="none" stroke="black" d="M25171.66,-935.83C25171.66,-914.5 25171.66,-882 25171.66,-882 25171.66,-882 25140.06,-882 25140.06,-882"/>
 <polygon fill="black" stroke="black" points="25140.06,-878.5 25130.06,-882 25140.06,-885.5 25140.06,-878.5"/>
 </g>
@@ -2456,33 +2456,33 @@
 <path fill="none" stroke="black" d="M27360.54,-935.75C27360.54,-921.82 27360.54,-905 27360.54,-905 27360.54,-905 29837.65,-905 29837.65,-905 29837.65,-905 29837.65,-904.51 29837.65,-904.51"/>
 <polygon fill="black" stroke="black" points="29841.15,-911.64 29837.65,-901.64 29834.15,-911.64 29841.15,-911.64"/>
 </g>
-<!-- [root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config -->
+<!-- [root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config -->
 <g id="node129" class="node">
-<title>[root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config</title>
+<title>[root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config</title>
 <polygon fill="none" stroke="black" points="24208.41,-1476 23726.66,-1476 23726.66,-1440 24208.41,-1440 24208.41,-1476"/>
-<text xml:space="preserve" text-anchor="middle" x="23967.54" y="-1452.95" font-family="Times,serif" font-size="14.00">module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config</text>
+<text xml:space="preserve" text-anchor="middle" x="23967.54" y="-1452.95" font-family="Times,serif" font-size="14.00">module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config</text>
 </g>
-<!-- [root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand) -->
+<!-- [root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config (expand) -->
 <g id="node130" class="node">
-<title>[root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand)</title>
+<title>[root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config (expand)</title>
 <polygon fill="none" stroke="black" points="25674.41,-1116 25192.66,-1116 25192.66,-1080 25674.41,-1080 25674.41,-1116"/>
-<text xml:space="preserve" text-anchor="middle" x="25433.54" y="-1092.95" font-family="Times,serif" font-size="14.00">module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config</text>
+<text xml:space="preserve" text-anchor="middle" x="25433.54" y="-1092.95" font-family="Times,serif" font-size="14.00">module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config</text>
 </g>
-<!-- [root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config&#45;&gt;[root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand) -->
+<!-- [root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config&#45;&gt;[root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config (expand) -->
 <g id="edge466" class="edge">
-<title>[root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config&#45;&gt;[root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand)</title>
+<title>[root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config&#45;&gt;[root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config (expand)</title>
 <path fill="none" stroke="black" d="M24140.79,-1439.83C24140.79,-1394.86 24140.79,-1282 24140.79,-1282 24140.79,-1282 25212.75,-1282 25212.75,-1282 25212.75,-1282 25212.75,-1127.83 25212.75,-1127.83"/>
 <polygon fill="black" stroke="black" points="25216.25,-1127.83 25212.75,-1117.83 25209.25,-1127.83 25216.25,-1127.83"/>
 </g>
-<!-- [root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.aws_iam_policy.read_cloudwatch_agent_config -->
+<!-- [root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.aws_iam_policy.ec2_read_cloudwatch_agent_config -->
 <g id="edge464" class="edge">
-<title>[root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.aws_iam_policy.read_cloudwatch_agent_config</title>
+<title>[root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.aws_iam_policy.ec2_read_cloudwatch_agent_config</title>
 <path fill="none" stroke="black" d="M25535.1,-1079.83C25535.1,-1079.83 25535.1,-1055.93 25535.1,-1055.93"/>
 <polygon fill="black" stroke="black" points="25538.6,-1055.93 25535.1,-1045.93 25531.6,-1055.93 25538.6,-1055.93"/>
 </g>
-<!-- [root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.aws_iam_role.rds_app -->
+<!-- [root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.aws_iam_role.rds_app -->
 <g id="edge465" class="edge">
-<title>[root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.aws_iam_role.rds_app</title>
+<title>[root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.aws_iam_role.rds_app</title>
 <path fill="none" stroke="black" d="M25386.94,-1079.59C25386.94,-1045.27 25386.94,-975 25386.94,-975 25386.94,-975 26625.19,-975 26625.19,-975 26625.19,-975 26625.19,-839.8 26625.19,-839.8"/>
 <polygon fill="black" stroke="black" points="26628.69,-839.8 26625.19,-829.8 26621.69,-839.8 26628.69,-839.8"/>
 </g>
@@ -2882,33 +2882,33 @@
 <path fill="none" stroke="black" d="M26905.53,-666C27181.04,-666 27619.81,-666 27619.81,-666 27619.81,-666 27619.81,-617.4 27619.81,-617.4"/>
 <polygon fill="black" stroke="black" points="27623.31,-617.4 27619.81,-607.4 27616.31,-617.4 27623.31,-617.4"/>
 </g>
-<!-- [root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config (expand) -->
+<!-- [root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config (expand) -->
 <g id="node157" class="node">
-<title>[root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config (expand)</title>
+<title>[root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config (expand)</title>
 <polygon fill="none" stroke="black" points="25126.16,-828 24690.91,-828 24690.91,-792 25126.16,-792 25126.16,-828"/>
-<text xml:space="preserve" text-anchor="middle" x="24908.54" y="-804.95" font-family="Times,serif" font-size="14.00">module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config</text>
+<text xml:space="preserve" text-anchor="middle" x="24908.54" y="-804.95" font-family="Times,serif" font-size="14.00">module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config</text>
 </g>
-<!-- [root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config&#45;&gt;[root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config (expand) -->
+<!-- [root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config&#45;&gt;[root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config (expand) -->
 <g id="edge513" class="edge">
-<title>[root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config&#45;&gt;[root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config (expand)</title>
+<title>[root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config&#45;&gt;[root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config (expand)</title>
 <path fill="none" stroke="black" d="M24909.54,-863.83C24909.54,-863.83 24909.54,-839.93 24909.54,-839.93"/>
 <polygon fill="black" stroke="black" points="24913.04,-839.93 24909.54,-829.93 24906.04,-839.93 24913.04,-839.93"/>
 </g>
-<!-- [root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.var.name_suffix (expand) -->
+<!-- [root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.var.name_suffix (expand) -->
 <g id="edge512" class="edge">
-<title>[root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.var.name_suffix (expand)</title>
+<title>[root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.var.name_suffix (expand)</title>
 <path fill="none" stroke="black" d="M24765.89,-791.57C24765.89,-788.34 24765.89,-786 24765.89,-786 24765.89,-786 22366.2,-786 22366.2,-786 22366.2,-786 22366.2,-693.7 22366.2,-693.7"/>
 <polygon fill="black" stroke="black" points="22369.7,-693.7 22366.2,-683.7 22362.7,-693.7 22369.7,-693.7"/>
 </g>
-<!-- [root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.local.account_id (expand) -->
+<!-- [root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.local.account_id (expand) -->
 <g id="edge510" class="edge">
-<title>[root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.local.account_id (expand)</title>
+<title>[root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.local.account_id (expand)</title>
 <path fill="none" stroke="black" d="M24840.87,-791.83C24840.87,-791.83 24840.87,-767.43 24840.87,-767.43"/>
 <polygon fill="black" stroke="black" points="24844.37,-767.43 24840.87,-757.43 24837.37,-767.43 24844.37,-767.43"/>
 </g>
-<!-- [root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.local.region (expand) -->
+<!-- [root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.local.region (expand) -->
 <g id="edge511" class="edge">
-<title>[root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.local.region (expand)</title>
+<title>[root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config (expand)&#45;&gt;[root] module.iam.local.region (expand)</title>
 <path fill="none" stroke="black" d="M25096.91,-791.83C25096.91,-791.83 25096.91,-765.95 25096.91,-765.95"/>
 <polygon fill="black" stroke="black" points="25100.41,-765.95 25096.91,-755.95 25093.41,-765.95 25100.41,-765.95"/>
 </g>
@@ -8014,9 +8014,9 @@
 <path fill="none" stroke="black" d="M26277.8,-1524C26132.83,-1524 25884.16,-1524 25884.16,-1524 25884.16,-1524 25884.16,-1458 25884.16,-1458 25884.16,-1458 25728.53,-1458 25728.53,-1458"/>
 <polygon fill="black" stroke="black" points="25728.53,-1454.5 25718.53,-1458 25728.53,-1461.5 25728.53,-1454.5"/>
 </g>
-<!-- [root] module.iam (close)&#45;&gt;[root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config -->
+<!-- [root] module.iam (close)&#45;&gt;[root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config -->
 <g id="edge374" class="edge">
-<title>[root] module.iam (close)&#45;&gt;[root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config</title>
+<title>[root] module.iam (close)&#45;&gt;[root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config</title>
 <path fill="none" stroke="black" d="M26303.85,-1516.95C26303.85,-1489.24 26303.85,-1427 26303.85,-1427 26303.85,-1427 24073.16,-1427 24073.16,-1427 24073.16,-1427 24073.16,-1428.26 24073.16,-1428.26"/>
 <polygon fill="black" stroke="black" points="24069.66,-1428.1 24073.16,-1438.1 24076.66,-1428.1 24069.66,-1428.1"/>
 </g>
@@ -10498,9 +10498,9 @@
 <path fill="none" stroke="black" d="M19509.12,-1756C20551.11,-1756 25298.6,-1756 25298.6,-1756 25298.6,-1756 25298.6,-1487.71 25298.6,-1487.71"/>
 <polygon fill="black" stroke="black" points="25302.1,-1487.71 25298.6,-1477.71 25295.1,-1487.71 25302.1,-1487.71"/>
 </g>
-<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config -->
+<!-- [root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config -->
 <g id="edge1124" class="edge">
-<title>[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config</title>
+<title>[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;] (close)&#45;&gt;[root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config</title>
 <path fill="none" stroke="black" d="M19543.97,-1749C20490.49,-1749 23967.54,-1749 23967.54,-1749 23967.54,-1749 23967.54,-1487.72 23967.54,-1487.72"/>
 <polygon fill="black" stroke="black" points="23971.04,-1487.72 23967.54,-1477.72 23964.04,-1487.72 23971.04,-1487.72"/>
 </g>

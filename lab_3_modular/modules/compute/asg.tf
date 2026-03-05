@@ -31,7 +31,7 @@ resource "aws_autoscaling_group" "rds_app_asg" {
 }
 
 # ----------------------------------------------------------------
-# COMPUTE — Auto Scaling Policy (Target Tracking)
+# COMPUTE — Auto Scaling Policies (Target Tracking)
 # ----------------------------------------------------------------
 
 # ASG Policy

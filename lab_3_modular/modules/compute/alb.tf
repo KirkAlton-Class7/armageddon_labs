@@ -13,7 +13,7 @@ resource "aws_lb" "rds_app_public_alb" {
   enable_deletion_protection = false
 
   # Dynamic Access Logs for ALB
-   dynamic "access_logs" {
+  dynamic "access_logs" {
     for_each = var.alb_log_s3 ? [true] : []
 
     content {
@@ -30,5 +30,3 @@ resource "aws_lb" "rds_app_public_alb" {
     Service     = "post-notes"
   }
 }
-
-#aws_lb.rds_app_public_alb.arn_suffix

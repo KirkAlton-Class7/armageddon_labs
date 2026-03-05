@@ -1,11 +1,14 @@
-# Checks run before resource creation and give errors when input conditions are invalid.
-# Checks should only reference variables and locals, never resources.
+# ----------------------------------------------------------------
+# TOKYO ROOT — Input Validation Checks
+# ----------------------------------------------------------------
+# Checks run before resource creation and raise errors when input
+# conditions are invalid. Checks should reference only variables
+# and locals — never Terraform resources.
 
 # ----------------------------------------------------------------
-# VALIDATION CHECKS — WAF Log Mode
+# VALIDATION — WAF Log Mode
 # ----------------------------------------------------------------
 
-# Check WAF Log Mode Validation
 check "waf_log_mode_validation_check" {
   assert {
     condition     = local.waf_log_mode_valid

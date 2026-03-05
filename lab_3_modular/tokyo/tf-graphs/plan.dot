@@ -102,8 +102,8 @@ digraph {
 		"[root] module.iam.aws_iam_policy.lambda_firehose_network_telemetry_logs (expand)" [label = "module.iam.aws_iam_policy.lambda_firehose_network_telemetry_logs", shape = "box"]
 		"[root] module.iam.aws_iam_policy.rds_enhanced_monitoring_role" [label = "module.iam.aws_iam_policy.rds_enhanced_monitoring_role", shape = "box"]
 		"[root] module.iam.aws_iam_policy.rds_enhanced_monitoring_role (expand)" [label = "module.iam.aws_iam_policy.rds_enhanced_monitoring_role", shape = "box"]
-		"[root] module.iam.aws_iam_policy.read_cloudwatch_agent_config" [label = "module.iam.aws_iam_policy.read_cloudwatch_agent_config", shape = "box"]
-		"[root] module.iam.aws_iam_policy.read_cloudwatch_agent_config (expand)" [label = "module.iam.aws_iam_policy.read_cloudwatch_agent_config", shape = "box"]
+		"[root] module.iam.aws_iam_policy.ec2_read_cloudwatch_agent_config" [label = "module.iam.aws_iam_policy.ec2_read_cloudwatch_agent_config", shape = "box"]
+		"[root] module.iam.aws_iam_policy.ec2_read_cloudwatch_agent_config (expand)" [label = "module.iam.aws_iam_policy.ec2_read_cloudwatch_agent_config", shape = "box"]
 		"[root] module.iam.aws_iam_policy.read_db_host_parameter" [label = "module.iam.aws_iam_policy.read_db_host_parameter", shape = "box"]
 		"[root] module.iam.aws_iam_policy.read_db_host_parameter (expand)" [label = "module.iam.aws_iam_policy.read_db_host_parameter", shape = "box"]
 		"[root] module.iam.aws_iam_policy.read_db_name_parameter" [label = "module.iam.aws_iam_policy.read_db_name_parameter", shape = "box"]
@@ -130,8 +130,8 @@ digraph {
 		"[root] module.iam.aws_iam_role_policy_attachment.attach_firehose_network_telemetry_logs (expand)" [label = "module.iam.aws_iam_role_policy_attachment.attach_firehose_network_telemetry_logs", shape = "box"]
 		"[root] module.iam.aws_iam_role_policy_attachment.attach_rds_enhanced_monitoring_policy" [label = "module.iam.aws_iam_role_policy_attachment.attach_rds_enhanced_monitoring_policy", shape = "box"]
 		"[root] module.iam.aws_iam_role_policy_attachment.attach_rds_enhanced_monitoring_policy (expand)" [label = "module.iam.aws_iam_role_policy_attachment.attach_rds_enhanced_monitoring_policy", shape = "box"]
-		"[root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config" [label = "module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config", shape = "box"]
-		"[root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand)" [label = "module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config", shape = "box"]
+		"[root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config" [label = "module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config", shape = "box"]
+		"[root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config (expand)" [label = "module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config", shape = "box"]
 		"[root] module.iam.aws_iam_role_policy_attachment.attach_read_db_host_parameter" [label = "module.iam.aws_iam_role_policy_attachment.attach_read_db_host_parameter", shape = "box"]
 		"[root] module.iam.aws_iam_role_policy_attachment.attach_read_db_host_parameter (expand)" [label = "module.iam.aws_iam_role_policy_attachment.attach_read_db_host_parameter", shape = "box"]
 		"[root] module.iam.aws_iam_role_policy_attachment.attach_read_db_name_parameter" [label = "module.iam.aws_iam_role_policy_attachment.attach_read_db_name_parameter", shape = "box"]
@@ -157,8 +157,8 @@ digraph {
 		"[root] module.iam.data.aws_iam_policy_document.rds_app_assume_role (expand)" [label = "module.iam.data.aws_iam_policy_document.rds_app_assume_role", shape = "box"]
 		"[root] module.iam.data.aws_iam_policy_document.rds_enhanced_monitoring_assume_role (expand)" [label = "module.iam.data.aws_iam_policy_document.rds_enhanced_monitoring_assume_role", shape = "box"]
 		"[root] module.iam.data.aws_iam_policy_document.rds_enhanced_monitoring_role (expand)" [label = "module.iam.data.aws_iam_policy_document.rds_enhanced_monitoring_role", shape = "box"]
-		"[root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config" [label = "module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config", shape = "box"]
-		"[root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config (expand)" [label = "module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config", shape = "box"]
+		"[root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config" [label = "module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config", shape = "box"]
+		"[root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config (expand)" [label = "module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config", shape = "box"]
 		"[root] module.iam.data.aws_iam_policy_document.read_db_host_parameter" [label = "module.iam.data.aws_iam_policy_document.read_db_host_parameter", shape = "box"]
 		"[root] module.iam.data.aws_iam_policy_document.read_db_host_parameter (expand)" [label = "module.iam.data.aws_iam_policy_document.read_db_host_parameter", shape = "box"]
 		"[root] module.iam.data.aws_iam_policy_document.read_db_name_parameter" [label = "module.iam.data.aws_iam_policy_document.read_db_name_parameter", shape = "box"]
@@ -732,7 +732,7 @@ digraph {
 		"[root] module.iam (close)" -> "[root] module.iam.aws_iam_role_policy_attachment.attach_ec2_cloudwatch_agent_role"
 		"[root] module.iam (close)" -> "[root] module.iam.aws_iam_role_policy_attachment.attach_firehose_network_telemetry_logs (expand)"
 		"[root] module.iam (close)" -> "[root] module.iam.aws_iam_role_policy_attachment.attach_rds_enhanced_monitoring_policy"
-		"[root] module.iam (close)" -> "[root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config"
+		"[root] module.iam (close)" -> "[root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config"
 		"[root] module.iam (close)" -> "[root] module.iam.aws_iam_role_policy_attachment.attach_read_db_host_parameter"
 		"[root] module.iam (close)" -> "[root] module.iam.aws_iam_role_policy_attachment.attach_read_db_name_parameter"
 		"[root] module.iam (close)" -> "[root] module.iam.aws_iam_role_policy_attachment.attach_read_db_port_parameter"
@@ -779,8 +779,8 @@ digraph {
 		"[root] module.iam.aws_iam_policy.rds_enhanced_monitoring_role (expand)" -> "[root] module.iam.var.context (expand)"
 		"[root] module.iam.aws_iam_policy.rds_enhanced_monitoring_role (expand)" -> "[root] module.iam.var.name_suffix (expand)"
 		"[root] module.iam.aws_iam_policy.rds_enhanced_monitoring_role" -> "[root] module.iam.aws_iam_policy.rds_enhanced_monitoring_role (expand)"
-		"[root] module.iam.aws_iam_policy.read_cloudwatch_agent_config (expand)" -> "[root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config"
-		"[root] module.iam.aws_iam_policy.read_cloudwatch_agent_config" -> "[root] module.iam.aws_iam_policy.read_cloudwatch_agent_config (expand)"
+		"[root] module.iam.aws_iam_policy.ec2_read_cloudwatch_agent_config (expand)" -> "[root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config"
+		"[root] module.iam.aws_iam_policy.ec2_read_cloudwatch_agent_config" -> "[root] module.iam.aws_iam_policy.ec2_read_cloudwatch_agent_config (expand)"
 		"[root] module.iam.aws_iam_policy.read_db_host_parameter (expand)" -> "[root] module.iam.data.aws_iam_policy_document.read_db_host_parameter"
 		"[root] module.iam.aws_iam_policy.read_db_host_parameter" -> "[root] module.iam.aws_iam_policy.read_db_host_parameter (expand)"
 		"[root] module.iam.aws_iam_policy.read_db_name_parameter (expand)" -> "[root] module.iam.data.aws_iam_policy_document.read_db_name_parameter"
@@ -822,9 +822,9 @@ digraph {
 		"[root] module.iam.aws_iam_role_policy_attachment.attach_rds_enhanced_monitoring_policy (expand)" -> "[root] module.iam.aws_iam_policy.rds_enhanced_monitoring_role"
 		"[root] module.iam.aws_iam_role_policy_attachment.attach_rds_enhanced_monitoring_policy (expand)" -> "[root] module.iam.aws_iam_role.rds_enhanced_monitoring_role"
 		"[root] module.iam.aws_iam_role_policy_attachment.attach_rds_enhanced_monitoring_policy" -> "[root] module.iam.aws_iam_role_policy_attachment.attach_rds_enhanced_monitoring_policy (expand)"
-		"[root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand)" -> "[root] module.iam.aws_iam_policy.read_cloudwatch_agent_config"
-		"[root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand)" -> "[root] module.iam.aws_iam_role.rds_app"
-		"[root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config" -> "[root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config (expand)"
+		"[root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config (expand)" -> "[root] module.iam.aws_iam_policy.ec2_read_cloudwatch_agent_config"
+		"[root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config (expand)" -> "[root] module.iam.aws_iam_role.rds_app"
+		"[root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config" -> "[root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config (expand)"
 		"[root] module.iam.aws_iam_role_policy_attachment.attach_read_db_host_parameter (expand)" -> "[root] module.iam.aws_iam_policy.read_db_host_parameter"
 		"[root] module.iam.aws_iam_role_policy_attachment.attach_read_db_host_parameter (expand)" -> "[root] module.iam.aws_iam_role.rds_app"
 		"[root] module.iam.aws_iam_role_policy_attachment.attach_read_db_host_parameter" -> "[root] module.iam.aws_iam_role_policy_attachment.attach_read_db_host_parameter (expand)"
@@ -868,10 +868,10 @@ digraph {
 		"[root] module.iam.data.aws_iam_policy_document.rds_enhanced_monitoring_assume_role (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
 		"[root] module.iam.data.aws_iam_policy_document.rds_enhanced_monitoring_role (expand)" -> "[root] module.iam (expand)"
 		"[root] module.iam.data.aws_iam_policy_document.rds_enhanced_monitoring_role (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
-		"[root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config (expand)" -> "[root] module.iam.local.account_id (expand)"
-		"[root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config (expand)" -> "[root] module.iam.local.region (expand)"
-		"[root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config (expand)" -> "[root] module.iam.var.name_suffix (expand)"
-		"[root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config" -> "[root] module.iam.data.aws_iam_policy_document.read_cloudwatch_agent_config (expand)"
+		"[root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config (expand)" -> "[root] module.iam.local.account_id (expand)"
+		"[root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config (expand)" -> "[root] module.iam.local.region (expand)"
+		"[root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config (expand)" -> "[root] module.iam.var.name_suffix (expand)"
+		"[root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config" -> "[root] module.iam.data.aws_iam_policy_document.ec2_read_cloudwatch_agent_config (expand)"
 		"[root] module.iam.data.aws_iam_policy_document.read_db_host_parameter (expand)" -> "[root] module.iam.local.region (expand)"
 		"[root] module.iam.data.aws_iam_policy_document.read_db_host_parameter (expand)" -> "[root] module.iam.var.account_id (expand)"
 		"[root] module.iam.data.aws_iam_policy_document.read_db_host_parameter (expand)" -> "[root] module.iam.var.name_suffix (expand)"
@@ -1482,7 +1482,7 @@ digraph {
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] module.iam.aws_iam_role_policy_attachment.attach_ec2_cloudwatch_agent_role"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] module.iam.aws_iam_role_policy_attachment.attach_firehose_network_telemetry_logs (expand)"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] module.iam.aws_iam_role_policy_attachment.attach_rds_enhanced_monitoring_policy"
-		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] module.iam.aws_iam_role_policy_attachment.attach_read_cloudwatch_agent_config"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] module.iam.aws_iam_role_policy_attachment.attach_ec2_read_cloudwatch_agent_config"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] module.iam.aws_iam_role_policy_attachment.attach_read_db_host_parameter"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] module.iam.aws_iam_role_policy_attachment.attach_read_db_name_parameter"
 		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] module.iam.aws_iam_role_policy_attachment.attach_read_db_port_parameter"

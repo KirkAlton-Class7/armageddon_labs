@@ -1,17 +1,13 @@
-# =============================================================================
-# FOUNDATION — Remote State Backend Configuration
-# =============================================================================
-
 # ----------------------------------------------------------------
-# S3 Backend
+# TOKYO ROOT — Terraform Backend Configuration
 # ----------------------------------------------------------------
-# Backend configuration to sore the state file remotely.
-# The bucket can be configured in a different region than the Terraform deployment.
+# Remote state backend configuration.
+# The backend bucket may exist in a different region than the infrastructure.
 
 # terraform {
 #   backend "s3" {
 #     bucket = "kirkdevsecops-terraform-state"
-#     key = "class7/terraform/dev/quick-vpc/terraform.tfstate"
+#     key    = "class7/terraform/dev/quick-vpc/terraform.tfstate"
 #     region = "us-west-2"
 #   }
 # }

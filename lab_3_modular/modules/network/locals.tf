@@ -1,8 +1,11 @@
+# ----------------------------------------------------------------
+# NETWORKING — LOCALS
+# ----------------------------------------------------------------
+
 locals {
 
   # Accessibility Zones
 
-  # Network
   # -------------------------------------------------------------------
   # Public Subnets
   # -------------------------------------------------------------------
@@ -54,13 +57,14 @@ locals {
   # -------------------------------------------------------------------
   # Shared Network Tags
   # -------------------------------------------------------------------
+
   # Shared tags for public subnets and resources
   public_subnet_tags = {
     Exposure = "public"
     Egress   = "igw"
   }
 
-  # Shared tags for public subnets
+  # Shared tags for private application subnets
   private_app_subnet_tags = {
     Exposure = "private"
     Egress   = "nat"
@@ -68,11 +72,11 @@ locals {
 
   # Shared tags for private data subnets and resources
   private_data_subnet_tags = {
-    Exposure  = "internal-only"
-    Egress    = "none"
+    Exposure = "internal-only"
+    Egress   = "none"
   }
 
-  # Shared tags for vpc endpoints
+  # Shared tags for VPC endpoints
   vpc_endpoint_tags = {
     Exposure  = "egress-only"
     Egress    = "vpc-endpoint"
@@ -81,7 +85,7 @@ locals {
 }
 
 # ----------------------------------------------------------------
-# DEMONSTRATION LOCALS (Not used in deployment)
+# NETWORKING — DEMONSTRATION LOCALS (Not used in deployment)
 # ----------------------------------------------------------------
 
 locals {

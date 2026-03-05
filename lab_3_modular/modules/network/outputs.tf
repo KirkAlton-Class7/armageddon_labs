@@ -1,7 +1,7 @@
-# -------------------------------------------------------------------
-# CONTRACT OUTPUTS
+# ----------------------------------------------------------------
+# OUTPUTS — Networking (Contract)
+# ----------------------------------------------------------------
 # Values consumed by other modules. Defines the dependency contract.
-# -------------------------------------------------------------------
 
 # VPC CIDR - Contract + Operator
 output "vpc_cidr" {
@@ -33,31 +33,28 @@ output "private_data_subnets" {
   value       = local.private_data_subnet_ids
 }
 
-
-
-  # Shared tags for public subnets and resources
+# Shared tags for public subnets and resources
 output "public_subnet_tags" {
   description = "Tags for public subnets and resources"
-  value = local.public_subnet_tags
+  value       = local.public_subnet_tags
 }
 
-  # Shared tags for private app subnets and resources
+# Shared tags for private app subnets and resources
 output "private_app_subnet_tags" {
   description = "Tags for private app subnets and resources"
-  value = local.private_app_subnet_tags
+  value       = local.private_app_subnet_tags
 }
 
-  # Shared tags for private subnets and resources
+# Shared tags for private subnets and resources
 output "private_subnet_tags" {
   description = "Tags for private subnets and resources"
-  value = local.private_data_subnet_tags
+  value       = local.private_data_subnet_tags
 }
 
-
-# -------------------------------------------------------------------
-# OPERATOR OUTPUTS (Observability)
+# ----------------------------------------------------------------
+# OUTPUTS — Networking (Operator / Observability)
+# ----------------------------------------------------------------
 # For human visibility. Not used for modules.
-# -------------------------------------------------------------------
 
 # VPC Name
 output "vpc_name" {
@@ -65,10 +62,10 @@ output "vpc_name" {
   value       = aws_vpc.main.tags["Name"]
 }
 
-
 # ----------------------------------------------------------------
-# DEMONSTRATION OUTPUTS (Not used in deployment)
+# OUTPUTS — Networking (Demonstration)
 # ----------------------------------------------------------------
+# Not used in deployment.
 
 # Demo Owner
 output "demo_owner_normalized" {
@@ -76,13 +73,9 @@ output "demo_owner_normalized" {
   value       = local.demo_owner
 }
 
-
-
-
-
-
-
-
+# ----------------------------------------------------------------
+# OUTPUTS — Networking (Subnet References)
+# ----------------------------------------------------------------
 
 output "public_subnet_ids" {
   value = local.public_subnet_ids
@@ -96,6 +89,9 @@ output "private_data_subnet_ids" {
   value = local.private_data_subnet_ids
 }
 
+# ----------------------------------------------------------------
+# OUTPUTS — Networking (Endpoint Readiness)
+# ----------------------------------------------------------------
 
 output "ec2_vpc_endpoints_ready" {
   value = [
@@ -108,10 +104,9 @@ output "ec2_vpc_endpoints_ready" {
   ]
 }
 
-
 # variable "endpoints_ready" {
 #   description = "Ensures VPC endpoints exist before compute launches"
 #   type        = list(string)
 # }
 
-#ec2_vpc_endpoints_ready        = module.network.ec2_vpc_endpoints_ready
+# ec2_vpc_endpoints_ready = module.network.ec2_vpc_endpoints_ready

@@ -1,0 +1,102 @@
+
+
+
+locals {
+  # -------------------------------------------------------------------
+  # Core Identity, Deployment Context, and Naming
+  # -------------------------------------------------------------------
+
+  # Account ID
+  account_id = data.aws_caller_identity.current.account_id
+
+  # Availability Zones
+  azs = slice(data.aws_availability_zones.available.names, 0, 3)
+
+  # # Environment
+  # app    = var.context.app
+  # env    = var.context.env
+  # tags   = var.context.tags
+  # region = var.context.region
+
+  # Normalized Environment Names
+  normalized_app = lower(var.app) # Normalization defines identity here, so transformation belongs in root.
+  normalized_env = lower(var.env)
+
+  # Base Tags
+  base_tags = {
+    Region      = var.region
+    Application = local.normalized_app
+    Environment = local.normalized_env
+  }
+
+  # Deployment Context
+  context = {
+    region = var.region
+    app    = local.normalized_app
+    env    = local.normalized_env
+    tags   = local.base_tags
+  }
+
+  # Naming helpers
+  name_prefix   = "${local.context.app}-${local.context.env}"
+  name_suffix   = lower(random_string.suffix.result) # Root level normalization; preferred only if normalization defines deployment identity. 
+  bucket_suffix = lower(random_id.bucket_suffix.hex)
+
+
+  # Normalized DB Engine
+  normalized_db_engine = lower(var.db_engine)
+
+
+
+# Your work proves that you belong there. Your results [and] your outcomes prove that you belong . . . and your mindset must also prove it. Don't ever let anybody make you feel as if you don't belong.
+
+
+  # DNS Context - Route53 Naming
+    dns_context = {
+    root_domain = var.root_domain
+    app_subdomain    = local.normalized_app
+    fqdn    = "${local.normalized_app}.${var.root_domain}"
+  }
+
+  # Edge Authentication Header Name
+  edge_auth_header_name = "X-${local.name_prefix}-edge-auth-v1" # Cycle versions as needed
+
+
+
+
+
+# -------------------------------------------------------------------
+  # WAF Logging Configuration
+  # -------------------------------------------------------------------
+  # WAF Log Mode Definitions
+  waf_log_mode_map = {
+    cloudwatch = {
+      create_direct_resources   = true
+      create_firehose_resources = false
+      target                    = "cloudwatch"
+    }
+
+    firehose = {
+      create_direct_resources   = false
+      create_firehose_resources = true
+      target                    = "firehose"
+    }
+
+    s3 = {
+      create_direct_resources   = true
+      create_firehose_resources = false
+      target                    = "s3"
+    }
+  }
+
+  # WAF Log Mode Selection
+  waf_log_mode = local.waf_log_mode_map[var.waf_log_destination]
+
+  # -------------------------------------------------------------------
+  # Validation & Safety Logic
+  # -------------------------------------------------------------------
+  # WAF Log Mode Validation Logic
+  # This will be false if both log modes are true.
+  # A check against this value gives an error to prevent issues on apply.
+  waf_log_mode_valid = (local.waf_log_mode.create_direct_resources && !local.waf_log_mode.create_firehose_resources) || (!local.waf_log_mode.create_direct_resources && local.waf_log_mode.create_firehose_resources)  
+}

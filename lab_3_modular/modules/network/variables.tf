@@ -1,13 +1,6 @@
 # ----------------------------------------------------------------
-# INPUT VARIABLES — Networking
+# NETWORKING — INPUT VARIABLES
 # ----------------------------------------------------------------
-
-
-# VPC ID
-# variable "vpc_id" {
-#   type        = string
-#   description = "VPC ID"
-# }
 
 variable "azs" {
   type = list(string)
@@ -20,23 +13,19 @@ variable "account_id" {
 }
 
 variable "context" {
-  type = object(
-    {
-      region = string
-      app    = string
-      env    = string
-      tags   = map(string)
-    }
-  )
+  type = object({
+    region = string
+    app    = string
+    env    = string
+    tags   = map(string)
+  })
 }
-
 
 # Input VPC CIDR Block
 variable "vpc_cidr" {
   type        = string
   description = "CIDR block for the VPC"
 }
-
 
 # Name Prefix
 variable "name_prefix" {
@@ -53,18 +42,18 @@ variable "name_suffix" {
 #   type = string
 # }
 
-
 variable "vpc_endpoints_sg_id" {
   description = "Security Group ID for VPC endpoints"
   type        = string
 }
 
 # ----------------------------------------------------------------
-# INPUT VARIABLES — Demonstration (not used in deployment)
+# NETWORKING — INPUT VARIABLES (Demonstration)
 # ----------------------------------------------------------------
+# Not used in deployment.
 
 # Demo Owner
-variable "demo_owner" { # Module variable
+variable "demo_owner" {
   type        = string
   description = "Demonstration variable received from root module"
 }

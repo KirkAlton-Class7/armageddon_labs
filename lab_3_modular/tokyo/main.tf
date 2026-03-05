@@ -1,154 +1,173 @@
-module "network" {
-  source      = "../modules/network"
+# ----------------------------------------------------------------
+# MODULE — NETWORK
+# ----------------------------------------------------------------
 
-  # Variables - Identity
+module "network" {
+  source = "../modules/network"
+
+  # Identity and Naming
   context     = local.context
   account_id  = local.account_id
   name_prefix = local.name_prefix
   name_suffix = local.name_suffix
 
-  # Variables - VPC
-  vpc_cidr    = var.vpc_cidr
+  # VPC Configuration
+  vpc_cidr = var.vpc_cidr
+  azs      = local.azs
 
-  # Variables - DEMO OWNER (not used for deployment)
-  demo_owner  = var.demo_owner # DEMO: Root variable (var.demo_owner) is passed into module variable (demo_owner)
-
-  azs = local.azs
-
+  # Security Integration
   vpc_endpoints_sg_id = module.security.vpc_endpoints_sg_id
+
+  # Demo Metadata (Not used for deployment)
+  demo_owner = var.demo_owner #DEMO: Root variable (var.demo_owner) is passed into module variable (demo_owner)
 }
 
+# ----------------------------------------------------------------
+# MODULE — SECURITY
+# ----------------------------------------------------------------
+
 module "security" {
-  source      = "../modules/security"
-  
+  source = "../modules/security"
+
   # Providers
   providers = {
     aws.global = aws.global
   }
 
-  # Variables - Identity
+  # Identity and Naming
   context     = local.context
   account_id  = local.account_id
   name_prefix = local.name_prefix
   name_suffix = local.name_suffix
-  
-  # Variables - VPC
-  vpc_cidr    = module.network.vpc_cidr
-  vpc_id      = module.network.vpc_id
 
-  waf_log_retention_days = var.waf_log_retention_days
+  # VPC Context
+  vpc_cidr = module.network.vpc_cidr
+  vpc_id   = module.network.vpc_id
 
-  enable_waf_sampled_requests_only = var.enable_waf_sampled_requests_only
-
+  # WAF Logging Configuration
+  waf_log_retention_days             = var.waf_log_retention_days
+  enable_waf_sampled_requests_only   = var.enable_waf_sampled_requests_only
   enable_direct_service_log_delivery = var.enable_direct_service_log_delivery
 
-  waf_log_mode = local.waf_log_mode
-
+  waf_log_mode            = local.waf_log_mode
   waf_log_destination_arn = module.observability.waf_log_destination_arn
 }
+
+# ----------------------------------------------------------------
+# MODULE — IAM
+# ----------------------------------------------------------------
+
 module "iam" {
-  source                             = "../modules/iam"
+  source = "../modules/iam"
 
-  # Variables - Identity
-  context                            = local.context
-  account_id                         = local.account_id
-  name_prefix                        = local.name_prefix
-  name_suffix                        = local.name_suffix
-  #bucket_suffix = random_id.bucket_suffix.hex
+  # Identity and Naming
+  context     = local.context
+  account_id  = local.account_id
+  name_prefix = local.name_prefix
+  name_suffix = local.name_suffix
 
-  # Variables - WAF Log Delivery Toggle
+  # Logging Permissions
   enable_direct_service_log_delivery = module.security.enable_direct_service_log_delivery
+  waf_log_mode                       = local.waf_log_mode
 
-  db_secret_arn = module.database.db_secret_arn
-
-  waf_log_mode = local.waf_log_mode
-  vpc_flow_log_group_arn = module.observability.vpc_flow_log_group_arn
-  waf_firehose_log_group_arn = module.observability.waf_firehose_log_group_arn
+  # Log Destinations
+  vpc_flow_log_group_arn      = module.observability.vpc_flow_log_group_arn
+  waf_firehose_log_group_arn  = module.observability.waf_firehose_log_group_arn
   waf_firehose_log_bucket_arn = module.observability.waf_firehose_logs_bucket_arn
-  waf_direct_log_group_arn = module.observability.waf_direct_log_group_arn
-}
-module "database" {
-  source             = "../modules/database"
+  waf_direct_log_group_arn    = module.observability.waf_direct_log_group_arn
 
-  # Variables - Identity
-  context            = local.context
-  name_prefix        = local.name_prefix
-  name_suffix        = local.name_suffix
-
-  # Variables - Security Groups
-  private_db_sg_id  = module.security.private_db_sg_id
-
-  # Variables - Database Access
-  db_engine = local.normalized_db_engine
-  db_username = var.db_username
-
-  # Variables - Subnet IDs
-  public_subnets       = module.network.public_subnet_ids
-  private_app_subnets  = module.network.private_app_subnet_ids
-  private_data_subnets = module.network.private_data_subnet_ids
-  
-  # Variables - Subnet & Resource Tags
-  public_subnet_tags = module.network.public_subnet_tags
-  private_app_subnet_tags = module.network.private_app_subnet_tags
-  private_data_subnet_tags = module.network.private_subnet_tags
-
+  # Secrets Access
   db_secret_arn = module.database.db_secret_arn
-
-  rds_enhanced_monitoring_role_arn = module.iam.rds_enhanced_monitoring_role_arn
-
-  rds_failure_alert_topic_arn                     = module.observability.rds_failure_alert_topic_arn
-
-
 }
 
-module "compute" {
-  source = "../modules/compute"
-  
-  # Variables - Identity
+# ----------------------------------------------------------------
+# MODULE — DATABASE
+# ----------------------------------------------------------------
+
+module "database" {
+  source = "../modules/database"
+
+  # Identity and Naming
   context     = local.context
   name_prefix = local.name_prefix
   name_suffix = local.name_suffix
 
-  # Variables - VPC
-  vpc_id = module.network.vpc_id
-  # Variables - Security
-  rds_app_asg_sg_id = module.security.rds_app_asg_sg_id
+  # Security Groups
+  private_db_sg_id = module.security.private_db_sg_id
 
-  # Variables - IAM
- 
+  # Database Configuration
+  db_engine   = local.normalized_db_engine
+  db_username = var.db_username
 
-  # Variables - ALB Access Logs Prefix
-  alb_access_logs_prefix = var.alb_access_logs_prefix
-  
-  # Variables - RDS Secrets
+  # Network Subnets
+  public_subnets       = module.network.public_subnet_ids
+  private_app_subnets  = module.network.private_app_subnet_ids
+  private_data_subnets = module.network.private_data_subnet_ids
+
+  # Subnet Metadata
+  public_subnet_tags       = module.network.public_subnet_tags
+  private_app_subnet_tags  = module.network.private_app_subnet_tags
+  private_data_subnet_tags = module.network.private_subnet_tags
+
+  # Monitoring and Alerting
+  rds_enhanced_monitoring_role_arn = module.iam.rds_enhanced_monitoring_role_arn
+  rds_failure_alert_topic_arn      = module.observability.rds_failure_alert_topic_arn
+
+  # Secrets
   db_secret_arn = module.database.db_secret_arn
-  
-  # Variables - Subnet IDs
-  public_subnet_ids  = module.network.public_subnet_ids
+}
+
+# ----------------------------------------------------------------
+# MODULE — COMPUTE
+# ----------------------------------------------------------------
+
+module "compute" {
+  source = "../modules/compute"
+
+  # Identity and Naming
+  context     = local.context
+  name_prefix = local.name_prefix
+  name_suffix = local.name_suffix
+
+  # VPC Context
+  vpc_id = module.network.vpc_id
+
+  # Security Groups
+  rds_app_asg_sg_id = module.security.rds_app_asg_sg_id
+  alb_origin_sg_id  = module.security.alb_origin_sg_id
+
+  # IAM Roles
+  iam_role_rds_app_name         = module.iam.rds_app_role_name
+  rds_app_instance_profile_name = module.iam.rds_app_instance_profile_name
+
+  # Network Subnets
+  public_subnet_ids      = module.network.public_subnet_ids
   private_app_subnet_ids = module.network.private_app_subnet_ids
 
-  # Variables - Subnet & Resource Tags
-  public_subnet_tags = module.network.public_subnet_tags
+  # Subnet Metadata
+  public_subnet_tags      = module.network.public_subnet_tags
   private_app_subnet_tags = module.network.private_app_subnet_tags
-  
+
+  # Application Secrets
+  db_secret_arn = module.database.db_secret_arn
+
+  # ALB Logging
+  alb_access_logs_prefix = var.alb_access_logs_prefix
+  alb_log_s3             = var.alb_log_s3
+  alb_logs_bucket_id     = module.observability.alb_logs_bucket_id
+
+  # Edge Integration
   edge_auth_header_name = local.edge_auth_header_name
+  edge_auth_value       = module.edge_dns_cdn.edge_auth_value
+  rds_app_cert_arn      = module.edge_dns_cdn.rds_app_cert_arn
 
-  alb_log_s3 = var.alb_log_s3
-
-  iam_role_rds_app_name = module.iam.rds_app_role_name
-
-  rds_app_instance_profile_name = module.iam.rds_app_instance_profile_name
-  
-  alb_origin_sg_id = module.security.alb_origin_sg_id
-
-  alb_logs_bucket_id = module.observability.alb_logs_bucket_id
-
-  rds_app_cert_arn = module.edge_dns_cdn.rds_app_cert_arn
-
+  # Network Dependencies
   ec2_vpc_endpoints_ready = module.network.ec2_vpc_endpoints_ready
-
-  edge_auth_value = module.edge_dns_cdn.edge_auth_value
 }
+
+# ----------------------------------------------------------------
+# MODULE — EDGE / DNS / CDN
+# ----------------------------------------------------------------
 
 module "edge_dns_cdn" {
   source = "../modules/edge_dns_cdn"
@@ -156,58 +175,67 @@ module "edge_dns_cdn" {
   # Providers
   providers = {
     aws.global = aws.global
-    }
+  }
 
-  # Variables - Identity
+  # Identity and Naming
   context     = local.context
   name_prefix = local.name_prefix
   name_suffix = local.name_suffix
 
+  # DNS Context
   dns_context = local.dns_context
 
+  # Route53 Management
   manage_route53_in_terraform = var.manage_route53_in_terraform
+  route53_private_zone        = var.route53_private_zone
 
-  route53_private_zone = var.route53_private_zone
-
+  # Edge Security
   edge_auth_header_name = local.edge_auth_header_name
 
+  # Origin Integration
   rds_app_public_alb_dns_name = module.compute.rds_app_public_alb_dns_name
-  rds_app_public_alb_zone_id = module.compute.rds_app_public_alb_zone_id
+  rds_app_public_alb_zone_id  = module.compute.rds_app_public_alb_zone_id
 }
+
+# ----------------------------------------------------------------
+# MODULE — OBSERVABILITY
+# ----------------------------------------------------------------
+
 module "observability" {
   source = "../modules/observability"
+
   # Providers
   providers = {
     aws.global = aws.global
-    }
+  }
 
-  # Variables - Identity
-  context     = local.context
-  account_id  = local.account_id
-
-  name_prefix = local.name_prefix
-  name_suffix = local.name_suffix
+  # Identity and Naming
+  context       = local.context
+  account_id    = local.account_id
+  name_prefix   = local.name_prefix
+  name_suffix   = local.name_suffix
   bucket_suffix = local.bucket_suffix
 
-  vpc_id      = module.network.vpc_id
+  # Network Context
+  vpc_id = module.network.vpc_id
 
+  # ALB Logging
   alb_access_logs_prefix = var.alb_access_logs_prefix
+  alb_log_s3             = var.alb_log_s3
 
-  alb_log_s3 = var.alb_log_s3
-
+  # Database Monitoring
   db_identifier = module.database.db_identifier
 
+  # Compute Metrics
   rds_app_public_alb_arn_suffix = module.compute.rds_app_public_alb_arn_suffix
+  rds_app_asg_tg_arn_suffix     = module.compute.rds_app_asg_tg_arn_suffix
+  rds_app_asg_name              = module.compute.rds_app_asg_name
 
-  rds_app_asg_tg_arn_suffix = module.compute.rds_app_asg_tg_arn_suffix
+  # WAF Integration
+  waf_log_mode     = local.waf_log_mode
+  rds_app_waf_name = module.security.rds_app_waf_name
+  rds_app_waf_arn  = module.security.rds_app_waf_arn
 
-  waf_log_mode = local.waf_log_mode
-
+  # IAM Integration
   vpc_flow_log_role_arn = module.iam.vpc_flow_log_role_arn
-
-  rds_app_asg_name             = module.compute.rds_app_asg_name
-  
-  rds_app_waf_name     = module.security.rds_app_waf_name
-
-  rds_app_waf_arn      = module.security.rds_app_waf_arn
 }
