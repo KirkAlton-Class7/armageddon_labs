@@ -1,0 +1,14 @@
+# ----------------------------------------------------------------
+# GLOBAL BACKEND — Terraform Backend Configuration
+# ----------------------------------------------------------------
+# Uses platform-managed bootstrap infrastructure (S3 backend and DynamoDB locking).
+
+terraform {
+  backend "s3" {
+    bucket = "kirkdevsecops-terraform-state" 
+    key    = "rds-app/dev/global/terraform.tfstate" # Update app and env before deploying: {app}/{env}/global/terraform.tfstate
+    region = "us-west-2"
+    dynamodb_table = "terraform-state-locks"
+    encrypt = true # Always explicitly declare encryption, even if already applied on platform.
+  }
+}
