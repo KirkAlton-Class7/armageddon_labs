@@ -39,18 +39,6 @@ variable "vpc_cidr" {
 # TOKYO VARIABLES — Route53 Management
 # ----------------------------------------------------------------
 
-variable "manage_route53_in_terraform" {
-  description = "Manage Route53 hosted zone and records in Terraform."
-  type        = bool
-  default     = false
-}
-
-variable "route53_private_zone" {
-  description = "Whether the Route53 hosted zone is private."
-  type        = bool
-  default     = false
-}
-
 variable "root_domain" {
   description = "Root DNS domain."
   type        = string
@@ -112,16 +100,6 @@ variable "enable_direct_service_log_delivery" {
 }
 
 # ----------------------------------------------------------------
-# TOKYO VARIABLES — Demonstration
-# ----------------------------------------------------------------
-
-variable "demo_owner" {
-  description = "Demo variable for module normalization patterns."
-  type        = string
-  default     = "DevSecOpsTeam"
-}
-
-# ----------------------------------------------------------------
 # TOKYO VARIABLES — ALB Logging
 # ----------------------------------------------------------------
 
@@ -135,4 +113,14 @@ variable "alb_log_s3" {
   description = "Enable ALB access logging to S3."
   type        = bool
   default     = true
+}
+
+# ----------------------------------------------------------------
+# TOKYO VARIABLES — Demonstration
+# ----------------------------------------------------------------
+
+variable "demo_owner" {
+  description = "Demo variable for module normalization patterns."
+  type        = string
+  default     = "DevSecOpsTeam"
 }

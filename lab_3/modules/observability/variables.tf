@@ -123,12 +123,12 @@ variable "rds_app_asg_name" {
 # OBSERVABILITY VARIABLES — WAF Monitoring Inputs
 # ----------------------------------------------------------------
 
-variable "rds_app_waf_name" {
-  description = "Name of the RDS app WAF web ACL."
-  type        = string
-}
+# variable "rds_app_waf_name" {
+#   description = "Name of the RDS app WAF web ACL."
+#   type        = string
+# }
 
-variable "rds_app_waf_arn" {
-  description = "ARN of the RDS app WAF web ACL."
-  type        = string
-}
+# variable "rds_app_waf_arn" {
+#   description = "ARN of the RDS app WAF web ACL."
+#   type        = string
+# }

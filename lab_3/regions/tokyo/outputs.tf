@@ -13,6 +13,39 @@ output "application_context" {
 }
 
 # ----------------------------------------------------------------
+# TOKYO OUTPUT — CloudFront Origin Authentication Secret
+# ----------------------------------------------------------------
+
+output "edge_auth_value" {
+  description = "Secret header value used to authenticate CloudFront requests to the ALB origin."
+  value = random_password.edge_auth_value.result
+  sensitive = true
+}
+
+# ----------------------------------------------------------------
+# TOKYO OUTPUTS — ALB Origin (Regional)
+# ----------------------------------------------------------------
+
+output "rds_app_public_alb_dns_name" {
+  description = "DNS name of the public ALB used as the CloudFront origin."
+  value       = module.compute.rds_app_public_alb_dns_name
+}
+
+output "rds_app_public_alb_zone_id" {
+  description = "Hosted zone ID of the public ALB used for Route53 alias records."
+  value       = module.compute.rds_app_public_alb_zone_id
+}
+
+# ----------------------------------------------------------------
+# TOKYO OUTPUTS — Regional Certificate Validation Options
+# ----------------------------------------------------------------
+
+output "rds_app_cert_domain_validation_options" {
+  description = "Domain validation options for the regional ACM certificate."
+  value       = module.compute.rds_app_cert_domain_validation_options
+}
+
+# ----------------------------------------------------------------
 # TOKYO OUTPUTS — Application Access
 # ----------------------------------------------------------------
 
@@ -20,8 +53,8 @@ output "application_access" {
   description = "Primary application endpoints."
 
   value = {
-    application_url   = module.edge.application_url.url
-    cloudfront_domain = module.edge.cloudfront_domain
+    application_url   = ""
+    cloudfront_domain = ""
     alb_dns_name      = module.compute.rds_app_public_alb_dns_name
     database_endpoint = module.database.db_endpoint
   }
@@ -103,4 +136,3 @@ output "deployment_metadata" {
     vpc_id      = module.network.vpc_id
   }
 }
-

@@ -72,6 +72,8 @@ locals {
   # ----------------------------------------------------------------
   # Edge Authentication Header
   # ----------------------------------------------------------------
+  # Derived from deployment identity
+  # Replace with a fixed header if preferred.
 
   edge_auth_header_name = "X-${local.name_prefix}-edge-auth-v1"
 

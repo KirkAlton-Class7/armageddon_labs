@@ -51,4 +51,3 @@ output "rds_app_cert_validation_fqdns" {
     record.fqdn
   ]
 }
-

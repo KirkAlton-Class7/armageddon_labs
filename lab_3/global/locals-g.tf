@@ -56,15 +56,16 @@ locals {
   # ----------------------------------------------------------------
 
   dns_context = {
-    root_domain   = var.dns_context.root_domain
+    root_domain   = var.root_domain
     app_subdomain = local.normalized_app
-    fqdn          = "${local.normalized_app}.${var.dns_context.root_domain}"
+    fqdn          = "${local.normalized_app}.${var.root_domain}"
   }
 
-
-  # ----------------------------------------------------------------
+    # ----------------------------------------------------------------
   # Edge Authentication Header
   # ----------------------------------------------------------------
+  # Derived from deployment identity
+  # Replace with a fixed header if preferred.
 
   edge_auth_header_name = "X-${local.name_prefix}-edge-auth-v1"
 }

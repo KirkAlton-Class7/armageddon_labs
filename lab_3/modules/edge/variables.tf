@@ -1,19 +1,5 @@
 # ----------------------------------------------------------------
-# EDGE / DNS / CDN VARIABLES — Route53 Management
-# ----------------------------------------------------------------
-
-variable "manage_route53_in_terraform" {
-  description = "Whether to manage Route53 hosted zone and records in Terraform."
-  type        = bool
-}
-
-variable "route53_private_zone" {
-  description = "Whether the Route53 hosted zone is private."
-  type        = bool
-}
-
-# ----------------------------------------------------------------
-# EDGE / DNS / CDN VARIABLES — Application Context
+# EDGE VARIABLES — Application Context
 # ----------------------------------------------------------------
 
 variable "context" {
@@ -39,7 +25,7 @@ variable "name_suffix" {
 }
 
 # ----------------------------------------------------------------
-# EDGE / DNS / CDN VARIABLES — DNS Configuration
+# EDGE VARIABLES — DNS Configuration
 # ----------------------------------------------------------------
 
 variable "dns_context" {
@@ -52,42 +38,33 @@ variable "dns_context" {
 }
 
 # ----------------------------------------------------------------
-# EDGE / DNS / CDN VARIABLES — Edge Authentication
+# EDGE VARIABLES — Route53 Management
+# ----------------------------------------------------------------
+
+# variable "manage_route53_in_terraform" {
+#   description = "Whether to manage Route53 hosted zone and records in Terraform."
+#   type        = bool
+# }
+
+# variable "route53_private_zone" {
+#   description = "Whether the Route53 hosted zone is private."
+#   type        = bool
+# }
+
+# ----------------------------------------------------------------
+# EDGE VARIABLES — CloudFront Certificate Validation
+# ----------------------------------------------------------------
+
+variable "rds_app_cf_cert_validation_fqdns" {
+  description = "FQDNs of Route53 validation records used to validate the CloudFront ACM certificate."
+  type        = list(string)
+}
+
+# ----------------------------------------------------------------
+# EDGE VARIABLES — Edge Authentication
 # ----------------------------------------------------------------
 
 variable "edge_auth_header_name" {
   description = "Header name used for edge-to-origin authentication."
   type        = string
-}
-
-# ----------------------------------------------------------------
-# EDGE / DNS / CDN VARIABLES — ALB Origin
-# ----------------------------------------------------------------
-
-variable "rds_app_public_alb_dns_name" {
-  description = "DNS name of the public ALB."
-  type        = string
-}
-
-variable "rds_app_public_alb_zone_id" {
-  description = "Hosted zone ID of the public ALB."
-  type        = string
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-variable "rds_app_cf_cert_validation_fqdns" {
-  description = "FQDNs of Route53 validation records used to validate the CloudFront ACM certificate."
-  type        = list(string)
 }

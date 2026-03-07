@@ -73,7 +73,6 @@ output "cloudfront_origin" {
 
   value = {
     origin_domain          = "origin.${var.dns_context.root_domain}"
-    origin_alb_dns         = var.rds_app_public_alb_dns_name
     origin_protocol_policy = "https-only"
   }
 }

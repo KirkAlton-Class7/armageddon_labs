@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# TOKYO — Terraform Configuration
+# GLOBAL — Terraform Configuration
 # ----------------------------------------------------------------
 
 terraform {
@@ -17,18 +17,19 @@ terraform {
 }
 
 # ----------------------------------------------------------------
-# PROVIDERS — AWS Regional (Application Infrastructure)
+# PROVIDERS — AWS Global Services
 # ----------------------------------------------------------------
 
 provider "aws" {
-  region  = var.region
-  profile = "default" # Uses AWS credentials from [default] profile in ~/.aws/credentials
+  region  = "us-east-1"
+  profile = "default" # Uses credentials from ~/.aws/credentials
 
   default_tags {
     tags = {
       ManagedBy   = "terraform"
       Environment = local.context.env
       Application = local.context.app
+      Scope       = "global-edge"
     }
   }
 }
@@ -37,9 +38,9 @@ provider "aws" {
 # PROVIDERS — Auxiliary
 # ----------------------------------------------------------------
 
-provider "local" {}
-
 provider "random" {}
+
+provider "local" {}
 
 # ----------------------------------------------------------------
 # DATA — AWS Account Identity

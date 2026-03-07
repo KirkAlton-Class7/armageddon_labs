@@ -26,20 +26,6 @@ variable "env" {
 }
 
 # ----------------------------------------------------------------
-# GLOBAL VARIABLES — DNS Configuration
-# ----------------------------------------------------------------
-
-variable "dns_context" {
-  description = "DNS configuration containing root domain, subdomain, and FQDN."
-  type = object({
-    root_domain   = string
-    app_subdomain = string
-    fqdn          = string
-  })
-}
-
-
-# ----------------------------------------------------------------
 # GLOBAL VARIABLES — Route53 Management
 # ----------------------------------------------------------------
 
@@ -53,4 +39,10 @@ variable "route53_private_zone" {
   description = "Whether the Route53 hosted zone is private."
   type        = bool
   default     = false
+}
+
+variable "root_domain" {
+  description = "Root DNS domain."
+  type        = string
+  default     = "kirkdevsecops.com"
 }

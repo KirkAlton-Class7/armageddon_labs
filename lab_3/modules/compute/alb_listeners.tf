@@ -1,8 +1,6 @@
 # ----------------------------------------------------------------
-# LOAD BALANCING — ALB Listeners
+# LOAD BALANCING — ALB Listeners (RDS App Public ALB)
 # ----------------------------------------------------------------
-
-# ALB Listeners for RDS App Public ALB
 
 # HTTP Listener on Port 80 - Redirects to HTTPS on Port 443
 resource "aws_lb_listener" "rds_app_http_80" {

@@ -43,7 +43,6 @@ resource "aws_cloudwatch_log_group" "rds_app_alb_server_error" {
 # Conditional CloudWatch Log Group - WAF Logs
 resource "aws_cloudwatch_log_group" "waf_logs" {
   count             = var.waf_log_mode.create_direct_resources ? 1 : 0
-  provider          = aws.global
   name              = "aws-waf-logs-${var.context.env}-${var.bucket_suffix}"
   retention_in_days = 1
 

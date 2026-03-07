@@ -1,7 +1,7 @@
 # ----------------------------------------------------------------
-# GLOBAL BACKEND — Terraform Backend Configuration
+# GLOBAL BACKEND — Terraform Backend Configuration (S3)
 # ----------------------------------------------------------------
-# Uses platform-managed bootstrap infrastructure (S3 backend and DynamoDB locking).
+# Uses platform-managed bootstrap infrastructure (S3 backend and lockfile).
 
 terraform {
   backend "s3" {

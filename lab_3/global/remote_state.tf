@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# GLOBAL — Remote State (Regional Infrastructure: Tokyo)
+# GLOBAL REMOTE STATE — Read Regional Infrastructure: Tokyo
 # ----------------------------------------------------------------
 # Reads outputs from the Tokyo regional stack.
 # Used as origin infrastructure for global edge/DNS components.

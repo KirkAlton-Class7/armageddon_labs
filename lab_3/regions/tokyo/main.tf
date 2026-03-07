@@ -33,11 +33,6 @@ module "network" {
 module "security" {
   source = "../../modules/security"
 
-  # Providers
-  providers = {
-    aws.global = aws.global
-  }
-
   # Identity and Naming
   context     = local.context
   account_id  = local.account_id
@@ -163,89 +158,14 @@ module "compute" {
 
   # Edge Integration
   edge_auth_header_name = local.edge_auth_header_name
-  edge_auth_value       = module.edge.edge_auth_value
+  edge_auth_value       = random_password.edge_auth_value.result
 
   # Network Dependencies
   ec2_vpc_endpoints_ready = module.network.ec2_vpc_endpoints_ready
 
   # Certificate Validation — Regional TLS (ALB)
-  rds_app_cert_validation_fqdns = module.dns.rds_app_cert_validation_fqdns
+  #rds_app_cert_validation_fqdns = module.compute.rds_app_cert_validation_fqdns
 }
-
-# ----------------------------------------------------------------
-# EDGE
-# ----------------------------------------------------------------
-
-module "edge" {
-  source = "../../modules/edge"
-
-  # Providers
-  providers = {
-    aws.global = aws.global
-  }
-
-  # Identity and Naming
-  context     = local.context
-  name_prefix = local.name_prefix
-  name_suffix = local.name_suffix
-
-  # DNS Context
-  dns_context = local.dns_context
-
-  # Route53 Management
-  manage_route53_in_terraform = var.manage_route53_in_terraform
-  route53_private_zone        = var.route53_private_zone
-
-  # Edge Security
-  edge_auth_header_name = local.edge_auth_header_name
-
-  # Origin Integration
-  rds_app_public_alb_dns_name = module.compute.rds_app_public_alb_dns_name
-  rds_app_public_alb_zone_id  = module.compute.rds_app_public_alb_zone_id
-
-  # Certificate Validation — CloudFront TLS
-  rds_app_cf_cert_validation_fqdns = module.dns.rds_app_cf_cert_validation_fqdns
-}
-
-
-# ----------------------------------------------------------------
-# MODULE — DNS
-# ----------------------------------------------------------------
-
-module "dns" {
-  source = "../../modules/dns"
-
-  # Providers
-  providers = {
-    aws.global = aws.global
-  }
-
-  # Identity and Naming
-  context     = local.context
-  name_prefix = local.name_prefix
-  name_suffix = local.name_suffix
-
-  # DNS Context
-  dns_context = local.dns_context
-
-  # Route53 Management
-  manage_route53_in_terraform = var.manage_route53_in_terraform
-  route53_private_zone        = var.route53_private_zone
-
-  # ALB Origin
-  rds_app_public_alb_dns_name = module.compute.rds_app_public_alb_dns_name
-  rds_app_public_alb_zone_id  = module.compute.rds_app_public_alb_zone_id
-
-  # Edge Integration
-  cloudfront_distribution = module.edge.cloudfront_distribution
-
-  # Certificate Validation - Regional (ALB Certificate)
-  rds_app_cert_domain_validation_options = module.compute.rds_app_cert_domain_validation_options
-  
-  # Certificate Validation - Edge (CloudFront Certificate)
-  rds_app_cf_cert_domain_validation_options = module.edge.rds_app_cf_cert_domain_validation_options
-}
-
 
 # ----------------------------------------------------------------
 # MODULE — OBSERVABILITY
@@ -253,11 +173,6 @@ module "dns" {
 
 module "observability" {
   source = "../../modules/observability"
-
-  # Providers
-  providers = {
-    aws.global = aws.global
-  }
 
   # Identity and Naming
   context       = local.context
@@ -283,8 +198,8 @@ module "observability" {
 
   # WAF Integration
   waf_log_mode     = local.waf_log_mode
-  rds_app_waf_name = module.security.rds_app_waf_name
-  rds_app_waf_arn  = module.security.rds_app_waf_arn
+  # rds_app_waf_name = module.security.rds_app_waf_name
+  # rds_app_waf_arn  = module.security.rds_app_waf_arn
 
   # IAM Integration
   vpc_flow_log_role_arn = module.iam.vpc_flow_log_role_arn

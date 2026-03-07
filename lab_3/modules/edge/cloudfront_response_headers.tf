@@ -3,7 +3,6 @@
 # ----------------------------------------------------------------
 
 resource "aws_cloudfront_response_headers_policy" "static" {
-  provider = aws.global
   name     = "rds-app-static-response-headers-${var.name_suffix}"
   comment  = "Explicit Cache-Control for static assets"
 
