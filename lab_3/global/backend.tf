@@ -8,7 +8,7 @@ terraform {
     bucket = "kirkdevsecops-terraform-state" 
     key    = "rds-app/dev/global/terraform.tfstate" # Update app and env before deploying: {app}/{env}/global/terraform.tfstate
     region = "us-west-2"
-    dynamodb_table = "terraform-state-locks"
+    use_lockfile = true
     encrypt = true # Always explicitly declare encryption, even if already applied on platform.
   }
 }

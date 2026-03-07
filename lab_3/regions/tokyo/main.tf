@@ -164,10 +164,12 @@ module "compute" {
   # Edge Integration
   edge_auth_header_name = local.edge_auth_header_name
   edge_auth_value       = module.edge.edge_auth_value
-  rds_app_cert_arn      = module.edge.rds_app_cert_arn
 
   # Network Dependencies
   ec2_vpc_endpoints_ready = module.network.ec2_vpc_endpoints_ready
+
+  # Certificate Validation — Regional TLS (ALB)
+  rds_app_cert_validation_fqdns = module.dns.rds_app_cert_validation_fqdns
 }
 
 # ----------------------------------------------------------------
@@ -200,6 +202,9 @@ module "edge" {
   # Origin Integration
   rds_app_public_alb_dns_name = module.compute.rds_app_public_alb_dns_name
   rds_app_public_alb_zone_id  = module.compute.rds_app_public_alb_zone_id
+
+  # Certificate Validation — CloudFront TLS
+  rds_app_cf_cert_validation_fqdns = module.dns.rds_app_cf_cert_validation_fqdns
 }
 
 
@@ -230,6 +235,15 @@ module "dns" {
   # ALB Origin
   rds_app_public_alb_dns_name = module.compute.rds_app_public_alb_dns_name
   rds_app_public_alb_zone_id  = module.compute.rds_app_public_alb_zone_id
+
+  # Edge Integration
+  cloudfront_distribution = module.edge.cloudfront_distribution
+
+  # Certificate Validation - Regional (ALB Certificate)
+  rds_app_cert_domain_validation_options = module.compute.rds_app_cert_domain_validation_options
+  
+  # Certificate Validation - Edge (CloudFront Certificate)
+  rds_app_cf_cert_domain_validation_options = module.edge.rds_app_cf_cert_domain_validation_options
 }
 
 

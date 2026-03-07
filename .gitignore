@@ -41,6 +41,11 @@ terraform.rc
 *.terraform.lock.hcl.*
 .terraform.lock.hcl
 
+# Ignore generated artifacts in rendered/.
+# .gitkeep file preserves the directory so Terraform local_file outputs have a valid path.
+rendered/*
+!rendered/.gitkeep
+
 # Ignore keys
 *.json 
 !tests/event.json

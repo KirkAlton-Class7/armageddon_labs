@@ -20,8 +20,8 @@ output "application_access" {
   description = "Primary application endpoints."
 
   value = {
-    application_url   = module.edge_dns_cdn.application_url.url
-    cloudfront_domain = module.edge_dns_cdn.cloudfront_domain
+    application_url   = module.edge.application_url.url
+    cloudfront_domain = module.edge.cloudfront_domain
     alb_dns_name      = module.compute.rds_app_public_alb_dns_name
     database_endpoint = module.database.db_endpoint
   }

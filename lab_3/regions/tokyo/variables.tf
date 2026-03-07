@@ -36,7 +36,7 @@ variable "vpc_cidr" {
 }
 
 # ----------------------------------------------------------------
-# TOKYO VARIABLES — Edge / DNS / CDN
+# TOKYO VARIABLES — Route53 Management
 # ----------------------------------------------------------------
 
 variable "manage_route53_in_terraform" {

@@ -1,10 +1,19 @@
 # ----------------------------------------------------------------
-# COMPUTE OUTPUTS — Regional ACM Certificate (ALB)
+# COMPUTE OUTPUTS — Regional ACM Certificate ARN (ALB)
 # ----------------------------------------------------------------
 
 output "rds_app_cert_arn" {
   description = "ACM certificate ARN used by the ALB."
   value       = aws_acm_certificate.rds_app_cert.arn
+}
+
+# ----------------------------------------------------------------
+# COMPUTE OUTPUTS — Regional Certificate Validation Options
+# ----------------------------------------------------------------
+
+output "rds_app_cert_domain_validation_options" {
+  description = "Domain validation options for the regional ACM certificate."
+  value       = aws_acm_certificate.rds_app_cert.domain_validation_options
 }
 
 # ----------------------------------------------------------------

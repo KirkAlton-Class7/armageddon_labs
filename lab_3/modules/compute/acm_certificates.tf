@@ -15,12 +15,3 @@ resource "aws_acm_certificate" "rds_app_cert" {
     create_before_destroy = true
   }
 }
-
-# ----------------------------------------------------------------
-# ACM — REGIONAL TLS Certificate Validation (ALB)
-# ----------------------------------------------------------------
-
-resource "aws_acm_certificate_validation" "rds_app_cert" {
-  certificate_arn         = aws_acm_certificate.rds_app_cert.arn
-  validation_record_fqdns = [for record in aws_route53_record.rds_app_cert_validation : record.fqdn]
-}

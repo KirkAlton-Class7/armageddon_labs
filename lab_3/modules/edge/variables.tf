@@ -73,3 +73,21 @@ variable "rds_app_public_alb_zone_id" {
   description = "Hosted zone ID of the public ALB."
   type        = string
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+variable "rds_app_cf_cert_validation_fqdns" {
+  description = "FQDNs of Route53 validation records used to validate the CloudFront ACM certificate."
+  type        = list(string)
+}

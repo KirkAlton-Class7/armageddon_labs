@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# EDGE — TLS Certificates (CloudFront)
+# EDGE — TLS Certificate (CloudFront)
 # ----------------------------------------------------------------
 
 resource "aws_acm_certificate" "rds_app_cf_cert" {
@@ -18,11 +18,11 @@ resource "aws_acm_certificate" "rds_app_cf_cert" {
 }
 
 # ----------------------------------------------------------------
-# EDGE — TLS Certificate Validation (CloudFront)
+# EDGE — ACM Certificate Validation (CloudFront)
 # ----------------------------------------------------------------
 
 resource "aws_acm_certificate_validation" "rds_app_cf_cert" {
   provider                = aws.global
   certificate_arn         = aws_acm_certificate.rds_app_cf_cert.arn
-  validation_record_fqdns = [for record in aws_route53_record.rds_app_cf_cert_validation : record.fqdn]
+  validation_record_fqdns = var.rds_app_cf_cert_validation_fqdns
 }

@@ -1,18 +1,4 @@
 # ----------------------------------------------------------------
-# DNS VARIABLES — Route53 Management
-# ----------------------------------------------------------------
-
-variable "manage_route53_in_terraform" {
-  description = "Whether to manage Route53 hosted zone and records in Terraform."
-  type        = bool
-}
-
-variable "route53_private_zone" {
-  description = "Whether the Route53 hosted zone is private."
-  type        = bool
-}
-
-# ----------------------------------------------------------------
 # DNS VARIABLES — Application Context
 # ----------------------------------------------------------------
 
@@ -39,6 +25,20 @@ variable "name_suffix" {
 }
 
 # ----------------------------------------------------------------
+# DNS VARIABLES — Route53 Management
+# ----------------------------------------------------------------
+
+variable "manage_route53_in_terraform" {
+  description = "Whether to manage Route53 hosted zone and records in Terraform."
+  type        = bool
+}
+
+variable "route53_private_zone" {
+  description = "Whether the Route53 hosted zone is private."
+  type        = bool
+}
+
+# ----------------------------------------------------------------
 # DNS VARIABLES — DNS Configuration
 # ----------------------------------------------------------------
 
@@ -48,6 +48,36 @@ variable "dns_context" {
     root_domain   = string
     app_subdomain = string
     fqdn          = string
+  })
+}
+
+# ----------------------------------------------------------------
+# DNS VARIABLES — CloudFront Domain Certificate Validation
+# ----------------------------------------------------------------
+
+variable "rds_app_cf_cert_domain_validation_options" {
+  description = "Domain validation options for the CloudFront ACM certificate."
+  type = list(object({
+    domain_name           = string
+    resource_record_name  = string
+    resource_record_type  = string
+    resource_record_value = string
+  }))
+}
+
+# ---------------------------------------------------------------------
+# DNS VARIABLES — CloudFront Distribution
+# ---------------------------------------------------------------------
+
+variable "cloudfront_distribution" {
+  description = "CloudFront distribution details."
+
+  type = object({
+    id             = string
+    arn            = string
+    domain_name    = string
+    hosted_zone_id = string
+    status         = string
   })
 }
 
@@ -63,4 +93,18 @@ variable "rds_app_public_alb_dns_name" {
 variable "rds_app_public_alb_zone_id" {
   description = "Hosted zone ID of the public ALB."
   type        = string
+}
+
+
+# ----------------------------------------------------------------
+# DNS VARIABLES — ALB Regional Certificate Validation
+# ----------------------------------------------------------------
+variable "rds_app_cert_domain_validation_options" {
+  description = "Domain validation options for the regional ACM certificate."
+  type = list(object({
+    domain_name           = string
+    resource_record_name  = string
+    resource_record_type  = string
+    resource_record_value = string
+  }))
 }

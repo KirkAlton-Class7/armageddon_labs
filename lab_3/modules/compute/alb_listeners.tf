@@ -34,7 +34,7 @@ resource "aws_lb_listener" "rds_app_https_443" {
   protocol          = "HTTPS"
   port              = 443
   ssl_policy        = "ELBSecurityPolicy-TLS13-1-2-2021-06" # Newer SSL Policy. ELBSecurityPolicy-2016-08 is outdated; legacy support"
-  certificate_arn   = var.rds_app_cert_arn
+  certificate_arn   = aws_acm_certificate.rds_app_cert.arn
 
   tags = {
     Name        = "rds-app-https-443-listener"

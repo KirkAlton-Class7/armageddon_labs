@@ -1,4 +1,14 @@
 # ----------------------------------------------------------------
+# EDGE OUTPUTS — CloudFront Certificate Validation Options
+# ----------------------------------------------------------------
+
+output "rds_app_cf_cert_domain_validation_options" {
+  description = "Domain validation options for the CloudFront ACM certificate."
+  value       = aws_acm_certificate.rds_app_cf_cert.domain_validation_options
+}
+
+
+# ----------------------------------------------------------------
 # EDGE OUTPUTS — Application Access
 # ----------------------------------------------------------------
 
@@ -20,6 +30,7 @@ output "cloudfront_distribution" {
     id          = aws_cloudfront_distribution.rds_app.id
     arn         = aws_cloudfront_distribution.rds_app.arn
     domain_name = aws_cloudfront_distribution.rds_app.domain_name
+    hosted_zone_id = aws_cloudfront_distribution.rds_app.hosted_zone_id
     status      = aws_cloudfront_distribution.rds_app.status
   }
 }

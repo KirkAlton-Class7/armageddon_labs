@@ -25,10 +25,22 @@ variable "env" {
   }
 }
 
+# ----------------------------------------------------------------
+# GLOBAL VARIABLES — DNS Configuration
+# ----------------------------------------------------------------
+
+variable "dns_context" {
+  description = "DNS configuration containing root domain, subdomain, and FQDN."
+  type = object({
+    root_domain   = string
+    app_subdomain = string
+    fqdn          = string
+  })
+}
 
 
 # ----------------------------------------------------------------
-# TOKYO VARIABLES — Edge / DNS / CDN
+# GLOBAL VARIABLES — Route53 Management
 # ----------------------------------------------------------------
 
 variable "manage_route53_in_terraform" {
@@ -41,25 +53,4 @@ variable "route53_private_zone" {
   description = "Whether the Route53 hosted zone is private."
   type        = bool
   default     = false
-}
-
-variable "root_domain" {
-  description = "Root DNS domain."
-  type        = string
-  default     = "kirkdevsecops.com"
-}
-
-# ----------------------------------------------------------------
-# COMPUTE VARIABLES — Security
-# ----------------------------------------------------------------
-
-variable "edge_auth_header_name" {
-  description = "Header name used for edge-to-origin authentication."
-  type        = string
-}
-
-variable "edge_auth_value" {
-  description = "Header value used for edge-to-origin authentication."
-  type        = string
-  sensitive   = true
 }

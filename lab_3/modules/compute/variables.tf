@@ -111,12 +111,12 @@ variable "dns_context" {
 }
 
 # ----------------------------------------------------------------
-# COMPUTE VARIABLES — Certificate (ALB)
+# COMPUTE VARIABLES — Certificate Validation (Regional ALB)
 # ----------------------------------------------------------------
 
-variable "rds_app_cert_arn" {
-  description = "ACM certificate ARN for the ALB HTTPS listener."
-  type        = string
+variable "rds_app_cert_validation_fqdns" {
+  description = "FQDNs of the Route53 validation records used to validate the regional ALB ACM certificate."
+  type        = list(string)
 }
 
 # ----------------------------------------------------------------
