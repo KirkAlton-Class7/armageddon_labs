@@ -302,7 +302,7 @@ module "edge" {
   dns_context = local.dns_context
 
   # Edge Security
-  edge_auth_header_name = data.terraform_remote_state.tokyo.outputs.edge_auth_value
+  edge_auth_header_name = local.edge_auth_header_name
 
   # Certificate Validation — CloudFront TLS
   rds_app_cf_cert_validation_fqdns = module.dns.rds_app_cf_cert_validation_fqdns
