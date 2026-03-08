@@ -5744,33 +5744,33 @@
 <path fill="none" stroke="black" d="M9985.89,-1079.52C10093.07,-1067.68 10232.86,-1052.25 10333.11,-1041.18"/>
 <polygon fill="black" stroke="black" points="10333.47,-1044.66 10343.02,-1040.09 10332.7,-1037.7 10333.47,-1044.66"/>
 </g>
-<!-- [root] module.security.aws_wafv2_web_acl.rds_app -->
+<!-- [root] module.security.aws_wafv2_web_acl.rds_app[0] -->
 <g id="node323" class="node">
-<title>[root] module.security.aws_wafv2_web_acl.rds_app</title>
+<title>[root] module.security.aws_wafv2_web_acl.rds_app[0]</title>
 <polygon fill="none" stroke="black" points="16381.79,-1044 16115.29,-1044 16115.29,-1008 16381.79,-1008 16381.79,-1044"/>
-<text xml:space="preserve" text-anchor="middle" x="16248.54" y="-1020.95" font-family="Times,serif" font-size="14.00">module.security.aws_wafv2_web_acl.rds_app</text>
+<text xml:space="preserve" text-anchor="middle" x="16248.54" y="-1020.95" font-family="Times,serif" font-size="14.00">module.security.aws_wafv2_web_acl.rds_app[0]</text>
 </g>
-<!-- [root] module.security.aws_wafv2_web_acl.rds_app (expand) -->
+<!-- [root] module.security.aws_wafv2_web_acl.rds_app[0] (expand) -->
 <g id="node324" class="node">
-<title>[root] module.security.aws_wafv2_web_acl.rds_app (expand)</title>
+<title>[root] module.security.aws_wafv2_web_acl.rds_app[0] (expand)</title>
 <polygon fill="none" stroke="black" points="15581.79,-756 15315.29,-756 15315.29,-720 15581.79,-720 15581.79,-756"/>
-<text xml:space="preserve" text-anchor="middle" x="15448.54" y="-732.95" font-family="Times,serif" font-size="14.00">module.security.aws_wafv2_web_acl.rds_app</text>
+<text xml:space="preserve" text-anchor="middle" x="15448.54" y="-732.95" font-family="Times,serif" font-size="14.00">module.security.aws_wafv2_web_acl.rds_app[0]</text>
 </g>
-<!-- [root] module.security.aws_wafv2_web_acl.rds_app&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app (expand) -->
+<!-- [root] module.security.aws_wafv2_web_acl.rds_app[0]&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app[0] (expand) -->
 <g id="edge1069" class="edge">
-<title>[root] module.security.aws_wafv2_web_acl.rds_app&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app (expand)</title>
+<title>[root] module.security.aws_wafv2_web_acl.rds_app[0]&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app[0] (expand)</title>
 <path fill="none" stroke="black" d="M16199.7,-1007.54C16060.06,-957.62 15659.45,-814.4 15507.73,-760.16"/>
 <polygon fill="black" stroke="black" points="15509.27,-756.99 15498.67,-756.92 15506.91,-763.58 15509.27,-756.99"/>
 </g>
-<!-- [root] module.security.aws_wafv2_web_acl.rds_app (expand)&#45;&gt;[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;].global -->
+<!-- [root] module.security.aws_wafv2_web_acl.rds_app[0] (expand)&#45;&gt;[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;].global -->
 <g id="edge1068" class="edge">
-<title>[root] module.security.aws_wafv2_web_acl.rds_app (expand)&#45;&gt;[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;].global</title>
+<title>[root] module.security.aws_wafv2_web_acl.rds_app[0] (expand)&#45;&gt;[root] provider[&quot;registry.terraform.io/hashicorp/aws&quot;].global</title>
 <path fill="none" stroke="black" d="M15364.26,-719.52C15265,-699.51 15094.95,-667.06 14947.54,-648 14782.65,-626.68 14593.06,-612.38 14461.35,-604.06"/>
 <polygon fill="black" stroke="black" points="14461.7,-600.58 14451.5,-603.44 14461.26,-607.56 14461.7,-600.58"/>
 </g>
-<!-- [root] module.security.aws_wafv2_web_acl.rds_app (expand)&#45;&gt;[root] module.security.var.context (expand) -->
+<!-- [root] module.security.aws_wafv2_web_acl.rds_app[0] (expand)&#45;&gt;[root] module.security.var.context (expand) -->
 <g id="edge1066" class="edge">
-<title>[root] module.security.aws_wafv2_web_acl.rds_app (expand)&#45;&gt;[root] module.security.var.context (expand)</title>
+<title>[root] module.security.aws_wafv2_web_acl.rds_app[0] (expand)&#45;&gt;[root] module.security.var.context (expand)</title>
 <path fill="none" stroke="black" d="M15314.87,-729.18C15259.13,-726.07 15193.72,-722.62 15134.54,-720 14640.53,-698.13 14057.04,-680.21 13770.84,-671.94"/>
 <polygon fill="black" stroke="black" points="13771.14,-668.45 13761.04,-671.66 13770.93,-675.44 13771.14,-668.45"/>
 </g>
@@ -5780,9 +5780,9 @@
 <ellipse fill="none" stroke="black" cx="15867.54" cy="-666" rx="192.1" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="15867.54" y="-660.95" font-family="Times,serif" font-size="14.00">[root] module.security.var.name_suffix (expand)</text>
 </g>
-<!-- [root] module.security.aws_wafv2_web_acl.rds_app (expand)&#45;&gt;[root] module.security.var.name_suffix (expand) -->
+<!-- [root] module.security.aws_wafv2_web_acl.rds_app[0] (expand)&#45;&gt;[root] module.security.var.name_suffix (expand) -->
 <g id="edge1067" class="edge">
-<title>[root] module.security.aws_wafv2_web_acl.rds_app (expand)&#45;&gt;[root] module.security.var.name_suffix (expand)</title>
+<title>[root] module.security.aws_wafv2_web_acl.rds_app[0] (expand)&#45;&gt;[root] module.security.var.name_suffix (expand)</title>
 <path fill="none" stroke="black" d="M15553.19,-719.52C15618.04,-708.68 15700.94,-694.83 15765.32,-684.08"/>
 <polygon fill="black" stroke="black" points="15765.53,-687.59 15774.81,-682.49 15764.37,-680.69 15765.53,-687.59"/>
 </g>
@@ -5792,9 +5792,9 @@
 <polygon fill="none" stroke="black" points="25486.79,-1116 25028.29,-1116 25028.29,-1080 25486.79,-1080 25486.79,-1116"/>
 <text xml:space="preserve" text-anchor="middle" x="25257.54" y="-1092.95" font-family="Times,serif" font-size="14.00">module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_direct</text>
 </g>
-<!-- [root] module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_direct (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app -->
+<!-- [root] module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_direct (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app[0] -->
 <g id="edge1070" class="edge">
-<title>[root] module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_direct (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app</title>
+<title>[root] module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_direct (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app[0]</title>
 <path fill="none" stroke="black" d="M25027.97,-1080.34C25025.15,-1080.22 25022.33,-1080.11 25019.54,-1080 23214.15,-1011.6 18696.01,-1071.95 16889.54,-1044 16719.05,-1041.36 16523.12,-1035.8 16393.22,-1031.75"/>
 <polygon fill="black" stroke="black" points="16393.65,-1028.26 16383.54,-1031.45 16393.43,-1035.26 16393.65,-1028.26"/>
 </g>
@@ -5840,9 +5840,9 @@
 <polygon fill="none" stroke="black" points="25010.16,-1116 24538.91,-1116 24538.91,-1080 25010.16,-1080 25010.16,-1116"/>
 <text xml:space="preserve" text-anchor="middle" x="24774.54" y="-1092.95" font-family="Times,serif" font-size="14.00">module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_firehose</text>
 </g>
-<!-- [root] module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_firehose (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app -->
+<!-- [root] module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_firehose (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app[0] -->
 <g id="edge1074" class="edge">
-<title>[root] module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_firehose (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app</title>
+<title>[root] module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_firehose (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app[0]</title>
 <path fill="none" stroke="black" d="M24538.56,-1093.87C24246.31,-1090.08 23733.22,-1083.76 23293.54,-1080 20447.38,-1055.67 19735.44,-1089.73 16889.54,-1044 16719.06,-1041.26 16523.13,-1035.71 16393.22,-1031.7"/>
 <polygon fill="black" stroke="black" points="16393.65,-1028.21 16383.55,-1031.4 16393.43,-1035.21 16393.65,-1028.21"/>
 </g>
@@ -10030,15 +10030,15 @@
 <path fill="none" stroke="black" d="M35223.2,-863.7C35216.46,-855.56 35208.28,-845.69 35200.83,-836.7"/>
 <polygon fill="black" stroke="black" points="35203.75,-834.74 35194.68,-829.27 35198.36,-839.2 35203.75,-834.74"/>
 </g>
-<!-- [root] module.security.output.rds_app_waf_arn (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app -->
+<!-- [root] module.security.output.rds_app_waf_arn (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app[0] -->
 <g id="edge1083" class="edge">
-<title>[root] module.security.output.rds_app_waf_arn (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app</title>
+<title>[root] module.security.output.rds_app_waf_arn (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app[0]</title>
 <path fill="none" stroke="black" d="M16863.15,-1083.83C16728.81,-1071.41 16528.38,-1052.88 16393.27,-1040.38"/>
 <polygon fill="black" stroke="black" points="16393.82,-1036.92 16383.54,-1039.48 16393.18,-1043.89 16393.82,-1036.92"/>
 </g>
-<!-- [root] module.security.output.rds_app_waf_name (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app -->
+<!-- [root] module.security.output.rds_app_waf_name (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app[0] -->
 <g id="edge1086" class="edge">
-<title>[root] module.security.output.rds_app_waf_name (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app</title>
+<title>[root] module.security.output.rds_app_waf_name (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app[0]</title>
 <path fill="none" stroke="black" d="M15359.11,-1084.99C15384.36,-1083.24 15410.15,-1081.52 15434.54,-1080 15728.97,-1061.63 15806.12,-1069.44 16103.84,-1044.11"/>
 <polygon fill="black" stroke="black" points="16103.81,-1047.62 16113.47,-1043.28 16103.21,-1040.65 16103.81,-1047.62"/>
 </g>
@@ -10264,15 +10264,15 @@
 <path fill="none" stroke="black" d="M14163.84,-1229.2C14249.13,-1217.81 14379.12,-1200.45 14474.93,-1187.65"/>
 <polygon fill="black" stroke="black" points="14475.19,-1191.14 14484.64,-1186.35 14474.27,-1184.2 14475.19,-1191.14"/>
 </g>
-<!-- [root] module.security.output.rds_app_waf_capacity (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app -->
+<!-- [root] module.security.output.rds_app_waf_capacity (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app[0] -->
 <g id="edge1084" class="edge">
-<title>[root] module.security.output.rds_app_waf_capacity (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app</title>
+<title>[root] module.security.output.rds_app_waf_capacity (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app[0]</title>
 <path fill="none" stroke="black" d="M14685.2,-1084.81C14713.99,-1083 14743.62,-1081.31 14771.54,-1080 15360.23,-1052.44 15512.08,-1086.61 16103.6,-1044.09"/>
 <polygon fill="black" stroke="black" points="16103.76,-1047.59 16113.48,-1043.38 16103.25,-1040.61 16103.76,-1047.59"/>
 </g>
-<!-- [root] module.security.output.rds_app_waf_id (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app -->
+<!-- [root] module.security.output.rds_app_waf_id (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app[0] -->
 <g id="edge1085" class="edge">
-<title>[root] module.security.output.rds_app_waf_id (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app</title>
+<title>[root] module.security.output.rds_app_waf_id (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app[0]</title>
 <path fill="none" stroke="black" d="M16020.27,-1157.88C15985.69,-1155.75 15949.42,-1153.66 15915.54,-1152 15858.35,-1149.19 14925.31,-1157.19 14885.54,-1116 14874.42,-1104.49 14874.39,-1091.48 14885.54,-1080 14931.16,-1033.01 15963.61,-1047.88 16103.57,-1043.77"/>
 <polygon fill="black" stroke="black" points="16103.64,-1047.27 16113.48,-1043.32 16103.33,-1040.27 16103.64,-1047.27"/>
 </g>
@@ -10288,9 +10288,9 @@
 <path fill="none" stroke="black" d="M10309.32,-864.9C10369.73,-854.63 10448.36,-841.27 10512.22,-830.42"/>
 <polygon fill="black" stroke="black" points="10512.79,-833.88 10522.07,-828.75 10511.62,-826.97 10512.79,-833.88"/>
 </g>
-<!-- [root] module.security.output.waf_info (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app -->
+<!-- [root] module.security.output.waf_info (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app[0] -->
 <g id="edge1090" class="edge">
-<title>[root] module.security.output.waf_info (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app</title>
+<title>[root] module.security.output.waf_info (expand)&#45;&gt;[root] module.security.aws_wafv2_web_acl.rds_app[0]</title>
 <path fill="none" stroke="black" d="M16552.91,-1156.77C16529.16,-1154.92 16504.63,-1153.23 16481.54,-1152 16439.23,-1149.75 14986.15,-1146.31 14956.54,-1116 14945.36,-1104.55 14945.4,-1091.49 14956.54,-1080 14999.42,-1035.75 15969.9,-1047.82 16103.77,-1043.76"/>
 <polygon fill="black" stroke="black" points="16103.65,-1047.27 16113.48,-1043.32 16103.33,-1040.28 16103.65,-1047.27"/>
 </g>

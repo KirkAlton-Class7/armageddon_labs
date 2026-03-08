@@ -24,6 +24,9 @@ resource "aws_lb_listener" "rds_app_http_80" {
       status_code = "HTTP_301"
     }
   }
+  # depends_on = [
+  #   aws_acm_certificate_validation.rds_app_cert
+  #   ]
 }
 
 # HTTPS Listener on Port 443 - Forwards to RDS App ASG Target Group

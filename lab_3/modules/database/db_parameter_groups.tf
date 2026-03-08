@@ -4,7 +4,7 @@
 
 # Custom Parameter Groups - LabMySQL DB
 resource "aws_db_parameter_group" "lab_mysql_parameters" {
-  name   = "lab-mysql-parameters"
+  name   = "${var.name_prefix}-lab-mysql-parameters-${var.context.env}"
   family = "mysql8.0"
 
   parameter {

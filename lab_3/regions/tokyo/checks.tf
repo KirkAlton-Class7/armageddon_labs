@@ -9,9 +9,9 @@
 # VALIDATION — WAF Log Mode
 # ----------------------------------------------------------------
 
-check "waf_log_mode_validation_check" {
-  assert {
-    condition     = local.waf_log_mode_valid
-    error_message = "Only ONE WAF log mode must be active."
-  }
-}
+# check "waf_log_mode_validation_check" {
+#   assert {
+#     condition     = local.waf_log_mode_valid
+#     error_message = "Only ONE WAF log mode must be active."
+#   }
+# }

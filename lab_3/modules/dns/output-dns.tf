@@ -33,21 +33,37 @@ output "route53_zone" {
 # ----------------------------------------------------------------
 
 output "rds_app_cf_cert_validation_fqdns" {
-  description = "FQDNs of the Route53 validation records for the CloudFront certificate."
+  description = "FQDNs used for CloudFront certificate validation."
+
   value = [
-    for record in aws_route53_record.rds_app_cf_cert_validation :
-    record.fqdn
+    aws_route53_record.rds_app_cf_cert_validation.fqdn
   ]
 }
+
+# output "rds_app_cf_cert_validation_fqdns" {
+#   description = "FQDNs of the Route53 validation records for the CloudFront certificate."
+#   value = [
+#     for record in aws_route53_record.rds_app_cf_cert_validation :
+#     record.fqdn
+#   ]
+# }
 
 # ----------------------------------------------------------------
 # DNS OUTPUTS — Regional Certificate Validation Records
 # ----------------------------------------------------------------
 
 output "rds_app_cert_validation_fqdns" {
-  description = "FQDNs of the Route53 validation records for the regional ALB certificate."
+  description = "FQDNs used for regional ALB certificate validation."
+
   value = [
-    for record in aws_route53_record.rds_app_cert_validation :
-    record.fqdn
+    aws_route53_record.rds_app_cert_validation.fqdn
   ]
 }
+
+# output "rds_app_cert_validation_fqdns" {
+#   description = "FQDNs of the Route53 validation records for the regional ALB certificate."
+#   value = [
+#     for record in aws_route53_record.rds_app_cert_validation :
+#     record.fqdn
+#   ]
+# }

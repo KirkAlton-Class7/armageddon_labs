@@ -52,13 +52,13 @@ output "enable_direct_service_log_delivery" {
 output "waf_info" {
   description = "WAF Web ACL details."
 
-  value = {
-    name  = aws_wafv2_web_acl.rds_app.name
-    arn   = aws_wafv2_web_acl.rds_app.arn
-    scope = aws_wafv2_web_acl.rds_app.scope
+  value = var.create_waf ? {
+    name  = aws_wafv2_web_acl.rds_app[0].name
+    arn   = aws_wafv2_web_acl.rds_app[0].arn
+    scope = aws_wafv2_web_acl.rds_app[0].scope
 
     rules = [
-      for rule in aws_wafv2_web_acl.rds_app.rule : {
+      for rule in aws_wafv2_web_acl.rds_app[0].rule : {
         name     = rule.name
         priority = rule.priority
         metric   = rule.visibility_config[0].metric_name
@@ -68,7 +68,7 @@ output "waf_info" {
         )
       }
     ]
-  }
+  } : null
 }
 
 # ----------------------------------------------------------------
@@ -77,20 +77,20 @@ output "waf_info" {
 
 output "rds_app_waf_arn" {
   description = "ARN of the RDS app WAF web ACL."
-  value       = aws_wafv2_web_acl.rds_app.arn
+  value       = var.create_waf ? aws_wafv2_web_acl.rds_app[0].arn : null
 }
 
 output "rds_app_waf_id" {
   description = "ID of the RDS app WAF web ACL."
-  value       = aws_wafv2_web_acl.rds_app.id
+  value       = var.create_waf ? aws_wafv2_web_acl.rds_app[0].id : null
 }
 
 output "rds_app_waf_name" {
   description = "Name of the RDS app WAF web ACL."
-  value       = aws_wafv2_web_acl.rds_app.name
+  value       = var.create_waf ? aws_wafv2_web_acl.rds_app[0].name : null
 }
 
 output "rds_app_waf_capacity" {
   description = "WAF capacity units used by the ACL."
-  value       = aws_wafv2_web_acl.rds_app.capacity
+  value       = var.create_waf ? aws_wafv2_web_acl.rds_app[0].capacity : null
 }

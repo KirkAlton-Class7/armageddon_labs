@@ -7,6 +7,14 @@ output "rds_app_cf_cert_domain_validation_options" {
   value       = aws_acm_certificate.rds_app_cf_cert.domain_validation_options
 }
 
+# ----------------------------------------------------------------
+# EDGE OUTPUTS — CloudFront ACM Certificate ARN
+# ----------------------------------------------------------------
+
+output "rds_app_cf_cert_arn" {
+  description = "ACM certificate ARN used by CloudFront."
+  value       = aws_acm_certificate.rds_app_cf_cert.arn
+}
 
 # ----------------------------------------------------------------
 # EDGE OUTPUTS — Application Access
@@ -65,7 +73,7 @@ output "cloudfront_endpoints" {
 
 output "edge_auth_value" {
   description = "Edge authentication header value."
-  value       = random_password.edge_auth_value.result
+  value       = var.edge_auth_value
 }
 
 output "cloudfront_origin" {

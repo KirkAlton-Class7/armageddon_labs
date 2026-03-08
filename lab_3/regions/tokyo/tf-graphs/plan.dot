@@ -324,8 +324,8 @@ digraph {
 		"[root] module.security.aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg (expand)" [label = "module.security.aws_vpc_security_group_ingress_rule.allow_inbound_https_from_public_alb_sg", shape = "box"]
 		"[root] module.security.aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint" [label = "module.security.aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint", shape = "box"]
 		"[root] module.security.aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint (expand)" [label = "module.security.aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint", shape = "box"]
-		"[root] module.security.aws_wafv2_web_acl.rds_app" [label = "module.security.aws_wafv2_web_acl.rds_app", shape = "box"]
-		"[root] module.security.aws_wafv2_web_acl.rds_app (expand)" [label = "module.security.aws_wafv2_web_acl.rds_app", shape = "box"]
+		"[root] module.security.aws_wafv2_web_acl.rds_app[0]" [label = "module.security.aws_wafv2_web_acl.rds_app[0]", shape = "box"]
+		"[root] module.security.aws_wafv2_web_acl.rds_app[0] (expand)" [label = "module.security.aws_wafv2_web_acl.rds_app[0]", shape = "box"]
 		"[root] module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_direct (expand)" [label = "module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_direct", shape = "box"]
 		"[root] module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_direct[0]" [label = "module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_direct", shape = "box"]
 		"[root] module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_firehose (expand)" [label = "module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_firehose", shape = "box"]
@@ -1422,15 +1422,15 @@ digraph {
 		"[root] module.security.aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint (expand)" -> "[root] module.security.aws_security_group.vpc_endpoints"
 		"[root] module.security.aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint (expand)" -> "[root] module.security.var.vpc_cidr (expand)"
 		"[root] module.security.aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint" -> "[root] module.security.aws_vpc_security_group_ingress_rule.allow_internal_app_https_to_vpc_endpoint (expand)"
-		"[root] module.security.aws_wafv2_web_acl.rds_app (expand)" -> "[root] module.security.var.context (expand)"
-		"[root] module.security.aws_wafv2_web_acl.rds_app (expand)" -> "[root] module.security.var.name_suffix (expand)"
-		"[root] module.security.aws_wafv2_web_acl.rds_app (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"].global"
-		"[root] module.security.aws_wafv2_web_acl.rds_app" -> "[root] module.security.aws_wafv2_web_acl.rds_app (expand)"
-		"[root] module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_direct (expand)" -> "[root] module.security.aws_wafv2_web_acl.rds_app"
+		"[root] module.security.aws_wafv2_web_acl.rds_app[0] (expand)" -> "[root] module.security.var.context (expand)"
+		"[root] module.security.aws_wafv2_web_acl.rds_app[0] (expand)" -> "[root] module.security.var.name_suffix (expand)"
+		"[root] module.security.aws_wafv2_web_acl.rds_app[0] (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"].global"
+		"[root] module.security.aws_wafv2_web_acl.rds_app[0]" -> "[root] module.security.aws_wafv2_web_acl.rds_app[0] (expand)"
+		"[root] module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_direct (expand)" -> "[root] module.security.aws_wafv2_web_acl.rds_app[0]"
 		"[root] module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_direct (expand)" -> "[root] module.security.var.waf_log_destination_arn (expand)"
 		"[root] module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_direct (expand)" -> "[root] module.security.var.waf_log_mode (expand)"
 		"[root] module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_direct[0]" -> "[root] module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_direct (expand)"
-		"[root] module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_firehose (expand)" -> "[root] module.security.aws_wafv2_web_acl.rds_app"
+		"[root] module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_firehose (expand)" -> "[root] module.security.aws_wafv2_web_acl.rds_app[0]"
 		"[root] module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_firehose (expand)" -> "[root] module.security.var.waf_log_destination_arn (expand)"
 		"[root] module.security.aws_wafv2_web_acl_logging_configuration.rds_app_waf_firehose (expand)" -> "[root] module.security.var.waf_log_mode (expand)"
 		"[root] module.security.data.aws_ec2_managed_prefix_list.cloudfront_origin_facing (expand)" -> "[root] module.security (expand)"
@@ -1439,14 +1439,14 @@ digraph {
 		"[root] module.security.output.enable_direct_service_log_delivery (expand)" -> "[root] module.security.var.enable_direct_service_log_delivery (expand)"
 		"[root] module.security.output.private_db_sg_id (expand)" -> "[root] module.security.aws_security_group.private_db"
 		"[root] module.security.output.rds_app_asg_sg_id (expand)" -> "[root] module.security.aws_security_group.rds_app_asg"
-		"[root] module.security.output.rds_app_waf_arn (expand)" -> "[root] module.security.aws_wafv2_web_acl.rds_app"
-		"[root] module.security.output.rds_app_waf_capacity (expand)" -> "[root] module.security.aws_wafv2_web_acl.rds_app"
-		"[root] module.security.output.rds_app_waf_id (expand)" -> "[root] module.security.aws_wafv2_web_acl.rds_app"
-		"[root] module.security.output.rds_app_waf_name (expand)" -> "[root] module.security.aws_wafv2_web_acl.rds_app"
+		"[root] module.security.output.rds_app_waf_arn (expand)" -> "[root] module.security.aws_wafv2_web_acl.rds_app[0]"
+		"[root] module.security.output.rds_app_waf_capacity (expand)" -> "[root] module.security.aws_wafv2_web_acl.rds_app[0]"
+		"[root] module.security.output.rds_app_waf_id (expand)" -> "[root] module.security.aws_wafv2_web_acl.rds_app[0]"
+		"[root] module.security.output.rds_app_waf_name (expand)" -> "[root] module.security.aws_wafv2_web_acl.rds_app[0]"
 		"[root] module.security.output.vpc_endpoints_sg_arn (expand)" -> "[root] module.security.aws_security_group.vpc_endpoints"
 		"[root] module.security.output.vpc_endpoints_sg_id (expand)" -> "[root] module.security.aws_security_group.vpc_endpoints"
 		"[root] module.security.output.vpc_endpoints_sg_name (expand)" -> "[root] module.security.aws_security_group.vpc_endpoints"
-		"[root] module.security.output.waf_info (expand)" -> "[root] module.security.aws_wafv2_web_acl.rds_app"
+		"[root] module.security.output.waf_info (expand)" -> "[root] module.security.aws_wafv2_web_acl.rds_app[0]"
 		"[root] module.security.var.account_id (expand)" -> "[root] local.account_id (expand)"
 		"[root] module.security.var.account_id (expand)" -> "[root] module.security (expand)"
 		"[root] module.security.var.context (expand)" -> "[root] local.context (expand)"

@@ -25,7 +25,7 @@ resource "aws_cloudfront_distribution" "rds_app" {
 
     custom_header {
       name  = var.edge_auth_header_name
-      value = random_password.edge_auth_value.result
+      value = var.edge_auth_value
     }
   }
 

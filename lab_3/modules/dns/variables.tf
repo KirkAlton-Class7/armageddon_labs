@@ -52,6 +52,26 @@ variable "dns_context" {
 }
 
 # ----------------------------------------------------------------
+# DNS VARIABLES — Regional ACM Certificate ARN (ALB)
+# ----------------------------------------------------------------
+
+variable "rds_app_cert_arn" {
+  description = "ACM certificate ARN used by the ALB."
+  type        = string
+}
+
+# ----------------------------------------------------------------
+# DNS VARIABLES — CloudFront ACM Certificate ARN
+# ----------------------------------------------------------------
+
+variable "rds_app_cf_cert_arn" {
+  description = "ACM certificate ARN used by CloudFront."
+  type        = string
+}
+
+
+
+# ----------------------------------------------------------------
 # DNS VARIABLES — CloudFront Domain Certificate Validation
 # ----------------------------------------------------------------
 

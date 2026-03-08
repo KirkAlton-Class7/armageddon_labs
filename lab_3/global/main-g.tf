@@ -293,10 +293,6 @@
 module "edge" {
   source = "../modules/edge"
 
-  providers = {
-    aws.global = aws.global
-  }
-
   # Identity and Naming
   context     = local.context
   name_prefix = local.name_prefix
@@ -306,10 +302,12 @@ module "edge" {
   dns_context = local.dns_context
 
   # Edge Security
-  edge_auth_header_name = local.edge_auth_header_name
+  edge_auth_header_name = data.terraform_remote_state.tokyo.outputs.edge_auth_value
 
   # Certificate Validation — CloudFront TLS
   rds_app_cf_cert_validation_fqdns = module.dns.rds_app_cf_cert_validation_fqdns
+
+  edge_auth_value = data.terraform_remote_state.tokyo.outputs.edge_auth_value
 }
 
 # ----------------------------------------------------------------
@@ -319,8 +317,10 @@ module "edge" {
 module "dns" {
   source = "../modules/dns"
 
-  providers = {
-    aws.global = aws.global
+  # Providers
+    providers = {
+    aws          = aws
+    aws.regional = aws.regional
   }
 
   # Identity and Naming
@@ -347,4 +347,7 @@ module "dns" {
 
   # Edge Certificate Validation Options (ALB)
   rds_app_cf_cert_domain_validation_options = module.edge.rds_app_cf_cert_domain_validation_options
+
+  rds_app_cert_arn = data.terraform_remote_state.tokyo.outputs.rds_app_cert_arn
+  rds_app_cf_cert_arn = module.edge.rds_app_cf_cert_arn
 }

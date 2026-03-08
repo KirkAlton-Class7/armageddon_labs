@@ -136,3 +136,18 @@ output "deployment_metadata" {
     vpc_id      = module.network.vpc_id
   }
 }
+
+
+
+
+
+
+
+# ----------------------------------------------------------------
+# COMPUTE OUTPUTS — Regional ACM Certificate ARN (ALB)
+# ----------------------------------------------------------------
+
+output "rds_app_cert_arn" {
+  description = "ACM certificate ARN used by the ALB."
+  value       = module.compute.rds_app_cert_arn
+}

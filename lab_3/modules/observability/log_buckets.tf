@@ -64,8 +64,7 @@ data "aws_iam_policy_document" "rds_app_alb_logs" {
 
 # Conditional Terraform Managed S3 Bucket - WAF Logs
 resource "aws_s3_bucket" "waf_logs_bucket" {
-  count = var.waf_log_mode.create_direct_resources ? 1 : 0
-
+  count = var.waf_log_mode.create_direct_resources && var.rds_app_waf_arn != null ? 1 : 0
   bucket        = "aws-waf-logs-${var.context.region}-${var.bucket_suffix}"
   force_destroy = true
 
@@ -79,7 +78,7 @@ resource "aws_s3_bucket" "waf_logs_bucket" {
 
 # Conditional Server-Side Encryption - WAF Logs
 resource "aws_s3_bucket_server_side_encryption_configuration" "waf_logs_bucket" {
-  count  = var.waf_log_mode.create_direct_resources ? 1 : 0
+  count = var.waf_log_mode.create_direct_resources && var.rds_app_waf_arn != null ? 1 : 0
   bucket = aws_s3_bucket.waf_logs_bucket[0].id
 
   rule {
@@ -91,7 +90,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "waf_logs_bucket" 
 
 # WAF Logs Bucket Policy Object
 resource "aws_s3_bucket_policy" "waf_logs_bucket" {
-  count = var.waf_log_mode.create_direct_resources ? 1 : 0
+  count = var.waf_log_mode.create_direct_resources && var.rds_app_waf_arn != null ? 1 : 0
 
   bucket = aws_s3_bucket.waf_logs_bucket[0].id
   policy = data.aws_iam_policy_document.waf_logs_bucket_policy[0].json
@@ -99,8 +98,7 @@ resource "aws_s3_bucket_policy" "waf_logs_bucket" {
 
 # WAF Logs Bucket Policy Data
 data "aws_iam_policy_document" "waf_logs_bucket_policy" {
-  count = var.waf_log_mode.create_direct_resources ? 1 : 0
-
+  count = var.waf_log_mode.create_direct_resources && var.rds_app_waf_arn != null ? 1 : 0
   statement {
     sid    = "AllowWafDirectWrite"
     effect = "Allow"

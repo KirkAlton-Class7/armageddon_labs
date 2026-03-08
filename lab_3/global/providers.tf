@@ -17,7 +17,7 @@ terraform {
 }
 
 # ----------------------------------------------------------------
-# PROVIDERS — AWS Global Services
+# PROVIDERS — AWS Global / Edge Services
 # ----------------------------------------------------------------
 
 provider "aws" {
@@ -30,6 +30,25 @@ provider "aws" {
       Environment = local.context.env
       Application = local.context.app
       Scope       = "global-edge"
+    }
+  }
+}
+
+# ----------------------------------------------------------------
+# PROVIDERS — AWS Regional Services (Application Region)
+# ----------------------------------------------------------------
+
+provider "aws" {
+  alias   = "regional"
+  region  = "us-west-2"
+  profile = "default"
+
+  default_tags {
+    tags = {
+      ManagedBy   = "terraform"
+      Environment = local.context.env
+      Application = local.context.app
+      Scope       = "regional-support"
     }
   }
 }

@@ -68,3 +68,9 @@ variable "edge_auth_header_name" {
   description = "Header name used for edge-to-origin authentication."
   type        = string
 }
+
+variable "edge_auth_value" {
+  description = "Secret header value used by CloudFront to authenticate to the ALB origin."
+  type        = string
+  sensitive   = true
+}

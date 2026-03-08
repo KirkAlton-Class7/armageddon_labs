@@ -23,4 +23,45 @@ locals {
   #
   # Everything inside the expression must evaluate to ONE value.
 
+  # ----------------------------------------------------------------
+  # OBSERVABILITY — Conditional WAF Dashboard Widget (CloudFront)
+  # ----------------------------------------------------------------
+  # This widget is only rendered when a WAF Web ACL name is provided.
+  # CloudWatch dashboards require valid string metric dimensions, and
+  # do not accept null or empty values. When WAF is disabled in the
+  # regional stack, var.rds_app_waf_name will be null, so the widget
+  # must be omitted entirely to avoid dashboard validation errors.
+  #
+  # Pattern:
+  #   If WAF exists  → include widget
+  #   If WAF absent  → return empty list
+  # ----------------------------------------------------------------
+  
+  waf_widget = var.rds_app_waf_name != null ? [
+    {
+      type   = "metric"
+      x      = 0
+      y      = 6
+      width  = 8
+      height = 6
+
+      properties = {
+        title = "CloudFront WAF Blocked Requests"
+
+        metrics = [
+          [
+            "AWS/WAFV2",
+            "BlockedRequests",
+            "WebACL", var.rds_app_waf_name,
+            "Region", "Global",
+            "Rule", "ALL"
+          ]
+        ]
+
+        region = "us-east-1"
+        period = 300
+        view   = "timeSeries"
+      }
+    }
+  ] : []
 }

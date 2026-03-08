@@ -1,3 +1,10 @@
+variable "create_waf" {
+  description = "Whether to create the CloudFront WAF Web ACL."
+  type        = bool
+  default     = false
+}
+
+
 # ----------------------------------------------------------------
 # SECURITY VARIABLES — Account and Networking Inputs
 # ----------------------------------------------------------------

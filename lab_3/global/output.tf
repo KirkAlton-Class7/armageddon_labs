@@ -1,10 +1,11 @@
-# ----------------------------------------------------------------
-# GLOBAL OUTPUTS — Security
-# ----------------------------------------------------------------
+# # ----------------------------------------------------------------
+# # GLOBAL OUTPUTS — Security
+# # ----------------------------------------------------------------
 
-output "edge_auth_value" {
-  value = module.edge.edge_auth_value
-}
+# output "edge_auth_value" {
+#   value = module.edge.edge_auth_value
+#   sensitive = true
+# }
 
 # ----------------------------------------------------------------
 # GLOBAL OUTPUTS — Application Access
@@ -38,4 +39,14 @@ output "cloudfront_distribution" {
 output "rds_app_cert_validation_fqdns" {
   description = "DNS validation record FQDNs for the regional ALB ACM certificate."
   value       = module.dns.rds_app_cert_validation_fqdns
+}
+
+# ----------------------------------------------------------------
+# DNS OUTPUTS — CloudFront Certificate Validation Records
+# ----------------------------------------------------------------
+
+output "rds_app_cf_cert_validation_fqdns" {
+  description = "FQDNs used for CloudFront certificate validation."
+
+  value = module.dns.rds_app_cf_cert_validation_fqdns
 }

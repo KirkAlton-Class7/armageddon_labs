@@ -4,7 +4,7 @@
 
 # IAM Policy Object - SSM Agent Policy
 resource "aws_iam_policy" "ssm_agent_policy" {
-  name        = "SSMAgentPolicy"
+  name        = "${var.name_prefix}-ssm-agent-policy-${var.context.env}"
   path        = "/"
   description = "Allow SSM Agent Permissions"
 

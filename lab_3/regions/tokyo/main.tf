@@ -43,6 +43,9 @@ module "security" {
   vpc_cidr = module.network.vpc_cidr
   vpc_id   = module.network.vpc_id
 
+  # WAF
+  create_waf = false
+  
   # WAF Logging Configuration
   waf_log_retention_days             = var.waf_log_retention_days
   enable_waf_sampled_requests_only   = var.enable_waf_sampled_requests_only
@@ -198,8 +201,8 @@ module "observability" {
 
   # WAF Integration
   waf_log_mode     = local.waf_log_mode
-  # rds_app_waf_name = module.security.rds_app_waf_name
-  # rds_app_waf_arn  = module.security.rds_app_waf_arn
+  rds_app_waf_name = module.security.rds_app_waf_name
+  rds_app_waf_arn  = module.security.rds_app_waf_arn
 
   # IAM Integration
   vpc_flow_log_role_arn = module.iam.vpc_flow_log_role_arn
