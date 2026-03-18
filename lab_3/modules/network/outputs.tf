@@ -17,10 +17,10 @@ output "public_subnets" {
   value       = local.public_subnet_ids
 }
 
-output "private_app_subnets" {
-  description = "Private application subnet IDs."
-  value       = local.private_app_subnet_ids
-}
+# output "private_app_subnets" {
+#   description = "Private application subnet IDs."
+#   value       = local.private_app_subnet_ids
+# }
 
 output "private_data_subnets" {
   description = "Private data subnet IDs."

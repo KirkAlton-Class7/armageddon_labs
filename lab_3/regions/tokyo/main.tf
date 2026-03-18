@@ -22,6 +22,10 @@ module "network" {
   # Security Integration
   vpc_endpoints_sg_id = module.security.vpc_endpoints_sg_id
 
+  # Transit Gateway
+  tgw_id = aws_ec2_transit_gateway.tokyo.id
+
+
   # Demo Metadata (Not used for deployment)
   demo_owner = var.demo_owner #DEMO: Root variable var.demo_owner is passed into module variable demo_owner
 }
