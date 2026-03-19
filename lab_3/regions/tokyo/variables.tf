@@ -46,6 +46,16 @@ variable "root_domain" {
 }
 
 # ----------------------------------------------------------------
+# TOKYO VARIABLES — Compute
+# ----------------------------------------------------------------
+variable "ami_id" {
+  description = "Golden AMI for Tokyo compute instances. Ex: ami-0365298ecd8182a83"
+  default = "ami-025066d470f3455d2"
+  type        = string
+}
+
+
+# ----------------------------------------------------------------
 # TOKYO VARIABLES — Database
 # ----------------------------------------------------------------
 

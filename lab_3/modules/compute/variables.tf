@@ -24,6 +24,11 @@ variable "name_suffix" {
   type        = string
 }
 
+variable "ami_id" {
+  description = "Golden AMI for compute instances"
+  type        = string
+}
+
 # ----------------------------------------------------------------
 # COMPUTE VARIABLES — Networking
 # ----------------------------------------------------------------

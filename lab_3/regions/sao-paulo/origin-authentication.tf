@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# TOKYO ORIGIN SECURITY — CloudFront Origin Authentication Secret
+# SAO PAULO ORIGIN SECURITY — CloudFront Origin Authentication Secret
 # ----------------------------------------------------------------
 # Secret header value used to authenticate CloudFront requests
 # to the ALB origin. The ALB listener validates this header to

@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# TOKYO OUTPUTS — Application Context
+# SAO PAULO OUTPUTS — Application Context
 # ----------------------------------------------------------------
 
 output "application_context" {
@@ -13,17 +13,17 @@ output "application_context" {
 }
 
 # ----------------------------------------------------------------
-# TOKYO OUTPUT — CloudFront Origin Authentication Secret
+# SAO PAULO OUTPUT — CloudFront Origin Authentication Secret
 # ----------------------------------------------------------------
 
 output "edge_auth_value" {
   description = "Secret header value used to authenticate CloudFront requests to the ALB origin."
-  value = random_password.edge_auth_value.result
-  sensitive = true
+  value       = random_password.edge_auth_value.result
+  sensitive   = true
 }
 
 # ----------------------------------------------------------------
-# TOKYO OUTPUTS — ALB Origin (Regional)
+# SAO PAULO OUTPUTS — ALB Origin (Regional)
 # ----------------------------------------------------------------
 
 output "rds_app_public_alb_dns_name" {
@@ -37,7 +37,7 @@ output "rds_app_public_alb_zone_id" {
 }
 
 # ----------------------------------------------------------------
-# TOKYO OUTPUTS — Regional Certificate Validation Options
+# SAO PAULO OUTPUTS — Regional Certificate Validation Options
 # ----------------------------------------------------------------
 
 output "rds_app_cert_domain_validation_options" {
@@ -46,7 +46,7 @@ output "rds_app_cert_domain_validation_options" {
 }
 
 # ----------------------------------------------------------------
-# TOKYO OUTPUTS — Application Access
+# SAO PAULO OUTPUTS — Application Access
 # ----------------------------------------------------------------
 
 output "application_access" {
@@ -61,7 +61,7 @@ output "application_access" {
 }
 
 # ----------------------------------------------------------------
-# TOKYO OUTPUTS — Infrastructure Summary
+# SAO PAULO OUTPUTS — Infrastructure Summary
 # ----------------------------------------------------------------
 
 output "infrastructure_summary" {
@@ -82,7 +82,7 @@ output "infrastructure_summary" {
 }
 
 # ----------------------------------------------------------------
-# TOKYO OUTPUTS — Compute Capacity
+# SAO PAULO OUTPUTS — Compute Capacity
 # ----------------------------------------------------------------
 
 output "compute_capacity" {
@@ -97,7 +97,7 @@ output "compute_capacity" {
 }
 
 # ----------------------------------------------------------------
-# TOKYO OUTPUTS — Security Summary
+# SAO PAULO OUTPUTS — Security Summary
 # ----------------------------------------------------------------
 
 output "security_summary" {
@@ -114,7 +114,7 @@ output "security_summary" {
 }
 
 # ----------------------------------------------------------------
-# TOKYO OUTPUTS — Deployment Logging Configuration
+# SAO PAULO OUTPUTS — Deployment Logging Configuration
 # ----------------------------------------------------------------
 
 output "deployment_logging_configuration" {
@@ -123,7 +123,7 @@ output "deployment_logging_configuration" {
 }
 
 # ----------------------------------------------------------------
-# TOKYO OUTPUTS — Deployment Metadata
+# SAO PAULO OUTPUTS — Deployment Metadata
 # ----------------------------------------------------------------
 
 output "deployment_metadata" {

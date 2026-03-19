@@ -170,6 +170,9 @@ module "compute" {
   # Network Dependencies
   ec2_vpc_endpoints_ready = module.network.ec2_vpc_endpoints_ready
 
+  # AMI ID
+  ami_id = var.ami_id
+
   # Certificate Validation — Regional TLS (ALB)
   #rds_app_cert_validation_fqdns = module.compute.rds_app_cert_validation_fqdns
 }

@@ -14,6 +14,12 @@ locals {
     }
   )
 
+  # AMI Map
+  ami_map = {
+  ap-northeast-1 = "ami-aaa111" # Tokyo (replace with your AMI ID)
+  sa-east-1      = "ami-bbb222" # São Paulo (replace with your AMI ID)
+}
+
   # CloudWatch Agent Configuration File
   cloudwatch_agent_config = templatefile("${path.module}/templates/cloudwatch-agent-config.json.tpl",
     {

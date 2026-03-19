@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# TOKYO RANDOMIZERS - Naming Suffix Generator
+# SAO PAULO RANDOMIZERS - Naming Suffix Generator
 # ----------------------------------------------------------------
 
 resource "random_string" "suffix" {
@@ -8,7 +8,7 @@ resource "random_string" "suffix" {
 }
 
 # ---------------------------------------------------------------
-# TOKYO RANDOMIZERS - Random Hex ID (Suffix) 
+# SAO PAULO RANDOMIZERS - Random Hex ID (Suffix) 
 # ---------------------------------------------------------------
 #For globally unique S3 bucket names
 resource "random_id" "bucket_suffix" {

@@ -138,11 +138,6 @@ output "deployment_metadata" {
 }
 
 
-
-
-
-
-
 # ----------------------------------------------------------------
 # COMPUTE OUTPUTS — Regional ACM Certificate ARN (ALB)
 # ----------------------------------------------------------------
@@ -150,4 +145,19 @@ output "deployment_metadata" {
 output "rds_app_cert_arn" {
   description = "ACM certificate ARN used by the ALB."
   value       = module.compute.rds_app_cert_arn
+}
+
+# ----------------------------------------------------------------
+# TOKYO OUTPUTS — Transit Gateway Peering
+# ----------------------------------------------------------------
+# Exposes TGW peering attachment ID for cross-region acceptance
+# !! PHASE 2: Only available after peering is created
+
+output "tgw_peering_attachment_id" {
+  description = "Transit Gateway peering attachment ID (Tokyo → Sao Paulo)."
+
+  value = try(
+    aws_ec2_transit_gateway_peering_attachment.tokyo_to_saopaulo.id,
+    null
+  )
 }

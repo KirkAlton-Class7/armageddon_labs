@@ -49,7 +49,7 @@ module "security" {
 
   # WAF
   create_waf = false
-  
+
   # WAF Logging Configuration
   waf_log_retention_days             = var.waf_log_retention_days
   enable_waf_sampled_requests_only   = var.enable_waf_sampled_requests_only
@@ -83,7 +83,7 @@ module "iam" {
   waf_direct_log_group_arn    = module.observability.waf_direct_log_group_arn
 
   # Secrets Access
-  db_secret_arn = var.tokyo_db_secret_arn
+  db_secret_arn = data.terraform_remote_state.tokyo.outputs.db_secret_arn
 }
 
 # ----------------------------------------------------------------
@@ -121,7 +121,7 @@ module "compute" {
   private_app_subnet_tags = module.network.private_app_subnet_tags
 
   # Application Secrets
-  db_secret_arn = var.tokyo_db_secret_arn
+  db_secret_arn = data.terraform_remote_state.tokyo.outputs.db_secret_arn
   # ALB Logging
   alb_access_logs_prefix = var.alb_access_logs_prefix
   alb_log_s3             = var.alb_log_s3
@@ -133,6 +133,9 @@ module "compute" {
 
   # Network Dependencies
   ec2_vpc_endpoints_ready = module.network.ec2_vpc_endpoints_ready
+
+  # AMI ID
+  ami_id = var.ami_id
 
   # Certificate Validation — Regional TLS (ALB)
   #rds_app_cert_validation_fqdns = module.compute.rds_app_cert_validation_fqdns

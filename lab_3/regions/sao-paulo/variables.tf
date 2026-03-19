@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# TOKYO VARIABLES — Application Identity
+# SAO PAULO VARIABLES — Application Identity
 # ----------------------------------------------------------------
 
 variable "region" {
@@ -26,7 +26,7 @@ variable "env" {
 }
 
 # ----------------------------------------------------------------
-# TOKYO VARIABLES — Networking
+# SAO PAULO VARIABLES — Networking
 # ----------------------------------------------------------------
 
 variable "vpc_cidr" {
@@ -36,7 +36,7 @@ variable "vpc_cidr" {
 }
 
 # ----------------------------------------------------------------
-# TOKYO VARIABLES — Route53 Management
+# SAO PAULO VARIABLES — Route53 Management
 # ----------------------------------------------------------------
 
 variable "root_domain" {
@@ -46,16 +46,16 @@ variable "root_domain" {
 }
 
 # ----------------------------------------------------------------
-# TOKYO VARIABLES — Database
+# SAO PAULO VARIABLES — Compute
 # ----------------------------------------------------------------
-
-variable "tokyo_db_secret_arn" {
-  description = "ARN of the Secrets Manager secret for the Tokyo RDS database credentials."
-  type = string
+variable "ami_id" {
+  description = "Golden AMI for Sao Paulo compute instances. Ex: ami-0365298ecd8182a83"
+  default = "ami-0569b9007d23630c2"
+  type        = string
 }
 
 # ----------------------------------------------------------------
-# TOKYO VARIABLES — WAF Logging & Observability
+# SAO PAULO VARIABLES — WAF Logging & Observability
 # ----------------------------------------------------------------
 
 variable "waf_log_destination" {
@@ -88,7 +88,7 @@ variable "enable_direct_service_log_delivery" {
 }
 
 # ----------------------------------------------------------------
-# TOKYO VARIABLES — ALB Logging
+# SAO PAULO VARIABLES — ALB Logging
 # ----------------------------------------------------------------
 
 variable "alb_access_logs_prefix" {
@@ -104,7 +104,7 @@ variable "alb_log_s3" {
 }
 
 # ----------------------------------------------------------------
-# TOKYO VARIABLES — Demonstration
+# SAO PAULO VARIABLES — Demonstration
 # ----------------------------------------------------------------
 
 variable "demo_owner" {
