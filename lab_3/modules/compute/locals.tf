@@ -6,10 +6,11 @@ locals {
   # Locals for Rendering Template Files
 
   # EC2 User Data for RDS App Instances
-  rds_app_user_data = templatefile("${path.module}/templates/1c_user_data.sh.tpl",
+  rds_app_user_data = templatefile(
+    "${path.module}/templates/1c-user-data.sh.tpl",
     {
       region      = var.context.region,
-      secret_id   = var.db_secret_arn
+      secret_id   = var.db_secret_arn,
       name_suffix = var.name_suffix
     }
   )

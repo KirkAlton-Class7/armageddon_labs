@@ -48,6 +48,6 @@ resource "aws_route_table" "local" {
 
 resource "aws_route" "to_saopaulo" {
   route_table_id         = aws_route_table.local.id
-  destination_cidr_block = var.saopaulo_vpc_cidr # FIXME
+  destination_cidr_block = var.vpc_cidr
   transit_gateway_id     = var.tgw_id
 }

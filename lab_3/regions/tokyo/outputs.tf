@@ -71,9 +71,9 @@ output "infrastructure_summary" {
     vpc_id   = module.network.vpc_id
     vpc_cidr = module.network.vpc_cidr
 
-    public_subnets       = module.network.public_subnets
-    private_app_subnets  = module.network.private_app_subnets
-    private_data_subnets = module.network.private_data_subnets
+    public_subnets       = module.network.public_subnet_ids
+    private_app_subnets  = module.network.private_app_subnet_ids
+    private_data_subnets = module.network.private_data_subnet_ids
 
     alb_name      = module.compute.rds_app_public_alb_name
     asg_name      = module.compute.rds_app_asg_name
@@ -147,17 +147,17 @@ output "rds_app_cert_arn" {
   value       = module.compute.rds_app_cert_arn
 }
 
-# ----------------------------------------------------------------
-# TOKYO OUTPUTS — Transit Gateway Peering
-# ----------------------------------------------------------------
-# Exposes TGW peering attachment ID for cross-region acceptance
-# !! PHASE 2: Only available after peering is created
+# # ----------------------------------------------------------------
+# # TOKYO OUTPUTS — Transit Gateway Peering
+# # ----------------------------------------------------------------
+# # Exposes TGW peering attachment ID for cross-region acceptance
+# # !! PHASE 2: Only available after peering is created
 
-output "tgw_peering_attachment_id" {
-  description = "Transit Gateway peering attachment ID (Tokyo → Sao Paulo)."
+# output "tgw_peering_attachment_id" {
+#   description = "Transit Gateway peering attachment ID (Tokyo → Sao Paulo)."
 
-  value = try(
-    aws_ec2_transit_gateway_peering_attachment.tokyo_to_saopaulo.id,
-    null
-  )
-}
+#   value = try(
+#     aws_ec2_transit_gateway_peering_attachment.tokyo_to_saopaulo.id,
+#     null
+#   )
+# }

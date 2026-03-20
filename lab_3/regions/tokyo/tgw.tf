@@ -33,8 +33,8 @@ resource "aws_ec2_transit_gateway" "tokyo" {
 resource "aws_ec2_transit_gateway_vpc_attachment" "tokyo" {
   transit_gateway_id = aws_ec2_transit_gateway.tokyo.id
 
-  vpc_id     = module.network_tokyo.vpc_id
-  subnet_ids = module.network_tokyo.private_app_subnet_ids
+  vpc_id     = module.network.vpc_id
+  subnet_ids = module.network.private_app_subnet_ids
 
   tags = merge(
     {

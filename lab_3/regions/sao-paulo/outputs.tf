@@ -71,13 +71,13 @@ output "infrastructure_summary" {
     vpc_id   = module.network.vpc_id
     vpc_cidr = module.network.vpc_cidr
 
-    public_subnets       = module.network.public_subnets
-    private_app_subnets  = module.network.private_app_subnets
-    private_data_subnets = module.network.private_data_subnets
+    public_subnets       = module.network.public_subnet_ids
+    private_app_subnets  = module.network.private_app_subnet_ids
+    private_data_subnets = module.network.private_data_subnet_ids
 
     alb_name      = module.compute.rds_app_public_alb_name
     asg_name      = module.compute.rds_app_asg_name
-    db_identifier = module.database.db_identifier
+  db_identifier = data.terraform_remote_state.tokyo.outputs.infrastructure_summary.db_identifier
   }
 }
 

@@ -50,7 +50,7 @@ variable "root_domain" {
 # ----------------------------------------------------------------
 variable "ami_id" {
   description = "Golden AMI for Sao Paulo compute instances. Ex: ami-0365298ecd8182a83"
-  default = "ami-0569b9007d23630c2"
+  default     = "ami-0569b9007d23630c2"
   type        = string
 }
 
