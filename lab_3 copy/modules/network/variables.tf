@@ -47,6 +47,12 @@ variable "vpc_endpoints_sg_id" {
   type        = string
 }
 
+# Transit Gateway ID
+variable "tgw_id" {
+  description = "Transit Gateway ID for VPC attachment."
+  type = string
+}
+
 # ----------------------------------------------------------------
 # NETWORKING VARIABLES — Demonstration
 # ----------------------------------------------------------------

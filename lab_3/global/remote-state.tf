@@ -2,7 +2,6 @@
 # GLOBAL REMOTE STATE — Read Regional Infrastructure: Tokyo
 # ----------------------------------------------------------------
 # Reads outputs from the Tokyo regional stack.
-# Used as origin infrastructure for global edge/DNS components.
 # Configuration must match the backend settings defined in the Tokyo stack.
 
 data "terraform_remote_state" "tokyo" {
@@ -11,6 +10,21 @@ data "terraform_remote_state" "tokyo" {
   config = {
     bucket = "kirkdevsecops-terraform-state"
     key    = "rds-app/dev/regions/tokyo/terraform.tfstate"
+    region = "us-west-2"
+  }
+}
+
+# ----------------------------------------------------------------
+# GLOBAL REMOTE STATE — Read Regional Infrastructure: SAO PAULO
+# ----------------------------------------------------------------
+# Reads outputs from the Sao Paulo regional stack.
+# Configuration must match the backend settings defined in the Sao Paulo stack.
+data "terraform_remote_state" "saopaulo" {
+  backend = "s3"
+
+  config = {
+    bucket = "kirkdevsecops-terraform-state"
+    key    = "rds-app/dev/regions/saopaulo/terraform.tfstate"
     region = "us-west-2"
   }
 }

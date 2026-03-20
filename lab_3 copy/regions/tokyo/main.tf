@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# SAO PAULO MAIN — MODULES
+# TOKYO MAIN — MODULES
 # ----------------------------------------------------------------
 
 # ----------------------------------------------------------------
@@ -21,6 +21,10 @@ module "network" {
 
   # Security Integration
   vpc_endpoints_sg_id = module.security.vpc_endpoints_sg_id
+
+  # Transit Gateway
+  tgw_id = aws_ec2_transit_gateway.tokyo.id
+
 
   # Demo Metadata (Not used for deployment)
   demo_owner = var.demo_owner #DEMO: Root variable var.demo_owner is passed into module variable demo_owner
@@ -45,7 +49,7 @@ module "security" {
 
   # WAF
   create_waf = false
-
+  
   # WAF Logging Configuration
   waf_log_retention_days             = var.waf_log_retention_days
   enable_waf_sampled_requests_only   = var.enable_waf_sampled_requests_only
@@ -79,7 +83,42 @@ module "iam" {
   waf_direct_log_group_arn    = module.observability.waf_direct_log_group_arn
 
   # Secrets Access
-  db_secret_arn = data.terraform_remote_state.tokyo.outputs.db_secret_arn
+  db_secret_arn = module.database.db_secret_arn
+}
+
+# ----------------------------------------------------------------
+# MODULE — DATABASE
+# ----------------------------------------------------------------
+
+module "database" {
+  source = "../../modules/database"
+
+  # Identity and Naming
+  context     = local.context
+  name_prefix = local.name_prefix
+  name_suffix = local.name_suffix
+
+  # Security Groups
+  private_db_sg_id = module.security.private_db_sg_id
+
+  # Database Configuration
+  db_engine   = local.normalized_db_engine
+  db_username = var.db_username
+
+  # Network Subnets
+  private_app_subnet_ids  = module.network.private_app_subnet_ids
+  private_data_subnet_ids = module.network.private_data_subnet_ids
+
+  # Subnet Metadata
+  private_app_subnet_tags  = module.network.private_app_subnet_tags
+  private_data_subnet_tags = module.network.private_subnet_tags
+
+  # Monitoring and Alerting
+  rds_enhanced_monitoring_role_arn = module.iam.rds_enhanced_monitoring_role_arn
+  rds_failure_alert_topic_arn      = module.observability.rds_failure_alert_topic_arn
+
+  # Secrets
+  db_secret_arn = module.database.db_secret_arn
 }
 
 # ----------------------------------------------------------------
@@ -117,7 +156,8 @@ module "compute" {
   private_app_subnet_tags = module.network.private_app_subnet_tags
 
   # Application Secrets
-  db_secret_arn = data.terraform_remote_state.tokyo.outputs.db_secret_arn
+  db_secret_arn = module.database.db_secret_arn
+
   # ALB Logging
   alb_access_logs_prefix = var.alb_access_logs_prefix
   alb_log_s3             = var.alb_log_s3
@@ -159,7 +199,7 @@ module "observability" {
   alb_log_s3             = var.alb_log_s3
 
   # Database Monitoring
-  db_identifier = null # No db identifier for Sao Paulo
+  db_identifier = module.database.db_identifier
 
   # Compute Metrics
   rds_app_public_alb_arn_suffix = module.compute.rds_app_public_alb_arn_suffix
@@ -173,28 +213,4 @@ module "observability" {
 
   # IAM Integration
   vpc_flow_log_role_arn = module.iam.vpc_flow_log_role_arn
-}
-
-# ----------------------------------------------------------------
-# MODULE — TRANSIT GATEWAY (SAO PAULO SPOKE)
-# ----------------------------------------------------------------
-
-module "tgw" {
-  source = "../../modules/tgw"
-
-  # Identity and Naming
-  context     = local.context
-  name_prefix = local.name_prefix
-  name_suffix = local.name_suffix
-
-  # TGW Role
-  tgw_role = var.tgw_role
-
-  # Networking
-  vpc_id = module.network.vpc_id
-
-  private_app_subnet_ids = module.network.private_app_subnet_ids
-
-  # Tagging
-  tgw_tags = var.tgw_tags
 }

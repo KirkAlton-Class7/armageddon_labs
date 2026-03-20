@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# SAO PAULO VARIABLES — Application Identity
+# TOKYO VARIABLES — Application Identity
 # ----------------------------------------------------------------
 
 variable "region" {
@@ -26,7 +26,7 @@ variable "env" {
 }
 
 # ----------------------------------------------------------------
-# SAO PAULO VARIABLES — Networking
+# TOKYO VARIABLES — Networking
 # ----------------------------------------------------------------
 
 variable "vpc_cidr" {
@@ -36,7 +36,7 @@ variable "vpc_cidr" {
 }
 
 # ----------------------------------------------------------------
-# SAO PAULO VARIABLES — Route53 Management
+# TOKYO VARIABLES — Route53 Management
 # ----------------------------------------------------------------
 
 variable "root_domain" {
@@ -46,16 +46,38 @@ variable "root_domain" {
 }
 
 # ----------------------------------------------------------------
-# SAO PAULO VARIABLES — Compute
+# TOKYO VARIABLES — Compute
 # ----------------------------------------------------------------
 variable "ami_id" {
-  description = "Golden AMI for Sao Paulo compute instances. Ex: ami-0365298ecd8182a83"
-  default     = "ami-0569b9007d23630c2"
+  description = "Golden AMI for Tokyo compute instances. Ex: ami-0365298ecd8182a83"
+  default = "ami-025066d470f3455d2"
   type        = string
 }
 
+
 # ----------------------------------------------------------------
-# SAO PAULO VARIABLES — WAF Logging & Observability
+# TOKYO VARIABLES — Database
+# ----------------------------------------------------------------
+
+variable "db_engine" {
+  description = "Database engine type."
+  type        = string
+  default     = "mysql"
+
+  validation {
+    condition     = contains(["mysql", "postgres", "sqlserver", "oracle"], lower(var.db_engine))
+    error_message = "db_engine must be one of: mysql, postgres, sqlserver, oracle."
+  }
+}
+
+variable "db_username" {
+  description = "Database admin username."
+  type        = string
+  default     = "admin"
+}
+
+# ----------------------------------------------------------------
+# TOKYO VARIABLES — WAF Logging & Observability
 # ----------------------------------------------------------------
 
 variable "waf_log_destination" {
@@ -88,7 +110,7 @@ variable "enable_direct_service_log_delivery" {
 }
 
 # ----------------------------------------------------------------
-# SAO PAULO VARIABLES — ALB Logging
+# TOKYO VARIABLES — ALB Logging
 # ----------------------------------------------------------------
 
 variable "alb_access_logs_prefix" {
@@ -104,34 +126,7 @@ variable "alb_log_s3" {
 }
 
 # ----------------------------------------------------------------
-# SAO PAULO VARIABLES — Transit Gateway (Spoke)
-# ----------------------------------------------------------------
-variable "tgw_role" {
-  description = "Transit Gateway role in topology (e.g., hub, spoke)."
-  type        = string
-  default = "spoke"
-
-  validation {
-    condition     = contains(["hub", "spoke"], lower(var.tgw_role))
-    error_message = "tgw_role must be either: hub or spoke."
-  }
-}
-
-variable "tgw_tags" {
-  description = "Tags applied to the Transit Gateway."
-  type        = map(string)
-
-  default = {
-    Region    = "saopaulo"
-    Role      = "spoke"
-    Component = "network"
-    Connectivity = "inter-vpc"
-    Scope = "regional"
-  }
-}
-
-# ----------------------------------------------------------------
-# SAO PAULO VARIABLES — Demonstration
+# TOKYO VARIABLES — Demonstration
 # ----------------------------------------------------------------
 
 variable "demo_owner" {

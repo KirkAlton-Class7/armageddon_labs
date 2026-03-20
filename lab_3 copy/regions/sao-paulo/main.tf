@@ -22,6 +22,10 @@ module "network" {
   # Security Integration
   vpc_endpoints_sg_id = module.security.vpc_endpoints_sg_id
 
+  # Transit Gateway
+  tgw_id = aws_ec2_transit_gateway.saopaulo.id
+
+
   # Demo Metadata (Not used for deployment)
   demo_owner = var.demo_owner #DEMO: Root variable var.demo_owner is passed into module variable demo_owner
 }
@@ -173,28 +177,4 @@ module "observability" {
 
   # IAM Integration
   vpc_flow_log_role_arn = module.iam.vpc_flow_log_role_arn
-}
-
-# ----------------------------------------------------------------
-# MODULE — TRANSIT GATEWAY (SAO PAULO SPOKE)
-# ----------------------------------------------------------------
-
-module "tgw" {
-  source = "../../modules/tgw"
-
-  # Identity and Naming
-  context     = local.context
-  name_prefix = local.name_prefix
-  name_suffix = local.name_suffix
-
-  # TGW Role
-  tgw_role = var.tgw_role
-
-  # Networking
-  vpc_id = module.network.vpc_id
-
-  private_app_subnet_ids = module.network.private_app_subnet_ids
-
-  # Tagging
-  tgw_tags = var.tgw_tags
 }

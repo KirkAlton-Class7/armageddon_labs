@@ -125,6 +125,36 @@ variable "alb_log_s3" {
   default     = true
 }
 
+
+
+# ----------------------------------------------------------------
+# TOKYO VARIABLES — Transit Gateway (Hub)
+# ----------------------------------------------------------------
+
+variable "tgw_role" {
+  description = "Transit Gateway role in topology (e.g., hub, spoke)."
+  type        = string
+  default = "hub"
+
+  validation {
+    condition     = contains(["hub", "spoke"], lower(var.tgw_role))
+    error_message = "tgw_role must be either: hub or spoke."
+  }
+}
+variable "tgw_tags" {
+  description = "Tags applied to the Transit Gateway."
+  type        = map(string)
+
+  default = {
+    Region    = "tokyo"
+    Role      = "hub"
+    Component = "network"
+    Connectivity = "inter-vpc"
+    Scope = "regional"
+  }
+}
+
+
 # ----------------------------------------------------------------
 # TOKYO VARIABLES — Demonstration
 # ----------------------------------------------------------------
