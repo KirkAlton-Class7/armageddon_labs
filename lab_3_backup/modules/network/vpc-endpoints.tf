@@ -12,7 +12,7 @@ resource "aws_vpc_endpoint" "kms" {
   subnet_ids        = local.private_app_subnet_ids
 
   security_group_ids = [
-    local.vpc_endpoints_sg_id
+    locals.vpc_endpoints_sg_id
   ]
 
   private_dns_enabled = true
@@ -59,7 +59,7 @@ resource "aws_vpc_endpoint" "secretsmanager" {
   subnet_ids = local.private_app_subnet_ids
 
   security_group_ids = [
-    local.vpc_endpoints_sg_id
+    locals.vpc_endpoints_sg_id
   ]
 
   private_dns_enabled = true
@@ -87,7 +87,7 @@ resource "aws_vpc_endpoint" "ssm" {
   subnet_ids = local.private_app_subnet_ids
 
   security_group_ids = [
-    local.vpc_endpoints_sg_id
+    locals.vpc_endpoints_sg_id
   ]
 
   private_dns_enabled = true
@@ -111,7 +111,7 @@ resource "aws_vpc_endpoint" "ssm_messages" {
   subnet_ids = local.private_app_subnet_ids
 
   security_group_ids = [
-    local.vpc_endpoints_sg_id
+    locals.vpc_endpoints_sg_id
   ]
 
   private_dns_enabled = true
@@ -135,7 +135,7 @@ resource "aws_vpc_endpoint" "ec2_messages" {
   subnet_ids = local.private_app_subnet_ids
 
   security_group_ids = [
-    local.vpc_endpoints_sg_id
+    locals.vpc_endpoints_sg_id
   ]
 
   private_dns_enabled = true
@@ -163,7 +163,7 @@ resource "aws_vpc_endpoint" "ec2" {
   subnet_ids = local.private_app_subnet_ids
 
   security_group_ids = [
-    local.vpc_endpoints_sg_id
+    locals.vpc_endpoints_sg_id
   ]
 
   private_dns_enabled = true
@@ -191,7 +191,7 @@ resource "aws_vpc_endpoint" "monitoring" {
   subnet_ids = local.private_app_subnet_ids
 
   security_group_ids = [
-    local.vpc_endpoints_sg_id
+    locals.vpc_endpoints_sg_id
   ]
 
   private_dns_enabled = true
@@ -215,7 +215,7 @@ resource "aws_vpc_endpoint" "logs" {
   subnet_ids = local.private_app_subnet_ids
 
   security_group_ids = [
-    local.vpc_endpoints_sg_id
+    locals.vpc_endpoints_sg_id
   ]
 
   private_dns_enabled = true

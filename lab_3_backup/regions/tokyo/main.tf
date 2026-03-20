@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------
-# SAO PAULO MAIN — MODULES
+# TOKYO MAIN — MODULES
 # ----------------------------------------------------------------
 
 # ----------------------------------------------------------------
@@ -11,7 +11,7 @@ module "network" {
 
   providers = {
     aws.regional = aws
-    }
+  }
 
   # Identity and Naming
   context     = local.context
@@ -36,7 +36,7 @@ module "security" {
 
   providers = {
     aws.regional = aws
-    }
+  }
 
   # Identity and Naming
   context     = local.context
@@ -67,9 +67,9 @@ module "security" {
 module "iam" {
   source = "../../modules/iam"
 
-    providers = {
+  providers = {
     aws.regional = aws
-    }
+  }
 
   # Identity and Naming
   context     = local.context
@@ -88,7 +88,46 @@ module "iam" {
   waf_direct_log_group_arn    = module.observability.waf_direct_log_group_arn
 
   # Secrets Access
-  db_secret_arn = data.terraform_remote_state.tokyo.outputs.db_secret_arn
+  db_secret_arn = module.database.db_secret_arn
+}
+
+# ----------------------------------------------------------------
+# MODULE — DATABASE
+# ----------------------------------------------------------------
+
+module "database" {
+  source = "../../modules/database"
+
+  providers = {
+    aws.regional = aws
+  }
+
+  # Identity and Naming
+  context     = local.context
+  name_prefix = local.name_prefix
+  name_suffix = local.name_suffix
+
+  # Security Groups
+  private_db_sg_id = module.security.private_db_sg_id
+
+  # Database Configuration
+  db_engine   = local.normalized_db_engine
+  db_username = var.db_username
+
+  # Network Subnets
+  private_app_subnet_ids  = module.network.private_app_subnet_ids
+  private_data_subnet_ids = module.network.private_data_subnet_ids
+
+  # Subnet Metadata
+  private_app_subnet_tags  = module.network.private_app_subnet_tags
+  private_data_subnet_tags = module.network.private_subnet_tags
+
+  # Monitoring and Alerting
+  rds_enhanced_monitoring_role_arn = module.iam.rds_enhanced_monitoring_role_arn
+  rds_failure_alert_topic_arn      = module.observability.rds_failure_alert_topic_arn
+
+  # Secrets
+  db_secret_arn = module.database.db_secret_arn
 }
 
 # ----------------------------------------------------------------
@@ -98,9 +137,9 @@ module "iam" {
 module "compute" {
   source = "../../modules/compute"
 
-    providers = {
+  providers = {
     aws.regional = aws
-    }
+  }
 
   # Identity and Naming
   context     = local.context
@@ -130,7 +169,8 @@ module "compute" {
   private_app_subnet_tags = module.network.private_app_subnet_tags
 
   # Application Secrets
-  db_secret_arn = data.terraform_remote_state.tokyo.outputs.db_secret_arn
+  db_secret_arn = module.database.db_secret_arn
+
   # ALB Logging
   alb_access_logs_prefix = var.alb_access_logs_prefix
   alb_log_s3             = var.alb_log_s3
@@ -157,9 +197,9 @@ module "compute" {
 module "observability" {
   source = "../../modules/observability"
 
-    providers = {
+  providers = {
     aws.regional = aws
-    }
+  }
 
   # Identity and Naming
   context       = local.context
@@ -176,7 +216,7 @@ module "observability" {
   alb_log_s3             = var.alb_log_s3
 
   # Database Monitoring
-  db_identifier = null # No db identifier for Sao Paulo
+  db_identifier = module.database.db_identifier
 
   # Compute Metrics
   rds_app_public_alb_arn_suffix = module.compute.rds_app_public_alb_arn_suffix
@@ -193,15 +233,15 @@ module "observability" {
 }
 
 # ----------------------------------------------------------------
-# MODULE — TRANSIT GATEWAY (SAO PAULO SPOKE)
+# MODULE — TRANSIT GATEWAY (TOKYO HUB)
 # ----------------------------------------------------------------
 
 module "tgw" {
   source = "../../modules/tgw"
 
-    providers = {
+  providers = {
     aws.regional = aws
-    }
+  }
 
   # Identity and Naming
   context     = local.context

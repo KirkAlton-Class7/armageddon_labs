@@ -1,4 +1,23 @@
 # ----------------------------------------------------------------
+# SECURITY OUTPUTS — VPC Endpoints Security Group
+# ----------------------------------------------------------------
+
+output "vpc_endpoints_sg_id" {
+  description = "Security group ID for VPC endpoints."
+  value       = aws_security_group.vpc_endpoints.id
+}
+
+output "vpc_endpoints_sg_arn" {
+  description = "Security group ARN for VPC endpoints."
+  value       = aws_security_group.vpc_endpoints.arn
+}
+
+output "vpc_endpoints_sg_name" {
+  description = "Security group name for VPC endpoints."
+  value       = aws_security_group.vpc_endpoints.name
+}
+
+# ----------------------------------------------------------------
 # SECURITY OUTPUTS — Application Security Groups
 # ----------------------------------------------------------------
 

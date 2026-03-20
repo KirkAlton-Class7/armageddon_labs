@@ -126,7 +126,6 @@ variable "rds_app_asg_name" {
 variable "rds_app_waf_name" {
   description = "Name of the RDS app WAF web ACL."
   type        = string
-  default = null
 }
 
 variable "rds_app_waf_arn" {
