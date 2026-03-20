@@ -4,6 +4,8 @@
 
 # IAM Policy Object - SSM Agent Policy
 resource "aws_iam_policy" "ssm_agent_policy" {
+  provider = aws.regional
+
   name        = "${var.name_prefix}-ssm-agent-policy-${var.context.env}"
   path        = "/"
   description = "Allow SSM Agent Permissions"
@@ -22,7 +24,8 @@ resource "aws_iam_policy" "ssm_agent_policy" {
 # IAM Policy Data - SSM Agent Policy
 # (SSM Agent Permissions, Messaging, and Legacy Messaging)
 data "aws_iam_policy_document" "ssm_agent_policy" {
-
+  provider = aws.regional
+  
   statement {
     sid    = "AllowSSMAgentPermissions"
     effect = "Allow"

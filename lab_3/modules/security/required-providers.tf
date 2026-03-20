@@ -1,15 +1,15 @@
 # ----------------------------------------------------------------
-# EDGE / DNS / CDN — Terraform Configuration
+# SECURITY — Terraform Configuration
 # ----------------------------------------------------------------
 
 terraform {
   required_providers {
     aws = {
       source = "hashicorp/aws"
-    }
 
-    random = {
-      source = "hashicorp/random"
+      configuration_aliases = [
+        aws.regional
+      ]
     }
   }
 }

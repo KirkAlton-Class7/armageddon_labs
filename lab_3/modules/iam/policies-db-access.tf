@@ -4,6 +4,8 @@
 
 # IAM Policy Object - Read DB Secret
 resource "aws_iam_policy" "read_db_secret" {
+  provider = aws.regional
+
   name        = "read-db-secret-${var.name_suffix}"
   path        = "/"
   description = "Read specific secret for db."
@@ -22,6 +24,7 @@ resource "aws_iam_policy" "read_db_secret" {
 
 # IAM Policy Data - Read DB Secret
 data "aws_iam_policy_document" "read_db_secret" {
+  provider = aws.regional
   statement {
     sid    = "ReadDBSecret"
     effect = "Allow"
@@ -43,6 +46,8 @@ data "aws_iam_policy_document" "read_db_secret" {
 
 # IAM Policy Object - Read DB Name Parameter
 resource "aws_iam_policy" "read_db_name_parameter" {
+  provider = aws.regional
+
   name        = "read-db-name-parameter-${var.name_suffix}"
   path        = "/"
   description = "Allows EC2 to read DB name from SSM Parameter Store"
@@ -63,6 +68,8 @@ resource "aws_iam_policy" "read_db_name_parameter" {
 
 # IAM Policy Data - Read DB Name Parameter
 data "aws_iam_policy_document" "read_db_name_parameter" {
+  provider = aws.regional
+
   statement {
     sid    = "ReadDbNameParameter"
     effect = "Allow"
@@ -80,6 +87,8 @@ data "aws_iam_policy_document" "read_db_name_parameter" {
 
 # IAM Policy Object - Read DB Username Parameter
 resource "aws_iam_policy" "read_db_username_parameter" {
+  provider = aws.regional
+  
   name        = "read-db-username-parameter-${var.name_suffix}"
   path        = "/"
   description = "Allows EC2 to read DB username from SSM Parameter Store"
@@ -100,6 +109,8 @@ resource "aws_iam_policy" "read_db_username_parameter" {
 
 # IAM Policy Data - Read DB Username Parameter
 data "aws_iam_policy_document" "read_db_username_parameter" {
+  provider = aws.regional
+
   statement {
     sid    = "ReadDbUsernameParameter"
     effect = "Allow"
@@ -117,6 +128,8 @@ data "aws_iam_policy_document" "read_db_username_parameter" {
 
 # IAM Policy Object - Read DB Host Parameter
 resource "aws_iam_policy" "read_db_host_parameter" {
+  provider = aws.regional
+
   name        = "read-db-host-parameter-${var.name_suffix}"
   path        = "/"
   description = "Allows EC2 to read DB host from SSM Parameter Store"
@@ -137,6 +150,8 @@ resource "aws_iam_policy" "read_db_host_parameter" {
 
 # IAM Policy Data - Read DB Host Parameter
 data "aws_iam_policy_document" "read_db_host_parameter" {
+  provider = aws.regional
+
   statement {
     sid    = "ReadDbHostParameter"
     effect = "Allow"
@@ -154,6 +169,8 @@ data "aws_iam_policy_document" "read_db_host_parameter" {
 
 # IAM Policy Object - Read DB Port Parameter
 resource "aws_iam_policy" "read_db_port_parameter" {
+  provider = aws.regional
+
   name        = "read-db-port-parameter-${var.name_suffix}"
   path        = "/"
   description = "Allows EC2 to read DB port from SSM Parameter Store"
@@ -174,6 +191,8 @@ resource "aws_iam_policy" "read_db_port_parameter" {
 
 # IAM Policy Data - Read DB Port Parameter
 data "aws_iam_policy_document" "read_db_port_parameter" {
+  provider = aws.regional
+  
   statement {
     sid    = "ReadDbPortParameter"
     effect = "Allow"

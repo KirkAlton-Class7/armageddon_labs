@@ -2,7 +2,8 @@
 # DNS — ACM Certificate Validation Records (CloudFront)
 # ----------------------------------------------------------------
 resource "aws_route53_record" "rds_app_cf_cert_validation" {
-
+  provider = aws.regional
+  
   allow_overwrite = true
 
   name = var.rds_app_cf_cert_domain_validation_options[0].resource_record_name
@@ -21,6 +22,8 @@ resource "aws_route53_record" "rds_app_cf_cert_validation" {
 # DNS — TLS Certificate Validation (CloudFront)
 # ----------------------------------------------------------------
 resource "aws_acm_certificate_validation" "rds_app_cf_cert" {
+  provider = aws.regional
+  
   certificate_arn = var.rds_app_cf_cert_arn
 
   validation_record_fqdns = [

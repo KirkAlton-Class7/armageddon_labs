@@ -4,6 +4,8 @@
 
 # IAM Policy Object - Read CloudWatch Agent Config File
 resource "aws_iam_policy" "ec2_read_cloudwatch_agent_config" {
+  provider = aws.regional
+
   name        = "read-cloudwatch-agent-config-${var.name_suffix}"
   path        = "/"
   description = "Allows EC2 to read CloudWatch Agent Config File"
@@ -24,6 +26,8 @@ resource "aws_iam_policy" "ec2_read_cloudwatch_agent_config" {
 
 # IAM Policy Data - CloudWatch Agent Config File
 data "aws_iam_policy_document" "ec2_read_cloudwatch_agent_config" {
+  provider = aws.regional
+
   statement {
     sid    = "ReadCloudWatchAgentConfig"
     effect = "Allow"
@@ -46,6 +50,8 @@ data "aws_iam_policy_document" "ec2_read_cloudwatch_agent_config" {
 
 # IAM Policy Object - RDS Enhanced Monitoring Role (CloudWatch)
 resource "aws_iam_policy" "rds_enhanced_monitoring_role" {
+  provider = aws.regional
+
   name        = "rds-enhanced-monitoring-role-${var.name_suffix}"
   path        = "/"
   description = "Gives RDS permission to create CloudWatch log groups and streams, and write logs to them."
@@ -63,7 +69,8 @@ resource "aws_iam_policy" "rds_enhanced_monitoring_role" {
 
 # IAM Policy Data - RDS Enhanced Monitoring Role
 data "aws_iam_policy_document" "rds_enhanced_monitoring_role" {
-
+  provider = aws.regional
+  
   statement {
     sid       = "AllowRdsLogGroupActions"
     effect    = "Allow"
@@ -90,6 +97,8 @@ data "aws_iam_policy_document" "rds_enhanced_monitoring_role" {
 
 # IAM Policy Object - VPC Flow Log
 resource "aws_iam_policy" "vpc_flow_log_role" {
+  provider = aws.regional
+
   name   = "vpc-flow-log-role-policy"
   policy = data.aws_iam_policy_document.vpc_flow_log_role.json
 
@@ -104,6 +113,7 @@ resource "aws_iam_policy" "vpc_flow_log_role" {
 
 # IAM Policy Data - VPC Flow Log
 data "aws_iam_policy_document" "vpc_flow_log_role" {
+  provider = aws.regional
 
   statement {
     sid    = "AllowVpcLogGroupActions"

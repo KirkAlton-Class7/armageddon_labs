@@ -4,6 +4,7 @@
 
 # Shared random integer resource for deploying resources on a random subnet.
 resource "random_integer" "subnet_picker" {
+  
   min = 0
   max = length(local.private_app_subnet_ids) - 1
 }

@@ -3,6 +3,8 @@
 # ----------------------------------------------------------------
 
 terraform {
+  required_version = ">= 1.5.0"
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -13,23 +15,28 @@ terraform {
       source  = "hashicorp/random"
       version = "3.7.2"
     }
+
+    local = {
+      source = "hashicorp/local"
+    }
   }
 }
 
 # ----------------------------------------------------------------
-# PROVIDERS — AWS Regional (Application Infrastructure)
+# PROVIDERS — AWS Regional (Tokyo)
 # ----------------------------------------------------------------
 
 provider "aws" {
-  region  = var.region
-  profile = "default" # Uses AWS credentials from [default] profile in ~/.aws/credentials
+  region = var.region
 
   default_tags {
-    tags = {
-      ManagedBy   = "terraform"
-      Environment = local.context.env
-      Application = local.context.app
-    }
+    tags = merge(
+      {
+        ManagedBy = "terraform"
+        Component = "network"
+      },
+      local.context.tags
+    )
   }
 }
 

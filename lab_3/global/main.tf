@@ -293,6 +293,10 @@
 module "edge" {
   source = "../modules/edge"
 
+  providers = {
+    aws.edge = aws.edge
+  }
+
   # Identity and Naming
   context     = local.context
   name_prefix = local.name_prefix
@@ -319,8 +323,7 @@ module "dns" {
 
   # Providers
     providers = {
-    aws          = aws
-    aws.regional = aws.regional
+    aws.regional = aws.edge
   }
 
   # Identity and Naming

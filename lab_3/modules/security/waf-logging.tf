@@ -3,6 +3,8 @@
 # ----------------------------------------------------------------
 
 resource "aws_wafv2_web_acl_logging_configuration" "rds_app_waf_direct" {
+  provider = aws.regional
+
   count    = var.create_waf && var.waf_log_mode.create_direct_resources ? 1 : 0
 
   resource_arn = aws_wafv2_web_acl.rds_app[0].arn
@@ -23,6 +25,8 @@ resource "aws_wafv2_web_acl_logging_configuration" "rds_app_waf_direct" {
 # ----------------------------------------------------------------
 
 resource "aws_wafv2_web_acl_logging_configuration" "rds_app_waf_firehose" {
+  provider = aws.regional
+  
   count = var.create_waf && var.waf_log_mode.create_firehose_resources ? 1 : 0
 
   resource_arn = aws_wafv2_web_acl.rds_app[0].arn

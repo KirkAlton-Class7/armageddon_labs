@@ -4,6 +4,8 @@
 
 # Custom Parameter Groups - LabMySQL DB
 resource "aws_db_parameter_group" "lab_mysql_parameters" {
+  provider = aws.regional
+  
   name   = "${var.name_prefix}-lab-mysql-parameters-${var.context.env}"
   family = "mysql8.0"
 

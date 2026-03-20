@@ -3,6 +3,8 @@
 # ----------------------------------------------------------------
 
 data "aws_ec2_managed_prefix_list" "cloudfront_origin_facing" {
+  provider = aws.regional
+  
   name = "com.amazonaws.global.cloudfront.origin-facing"
 }
 
@@ -11,6 +13,8 @@ data "aws_ec2_managed_prefix_list" "cloudfront_origin_facing" {
 # ----------------------------------------------------------------
 
 resource "aws_security_group" "alb_origin" {
+  provider = aws.regional
+
   name        = "alb-sg"
   description = "Allow HTTPS only from CloudFront origin-facing prefix list"
   vpc_id      = var.vpc_id
@@ -28,6 +32,8 @@ resource "aws_security_group" "alb_origin" {
 # ----------------------------------------------------------------
 
 resource "aws_vpc_security_group_ingress_rule" "allow_https_from_cloudfront" {
+  provider = aws.regional
+
   security_group_id = aws_security_group.alb_origin.id
   prefix_list_id    = data.aws_ec2_managed_prefix_list.cloudfront_origin_facing.id
   ip_protocol       = "tcp"
@@ -40,6 +46,8 @@ resource "aws_vpc_security_group_ingress_rule" "allow_https_from_cloudfront" {
 # ----------------------------------------------------------------
 
 resource "aws_vpc_security_group_egress_rule" "allow_all_outbound_ipv4_public_alb" {
+  provider = aws.regional
+  
   security_group_id            = aws_security_group.alb_origin.id
   ip_protocol                  = "tcp"
   from_port                    = 0 # FIXME

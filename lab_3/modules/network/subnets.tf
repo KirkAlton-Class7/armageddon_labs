@@ -4,6 +4,8 @@
 
 # Public Subnet Configuration
 resource "aws_subnet" "public_a" {
+  provider = aws.regional
+
   vpc_id                  = aws_vpc.main.id
   cidr_block              = "10.10.1.0/24"
   availability_zone       = var.azs[0]
@@ -22,6 +24,8 @@ resource "aws_subnet" "public_a" {
 # azs = data.aws_availability_zones.available.names
 
 resource "aws_subnet" "public_b" {
+  provider = aws.regional
+
   vpc_id                  = aws_vpc.main.id
   cidr_block              = "10.10.2.0/24"
   availability_zone       = var.azs[1]
@@ -38,6 +42,8 @@ resource "aws_subnet" "public_b" {
 }
 
 resource "aws_subnet" "public_c" {
+  provider = aws.regional
+
   vpc_id                  = aws_vpc.main.id
   cidr_block              = "10.10.3.0/24"
   availability_zone       = var.azs[2]
@@ -59,6 +65,8 @@ resource "aws_subnet" "public_c" {
 
 # Private App Subnet Configuration
 resource "aws_subnet" "private_app_a" {
+  provider = aws.regional
+
   vpc_id            = aws_vpc.main.id
   cidr_block        = "10.10.11.0/24"
   availability_zone = var.azs[0]
@@ -74,6 +82,8 @@ resource "aws_subnet" "private_app_a" {
 }
 
 resource "aws_subnet" "private_app_b" {
+  provider = aws.regional
+
   vpc_id            = aws_vpc.main.id
   cidr_block        = "10.10.22.0/24"
   availability_zone = var.azs[1]
@@ -89,6 +99,8 @@ resource "aws_subnet" "private_app_b" {
 }
 
 resource "aws_subnet" "private_app_c" {
+  provider = aws.regional
+
   vpc_id            = aws_vpc.main.id
   cidr_block        = "10.10.33.0/24"
   availability_zone = var.azs[2]
@@ -109,6 +121,8 @@ resource "aws_subnet" "private_app_c" {
 
 # Private Data Subnet Configuration
 resource "aws_subnet" "private_data_a" {
+  provider = aws.regional
+
   vpc_id            = aws_vpc.main.id
   cidr_block        = "10.10.44.0/24"
   availability_zone = var.azs[0]
@@ -124,6 +138,8 @@ resource "aws_subnet" "private_data_a" {
 }
 
 resource "aws_subnet" "private_data_b" {
+  provider = aws.regional
+
   vpc_id            = aws_vpc.main.id
   cidr_block        = "10.10.55.0/24"
   availability_zone = var.azs[1]
@@ -139,6 +155,8 @@ resource "aws_subnet" "private_data_b" {
 }
 
 resource "aws_subnet" "private_data_c" {
+  provider = aws.regional
+  
   vpc_id            = aws_vpc.main.id
   cidr_block        = "10.10.66.0/24"
   availability_zone = var.azs[2]

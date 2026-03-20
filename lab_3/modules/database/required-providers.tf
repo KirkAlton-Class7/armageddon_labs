@@ -1,11 +1,19 @@
 # ----------------------------------------------------------------
-# COMPUTE — Terraform Configuration
+# DATABASE — Terraform Configuration
 # ----------------------------------------------------------------
 
 terraform {
   required_providers {
     aws = {
       source = "hashicorp/aws"
+
+      configuration_aliases = [
+        aws.regional
+      ]
+    }
+
+    random = {
+      source = "hashicorp/random"
     }
   }
 }

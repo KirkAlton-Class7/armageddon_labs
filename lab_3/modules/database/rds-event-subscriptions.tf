@@ -3,6 +3,8 @@
 # ----------------------------------------------------------------
 
 resource "aws_db_event_subscription" "rds_failure_events" {
+  provider = aws.regional
+  
   name      = "rds-failure-events"
   sns_topic = var.rds_failure_alert_topic_arn
 

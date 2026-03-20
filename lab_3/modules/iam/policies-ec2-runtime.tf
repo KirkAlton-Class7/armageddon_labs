@@ -4,6 +4,8 @@
 
 # Allow EC2 to Access Amazon Linux Repo via VPC Endpoint
 resource "aws_iam_policy" "ec2_linux_repo_access" {
+  provider = aws.regional
+
   name   = "ec2-linux-repo-access-policy"
   policy = data.aws_iam_policy_document.ec2_linux_repo_access.json
 
@@ -19,6 +21,8 @@ resource "aws_iam_policy" "ec2_linux_repo_access" {
 
 # IAM Policy Data - Allow EC2 to Access Amazon Linux Repo via VPC Endpoint
 data "aws_iam_policy_document" "ec2_linux_repo_access" {
+  provider = aws.regional
+
   statement {
     sid    = "AllowEC2LinuxRepoAccess"
     effect = "Allow"
@@ -39,6 +43,8 @@ data "aws_iam_policy_document" "ec2_linux_repo_access" {
 
 # IAM Policy Object - EC2 CloudWatch Agent Role
 resource "aws_iam_policy" "ec2_cloudwatch_agent_role" {
+  provider = aws.regional
+
   name   = "ec2-cloudwatch-agent-role"
   policy = data.aws_iam_policy_document.ec2_cloudwatch_agent_role.json
 
@@ -54,6 +60,7 @@ resource "aws_iam_policy" "ec2_cloudwatch_agent_role" {
 
 # IAM Policy Data - EC2 CloudWatch Agent Role
 data "aws_iam_policy_document" "ec2_cloudwatch_agent_role" {
+  provider = aws.regional
 
   # Allow CloudWatch Agent to write metric data to CloudWatch Metrics
   statement {

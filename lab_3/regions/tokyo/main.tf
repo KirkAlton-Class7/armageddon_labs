@@ -9,6 +9,10 @@
 module "network" {
   source = "../../modules/network"
 
+  providers = {
+    aws.regional = aws
+  }
+
   # Identity and Naming
   context     = local.context
   account_id  = local.account_id
@@ -18,9 +22,6 @@ module "network" {
   # VPC Configuration
   vpc_cidr = var.vpc_cidr
   azs      = local.azs
-
-  # Security Integration
-  vpc_endpoints_sg_id = module.security.vpc_endpoints_sg_id
 
   # Demo Metadata (Not used for deployment)
   demo_owner = var.demo_owner #DEMO: Root variable var.demo_owner is passed into module variable demo_owner
@@ -32,6 +33,10 @@ module "network" {
 
 module "security" {
   source = "../../modules/security"
+
+  providers = {
+    aws.regional = aws
+  }
 
   # Identity and Naming
   context     = local.context
@@ -62,6 +67,10 @@ module "security" {
 module "iam" {
   source = "../../modules/iam"
 
+  providers = {
+    aws.regional = aws
+  }
+
   # Identity and Naming
   context     = local.context
   account_id  = local.account_id
@@ -88,6 +97,10 @@ module "iam" {
 
 module "database" {
   source = "../../modules/database"
+
+  providers = {
+    aws.regional = aws
+  }
 
   # Identity and Naming
   context     = local.context
@@ -123,6 +136,10 @@ module "database" {
 
 module "compute" {
   source = "../../modules/compute"
+
+  providers = {
+    aws.regional = aws
+  }
 
   # Identity and Naming
   context     = local.context
@@ -180,6 +197,10 @@ module "compute" {
 module "observability" {
   source = "../../modules/observability"
 
+  providers = {
+    aws.regional = aws
+  }
+
   # Identity and Naming
   context       = local.context
   account_id    = local.account_id
@@ -217,6 +238,10 @@ module "observability" {
 
 module "tgw" {
   source = "../../modules/tgw"
+
+  providers = {
+    aws.regional = aws
+  }
 
   # Identity and Naming
   context     = local.context

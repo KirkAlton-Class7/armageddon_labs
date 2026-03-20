@@ -3,6 +3,8 @@
 # ----------------------------------------------------------------
 
 resource "aws_sns_topic" "rds_failure_alert" {
+  provider = aws.regional
+
   name = "rds-failure-alert"
 
   tags = {
@@ -16,6 +18,8 @@ resource "aws_sns_topic" "rds_failure_alert" {
 }
 
 resource "aws_sns_topic_subscription" "rds_failure_email_alert" {
+  provider = aws.regional
+
   topic_arn = aws_sns_topic.rds_failure_alert.arn
   protocol  = "email"
   endpoint  = "email@icloud.com"
@@ -26,6 +30,8 @@ resource "aws_sns_topic_subscription" "rds_failure_email_alert" {
 # ----------------------------------------------------------------
 
 resource "aws_sns_topic" "app_to_rds_connection_failure_alert" {
+  provider = aws.regional
+
   name = "app-to-rds-connection-failure-alert"
 
   tags = {
@@ -39,6 +45,8 @@ resource "aws_sns_topic" "app_to_rds_connection_failure_alert" {
 }
 
 resource "aws_sns_topic_subscription" "app_to_rds_connection_failure_email_alert" {
+  provider = aws.regional
+
   topic_arn = aws_sns_topic.app_to_rds_connection_failure_alert.arn
   protocol  = "email"
   endpoint  = "email@icloud.com"
@@ -49,6 +57,8 @@ resource "aws_sns_topic_subscription" "app_to_rds_connection_failure_email_alert
 # ----------------------------------------------------------------
 
 resource "aws_sns_topic" "lab_mysql_auth_failure_alert" {
+  provider = aws.regional
+
   name = "lab-mysql-auth-failure-alert"
 
   tags = {
@@ -62,6 +72,8 @@ resource "aws_sns_topic" "lab_mysql_auth_failure_alert" {
 }
 
 resource "aws_sns_topic_subscription" "lab_mysql_auth_failure_email_alert" {
+  provider = aws.regional
+
   topic_arn = aws_sns_topic.lab_mysql_auth_failure_alert.arn
   protocol  = "email"
   endpoint  = "email@icloud.com"
@@ -72,6 +84,8 @@ resource "aws_sns_topic_subscription" "lab_mysql_auth_failure_email_alert" {
 # ----------------------------------------------------------------
 
 resource "aws_sns_topic" "rds_app_alb_server_error_alert" {
+  provider = aws.regional
+
   name = "rds-app-alb-server-error-alert"
 
   tags = {
@@ -85,6 +99,8 @@ resource "aws_sns_topic" "rds_app_alb_server_error_alert" {
 }
 
 resource "aws_sns_topic_subscription" "app_alb_server_error_email_alert" {
+  provider = aws.regional
+  
   topic_arn = aws_sns_topic.rds_app_alb_server_error_alert.arn
   protocol  = "email"
   endpoint  = "email@icloud.com"

@@ -3,6 +3,7 @@
 # ----------------------------------------------------------------
 
 terraform {
+  required_version = ">= 1.5.0"
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -13,16 +14,19 @@ terraform {
       source  = "hashicorp/random"
       version = "3.7.2"
     }
+
+    local = {
+      source = "hashicorp/local"
+    }
   }
 }
 
 # ----------------------------------------------------------------
-# PROVIDERS — AWS Regional (Application Infrastructure)
+# PROVIDERS — AWS Regional (Sao Paulo)
 # ----------------------------------------------------------------
 
 provider "aws" {
   region  = var.region
-  profile = "default" # Uses AWS credentials from [default] profile in ~/.aws/credentials
 
   default_tags {
     tags = {

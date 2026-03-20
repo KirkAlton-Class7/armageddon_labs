@@ -37,16 +37,6 @@ variable "name_suffix" {
   type        = string
 }
 
-# # Bucket Suffix
-# variable "bucket_suffix" {
-#   type = string
-# }
-
-variable "vpc_endpoints_sg_id" {
-  description = "Security group ID for VPC endpoints."
-  type        = string
-}
-
 # ----------------------------------------------------------------
 # NETWORKING VARIABLES — Demonstration
 # ----------------------------------------------------------------

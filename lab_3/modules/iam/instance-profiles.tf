@@ -4,6 +4,8 @@
 
 # Instance Profile - RDS App
 resource "aws_iam_instance_profile" "rds_app" {
+  provider = aws.regional
+  
   name = "rds-app-instance-profile"
   role = aws_iam_role.rds_app.name
 

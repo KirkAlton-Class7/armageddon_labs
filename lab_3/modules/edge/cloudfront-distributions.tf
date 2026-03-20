@@ -3,6 +3,8 @@
 # ----------------------------------------------------------------
 
 resource "aws_cloudfront_distribution" "rds_app" {
+  provider = aws.regional
+  
   enabled             = true
   is_ipv6_enabled     = true
   comment             = "rds-app-cloudfront-${var.name_suffix}"

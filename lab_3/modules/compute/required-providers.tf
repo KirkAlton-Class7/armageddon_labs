@@ -1,7 +1,6 @@
 # ----------------------------------------------------------------
-# OBSERVABILITY — Terraform Configuration
+# COMPUTE — Terraform Configuration
 # ----------------------------------------------------------------
-
 terraform {
   required_providers {
     aws = {

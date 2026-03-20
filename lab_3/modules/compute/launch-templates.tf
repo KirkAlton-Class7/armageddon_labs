@@ -4,6 +4,8 @@
 
 # Launch Template for RDS App Auto Scaling Group
 resource "aws_launch_template" "rds_app_asg" {
+  provider = aws.regional
+  
   name     = "rds-app-asg-lt"
   image_id = var.ami_id
   #image_id = data.aws_ssm_parameter.al2023.value  # Alternatively, use latest AL2023 AMI via SSM Parameter Store (From Aaron's code. Looks simpler)

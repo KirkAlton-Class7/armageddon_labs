@@ -23,6 +23,7 @@
 
 # Lambda Function - Firehose Network Telemetry Processor
 # resource "aws_lambda_function" "lambda_firehose_network_telemetry_processor" {
+#   provider = aws.regional
 #   filename         = data.archive_file.lambda_firehose_processor.output_path
 #   source_code_hash = data.archive_file.lambda_firehose_processor.output_base64sha256
 #
@@ -55,6 +56,7 @@
 
 # Lambda Permission - Allow Firehose to Invoke Processor
 # resource "aws_lambda_permission" "allow_firehose_invoke" {
+#   provider = aws.regional
 #   statement_id  = "AllowFirehoseInvoke"
 #   action        = "lambda:InvokeFunction"
 #   function_name = aws_lambda_function.lambda_firehose_network_telemetry_processor.function_name

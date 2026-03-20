@@ -4,6 +4,8 @@
 
 # Conditional Terraform Managed S3 Bucket - ALB Logs
 resource "aws_s3_bucket" "alb_logs_bucket" {
+  provider = aws.regional
+
   count = var.alb_log_s3 ? 1 : 0
 
   bucket        = "alb-logs-${var.context.region}-${var.bucket_suffix}"
@@ -19,6 +21,8 @@ resource "aws_s3_bucket" "alb_logs_bucket" {
 
 # Conditional Server-Side Encryption - ALB Logs
 resource "aws_s3_bucket_server_side_encryption_configuration" "alb_logs_bucket" {
+  provider = aws.regional
+
   count  = var.alb_log_s3 ? 1 : 0
   bucket = aws_s3_bucket.alb_logs_bucket[0].id
 
@@ -31,6 +35,8 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "alb_logs_bucket" 
 
 # S3 Bucket Policy Object - ALB Logs
 resource "aws_s3_bucket_policy" "rds_app_alb_logs" {
+  provider = aws.regional
+
   count = var.alb_log_s3 ? 1 : 0
 
   bucket = aws_s3_bucket.alb_logs_bucket[0].id
@@ -39,6 +45,8 @@ resource "aws_s3_bucket_policy" "rds_app_alb_logs" {
 
 # S3 Bucket Policy Data - ALB Logs
 data "aws_iam_policy_document" "rds_app_alb_logs" {
+  provider = aws.regional
+
   count = var.alb_log_s3 ? 1 : 0
 
   statement {
@@ -64,6 +72,8 @@ data "aws_iam_policy_document" "rds_app_alb_logs" {
 
 # Conditional Terraform Managed S3 Bucket - WAF Logs
 resource "aws_s3_bucket" "waf_logs_bucket" {
+  provider = aws.regional
+
   count = var.waf_log_mode.create_direct_resources && var.rds_app_waf_arn != null ? 1 : 0
   bucket        = "aws-waf-logs-${var.context.region}-${var.bucket_suffix}"
   force_destroy = true
@@ -78,6 +88,8 @@ resource "aws_s3_bucket" "waf_logs_bucket" {
 
 # Conditional Server-Side Encryption - WAF Logs
 resource "aws_s3_bucket_server_side_encryption_configuration" "waf_logs_bucket" {
+  provider = aws.regional
+
   count = var.waf_log_mode.create_direct_resources && var.rds_app_waf_arn != null ? 1 : 0
   bucket = aws_s3_bucket.waf_logs_bucket[0].id
 
@@ -90,6 +102,8 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "waf_logs_bucket" 
 
 # WAF Logs Bucket Policy Object
 resource "aws_s3_bucket_policy" "waf_logs_bucket" {
+  provider = aws.regional
+
   count = var.waf_log_mode.create_direct_resources && var.rds_app_waf_arn != null ? 1 : 0
 
   bucket = aws_s3_bucket.waf_logs_bucket[0].id
@@ -98,6 +112,8 @@ resource "aws_s3_bucket_policy" "waf_logs_bucket" {
 
 # WAF Logs Bucket Policy Data
 data "aws_iam_policy_document" "waf_logs_bucket_policy" {
+  provider = aws.regional
+
   count = var.waf_log_mode.create_direct_resources && var.rds_app_waf_arn != null ? 1 : 0
   statement {
     sid    = "AllowWafDirectWrite"
@@ -137,6 +153,8 @@ data "aws_iam_policy_document" "waf_logs_bucket_policy" {
 
 # Conditional Terraform Managed S3 Bucket - WAF Firehose Logs
 resource "aws_s3_bucket" "waf_firehose_logs" {
+  provider = aws.regional
+
   count = var.waf_log_mode.create_firehose_resources ? 1 : 0
 
   bucket        = "aws-waf-logs-firehose-${var.context.region}-${var.bucket_suffix}"
@@ -145,6 +163,8 @@ resource "aws_s3_bucket" "waf_firehose_logs" {
 
 # Conditional Server-Side Encryption - WAF Firehose Logs
 resource "aws_s3_bucket_server_side_encryption_configuration" "waf_firehose_logs" {
+  provider = aws.regional
+
   count  = var.waf_log_mode.create_firehose_resources ? 1 : 0
   bucket = aws_s3_bucket.waf_firehose_logs[0].id
 
@@ -157,6 +177,8 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "waf_firehose_logs
 
 # Conditional WAF Firehose Logs Bucket Policy
 resource "aws_s3_bucket_policy" "waf_firehose_logs" {
+  provider = aws.regional
+
   count = var.waf_log_mode.create_firehose_resources ? 1 : 0
 
   bucket = aws_s3_bucket.waf_firehose_logs[0].id
@@ -165,6 +187,8 @@ resource "aws_s3_bucket_policy" "waf_firehose_logs" {
 
 # WAF Firehose Logs Bucket Policy Data
 data "aws_iam_policy_document" "waf_firehose_logs_bucket_policy" {
+  provider = aws.regional
+  
   count = var.waf_log_mode.create_firehose_resources ? 1 : 0
 
   statement {

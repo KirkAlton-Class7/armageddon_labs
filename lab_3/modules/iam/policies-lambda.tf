@@ -4,6 +4,8 @@
 
 # IAM Policy Object - Lambda Firehose Network Telemetry Logs
 resource "aws_iam_policy" "lambda_firehose_network_telemetry_logs" {
+  provider = aws.regional
+
   name   = "lambda-firehose-network-telemetry-logs"
   policy = data.aws_iam_policy_document.lambda_firehose_network_telemetry_logs.json
 
@@ -18,6 +20,8 @@ resource "aws_iam_policy" "lambda_firehose_network_telemetry_logs" {
 
 # IAM Policy Data - Lambda Firehose Network Telemetry Logs
 data "aws_iam_policy_document" "lambda_firehose_network_telemetry_logs" {
+  provider = aws.regional
+  
   statement {
     sid    = "LambdaLogGroupActions"
     effect = "Allow"

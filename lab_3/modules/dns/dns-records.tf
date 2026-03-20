@@ -4,6 +4,8 @@
 
 # Apex Domain → CloudFront Distribution
 resource "aws_route53_record" "rds_app_apex_to_cloudfront" {
+  provider = aws.regional
+  
   zone_id = local.route53_zone_id
   name    = var.dns_context.root_domain
   type    = "A"
@@ -17,6 +19,8 @@ resource "aws_route53_record" "rds_app_apex_to_cloudfront" {
 
 # Application Subdomain → CloudFront Distribution
 resource "aws_route53_record" "rds_app_subdomain_to_cloudfront" {
+  provider = aws.regional
+
   zone_id = local.route53_zone_id
   name    = var.dns_context.fqdn
   type    = "A"
@@ -33,6 +37,8 @@ resource "aws_route53_record" "rds_app_subdomain_to_cloudfront" {
 # ----------------------------------------------------------------
 
 resource "aws_route53_record" "rds_app_origin_to_alb" {
+  provider = aws.regional
+  
   zone_id = local.route53_zone_id
   name    = "origin.${var.dns_context.root_domain}"
   type    = "A"
