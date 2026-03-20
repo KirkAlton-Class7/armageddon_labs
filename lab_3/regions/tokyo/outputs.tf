@@ -18,8 +18,8 @@ output "application_context" {
 
 output "edge_auth_value" {
   description = "Secret header value used to authenticate CloudFront requests to the ALB origin."
-  value = random_password.edge_auth_value.result
-  sensitive = true
+  value       = random_password.edge_auth_value.result
+  sensitive   = true
 }
 
 # ----------------------------------------------------------------

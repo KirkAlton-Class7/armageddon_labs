@@ -77,7 +77,7 @@ output "infrastructure_summary" {
 
     alb_name      = module.compute.rds_app_public_alb_name
     asg_name      = module.compute.rds_app_asg_name
-  db_identifier = data.terraform_remote_state.tokyo.outputs.infrastructure_summary.db_identifier
+    db_identifier = data.terraform_remote_state.tokyo.outputs.infrastructure_summary.db_identifier
   }
 }
 

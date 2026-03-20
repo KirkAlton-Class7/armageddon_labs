@@ -17,24 +17,6 @@ terraform {
 }
 
 # ----------------------------------------------------------------
-# PROVIDERS — AWS Global / Edge Services
-# ----------------------------------------------------------------
-provider "aws" {
-  alias   = "global"
-  region  = "us-east-1"
-  profile = "default" # Uses credentials from ~/.aws/credentials
-
-  default_tags {
-    tags = {
-      ManagedBy   = "terraform"
-      Environment = local.context.env
-      Application = local.context.app
-      Scope       = "global-edge"
-    }
-  }
-}
-
-# ----------------------------------------------------------------
 # PROVIDERS — AWS Regional Services (Tokyo)
 # ----------------------------------------------------------------
 provider "aws" {

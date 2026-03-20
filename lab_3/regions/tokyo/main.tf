@@ -45,7 +45,7 @@ module "security" {
 
   # WAF
   create_waf = false
-  
+
   # WAF Logging Configuration
   waf_log_retention_days             = var.waf_log_retention_days
   enable_waf_sampled_requests_only   = var.enable_waf_sampled_requests_only

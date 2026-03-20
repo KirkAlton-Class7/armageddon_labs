@@ -5,7 +5,7 @@
 variable "region" {
   description = "AWS region."
   type        = string
-  default     = "us-west-2"
+  default     = "sa-east-1"
 }
 
 variable "app" {
@@ -109,7 +109,7 @@ variable "alb_log_s3" {
 variable "tgw_role" {
   description = "Transit Gateway role in topology (e.g., hub, spoke)."
   type        = string
-  default = "spoke"
+  default     = "spoke"
 
   validation {
     condition     = contains(["hub", "spoke"], lower(var.tgw_role))
@@ -122,11 +122,11 @@ variable "tgw_tags" {
   type        = map(string)
 
   default = {
-    Region    = "saopaulo"
-    Role      = "spoke"
-    Component = "network"
+    Region       = "saopaulo"
+    Role         = "spoke"
+    Component    = "network"
     Connectivity = "inter-vpc"
-    Scope = "regional"
+    Scope        = "regional"
   }
 }
 

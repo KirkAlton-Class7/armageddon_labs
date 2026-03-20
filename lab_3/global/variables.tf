@@ -1,11 +1,11 @@
 # ----------------------------------------------------------------
-# TOKYO VARIABLES — Application Identity
+# GLOBAL VARIABLES — Application Identity
 # ----------------------------------------------------------------
 
 variable "region" {
   description = "AWS region."
   type        = string
-  default     = "us-west-2"
+  default     = "us-east-1"
 }
 
 variable "app" {

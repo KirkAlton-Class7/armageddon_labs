@@ -5,7 +5,7 @@
 variable "region" {
   description = "AWS region."
   type        = string
-  default     = "us-west-2"
+  default     = "ap-northeaast-1"
 }
 
 variable "app" {
@@ -50,7 +50,7 @@ variable "root_domain" {
 # ----------------------------------------------------------------
 variable "ami_id" {
   description = "Golden AMI for Tokyo compute instances. Ex: ami-0365298ecd8182a83"
-  default = "ami-025066d470f3455d2"
+  default     = "ami-025066d470f3455d2"
   type        = string
 }
 
@@ -134,7 +134,7 @@ variable "alb_log_s3" {
 variable "tgw_role" {
   description = "Transit Gateway role in topology (e.g., hub, spoke)."
   type        = string
-  default = "hub"
+  default     = "hub"
 
   validation {
     condition     = contains(["hub", "spoke"], lower(var.tgw_role))
@@ -146,11 +146,11 @@ variable "tgw_tags" {
   type        = map(string)
 
   default = {
-    Region    = "tokyo"
-    Role      = "hub"
-    Component = "network"
+    Region       = "tokyo"
+    Role         = "hub"
+    Component    = "network"
     Connectivity = "inter-vpc"
-    Scope = "regional"
+    Scope        = "regional"
   }
 }
 
