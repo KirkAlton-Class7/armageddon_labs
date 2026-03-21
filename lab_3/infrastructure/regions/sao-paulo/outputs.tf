@@ -141,7 +141,10 @@ output "deployment_metadata" {
 # ----------------------------------------------------------------
 # SAO PAULO OUTPUTS — Transit Gateway (Spoke)
 # ----------------------------------------------------------------
-
+output "tgw_id" {
+  description = "Transit Gateway ID for the Sao Paulo spoke."
+  value       = module.tgw.tgw_id
+}
 output "tgw_route_table_id" {
   description = "Transit Gateway route table ID for the Sao Paulo spoke."
   value       = module.tgw.tgw_route_table_id
@@ -151,8 +154,6 @@ output "vpc_cidr" {
   description = "CIDR block of the Sao Paulo VPC."
   value       = module.network.vpc_cidr
 }
-
-
 
 
 
