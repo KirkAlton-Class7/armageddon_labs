@@ -9,9 +9,7 @@
 module "network" {
   source = "../../modules/network"
 
-  providers = {
-    aws.regional = aws
-    }
+  providers = { aws.regional = aws }
 
   # Identity and Naming
   context     = local.context
@@ -34,9 +32,7 @@ module "network" {
 module "security" {
   source = "../../modules/security"
 
-  providers = {
-    aws.regional = aws
-    }
+  providers = { aws.regional = aws }
 
   # Identity and Naming
   context     = local.context
@@ -59,40 +55,82 @@ module "security" {
   waf_log_mode            = local.waf_log_mode
   waf_log_destination_arn = module.observability.waf_log_destination_arn
 
-  waf_logs_bucket_arn = module.observability.waf_logs_bucket_arn
-  waf_logs_bucket_id  = module.observability.waf_logs_bucket_id
+  waf_log_bucket_arn = module.observability.waf_log_bucket_arn
+  waf_log_bucket_id  = module.observability.waf_log_bucket_id
 }
 
-# ----------------------------------------------------------------
-# MODULE — IAM
-# ----------------------------------------------------------------
+# # ----------------------------------------------------------------
+# # MODULE — IAM
+# # ----------------------------------------------------------------
 
-module "iam" {
-  source = "../../modules/iam"
+# module "iam" {
+#   source = "../../modules/iam"
 
-providers = {
-  aws.regional = aws
-}
+#   providers = {
+#     aws.regional = aws
+#   }
 
-  # Identity and Naming
-  context     = local.context
-  account_id  = local.account_id
-  name_prefix = local.name_prefix
-  name_suffix = local.name_suffix
+#   # Identity and Naming
+#   context     = local.context
+#   account_id  = local.account_id
+#   name_prefix = local.name_prefix
+#   name_suffix = local.name_suffix
 
-  # Logging Permissions
-  enable_direct_service_log_delivery = module.security.enable_direct_service_log_delivery
-  waf_log_mode                       = local.waf_log_mode
+#   # Logging Permissions
+#   enable_direct_service_log_delivery = module.security.enable_direct_service_log_delivery
+#   waf_log_mode                       = local.waf_log_mode
 
-  # Log Destinations
-  vpc_flow_log_group_arn      = module.observability.vpc_flow_log_group_arn
-  waf_firehose_log_group_arn  = module.observability.waf_firehose_log_group_arn
-  waf_firehose_log_bucket_arn = module.observability.waf_firehose_logs_bucket_arn
-  waf_direct_log_group_arn    = module.observability.waf_direct_log_group_arn
+#   # Log Destinations
+#   vpc_flow_log_group_arn      = module.observability.vpc_flow_log_group_arn
+#   waf_firehose_log_group_arn  = module.observability.waf_firehose_log_group_arn
+#   waf_firehose_log_bucket_arn = module.observability.waf_firehose_log_bucket_arn
+#   waf_direct_log_group_arn    = module.observability.waf_direct_log_group_arn
 
-  # Secrets Access
-  db_secret_arn = data.terraform_remote_state.tokyo.outputs.db_secret_arn
-}
+#   # Secrets Access
+#   db_secret_arn = data.terraform_remote_state.tokyo.outputs.db_secret_arn
+# }
+
+# # ----------------------------------------------------------------
+# # MODULE — IAM
+# # ----------------------------------------------------------------
+
+# module "iam" {
+#   source = "../../modules/iam"
+
+#   providers = {
+#     aws.regional = aws
+#   }
+
+#   # Identity and Naming
+#   context     = local.context
+#   account_id  = local.account_id
+#   name_prefix = local.name_prefix
+#   name_suffix = local.name_suffix
+
+#   # Logging Permissions
+#   enable_direct_service_log_delivery = module.security.enable_direct_service_log_delivery
+#   waf_log_mode                       = local.waf_log_mode
+
+#   # Log Destinations (FROM TOKYO — GLOBAL OWNERSHIP)
+
+#   # Always-on → direct
+#   vpc_flow_log_group_arn   = data.terraform_remote_state.tokyo.outputs.vpc_flow_log_group_arn
+#   waf_direct_log_group_arn = data.terraform_remote_state.tokyo.outputs.waf_direct_log_group_arn
+
+#   # Conditional (Firehose) → guarded
+#   waf_firehose_log_group_arn = try(
+#     data.terraform_remote_state.tokyo.outputs.waf_firehose_log_group_arn,
+#     null
+#   )
+
+#   waf_firehose_log_bucket_arn = try(
+#     data.terraform_remote_state.tokyo.outputs.waf_firehose_logs_bucket_arn,
+#     null
+#   )
+
+#   # Secrets Access (ALWAYS REQUIRED → no try)
+#   db_secret_arn = data.terraform_remote_state.tokyo.outputs.db_secret_arn
+# }
 
 # ----------------------------------------------------------------
 # MODULE — COMPUTE
@@ -101,9 +139,9 @@ providers = {
 module "compute" {
   source = "../../modules/compute"
 
-providers = {
-  aws.regional = aws
-}
+  providers = {
+    aws.regional = aws
+  }
 
   # Identity and Naming
   context     = local.context
@@ -112,7 +150,7 @@ providers = {
 
   # DNS Context
   dns_context = local.dns_context
-  zone_id = data.terraform_remote_state.tokyo.outputs.zone_id
+  zone_id     = data.terraform_remote_state.tokyo.outputs.zone_id
 
   # VPC Context
   vpc_id = module.network.vpc_id
@@ -122,9 +160,8 @@ providers = {
   alb_origin_sg_id  = module.security.alb_origin_sg_id
 
   # IAM Roles
-  iam_role_rds_app_name         = module.iam.rds_app_role_name
-  rds_app_instance_profile_name = module.iam.rds_app_instance_profile_name
-
+  iam_role_rds_app_name         = data.terraform_remote_state.tokyo.outputs.rds_app_role_name
+  rds_app_instance_profile_name = data.terraform_remote_state.tokyo.outputs.rds_app_instance_profile_name
   # Network Subnets
   public_subnet_ids      = module.network.public_subnet_ids
   private_app_subnet_ids = module.network.private_app_subnet_ids
@@ -162,9 +199,9 @@ providers = {
 module "dns" {
   source = "../../modules/dns"
 
-providers = {
-  aws.regional = aws
-}
+  providers = {
+    aws.regional = aws
+  }
 
   # Identity and Naming
   context     = local.context
@@ -190,9 +227,9 @@ providers = {
 module "observability" {
   source = "../../modules/observability"
 
-providers = {
-  aws.regional = aws
-}
+  providers = {
+    aws.regional = aws
+  }
 
   # Identity and Naming
   context       = local.context
@@ -209,7 +246,8 @@ providers = {
   alb_log_s3             = var.alb_log_s3
 
   # Database Monitoring
-  db_identifier = null # No db identifier for Sao Paulo
+  enable_db_observability = var.enable_db_observability
+  db_identifier           = data.terraform_remote_state.tokyo.outputs.db_identifier
 
   # Compute Metrics
   rds_app_public_alb_arn_suffix = module.compute.rds_app_public_alb_arn_suffix
@@ -222,7 +260,7 @@ providers = {
   rds_app_waf_arn  = module.security.rds_app_waf_arn
 
   # IAM Integration
-  vpc_flow_log_role_arn = module.iam.vpc_flow_log_role_arn
+  vpc_flow_log_role_arn = data.terraform_remote_state.tokyo.outputs.vpc_flow_log_role_arn
 }
 
 # ----------------------------------------------------------------
@@ -232,9 +270,9 @@ providers = {
 module "tgw" {
   source = "../../modules/tgw"
 
-providers = {
-  aws.regional = aws
-}
+  providers = {
+    aws.regional = aws
+  }
 
   # Identity and Naming
   context     = local.context

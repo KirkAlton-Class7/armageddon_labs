@@ -23,7 +23,7 @@ resource "aws_iam_policy" "firehose_network_telemetry_logs" {
 # Conditional IAM Policy Data - Firehose Network Telemetry Logs
 data "aws_iam_policy_document" "firehose_network_telemetry_logs" {
   provider = aws.regional
-  
+
   count = var.waf_log_mode.create_firehose_resources ? 1 : 0
 
   # Allow Firehose to write diagnostic logs to CloudWatch

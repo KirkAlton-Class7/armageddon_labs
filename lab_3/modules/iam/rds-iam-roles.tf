@@ -47,7 +47,7 @@ data "aws_iam_policy_document" "rds_enhanced_monitoring_assume_role" {
 # Policy Attachment - RDS Enhanced Monitoring --> RDS Monitoring Role (CloudWatch)
 resource "aws_iam_role_policy_attachment" "attach_rds_enhanced_monitoring_policy" {
   provider = aws.regional
-  
+
   role       = aws_iam_role.rds_enhanced_monitoring_role.name
   policy_arn = aws_iam_policy.rds_enhanced_monitoring_role.arn
 }

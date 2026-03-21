@@ -88,7 +88,7 @@ data "aws_iam_policy_document" "read_db_name_parameter" {
 # IAM Policy Object - Read DB Username Parameter
 resource "aws_iam_policy" "read_db_username_parameter" {
   provider = aws.regional
-  
+
   name        = "read-db-username-parameter-${var.name_suffix}"
   path        = "/"
   description = "Allows EC2 to read DB username from SSM Parameter Store"
@@ -192,7 +192,7 @@ resource "aws_iam_policy" "read_db_port_parameter" {
 # IAM Policy Data - Read DB Port Parameter
 data "aws_iam_policy_document" "read_db_port_parameter" {
   provider = aws.regional
-  
+
   statement {
     sid    = "ReadDbPortParameter"
     effect = "Allow"

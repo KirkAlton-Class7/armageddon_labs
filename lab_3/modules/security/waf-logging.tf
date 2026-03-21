@@ -5,7 +5,7 @@
 resource "aws_wafv2_web_acl_logging_configuration" "rds_app_waf_direct" {
   provider = aws.regional
 
-  count    = var.create_waf && var.waf_log_mode.create_direct_resources ? 1 : 0
+  count = var.create_waf && var.waf_log_mode.create_direct_resources ? 1 : 0
 
   resource_arn = aws_wafv2_web_acl.rds_app[0].arn
 
@@ -46,7 +46,7 @@ resource "aws_s3_bucket_policy" "waf_logs_bucket" {
 
   count = var.create_waf && var.waf_log_mode.create_direct_resources ? 1 : 0
 
-  bucket = var.waf_logs_bucket_id
+  bucket = var.waf_log_bucket_id
   policy = data.aws_iam_policy_document.waf_logs_bucket_policy[0].json
 }
 
@@ -71,7 +71,7 @@ data "aws_iam_policy_document" "waf_logs_bucket_policy" {
     ]
 
     resources = [
-      "${var.waf_logs_bucket_arn}/*"
+      "${var.waf_log_bucket_arn}/*"
     ]
 
     condition {

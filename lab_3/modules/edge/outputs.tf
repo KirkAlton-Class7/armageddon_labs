@@ -35,11 +35,11 @@ output "cloudfront_distribution" {
   description = "CloudFront distribution details."
 
   value = {
-    id          = aws_cloudfront_distribution.rds_app.id
-    arn         = aws_cloudfront_distribution.rds_app.arn
-    domain_name = aws_cloudfront_distribution.rds_app.domain_name
+    id             = aws_cloudfront_distribution.rds_app.id
+    arn            = aws_cloudfront_distribution.rds_app.arn
+    domain_name    = aws_cloudfront_distribution.rds_app.domain_name
     hosted_zone_id = aws_cloudfront_distribution.rds_app.hosted_zone_id
-    status      = aws_cloudfront_distribution.rds_app.status
+    status         = aws_cloudfront_distribution.rds_app.status
   }
 }
 

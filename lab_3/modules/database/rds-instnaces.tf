@@ -5,7 +5,7 @@
 # DB - Lab-MySQL
 resource "aws_db_instance" "lab_mysql" {
   provider = aws.regional
-  
+
   identifier             = "lab-mysql-${var.name_suffix}"
   db_subnet_group_name   = aws_db_subnet_group.lab_mysql.name
   vpc_security_group_ids = [var.private_db_sg_id]

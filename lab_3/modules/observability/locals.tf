@@ -36,7 +36,7 @@ locals {
   #   If WAF exists  → include widget
   #   If WAF absent  → return empty list
   # ----------------------------------------------------------------
-  
+
   waf_widget = var.rds_app_waf_name != null ? [
     {
       type   = "metric"

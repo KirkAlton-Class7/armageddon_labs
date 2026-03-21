@@ -32,13 +32,13 @@ variable "env" {
 variable "manage_route53_in_terraform" {
   description = "Whether to manage Route53 hosted zone and records in Terraform."
   type        = bool
-  default = false
+  default     = false
 }
 
 variable "route53_private_zone" {
   description = "Whether the Route53 hosted zone is private."
-  type = bool
-  default = false
+  type        = bool
+  default     = false
 
   validation {
     condition     = var.route53_private_zone == false
@@ -60,6 +60,15 @@ variable "vpc_cidr" {
   description = "VPC CIDR block."
   type        = string
   default     = "10.10.0.0/16"
+}
+
+# ----------------------------------------------------------------
+# TOKYO VARIABLES — Enable DB Observability Resources
+# ----------------------------------------------------------------
+variable "enable_db_observability" {
+  description = "Enable DB-specific observability resources in this region."
+  type        = bool
+  default     = false
 }
 
 # ----------------------------------------------------------------

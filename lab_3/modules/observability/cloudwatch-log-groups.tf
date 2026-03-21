@@ -69,7 +69,7 @@ resource "aws_cloudwatch_log_group" "waf_logs" {
 # Conditional CloudWatch Log Group - WAF Firehose Logs
 resource "aws_cloudwatch_log_group" "waf_firehose_logs" {
   provider = aws.regional
-  
+
   count             = var.waf_log_mode.create_firehose_resources ? 1 : 0
   name              = "aws-waf-logs-firehose-${var.context.env}-${var.bucket_suffix}"
   retention_in_days = 1

@@ -6,7 +6,7 @@
 
 resource "aws_ec2_transit_gateway" "main" {
   provider = aws.regional
-  
+
   description = "${var.context.region}-${var.tgw_role}-tgw-${var.context.env}"
 
   auto_accept_shared_attachments  = "disable"

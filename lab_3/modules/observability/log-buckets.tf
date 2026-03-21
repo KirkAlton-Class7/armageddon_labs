@@ -74,7 +74,7 @@ data "aws_iam_policy_document" "rds_app_alb_logs" {
 resource "aws_s3_bucket" "waf_logs_bucket" {
   provider = aws.regional
 
-  count = var.waf_log_mode.create_direct_resources ? 1 : 0
+  count         = var.waf_log_mode.create_direct_resources ? 1 : 0
   bucket        = "aws-waf-logs-${var.context.region}-${var.bucket_suffix}"
   force_destroy = true
 
@@ -90,7 +90,7 @@ resource "aws_s3_bucket" "waf_logs_bucket" {
 resource "aws_s3_bucket_server_side_encryption_configuration" "waf_logs_bucket" {
   provider = aws.regional
 
-  count = var.waf_log_mode.create_direct_resources ? 1 : 0
+  count  = var.waf_log_mode.create_direct_resources ? 1 : 0
   bucket = aws_s3_bucket.waf_logs_bucket[0].id
 
   rule {
@@ -182,11 +182,11 @@ resource "aws_s3_bucket_policy" "waf_firehose_logs" {
   count = var.waf_log_mode.create_firehose_resources ? 1 : 0
 
   bucket = aws_s3_bucket.waf_firehose_logs[0].id
-  policy = data.aws_iam_policy_document.waf_firehose_logs_bucket_policy[0].json
+  policy = data.aws_iam_policy_document.waf_firehose_log_bucket_policy[0].json
 }
 
 # WAF Firehose Logs Bucket Policy Data
-data "aws_iam_policy_document" "waf_firehose_logs_bucket_policy" {
+data "aws_iam_policy_document" "waf_firehose_log_bucket_policy" {
   provider = aws.regional
 
   count = var.waf_log_mode.create_firehose_resources ? 1 : 0

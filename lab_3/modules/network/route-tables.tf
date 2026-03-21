@@ -29,7 +29,7 @@ resource "aws_route_table" "public" {
 # Local Route Table
 resource "aws_route_table" "local" {
   provider = aws.regional
-  
+
   vpc_id = aws_vpc.main.id
 
   route {

@@ -65,7 +65,7 @@ resource "aws_route_table_association" "private_data_b" {
 
 resource "aws_route_table_association" "private_data_c" {
   provider = aws.regional
-  
+
   subnet_id      = local.private_data_subnet_ids[2]
   route_table_id = aws_route_table.local.id
 }

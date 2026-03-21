@@ -5,7 +5,7 @@
 # Public Application Load Balancer
 resource "aws_lb" "rds_app_public_alb" {
   provider = aws.regional
-  
+
   name               = "rds-app-alb-${var.name_suffix}"
   internal           = false
   load_balancer_type = "application"

@@ -25,7 +25,7 @@ resource "aws_iam_policy" "ssm_agent_policy" {
 # (SSM Agent Permissions, Messaging, and Legacy Messaging)
 data "aws_iam_policy_document" "ssm_agent_policy" {
   provider = aws.regional
-  
+
   statement {
     sid    = "AllowSSMAgentPermissions"
     effect = "Allow"

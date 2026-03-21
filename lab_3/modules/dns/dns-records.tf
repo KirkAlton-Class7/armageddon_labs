@@ -5,7 +5,7 @@
 # # Apex Domain → CloudFront Distribution
 # resource "aws_route53_record" "rds_app_apex_to_cloudfront" {
 #   provider = aws.regional
-  
+
 #   zone_id = local.route53_zone_id
 #   name    = var.dns_context.root_domain
 #   type    = "A"
@@ -37,8 +37,9 @@
 # ----------------------------------------------------------------
 
 resource "aws_route53_record" "rds_app_origin_to_alb" {
+  count    = var.manage_route53_in_terraform ? 1 : 0
   provider = aws.regional
-  
+
   zone_id = local.route53_zone_id
   name    = "origin.${var.dns_context.root_domain}"
   type    = "A"

@@ -100,7 +100,7 @@ resource "aws_sns_topic" "rds_app_alb_server_error_alert" {
 
 resource "aws_sns_topic_subscription" "app_alb_server_error_email_alert" {
   provider = aws.regional
-  
+
   topic_arn = aws_sns_topic.rds_app_alb_server_error_alert.arn
   protocol  = "email"
   endpoint  = "email@icloud.com"

@@ -3,7 +3,7 @@
 # ----------------------------------------------------------------
 resource "aws_wafv2_web_acl" "rds_app" {
   provider = aws.regional
-  
+
   count = var.create_waf ? 1 : 0
 
   name        = "web-acl-rds-app-${var.name_suffix}"

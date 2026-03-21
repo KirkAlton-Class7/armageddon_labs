@@ -5,21 +5,21 @@
 # Managed Policy — Disable Caching (Dynamic / API)
 data "aws_cloudfront_cache_policy" "caching_disabled" {
   provider = aws.regional
-  
-  name     = "Managed-CachingDisabled"
+
+  name = "Managed-CachingDisabled"
 }
 
 # Managed Policy — Use Origin Cache-Control Headers
 data "aws_cloudfront_cache_policy" "use_origin_cache_control" {
-  name     = "UseOriginCacheControlHeaders"
+  name = "UseOriginCacheControlHeaders"
 }
 
 # Custom Cache Policy — Static Assets
 resource "aws_cloudfront_cache_policy" "cache_static" {
   provider = aws.regional
 
-  name     = "rds-app-cache-static-${var.name_suffix}"
-  comment  = "Aggressive caching for /static/*"
+  name    = "rds-app-cache-static-${var.name_suffix}"
+  comment = "Aggressive caching for /static/*"
 
   default_ttl = 86400
   max_ttl     = 31536000

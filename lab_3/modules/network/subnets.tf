@@ -156,7 +156,7 @@ resource "aws_subnet" "private_data_b" {
 
 resource "aws_subnet" "private_data_c" {
   provider = aws.regional
-  
+
   vpc_id            = aws_vpc.main.id
   cidr_block        = "10.10.66.0/24"
   availability_zone = var.azs[2]

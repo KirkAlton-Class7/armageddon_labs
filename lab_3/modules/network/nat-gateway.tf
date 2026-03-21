@@ -5,7 +5,7 @@
 # Elastic IP Configuration
 resource "aws_eip" "main" {
   provider = aws.regional
-  
+
   domain = "vpc"
 }
 

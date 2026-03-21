@@ -4490,15 +4490,15 @@
 <polygon fill="none" stroke="black" points="36306.75,-3060 35946.5,-3060 35946.5,-3024 36306.75,-3024 36306.75,-3060"/>
 <text xml:space="preserve" text-anchor="middle" x="36126.62" y="-3036.95" font-family="Times,serif" font-size="14.00">module.observability.aws_s3_bucket_policy.waf_firehose_logs</text>
 </g>
-<!-- [root] module.observability.data.aws_iam_policy_document.waf_firehose_logs_bucket_policy (expand) -->
+<!-- [root] module.observability.data.aws_iam_policy_document.waf_firehose_log_bucket_policy (expand) -->
 <g id="node269" class="node">
-<title>[root] module.observability.data.aws_iam_policy_document.waf_firehose_logs_bucket_policy (expand)</title>
+<title>[root] module.observability.data.aws_iam_policy_document.waf_firehose_log_bucket_policy (expand)</title>
 <polygon fill="none" stroke="black" points="38652.38,-1332 38154.88,-1332 38154.88,-1296 38652.38,-1296 38652.38,-1332"/>
-<text xml:space="preserve" text-anchor="middle" x="38403.62" y="-1308.95" font-family="Times,serif" font-size="14.00">module.observability.data.aws_iam_policy_document.waf_firehose_logs_bucket_policy</text>
+<text xml:space="preserve" text-anchor="middle" x="38403.62" y="-1308.95" font-family="Times,serif" font-size="14.00">module.observability.data.aws_iam_policy_document.waf_firehose_log_bucket_policy</text>
 </g>
-<!-- [root] module.observability.aws_s3_bucket_policy.waf_firehose_logs (expand)&#45;&gt;[root] module.observability.data.aws_iam_policy_document.waf_firehose_logs_bucket_policy (expand) -->
+<!-- [root] module.observability.aws_s3_bucket_policy.waf_firehose_logs (expand)&#45;&gt;[root] module.observability.data.aws_iam_policy_document.waf_firehose_log_bucket_policy (expand) -->
 <g id="edge797" class="edge">
-<title>[root] module.observability.aws_s3_bucket_policy.waf_firehose_logs (expand)&#45;&gt;[root] module.observability.data.aws_iam_policy_document.waf_firehose_logs_bucket_policy (expand)</title>
+<title>[root] module.observability.aws_s3_bucket_policy.waf_firehose_logs (expand)&#45;&gt;[root] module.observability.data.aws_iam_policy_document.waf_firehose_log_bucket_policy (expand)</title>
 <path fill="none" stroke="black" d="M36200.08,-3023.84C36200.08,-3001.65 36200.08,-2967 36200.08,-2967 36200.08,-2967 37581.89,-2967 37581.89,-2967 37581.89,-2967 37581.89,-2056 37581.89,-2056 37581.89,-2056 38242.09,-2056 38242.09,-2056 38242.09,-2056 38242.09,-1343.86 38242.09,-1343.86"/>
 <polygon fill="black" stroke="black" points="38245.59,-1343.86 38242.09,-1333.86 38238.59,-1343.86 38245.59,-1343.86"/>
 </g>
@@ -4790,9 +4790,9 @@
 <path fill="none" stroke="black" d="M37933.87,-2591.73C37933.87,-2496.47 37933.87,-2061 37933.87,-2061 37933.87,-2061 38413.3,-2061 38413.3,-2061 38413.3,-2061 38413.3,-1775.81 38413.3,-1775.81"/>
 <polygon fill="black" stroke="black" points="38416.8,-1775.81 38413.3,-1765.81 38409.8,-1775.81 38416.8,-1775.81"/>
 </g>
-<!-- [root] module.observability.data.aws_iam_policy_document.waf_firehose_logs_bucket_policy (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_firehose_logs (expand) -->
+<!-- [root] module.observability.data.aws_iam_policy_document.waf_firehose_log_bucket_policy (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_firehose_logs (expand) -->
 <g id="edge826" class="edge">
-<title>[root] module.observability.data.aws_iam_policy_document.waf_firehose_logs_bucket_policy (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_firehose_logs (expand)</title>
+<title>[root] module.observability.data.aws_iam_policy_document.waf_firehose_log_bucket_policy (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_firehose_logs (expand)</title>
 <path fill="none" stroke="black" d="M38594.5,-1295.69C38594.5,-1279.69 38594.5,-1259 38594.5,-1259 38594.5,-1259 39949.21,-1259 39949.21,-1259 39949.21,-1259 39949.21,-1199.95 39949.21,-1199.95"/>
 <polygon fill="black" stroke="black" points="39952.71,-1199.95 39949.21,-1189.95 39945.71,-1199.95 39952.71,-1199.95"/>
 </g>
@@ -4802,9 +4802,9 @@
 <ellipse fill="none" stroke="black" cx="35213.62" cy="-1170" rx="204.89" ry="18"/>
 <text xml:space="preserve" text-anchor="middle" x="35213.62" y="-1164.95" font-family="Times,serif" font-size="14.00">[root] module.observability.var.account_id (expand)</text>
 </g>
-<!-- [root] module.observability.data.aws_iam_policy_document.waf_firehose_logs_bucket_policy (expand)&#45;&gt;[root] module.observability.var.account_id (expand) -->
+<!-- [root] module.observability.data.aws_iam_policy_document.waf_firehose_log_bucket_policy (expand)&#45;&gt;[root] module.observability.var.account_id (expand) -->
 <g id="edge827" class="edge">
-<title>[root] module.observability.data.aws_iam_policy_document.waf_firehose_logs_bucket_policy (expand)&#45;&gt;[root] module.observability.var.account_id (expand)</title>
+<title>[root] module.observability.data.aws_iam_policy_document.waf_firehose_log_bucket_policy (expand)&#45;&gt;[root] module.observability.var.account_id (expand)</title>
 <path fill="none" stroke="black" d="M38169.44,-1295.9C38169.44,-1284.91 38169.44,-1273 38169.44,-1273 38169.44,-1273 35363.59,-1273 35363.59,-1273 35363.59,-1273 35363.59,-1194.14 35363.59,-1194.14"/>
 <polygon fill="black" stroke="black" points="35367.09,-1194.14 35363.59,-1184.14 35360.09,-1194.14 35367.09,-1194.14"/>
 </g>
@@ -4826,15 +4826,15 @@
 <path fill="none" stroke="black" d="M35871.25,-1871.76C35871.25,-1871.76 35871.25,-1775.6 35871.25,-1775.6"/>
 <polygon fill="black" stroke="black" points="35874.75,-1775.6 35871.25,-1765.6 35867.75,-1775.6 35874.75,-1775.6"/>
 </g>
-<!-- [root] module.security.var.waf_logs_bucket_id (expand) -->
+<!-- [root] module.security.var.waf_log_bucket_id (expand) -->
 <g id="node540" class="node">
-<title>[root] module.security.var.waf_logs_bucket_id (expand)</title>
+<title>[root] module.security.var.waf_log_bucket_id (expand)</title>
 <ellipse fill="none" stroke="black" cx="36269.62" cy="-1746" rx="220.25" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="36269.62" y="-1740.95" font-family="Times,serif" font-size="14.00">[root] module.security.var.waf_logs_bucket_id (expand)</text>
+<text xml:space="preserve" text-anchor="middle" x="36269.62" y="-1740.95" font-family="Times,serif" font-size="14.00">[root] module.security.var.waf_log_bucket_id (expand)</text>
 </g>
-<!-- [root] module.security.aws_s3_bucket_policy.waf_logs_bucket (expand)&#45;&gt;[root] module.security.var.waf_logs_bucket_id (expand) -->
+<!-- [root] module.security.aws_s3_bucket_policy.waf_logs_bucket (expand)&#45;&gt;[root] module.security.var.waf_log_bucket_id (expand) -->
 <g id="edge910" class="edge">
-<title>[root] module.security.aws_s3_bucket_policy.waf_logs_bucket (expand)&#45;&gt;[root] module.security.var.waf_logs_bucket_id (expand)</title>
+<title>[root] module.security.aws_s3_bucket_policy.waf_logs_bucket (expand)&#45;&gt;[root] module.security.var.waf_log_bucket_id (expand)</title>
 <path fill="none" stroke="black" d="M36055.25,-1871.76C36055.25,-1871.76 36055.25,-1761.8 36055.25,-1761.8"/>
 <polygon fill="black" stroke="black" points="36058.75,-1761.8 36055.25,-1751.8 36051.75,-1761.8 36058.75,-1761.8"/>
 </g>
@@ -5300,15 +5300,15 @@
 <path fill="none" stroke="black" d="M35633.73,-1727.65C35633.73,-1679.11 35633.73,-1551 35633.73,-1551 35633.73,-1551 33735.35,-1551 33735.35,-1551 33735.35,-1551 33735.35,-1340.7 33735.35,-1340.7"/>
 <polygon fill="black" stroke="black" points="33738.85,-1340.7 33735.35,-1330.7 33731.85,-1340.7 33738.85,-1340.7"/>
 </g>
-<!-- [root] module.security.var.waf_logs_bucket_arn (expand) -->
+<!-- [root] module.security.var.waf_log_bucket_arn (expand) -->
 <g id="node550" class="node">
-<title>[root] module.security.var.waf_logs_bucket_arn (expand)</title>
+<title>[root] module.security.var.waf_log_bucket_arn (expand)</title>
 <ellipse fill="none" stroke="black" cx="36316.62" cy="-1602" rx="224.85" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="36316.62" y="-1596.95" font-family="Times,serif" font-size="14.00">[root] module.security.var.waf_logs_bucket_arn (expand)</text>
+<text xml:space="preserve" text-anchor="middle" x="36316.62" y="-1596.95" font-family="Times,serif" font-size="14.00">[root] module.security.var.waf_log_bucket_arn (expand)</text>
 </g>
-<!-- [root] module.security.data.aws_iam_policy_document.waf_logs_bucket_policy (expand)&#45;&gt;[root] module.security.var.waf_logs_bucket_arn (expand) -->
+<!-- [root] module.security.data.aws_iam_policy_document.waf_logs_bucket_policy (expand)&#45;&gt;[root] module.security.var.waf_log_bucket_arn (expand) -->
 <g id="edge955" class="edge">
-<title>[root] module.security.data.aws_iam_policy_document.waf_logs_bucket_policy (expand)&#45;&gt;[root] module.security.var.waf_logs_bucket_arn (expand)</title>
+<title>[root] module.security.data.aws_iam_policy_document.waf_logs_bucket_policy (expand)&#45;&gt;[root] module.security.var.waf_log_bucket_arn (expand)</title>
 <path fill="none" stroke="black" d="M35996.8,-1727.76C35996.8,-1689.01 35996.8,-1602 35996.8,-1602 35996.8,-1602 36079.95,-1602 36079.95,-1602"/>
 <polygon fill="black" stroke="black" points="36079.95,-1605.5 36089.95,-1602 36079.95,-1598.5 36079.95,-1605.5"/>
 </g>
@@ -7752,15 +7752,15 @@
 <path fill="none" stroke="black" d="M34541.63,-1450.44C34541.63,-1416.75 34541.63,-1282 34541.63,-1282 34541.63,-1282 30596.79,-1282 30596.79,-1282 30596.79,-1282 30596.79,-911.48 30596.79,-911.48"/>
 <polygon fill="black" stroke="black" points="30600.29,-911.48 30596.79,-901.48 30593.29,-911.48 30600.29,-911.48"/>
 </g>
-<!-- [root] module.observability.output.waf_firehose_logs_bucket_arn (expand) -->
+<!-- [root] module.observability.output.waf_firehose_log_bucket_arn (expand) -->
 <g id="node468" class="node">
-<title>[root] module.observability.output.waf_firehose_logs_bucket_arn (expand)</title>
+<title>[root] module.observability.output.waf_firehose_log_bucket_arn (expand)</title>
 <ellipse fill="none" stroke="black" cx="41113.62" cy="-1314" rx="290.37" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="41113.62" y="-1308.95" font-family="Times,serif" font-size="14.00">[root] module.observability.output.waf_firehose_logs_bucket_arn (expand)</text>
+<text xml:space="preserve" text-anchor="middle" x="41113.62" y="-1308.95" font-family="Times,serif" font-size="14.00">[root] module.observability.output.waf_firehose_log_bucket_arn (expand)</text>
 </g>
-<!-- [root] module.iam.var.waf_firehose_log_bucket_arn (expand)&#45;&gt;[root] module.observability.output.waf_firehose_logs_bucket_arn (expand) -->
+<!-- [root] module.iam.var.waf_firehose_log_bucket_arn (expand)&#45;&gt;[root] module.observability.output.waf_firehose_log_bucket_arn (expand) -->
 <g id="edge473" class="edge">
-<title>[root] module.iam.var.waf_firehose_log_bucket_arn (expand)&#45;&gt;[root] module.observability.output.waf_firehose_logs_bucket_arn (expand)</title>
+<title>[root] module.iam.var.waf_firehose_log_bucket_arn (expand)&#45;&gt;[root] module.observability.output.waf_firehose_log_bucket_arn (expand)</title>
 <path fill="none" stroke="black" d="M34830.62,-1440.34C34830.62,-1419.6 34830.62,-1388 34830.62,-1388 34830.62,-1388 40875.07,-1388 40875.07,-1388 40875.07,-1388 40875.07,-1335.8 40875.07,-1335.8"/>
 <polygon fill="black" stroke="black" points="40878.57,-1335.8 40875.07,-1325.8 40871.57,-1335.8 40878.57,-1335.8"/>
 </g>
@@ -7866,9 +7866,9 @@
 <path fill="none" stroke="black" d="M39318.09,-1452C39387.36,-1452 39443.3,-1452 39443.3,-1452 39443.3,-1452 39443.3,-1343.84 39443.3,-1343.84"/>
 <polygon fill="black" stroke="black" points="39446.8,-1343.84 39443.3,-1333.84 39439.8,-1343.84 39446.8,-1343.84"/>
 </g>
-<!-- [root] module.observability.output.waf_firehose_logs_bucket_arn (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_firehose_logs (expand) -->
+<!-- [root] module.observability.output.waf_firehose_log_bucket_arn (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_firehose_logs (expand) -->
 <g id="edge849" class="edge">
-<title>[root] module.observability.output.waf_firehose_logs_bucket_arn (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_firehose_logs (expand)</title>
+<title>[root] module.observability.output.waf_firehose_log_bucket_arn (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_firehose_logs (expand)</title>
 <path fill="none" stroke="black" d="M41076.43,-1295.79C41076.43,-1258.94 41076.43,-1179 41076.43,-1179 41076.43,-1179 40174.61,-1179 40174.61,-1179"/>
 <polygon fill="black" stroke="black" points="40174.61,-1175.5 40164.61,-1179 40174.61,-1182.5 40174.61,-1175.5"/>
 </g>
@@ -8598,9 +8598,9 @@
 <path fill="none" stroke="black" d="M39128.2,-3184C39285.14,-3184 39517.37,-3184 39517.37,-3184 39517.37,-3184 39517.37,-1464 39517.37,-1464 39517.37,-1464 39329.58,-1464 39329.58,-1464"/>
 <polygon fill="black" stroke="black" points="39329.58,-1460.5 39319.58,-1464 39329.58,-1467.5 39329.58,-1460.5"/>
 </g>
-<!-- [root] module.observability (close)&#45;&gt;[root] module.observability.output.waf_firehose_logs_bucket_arn (expand) -->
+<!-- [root] module.observability (close)&#45;&gt;[root] module.observability.output.waf_firehose_log_bucket_arn (expand) -->
 <g id="edge731" class="edge">
-<title>[root] module.observability (close)&#45;&gt;[root] module.observability.output.waf_firehose_logs_bucket_arn (expand)</title>
+<title>[root] module.observability (close)&#45;&gt;[root] module.observability.output.waf_firehose_log_bucket_arn (expand)</title>
 <path fill="none" stroke="black" d="M39127.89,-3188C39287.26,-3188 39525.51,-3188 39525.51,-3188 39525.51,-3188 39525.51,-1391 39525.51,-1391 39525.51,-1391 40926.89,-1391 40926.89,-1391 40926.89,-1391 40926.89,-1339.64 40926.89,-1339.64"/>
 <polygon fill="black" stroke="black" points="40930.39,-1339.64 40926.89,-1329.64 40923.39,-1339.64 40930.39,-1339.64"/>
 </g>
@@ -8694,27 +8694,27 @@
 <path fill="none" stroke="black" d="M38923.12,-3169.69C38923.12,-3169.69 38923.12,-2918.69 38923.12,-2918.69"/>
 <polygon fill="black" stroke="black" points="38926.62,-2918.69 38923.12,-2908.69 38919.62,-2918.69 38926.62,-2918.69"/>
 </g>
-<!-- [root] module.observability.output.waf_firehose_logs_bucket_id (expand) -->
+<!-- [root] module.observability.output.waf_firehose_log_bucket_id (expand) -->
 <g id="node507" class="node">
-<title>[root] module.observability.output.waf_firehose_logs_bucket_id (expand)</title>
+<title>[root] module.observability.output.waf_firehose_log_bucket_id (expand)</title>
 <ellipse fill="none" stroke="black" cx="42200.62" cy="-2322" rx="285.76" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="42200.62" y="-2316.95" font-family="Times,serif" font-size="14.00">[root] module.observability.output.waf_firehose_logs_bucket_id (expand)</text>
+<text xml:space="preserve" text-anchor="middle" x="42200.62" y="-2316.95" font-family="Times,serif" font-size="14.00">[root] module.observability.output.waf_firehose_log_bucket_id (expand)</text>
 </g>
-<!-- [root] module.observability (close)&#45;&gt;[root] module.observability.output.waf_firehose_logs_bucket_id (expand) -->
+<!-- [root] module.observability (close)&#45;&gt;[root] module.observability.output.waf_firehose_log_bucket_id (expand) -->
 <g id="edge732" class="edge">
-<title>[root] module.observability (close)&#45;&gt;[root] module.observability.output.waf_firehose_logs_bucket_id (expand)</title>
+<title>[root] module.observability (close)&#45;&gt;[root] module.observability.output.waf_firehose_log_bucket_id (expand)</title>
 <path fill="none" stroke="black" d="M39074.51,-3171.69C39074.51,-3123.94 39074.51,-2973 39074.51,-2973 39074.51,-2973 42048.28,-2973 42048.28,-2973 42048.28,-2973 42048.28,-2348.96 42048.28,-2348.96"/>
 <polygon fill="black" stroke="black" points="42051.78,-2348.96 42048.28,-2338.96 42044.78,-2348.96 42051.78,-2348.96"/>
 </g>
-<!-- [root] module.observability.output.waf_firehose_logs_bucket_name (expand) -->
+<!-- [root] module.observability.output.waf_firehose_log_bucket_name (expand) -->
 <g id="node508" class="node">
-<title>[root] module.observability.output.waf_firehose_logs_bucket_name (expand)</title>
+<title>[root] module.observability.output.waf_firehose_log_bucket_name (expand)</title>
 <ellipse fill="none" stroke="black" cx="42828.62" cy="-2322" rx="299.07" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="42828.62" y="-2316.95" font-family="Times,serif" font-size="14.00">[root] module.observability.output.waf_firehose_logs_bucket_name (expand)</text>
+<text xml:space="preserve" text-anchor="middle" x="42828.62" y="-2316.95" font-family="Times,serif" font-size="14.00">[root] module.observability.output.waf_firehose_log_bucket_name (expand)</text>
 </g>
-<!-- [root] module.observability (close)&#45;&gt;[root] module.observability.output.waf_firehose_logs_bucket_name (expand) -->
+<!-- [root] module.observability (close)&#45;&gt;[root] module.observability.output.waf_firehose_log_bucket_name (expand) -->
 <g id="edge733" class="edge">
-<title>[root] module.observability (close)&#45;&gt;[root] module.observability.output.waf_firehose_logs_bucket_name (expand)</title>
+<title>[root] module.observability (close)&#45;&gt;[root] module.observability.output.waf_firehose_log_bucket_name (expand)</title>
 <path fill="none" stroke="black" d="M39092.52,-3173.73C39092.52,-3129.38 39092.52,-2980 39092.52,-2980 39092.52,-2980 42609.31,-2980 42609.31,-2980 42609.31,-2980 42609.31,-2346.07 42609.31,-2346.07"/>
 <polygon fill="black" stroke="black" points="42612.81,-2346.07 42609.31,-2336.07 42605.81,-2346.07 42612.81,-2346.07"/>
 </g>
@@ -8730,27 +8730,27 @@
 <path fill="none" stroke="black" d="M39106.4,-3176C39230.1,-3176 39406.02,-3176 39406.02,-3176 39406.02,-3176 39406.02,-1627.12 39406.02,-1627.12"/>
 <polygon fill="black" stroke="black" points="39409.52,-1627.12 39406.02,-1617.12 39402.52,-1627.12 39409.52,-1627.12"/>
 </g>
-<!-- [root] module.observability.output.waf_logs_bucket_arn (expand) -->
+<!-- [root] module.observability.output.waf_log_bucket_arn (expand) -->
 <g id="node510" class="node">
-<title>[root] module.observability.output.waf_logs_bucket_arn (expand)</title>
+<title>[root] module.observability.output.waf_log_bucket_arn (expand)</title>
 <ellipse fill="none" stroke="black" cx="40722.62" cy="-1458" rx="256.07" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="40722.62" y="-1452.95" font-family="Times,serif" font-size="14.00">[root] module.observability.output.waf_logs_bucket_arn (expand)</text>
+<text xml:space="preserve" text-anchor="middle" x="40722.62" y="-1452.95" font-family="Times,serif" font-size="14.00">[root] module.observability.output.waf_log_bucket_arn (expand)</text>
 </g>
-<!-- [root] module.observability (close)&#45;&gt;[root] module.observability.output.waf_logs_bucket_arn (expand) -->
+<!-- [root] module.observability (close)&#45;&gt;[root] module.observability.output.waf_log_bucket_arn (expand) -->
 <g id="edge735" class="edge">
-<title>[root] module.observability (close)&#45;&gt;[root] module.observability.output.waf_logs_bucket_arn (expand)</title>
+<title>[root] module.observability (close)&#45;&gt;[root] module.observability.output.waf_log_bucket_arn (expand)</title>
 <path fill="none" stroke="black" d="M39038.49,-3168.94C39038.49,-3115.36 39038.49,-2954 39038.49,-2954 39038.49,-2954 40891.76,-2954 40891.76,-2954 40891.76,-2954 40891.76,-1483.37 40891.76,-1483.37"/>
 <polygon fill="black" stroke="black" points="40895.26,-1483.37 40891.76,-1473.37 40888.26,-1483.37 40895.26,-1483.37"/>
 </g>
-<!-- [root] module.observability.output.waf_logs_bucket_id (expand) -->
+<!-- [root] module.observability.output.waf_log_bucket_id (expand) -->
 <g id="node511" class="node">
-<title>[root] module.observability.output.waf_logs_bucket_id (expand)</title>
+<title>[root] module.observability.output.waf_log_bucket_id (expand)</title>
 <ellipse fill="none" stroke="black" cx="41359.62" cy="-1602" rx="251.47" ry="18"/>
-<text xml:space="preserve" text-anchor="middle" x="41359.62" y="-1596.95" font-family="Times,serif" font-size="14.00">[root] module.observability.output.waf_logs_bucket_id (expand)</text>
+<text xml:space="preserve" text-anchor="middle" x="41359.62" y="-1596.95" font-family="Times,serif" font-size="14.00">[root] module.observability.output.waf_log_bucket_id (expand)</text>
 </g>
-<!-- [root] module.observability (close)&#45;&gt;[root] module.observability.output.waf_logs_bucket_id (expand) -->
+<!-- [root] module.observability (close)&#45;&gt;[root] module.observability.output.waf_log_bucket_id (expand) -->
 <g id="edge736" class="edge">
-<title>[root] module.observability (close)&#45;&gt;[root] module.observability.output.waf_logs_bucket_id (expand)</title>
+<title>[root] module.observability (close)&#45;&gt;[root] module.observability.output.waf_log_bucket_id (expand)</title>
 <path fill="none" stroke="black" d="M39056.5,-3170.11C39056.5,-3118.67 39056.5,-2960 39056.5,-2960 39056.5,-2960 41523.67,-2960 41523.67,-2960 41523.67,-2960 41523.67,-1627.4 41523.67,-1627.4"/>
 <polygon fill="black" stroke="black" points="41527.17,-1627.4 41523.67,-1617.4 41520.17,-1627.4 41527.17,-1627.4"/>
 </g>
@@ -8856,15 +8856,15 @@
 <path fill="none" stroke="black" d="M38573.04,-2879.99C38573.04,-2879.99 38573.04,-2495.6 38573.04,-2495.6"/>
 <polygon fill="black" stroke="black" points="38576.54,-2495.6 38573.04,-2485.6 38569.54,-2495.6 38576.54,-2495.6"/>
 </g>
-<!-- [root] module.observability.output.waf_firehose_logs_bucket_id (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_firehose_logs (expand) -->
+<!-- [root] module.observability.output.waf_firehose_log_bucket_id (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_firehose_logs (expand) -->
 <g id="edge850" class="edge">
-<title>[root] module.observability.output.waf_firehose_logs_bucket_id (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_firehose_logs (expand)</title>
+<title>[root] module.observability.output.waf_firehose_log_bucket_id (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_firehose_logs (expand)</title>
 <path fill="none" stroke="black" d="M41979.78,-2310.6C41979.78,-2190.96 41979.78,-1170 41979.78,-1170 41979.78,-1170 40174.68,-1170 40174.68,-1170"/>
 <polygon fill="black" stroke="black" points="40174.68,-1166.5 40164.68,-1170 40174.68,-1173.5 40174.68,-1166.5"/>
 </g>
-<!-- [root] module.observability.output.waf_firehose_logs_bucket_name (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_firehose_logs (expand) -->
+<!-- [root] module.observability.output.waf_firehose_log_bucket_name (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_firehose_logs (expand) -->
 <g id="edge851" class="edge">
-<title>[root] module.observability.output.waf_firehose_logs_bucket_name (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_firehose_logs (expand)</title>
+<title>[root] module.observability.output.waf_firehose_log_bucket_name (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_firehose_logs (expand)</title>
 <path fill="none" stroke="black" d="M42828.62,-2303.76C42828.62,-2156.06 42828.62,-1161 42828.62,-1161 42828.62,-1161 40174.69,-1161 40174.69,-1161"/>
 <polygon fill="black" stroke="black" points="40174.69,-1157.5 40164.69,-1161 40174.69,-1164.5 40174.69,-1157.5"/>
 </g>
@@ -8880,15 +8880,15 @@
 <path fill="none" stroke="black" d="M39429.18,-1590C39510.99,-1590 39586.19,-1590 39586.19,-1590 39586.19,-1590 39586.19,-1478.59 39586.19,-1478.59"/>
 <polygon fill="black" stroke="black" points="39589.69,-1478.59 39586.19,-1468.59 39582.69,-1478.59 39589.69,-1478.59"/>
 </g>
-<!-- [root] module.observability.output.waf_logs_bucket_arn (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_logs_bucket[0] -->
+<!-- [root] module.observability.output.waf_log_bucket_arn (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_logs_bucket[0] -->
 <g id="edge853" class="edge">
-<title>[root] module.observability.output.waf_logs_bucket_arn (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_logs_bucket[0]</title>
+<title>[root] module.observability.output.waf_log_bucket_arn (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_logs_bucket[0]</title>
 <path fill="none" stroke="black" d="M40592.32,-1442.32C40592.32,-1442.32 40592.32,-1343.89 40592.32,-1343.89"/>
 <polygon fill="black" stroke="black" points="40595.83,-1343.89 40592.33,-1333.89 40588.83,-1343.89 40595.83,-1343.89"/>
 </g>
-<!-- [root] module.observability.output.waf_logs_bucket_id (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_logs_bucket[0] -->
+<!-- [root] module.observability.output.waf_log_bucket_id (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_logs_bucket[0] -->
 <g id="edge854" class="edge">
-<title>[root] module.observability.output.waf_logs_bucket_id (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_logs_bucket[0]</title>
+<title>[root] module.observability.output.waf_log_bucket_id (expand)&#45;&gt;[root] module.observability.aws_s3_bucket.waf_logs_bucket[0]</title>
 <path fill="none" stroke="black" d="M41256.07,-1585.34C41256.07,-1527.96 41256.07,-1342 41256.07,-1342 41256.07,-1342 40717.53,-1342 40717.53,-1342 40717.53,-1342 40717.53,-1341.02 40717.53,-1341.02"/>
 <polygon fill="black" stroke="black" points="40721.03,-1343.72 40717.53,-1333.72 40714.03,-1343.72 40721.03,-1343.72"/>
 </g>
@@ -9360,15 +9360,15 @@
 <path fill="none" stroke="black" d="M34802.84,-1883.51C34802.84,-1832.41 34802.84,-1497 34802.84,-1497 34802.84,-1497 34506.19,-1497 34506.19,-1497 34506.19,-1497 34506.19,-1164 34506.19,-1164 34506.19,-1164 34405.1,-1164 34405.1,-1164"/>
 <polygon fill="black" stroke="black" points="34405.1,-1160.5 34395.1,-1164 34405.1,-1167.5 34405.1,-1160.5"/>
 </g>
-<!-- [root] module.security.var.waf_logs_bucket_id (expand)&#45;&gt;[root] module.observability.output.waf_logs_bucket_id (expand) -->
+<!-- [root] module.security.var.waf_log_bucket_id (expand)&#45;&gt;[root] module.observability.output.waf_log_bucket_id (expand) -->
 <g id="edge990" class="edge">
-<title>[root] module.security.var.waf_logs_bucket_id (expand)&#45;&gt;[root] module.observability.output.waf_logs_bucket_id (expand)</title>
+<title>[root] module.security.var.waf_log_bucket_id (expand)&#45;&gt;[root] module.observability.output.waf_log_bucket_id (expand)</title>
 <path fill="none" stroke="black" d="M36290.82,-1727.87C36290.82,-1717.69 36290.82,-1707 36290.82,-1707 36290.82,-1707 41272.2,-1707 41272.2,-1707 41272.2,-1707 41272.2,-1630.85 41272.2,-1630.85"/>
 <polygon fill="black" stroke="black" points="41275.7,-1630.85 41272.2,-1620.85 41268.7,-1630.85 41275.7,-1630.85"/>
 </g>
-<!-- [root] module.security.var.waf_logs_bucket_id (expand)&#45;&gt;[root] module.security (expand) -->
+<!-- [root] module.security.var.waf_log_bucket_id (expand)&#45;&gt;[root] module.security (expand) -->
 <g id="edge991" class="edge">
-<title>[root] module.security.var.waf_logs_bucket_id (expand)&#45;&gt;[root] module.security (expand)</title>
+<title>[root] module.security.var.waf_log_bucket_id (expand)&#45;&gt;[root] module.security (expand)</title>
 <path fill="none" stroke="black" d="M36070.57,-1738.25C36070.57,-1684.97 36070.57,-1375 36070.57,-1375 36070.57,-1375 34260.99,-1375 34260.99,-1375 34260.99,-1375 34260.99,-1199.71 34260.99,-1199.71"/>
 <polygon fill="black" stroke="black" points="34264.49,-1199.71 34260.99,-1189.71 34257.49,-1199.71 34264.49,-1199.71"/>
 </g>
@@ -9462,15 +9462,15 @@
 <path fill="none" stroke="black" d="M33757.39,-1300.66C33757.39,-1277.2 33757.39,-1231 33757.39,-1231 33757.39,-1231 34189.2,-1231 34189.2,-1231 34189.2,-1231 34189.2,-1195.66 34189.2,-1195.66"/>
 <polygon fill="black" stroke="black" points="34192.7,-1195.66 34189.2,-1185.66 34185.7,-1195.66 34192.7,-1195.66"/>
 </g>
-<!-- [root] module.security.var.waf_logs_bucket_arn (expand)&#45;&gt;[root] module.observability.output.waf_logs_bucket_arn (expand) -->
+<!-- [root] module.security.var.waf_log_bucket_arn (expand)&#45;&gt;[root] module.observability.output.waf_log_bucket_arn (expand) -->
 <g id="edge988" class="edge">
-<title>[root] module.security.var.waf_logs_bucket_arn (expand)&#45;&gt;[root] module.observability.output.waf_logs_bucket_arn (expand)</title>
+<title>[root] module.security.var.waf_log_bucket_arn (expand)&#45;&gt;[root] module.observability.output.waf_log_bucket_arn (expand)</title>
 <path fill="none" stroke="black" d="M36350.11,-1583.96C36350.11,-1576.25 36350.11,-1569 36350.11,-1569 36350.11,-1569 40621.62,-1569 40621.62,-1569 40621.62,-1569 40621.62,-1486.37 40621.62,-1486.37"/>
 <polygon fill="black" stroke="black" points="40625.13,-1486.37 40621.63,-1476.37 40618.13,-1486.37 40625.13,-1486.37"/>
 </g>
-<!-- [root] module.security.var.waf_logs_bucket_arn (expand)&#45;&gt;[root] module.security (expand) -->
+<!-- [root] module.security.var.waf_log_bucket_arn (expand)&#45;&gt;[root] module.security (expand) -->
 <g id="edge989" class="edge">
-<title>[root] module.security.var.waf_logs_bucket_arn (expand)&#45;&gt;[root] module.security (expand)</title>
+<title>[root] module.security.var.waf_log_bucket_arn (expand)&#45;&gt;[root] module.security (expand)</title>
 <path fill="none" stroke="black" d="M36114.09,-1594.05C36114.09,-1553.43 36114.09,-1371 36114.09,-1371 36114.09,-1371 34288.85,-1371 34288.85,-1371 34288.85,-1371 34288.85,-1199.71 34288.85,-1199.71"/>
 <polygon fill="black" stroke="black" points="34292.35,-1199.71 34288.85,-1189.71 34285.35,-1199.71 34292.35,-1199.71"/>
 </g>

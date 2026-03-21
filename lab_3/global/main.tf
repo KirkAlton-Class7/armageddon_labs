@@ -9,7 +9,7 @@
 module "edge" {
   source = "../modules/edge"
 
-  providers = {aws.regional = aws}
+  providers = { aws.regional = aws }
 
   # Identity and Naming
   context     = local.context
@@ -18,11 +18,11 @@ module "edge" {
 
   # DNS Context
   dns_context = local.dns_context
-  zone_id = module.dns.zone_id
+  zone_id     = module.dns.zone_id
 
   # Edge Security
   edge_auth_header_name = local.edge_auth_header_name
-  edge_auth_value = data.terraform_remote_state.tokyo.outputs.edge_auth_value
+  edge_auth_value       = data.terraform_remote_state.tokyo.outputs.edge_auth_value
 }
 
 # ----------------------------------------------------------------
@@ -33,7 +33,7 @@ module "dns" {
   source = "../modules/dns"
 
   # Providers
-    providers = {aws.regional = aws.edge}
+  providers = { aws.regional = aws.edge }
 
   # Identity and Naming
   context     = local.context

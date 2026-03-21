@@ -70,7 +70,7 @@ resource "aws_iam_policy" "rds_enhanced_monitoring_role" {
 # IAM Policy Data - RDS Enhanced Monitoring Role
 data "aws_iam_policy_document" "rds_enhanced_monitoring_role" {
   provider = aws.regional
-  
+
   statement {
     sid       = "AllowRdsLogGroupActions"
     effect    = "Allow"

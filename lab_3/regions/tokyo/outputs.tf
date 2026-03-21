@@ -172,6 +172,80 @@ output "rds_app_cert_arn" {
 }
 
 # # ----------------------------------------------------------------
+# # TOKYO OUTPUTS — Observability (Shared Logging Resources)
+# # ----------------------------------------------------------------
+
+# output "vpc_flow_log_group_arn" {
+#   description = "CloudWatch Log Group ARN for VPC Flow Logs."
+#   value       = module.observability.vpc_flow_log_group_arn
+# }
+
+# output "waf_firehose_log_group_arn" {
+#   description = "CloudWatch Log Group ARN for WAF Firehose logging."
+#   value       = module.observability.waf_firehose_log_group_arn
+# }
+
+# output "waf_firehose_log_bucket_arn" {
+#   description = "S3 bucket ARN for WAF Firehose log delivery."
+#   value       = module.observability.waf_firehose_log_bucket_arn
+# }
+
+# output "waf_direct_log_group_arn" {
+#   description = "CloudWatch Log Group ARN for direct WAF logging."
+#   value       = module.observability.waf_direct_log_group_arn
+# }
+
+
+
+# ----------------------------------------------------------------
+# TOKYO OUTPUTS — Observability (Shared Logging Resources)
+# ----------------------------------------------------------------
+
+# Always-on → direct reference
+output "vpc_flow_log_group_arn" {
+  description = "CloudWatch Log Group ARN for VPC Flow Logs."
+  value       = module.observability.vpc_flow_log_group_arn
+}
+
+# Conditional → guarded
+output "waf_firehose_log_group_arn" {
+  description = "CloudWatch Log Group ARN for WAF Firehose logging."
+  value       = try(module.observability.waf_firehose_log_group_arn, null)
+}
+
+# Conditional → guarded
+output "waf_firehose_logs_bucket_arn" {
+  description = "S3 bucket ARN for WAF Firehose log delivery."
+  value       = try(module.observability.waf_firehose_logs_bucket_arn, null)
+}
+
+# Always-on → direct reference
+output "waf_direct_log_group_arn" {
+  description = "CloudWatch Log Group ARN for direct WAF logging."
+  value       = module.observability.waf_direct_log_group_arn
+}
+
+# ----------------------------------------------------------------
+# TOKYO OUTPUTS — IAM (Shared Global Roles)
+# ----------------------------------------------------------------
+
+output "rds_app_role_name" {
+  description = "IAM role name for the RDS application EC2 instances."
+  value       = module.iam.rds_app_role_name
+}
+
+output "rds_app_instance_profile_name" {
+  description = "IAM instance profile name for the RDS application EC2 instances."
+  value       = module.iam.rds_app_instance_profile_name
+}
+
+output "vpc_flow_log_role_arn" {
+  description = "IAM role ARN used for VPC Flow Logs delivery."
+  value       = module.iam.vpc_flow_log_role_arn
+}
+
+
+# # ----------------------------------------------------------------
 # # TOKYO OUTPUTS — Transit Gateway Peering
 # # ----------------------------------------------------------------
 # # Exposes TGW peering attachment ID for cross-region acceptance

@@ -49,12 +49,12 @@ output "alb_logs_bucket_name" {
 # OBSERVABILITY OUTPUTS — WAF Log Bucket (Direct Logging)
 # ----------------------------------------------------------------
 
-output "waf_logs_bucket_arn" {
+output "waf_log_bucket_arn" {
   description = "ARN of the S3 bucket for WAF logs."
   value       = try(aws_s3_bucket.waf_logs_bucket[0].arn, null)
 }
 
-output "waf_logs_bucket_id" {
+output "waf_log_bucket_id" {
   description = "ID of the S3 bucket for WAF logs."
   value       = try(aws_s3_bucket.waf_logs_bucket[0].id, null)
 }
@@ -63,17 +63,17 @@ output "waf_logs_bucket_id" {
 # OBSERVABILITY OUTPUTS — WAF Firehose Logs S3 Bucket
 # ----------------------------------------------------------------
 
-output "waf_firehose_logs_bucket_name" {
+output "waf_firehose_log_bucket_name" {
   description = "Name of the S3 bucket for WAF Firehose logs."
   value       = try(aws_s3_bucket.waf_firehose_logs[0].bucket, null)
 }
 
-output "waf_firehose_logs_bucket_arn" {
+output "waf_firehose_log_bucket_arn" {
   description = "ARN of the S3 bucket for WAF Firehose logs."
   value       = try(aws_s3_bucket.waf_firehose_logs[0].arn, null)
 }
 
-output "waf_firehose_logs_bucket_id" {
+output "waf_firehose_log_bucket_id" {
   description = "ID of the S3 bucket for WAF Firehose logs."
   value       = try(aws_s3_bucket.waf_firehose_logs[0].id, null)
 }

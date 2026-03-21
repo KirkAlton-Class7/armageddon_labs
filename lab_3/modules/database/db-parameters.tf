@@ -62,7 +62,7 @@ resource "aws_ssm_parameter" "lab_mysql_db_host" {
 # SSM Parameter Store - DB Port for LabMySQL DB
 resource "aws_ssm_parameter" "lab_mysql_db_port" {
   provider = aws.regional
-  
+
   name  = "/lab/rds/mysql/db-port-${var.name_suffix}"
   type  = "String"
   value = tostring(aws_db_instance.lab_mysql.port)

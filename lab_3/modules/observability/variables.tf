@@ -46,6 +46,15 @@ variable "bucket_suffix" {
 }
 
 # ----------------------------------------------------------------
+# OBSERVABILITY VARIABLES — Enable DB Observability Resources
+# ----------------------------------------------------------------
+variable "enable_db_observability" {
+  description = "Enable DB-specific observability resources in this region."
+  type        = bool
+  default     = false
+}
+
+# ----------------------------------------------------------------
 # OBSERVABILITY VARIABLES — ALB Logging Configuration
 # ----------------------------------------------------------------
 
@@ -126,7 +135,7 @@ variable "rds_app_asg_name" {
 variable "rds_app_waf_name" {
   description = "Name of the RDS app WAF web ACL."
   type        = string
-  default = null
+  default     = null
 }
 
 variable "rds_app_waf_arn" {

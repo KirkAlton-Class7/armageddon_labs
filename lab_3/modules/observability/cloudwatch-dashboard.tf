@@ -4,7 +4,7 @@
 
 resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
   provider = aws.regional
-  
+
   dashboard_name = "rds-app-dashboard"
 
   dashboard_body = jsonencode({

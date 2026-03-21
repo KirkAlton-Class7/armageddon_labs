@@ -38,7 +38,7 @@ resource "aws_vpc_security_group_ingress_rule" "allow_internal_app_https_to_vpc_
 
 resource "aws_vpc_security_group_egress_rule" "allow_all_outbound_from_vpc_endpoint" {
   provider = aws.regional
-  
+
   security_group_id = aws_security_group.vpc_endpoints.id
   cidr_ipv4         = "0.0.0.0/0"
   ip_protocol       = "-1" # semantically equivalent to all ports

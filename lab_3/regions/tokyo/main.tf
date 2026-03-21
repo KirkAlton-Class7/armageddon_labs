@@ -58,8 +58,8 @@ module "security" {
 
   waf_log_mode            = local.waf_log_mode
   waf_log_destination_arn = module.observability.waf_log_destination_arn
-  waf_logs_bucket_id = module.observability.waf_logs_bucket_id
-  waf_logs_bucket_arn = module.observability.waf_logs_bucket_arn
+  waf_log_bucket_id       = module.observability.waf_log_bucket_id
+  waf_log_bucket_arn      = module.observability.waf_log_bucket_arn
 }
 
 # ----------------------------------------------------------------
@@ -84,10 +84,13 @@ module "iam" {
   waf_log_mode                       = local.waf_log_mode
 
   # Log Destinations
-  vpc_flow_log_group_arn      = module.observability.vpc_flow_log_group_arn
-  waf_firehose_log_group_arn  = module.observability.waf_firehose_log_group_arn
-  waf_firehose_log_bucket_arn = module.observability.waf_firehose_logs_bucket_arn
-  waf_direct_log_group_arn    = module.observability.waf_direct_log_group_arn
+  # Always-on → direct
+  vpc_flow_log_group_arn   = module.observability.vpc_flow_log_group_arn
+  waf_direct_log_group_arn = module.observability.waf_direct_log_group_arn
+
+  # Conditional (Firehose) → guarded
+  waf_firehose_log_group_arn  = try(module.observability.waf_firehose_log_group_arn, null)
+  waf_firehose_log_bucket_arn = try(module.observability.waf_firehose_logs_bucket_arn, null)
 
   # Secrets Access
   db_secret_arn = module.database.db_secret_arn
@@ -201,9 +204,9 @@ module "compute" {
 module "dns" {
   source = "../../modules/dns"
 
-providers = {
-  aws.regional = aws
-}
+  providers = {
+    aws.regional = aws
+  }
 
   # Identity and Naming
   context     = local.context
@@ -249,7 +252,8 @@ module "observability" {
   alb_log_s3             = var.alb_log_s3
 
   # Database Monitoring
-  db_identifier = module.database.db_identifier
+  enable_db_observability = var.enable_db_observability
+  db_identifier           = module.database.db_identifier
 
   # Compute Metrics
   rds_app_public_alb_arn_suffix = module.compute.rds_app_public_alb_arn_suffix

@@ -47,7 +47,7 @@ data "aws_iam_policy_document" "vpc_flow_log_assume_role" {
 # Consider more informative and scalable naming for role policy attachments
 resource "aws_iam_role_policy_attachment" "attach_vpc_flow_log_role_policy" {
   provider = aws.regional
-  
+
   role       = aws_iam_role.vpc_flow_log_role.name
   policy_arn = aws_iam_policy.vpc_flow_log_role.arn
 }

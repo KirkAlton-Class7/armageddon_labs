@@ -20,7 +20,7 @@ resource "aws_cloudwatch_log_resource_policy" "waf_direct" {
 # Conditional IAM Policy Data - WAF Direct Log Delivery to CloudWatch
 data "aws_iam_policy_document" "waf_direct" {
   provider = aws.regional
-  
+
   count = var.waf_log_mode.create_direct_resources ? 1 : 0
 
   version = "2012-10-17"

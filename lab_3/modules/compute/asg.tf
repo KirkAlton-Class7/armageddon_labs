@@ -4,7 +4,7 @@
 
 # Auto Scaling Group for RDS App ASG
 resource "aws_autoscaling_group" "rds_app_asg" {
-  provider = aws.regional
+  provider            = aws.regional
   name                = "rds-app-asg"
   vpc_zone_identifier = var.private_app_subnet_ids
 
@@ -38,7 +38,7 @@ resource "aws_autoscaling_group" "rds_app_asg" {
 # ASG Policy
 resource "aws_autoscaling_policy" "rds_app_asg" {
   provider = aws.regional
-  
+
   name                      = "rds-app-asg-policy"
   autoscaling_group_name    = aws_autoscaling_group.rds_app_asg.id
   policy_type               = "TargetTrackingScaling"

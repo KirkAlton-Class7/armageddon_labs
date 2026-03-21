@@ -25,7 +25,7 @@ resource "aws_iam_role" "firehose_network_telemetry_role" {
 
 # Trust Policy Data - Firehose Network Telemetry Assume Role Policy
 data "aws_iam_policy_document" "firehose_network_telemetry_assume_role" {
-   provider = aws.regional
+  provider = aws.regional
 
   count = var.waf_log_mode.create_firehose_resources ? 1 : 0
 
@@ -48,7 +48,7 @@ data "aws_iam_policy_document" "firehose_network_telemetry_assume_role" {
 # Policy Attachment - Firehose Network Telemetry Logs Policy --> Firehose Network Telemetry Role
 resource "aws_iam_role_policy_attachment" "attach_firehose_network_telemetry_logs" {
   provider = aws.regional
-  
+
   count = var.waf_log_mode.create_firehose_resources ? 1 : 0
 
   role       = aws_iam_role.firehose_network_telemetry_role[0].id

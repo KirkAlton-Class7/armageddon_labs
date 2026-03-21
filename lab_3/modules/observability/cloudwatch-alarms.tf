@@ -26,7 +26,7 @@ resource "aws_cloudwatch_log_metric_filter" "rds_app_to_lab_mysql_connection_fai
 
 resource "aws_cloudwatch_metric_alarm" "rds_app_to_lab_mysql_connection_failure" {
   provider = aws.regional
-  
+
   alarm_name          = "rds-app-to-lab-mysql-connection-failure"
   comparison_operator = "GreaterThanThreshold"
   evaluation_periods  = 2
@@ -56,6 +56,7 @@ resource "aws_cloudwatch_metric_alarm" "rds_app_to_lab_mysql_connection_failure"
 # ----------------------------------------------------------------
 
 resource "aws_cloudwatch_log_metric_filter" "lab_mysql_auth_failure" {
+  count    = var.enable_db_observability ? 1 : 0
   provider = aws.regional
 
   name           = "lab-mysql-auth-failure"
@@ -107,7 +108,7 @@ resource "aws_cloudwatch_metric_alarm" "alarm_lab_mysql_auth_failure" {
 
 resource "aws_cloudwatch_metric_alarm" "rds_app_alb_target_5xx_alarm" {
   provider = aws.regional
-  
+
   alarm_name          = "rds-app-alb-target-5xx"
   comparison_operator = "GreaterThanOrEqualToThreshold"
 

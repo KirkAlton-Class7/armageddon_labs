@@ -93,12 +93,12 @@ variable "waf_log_destination_arn" {
 # ----------------------------------------------------------------
 # SECURITY VARIABLES — Observability Integration (WAF Log Bucket)
 # ----------------------------------------------------------------
-variable "waf_logs_bucket_arn" {
+variable "waf_log_bucket_arn" {
   description = "ARN of the S3 bucket for WAF logs"
   type        = string
 }
 
-variable "waf_logs_bucket_id" {
+variable "waf_log_bucket_id" {
   description = "ID of the S3 bucket for WAF logs"
   type        = string
 }
