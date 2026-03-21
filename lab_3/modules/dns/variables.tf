@@ -38,6 +38,11 @@ variable "route53_private_zone" {
   type        = bool
 }
 
+variable "is_dns_writer" {
+  description = "Whether this stack owns DNS record creation"
+  type        = bool
+}
+
 # ----------------------------------------------------------------
 # DNS VARIABLES — DNS Configuration
 # ----------------------------------------------------------------

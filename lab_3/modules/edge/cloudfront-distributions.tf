@@ -3,7 +3,7 @@
 # ----------------------------------------------------------------
 
 resource "aws_cloudfront_distribution" "rds_app" {
-  provider = aws.regional
+  provider = aws.edge
 
   enabled             = true
   is_ipv6_enabled     = true
@@ -79,8 +79,15 @@ resource "aws_cloudfront_distribution" "rds_app" {
     response_headers_policy_id = aws_cloudfront_response_headers_policy.static.id
   }
 
+  # viewer_certificate {
+  #   acm_certificate_arn      = aws_acm_certificate.rds_app_cf_cert.arn
+  #   ssl_support_method       = "sni-only"
+  #   minimum_protocol_version = "TLSv1.2_2021"
+  # }
+
   viewer_certificate {
-    acm_certificate_arn      = aws_acm_certificate.rds_app_cf_cert.arn
+    # Use the validated certificate ARN to ensure the cert is issued before CloudFront uses it.
+    acm_certificate_arn      = aws_acm_certificate_validation.rds_app_cf_cert.certificate_arn
     ssl_support_method       = "sni-only"
     minimum_protocol_version = "TLSv1.2_2021"
   }

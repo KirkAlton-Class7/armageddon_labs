@@ -8,7 +8,7 @@ terraform {
       source = "hashicorp/aws"
 
       configuration_aliases = [
-        aws.regional
+        aws.edge
       ]
     }
 

@@ -37,7 +37,7 @@
 # ----------------------------------------------------------------
 
 resource "aws_route53_record" "rds_app_origin_to_alb" {
-  count    = var.manage_route53_in_terraform ? 1 : 0
+  count    = var.is_dns_writer ? 1 : 0
   provider = aws.regional
 
   zone_id = local.route53_zone_id

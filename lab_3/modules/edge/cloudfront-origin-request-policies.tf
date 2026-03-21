@@ -4,7 +4,7 @@
 
 # Managed Policy — Forward All Viewer Headers Except Host
 data "aws_cloudfront_origin_request_policy" "all_viewer_except_host" {
-  provider = aws.regional
+  provider = aws.edge
 
   name = "Managed-AllViewerExceptHostHeader"
 }

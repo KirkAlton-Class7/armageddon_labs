@@ -4,7 +4,7 @@
 
 # Managed Policy — Disable Caching (Dynamic / API)
 data "aws_cloudfront_cache_policy" "caching_disabled" {
-  provider = aws.regional
+  provider = aws.edge
 
   name = "Managed-CachingDisabled"
 }
@@ -16,7 +16,7 @@ data "aws_cloudfront_cache_policy" "use_origin_cache_control" {
 
 # Custom Cache Policy — Static Assets
 resource "aws_cloudfront_cache_policy" "cache_static" {
-  provider = aws.regional
+  provider = aws.edge
 
   name    = "rds-app-cache-static-${var.name_suffix}"
   comment = "Aggressive caching for /static/*"

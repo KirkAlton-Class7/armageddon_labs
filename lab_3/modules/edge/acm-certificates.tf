@@ -3,7 +3,7 @@
 # ----------------------------------------------------------------
 # CloudFront TLS Certificate
 resource "aws_acm_certificate" "rds_app_cf_cert" {
-  provider = aws.regional
+  provider = aws.edge
 
   domain_name               = var.dns_context.root_domain
   subject_alternative_names = ["*.${var.dns_context.root_domain}"]
@@ -22,7 +22,7 @@ resource "aws_acm_certificate" "rds_app_cf_cert" {
 # EDGE — DNS Validation Records for CloudFront
 # ----------------------------------------------------------------
 resource "aws_route53_record" "rds_app_cf_cert_validation" {
-  provider = aws.regional
+  provider = aws.edge
 
   # ACM domain_validation_options is unknown at plan time and returned as a set.
   # Use a single deterministic record via locals (first element) to avoid for_each instability.
@@ -43,7 +43,7 @@ resource "aws_route53_record" "rds_app_cf_cert_validation" {
 # ----------------------------------------------------------------
 # DNS Validation
 resource "aws_acm_certificate_validation" "rds_app_cf_cert" {
-  provider = aws.regional
+  provider = aws.edge
 
   # Ensures Terraform waits for DNS validation before using cert
   certificate_arn = aws_acm_certificate.rds_app_cf_cert.arn
