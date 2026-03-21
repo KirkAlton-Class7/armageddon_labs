@@ -37,27 +37,9 @@ variable "dns_context" {
   })
 }
 
-# ----------------------------------------------------------------
-# EDGE VARIABLES — Route53 Management
-# ----------------------------------------------------------------
-
-# variable "manage_route53_in_terraform" {
-#   description = "Whether to manage Route53 hosted zone and records in Terraform."
-#   type        = bool
-# }
-
-# variable "route53_private_zone" {
-#   description = "Whether the Route53 hosted zone is private."
-#   type        = bool
-# }
-
-# ----------------------------------------------------------------
-# EDGE VARIABLES — CloudFront Certificate Validation
-# ----------------------------------------------------------------
-
-variable "rds_app_cf_cert_validation_fqdns" {
-  description = "FQDNs of Route53 validation records used to validate the CloudFront ACM certificate."
-  type        = list(string)
+variable "zone_id" {
+  description = "Route53 hosted zone ID for DNS validation records."
+  type        = string
 }
 
 # ----------------------------------------------------------------

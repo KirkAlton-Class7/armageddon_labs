@@ -59,7 +59,7 @@ locals {
   # -------------------------------------------------------------------
 
   # VPC Endpoints SG
-  vpc_endpoints_sg = aws_security_group.vpc_endpoints.id
+  vpc_endpoints_sg_id = aws_security_group.vpc_endpoints.id
 
   # -------------------------------------------------------------------
   # Shared Network Tags

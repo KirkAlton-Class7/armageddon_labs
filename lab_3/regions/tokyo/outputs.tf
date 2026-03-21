@@ -13,6 +13,30 @@ output "application_context" {
 }
 
 # ----------------------------------------------------------------
+# TOKYO OUTPUTS — Route53 Zone ID
+# ----------------------------------------------------------------
+output "zone_id" {
+  description = "Route53 hosted zone ID."
+  value       = module.dns.zone_id
+}
+
+# ----------------------------------------------------------------
+# TOKYO OUTPUTS — Database Secret
+# ----------------------------------------------------------------
+output "db_secret_arn" {
+  description = "ARN of the database secret."
+  value       = module.database.db_secret_arn
+}
+
+# ----------------------------------------------------------------
+# TOKYO OUTPUTS — Database Identifier
+# ----------------------------------------------------------------
+output "db_identifier" {
+  description = "RDS instance identifier."
+  value       = module.database.db_identifier
+}
+
+# ----------------------------------------------------------------
 # TOKYO OUTPUT — CloudFront Origin Authentication Secret
 # ----------------------------------------------------------------
 
@@ -36,14 +60,14 @@ output "rds_app_public_alb_zone_id" {
   value       = module.compute.rds_app_public_alb_zone_id
 }
 
-# ----------------------------------------------------------------
-# TOKYO OUTPUTS — Regional Certificate Validation Options
-# ----------------------------------------------------------------
+# # ----------------------------------------------------------------
+# # TOKYO OUTPUTS — Regional Certificate Validation Options
+# # ----------------------------------------------------------------
 
-output "rds_app_cert_domain_validation_options" {
-  description = "Domain validation options for the regional ACM certificate."
-  value       = module.compute.rds_app_cert_domain_validation_options
-}
+# output "rds_app_cert_domain_validation_options" {
+#   description = "Domain validation options for the regional ACM certificate."
+#   value       = module.compute.rds_app_cert_domain_validation_options
+# }
 
 # ----------------------------------------------------------------
 # TOKYO OUTPUTS — Application Access

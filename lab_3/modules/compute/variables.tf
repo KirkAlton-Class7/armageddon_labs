@@ -115,6 +115,11 @@ variable "dns_context" {
   })
 }
 
+variable "zone_id" {
+  description = "Route53 hosted zone ID for DNS validation records."
+  type        = string
+}
+
 # ----------------------------------------------------------------
 # COMPUTE VARIABLES — Certificate Validation (Regional ALB)
 # ----------------------------------------------------------------

@@ -36,14 +36,14 @@ output "rds_app_public_alb_zone_id" {
   value       = module.compute.rds_app_public_alb_zone_id
 }
 
-# ----------------------------------------------------------------
-# SAO PAULO OUTPUTS — Regional Certificate Validation Options
-# ----------------------------------------------------------------
+# # ----------------------------------------------------------------
+# # SAO PAULO OUTPUTS — Regional Certificate Validation Options
+# # ----------------------------------------------------------------
 
-output "rds_app_cert_domain_validation_options" {
-  description = "Domain validation options for the regional ACM certificate."
-  value       = module.compute.rds_app_cert_domain_validation_options
-}
+# output "rds_app_cert_domain_validation_options" {
+#   description = "Domain validation options for the regional ACM certificate."
+#   value       = module.compute.rds_app_cert_domain_validation_options
+# }
 
 # ----------------------------------------------------------------
 # SAO PAULO OUTPUTS — Application Access

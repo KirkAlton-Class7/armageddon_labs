@@ -74,7 +74,7 @@ data "aws_iam_policy_document" "rds_app_alb_logs" {
 resource "aws_s3_bucket" "waf_logs_bucket" {
   provider = aws.regional
 
-  count = var.waf_log_mode.create_direct_resources && var.rds_app_waf_arn != null ? 1 : 0
+  count = var.waf_log_mode.create_direct_resources ? 1 : 0
   bucket        = "aws-waf-logs-${var.context.region}-${var.bucket_suffix}"
   force_destroy = true
 
@@ -90,7 +90,7 @@ resource "aws_s3_bucket" "waf_logs_bucket" {
 resource "aws_s3_bucket_server_side_encryption_configuration" "waf_logs_bucket" {
   provider = aws.regional
 
-  count = var.waf_log_mode.create_direct_resources && var.rds_app_waf_arn != null ? 1 : 0
+  count = var.waf_log_mode.create_direct_resources ? 1 : 0
   bucket = aws_s3_bucket.waf_logs_bucket[0].id
 
   rule {
@@ -100,52 +100,52 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "waf_logs_bucket" 
   }
 }
 
-# WAF Logs Bucket Policy Object
-resource "aws_s3_bucket_policy" "waf_logs_bucket" {
-  provider = aws.regional
+# # WAF Logs Bucket Policy Object
+# resource "aws_s3_bucket_policy" "waf_logs_bucket" {
+#   provider = aws.regional
 
-  count = var.waf_log_mode.create_direct_resources && var.rds_app_waf_arn != null ? 1 : 0
+#   count = var.waf_log_mode.create_direct_resources ? 1 : 0
 
-  bucket = aws_s3_bucket.waf_logs_bucket[0].id
-  policy = data.aws_iam_policy_document.waf_logs_bucket_policy[0].json
-}
+#   bucket = aws_s3_bucket.waf_logs_bucket[0].id
+#   policy = data.aws_iam_policy_document.waf_logs_bucket_policy[0].json
+# }
 
-# WAF Logs Bucket Policy Data
-data "aws_iam_policy_document" "waf_logs_bucket_policy" {
-  provider = aws.regional
+# # WAF Logs Bucket Policy Data
+# data "aws_iam_policy_document" "waf_logs_bucket_policy" {
+#   provider = aws.regional
 
-  count = var.waf_log_mode.create_direct_resources && var.rds_app_waf_arn != null ? 1 : 0
-  statement {
-    sid    = "AllowWafDirectWrite"
-    effect = "Allow"
+#   count = var.waf_log_mode.create_direct_resources ? 1 : 0
+#   statement {
+#     sid    = "AllowWafDirectWrite"
+#     effect = "Allow"
 
-    principals {
-      type        = "Service"
-      identifiers = ["delivery.logs.amazonaws.com"]
-    }
+#     principals {
+#       type        = "Service"
+#       identifiers = ["delivery.logs.amazonaws.com"]
+#     }
 
-    actions = [
-      "s3:PutObject"
-      # Some regions may require s3:GetBucketAcl during validation
-    ]
+#     actions = [
+#       "s3:PutObject"
+#       # Some regions may require s3:GetBucketAcl during validation
+#     ]
 
-    resources = [
-      "${aws_s3_bucket.waf_logs_bucket[0].arn}/*"
-    ]
+#     resources = [
+#       "${aws_s3_bucket.waf_logs_bucket[0].arn}/*"
+#     ]
 
-    condition {
-      test     = "StringEquals"
-      variable = "aws:SourceAccount"
-      values   = [var.account_id]
-    }
+#     condition {
+#       test     = "StringEquals"
+#       variable = "aws:SourceAccount"
+#       values   = [var.account_id]
+#     }
 
-    condition {
-      test     = "ArnLike"
-      variable = "aws:SourceArn"
-      values   = [var.rds_app_waf_arn]
-    }
-  }
-}
+#     condition {
+#       test     = "ArnLike"
+#       variable = "aws:SourceArn"
+#       values   = [var.rds_app_waf_arn]
+#     }
+#   }
+# }
 
 # ----------------------------------------------------------------
 # STORAGE — WAF Firehose Logs (S3 + Policy)
@@ -188,7 +188,7 @@ resource "aws_s3_bucket_policy" "waf_firehose_logs" {
 # WAF Firehose Logs Bucket Policy Data
 data "aws_iam_policy_document" "waf_firehose_logs_bucket_policy" {
   provider = aws.regional
-  
+
   count = var.waf_log_mode.create_firehose_resources ? 1 : 0
 
   statement {

@@ -26,6 +26,33 @@ variable "env" {
 }
 
 # ----------------------------------------------------------------
+# SAO PAULO VARIABLES — Route53 Management
+# ----------------------------------------------------------------
+
+variable "manage_route53_in_terraform" {
+  description = "Whether to manage Route53 hosted zone and records in Terraform."
+  type        = bool
+  default = false
+}
+
+variable "route53_private_zone" {
+  description = "Whether the Route53 hosted zone is private."
+  type = bool
+  default = false
+
+  validation {
+    condition     = var.route53_private_zone == false
+    error_message = "This architecture requires public Route53 zone."
+  }
+}
+
+variable "root_domain" {
+  description = "Root DNS domain."
+  type        = string
+  default     = "kirkdevsecops.com"
+}
+
+# ----------------------------------------------------------------
 # SAO PAULO VARIABLES — Networking
 # ----------------------------------------------------------------
 
@@ -33,16 +60,6 @@ variable "vpc_cidr" {
   description = "VPC CIDR block."
   type        = string
   default     = "10.10.0.0/16"
-}
-
-# ----------------------------------------------------------------
-# SAO PAULO VARIABLES — Route53 Management
-# ----------------------------------------------------------------
-
-variable "root_domain" {
-  description = "Root DNS domain."
-  type        = string
-  default     = "kirkdevsecops.com"
 }
 
 # ----------------------------------------------------------------

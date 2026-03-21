@@ -51,68 +51,52 @@ variable "dns_context" {
   })
 }
 
-# ----------------------------------------------------------------
-# DNS VARIABLES — Regional ACM Certificate ARN (ALB)
-# ----------------------------------------------------------------
+# # ----------------------------------------------------------------
+# # DNS VARIABLES — Regional ACM Certificate ARN (ALB)
+# # ----------------------------------------------------------------
 
-variable "rds_app_cert_arn" {
-  description = "ACM certificate ARN used by the ALB."
-  type        = string
-}
+# variable "rds_app_cert_arn" {
+#   description = "ACM certificate ARN used by the ALB."
+#   type        = string
+# }
 
-# ----------------------------------------------------------------
-# DNS VARIABLES — CloudFront ACM Certificate ARN
-# ----------------------------------------------------------------
+# # ----------------------------------------------------------------
+# # DNS VARIABLES — CloudFront ACM Certificate ARN
+# # ----------------------------------------------------------------
 
-variable "rds_app_cf_cert_arn" {
-  description = "ACM certificate ARN used by CloudFront."
-  type        = string
-}
+# variable "rds_app_cf_cert_arn" {
+#   description = "ACM certificate ARN used by CloudFront."
+#   type        = string
+# }
 
 
 
-# ----------------------------------------------------------------
-# DNS VARIABLES — CloudFront Domain Certificate Validation
-# ----------------------------------------------------------------
+# # ----------------------------------------------------------------
+# # DNS VARIABLES — CloudFront Domain Certificate Validation
+# # ----------------------------------------------------------------
 
-variable "rds_app_cf_cert_domain_validation_options" {
-  description = "Domain validation options for the CloudFront ACM certificate."
-  type = list(object({
-    domain_name           = string
-    resource_record_name  = string
-    resource_record_type  = string
-    resource_record_value = string
-  }))
-}
+# variable "rds_app_cf_cert_domain_validation_options" {
+#   description = "Domain validation options for the CloudFront ACM certificate."
+#   type = list(object({
+#     domain_name           = string
+#     resource_record_name  = string
+#     resource_record_type  = string
+#     resource_record_value = string
+#   }))
+# }
 
-# ---------------------------------------------------------------------
-# DNS VARIABLES — CloudFront Distribution
-# ---------------------------------------------------------------------
-
-variable "cloudfront_distribution" {
-  description = "CloudFront distribution details."
-
-  type = object({
-    id             = string
-    arn            = string
-    domain_name    = string
-    hosted_zone_id = string
-    status         = string
-  })
-}
-
-# ----------------------------------------------------------------
-# DNS VARIABLES — ALB Regional Certificate Validation
-# ----------------------------------------------------------------
-variable "rds_app_cert_domain_validation_options" {
-  description = "Domain validation options for the regional ACM certificate."
-  type = list(object({
-    domain_name           = string
-    resource_record_name  = string
-    resource_record_type  = string
-    resource_record_value = string
-  }))
-}
+# # ----------------------------------------------------------------
+# # DNS VARIABLES — ALB Regional Certificate Validation
+# # ----------------------------------------------------------------
+# variable "rds_app_cert_domain_validation_options" {
+#   description = "Domain validation options for the regional ACM certificate."
+#   type = list(object({
+#     domain_name           = string
+#     resource_record_name  = string
+#     resource_record_type  = string
+#     resource_record_value = string
+#   }))
+# }
 
 # ----------------------------------------------------------------
 # DNS VARIABLES — ALB Origin
@@ -127,21 +111,3 @@ variable "rds_app_public_alb_zone_id" {
   description = "Hosted zone ID of the public ALB."
   type        = string
 }
-
-
-
-
-# ----------------------------------------------------------------
-# # EDGE / DNS / CDN VARIABLES — ALB Origin
-# # ----------------------------------------------------------------
-
-# variable "rds_app_public_alb_dns_name" {
-#   description = "DNS name of the public ALB."
-#   type        = string
-# }
-# #    origin_alb_dns         = var.rds_app_public_alb_dns_name
-
-# variable "rds_app_public_alb_zone_id" {
-#   description = "Hosted zone ID of the public ALB."
-#   type        = string
-# }

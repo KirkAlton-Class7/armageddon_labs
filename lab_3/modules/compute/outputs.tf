@@ -1,19 +1,28 @@
-# ----------------------------------------------------------------
-# COMPUTE OUTPUTS — Regional ACM Certificate ARN (ALB)
-# ----------------------------------------------------------------
+# # ----------------------------------------------------------------
+# # COMPUTE OUTPUTS — Regional Certificate Validation Options
+# # ----------------------------------------------------------------
 
+# output "rds_app_cert_domain_validation_options" {
+#   description = "Domain validation options for the regional ACM certificate."
+#   value       = aws_acm_certificate.rds_app_cert.domain_validation_options
+# }
+
+# ----------------------------------------------------------------
+# COMPUTE OUTPUTS — ACM (Regional TLS - ALB)
+# ----------------------------------------------------------------
 output "rds_app_cert_arn" {
   description = "ACM certificate ARN used by the ALB."
   value       = aws_acm_certificate.rds_app_cert.arn
 }
 
-# ----------------------------------------------------------------
-# COMPUTE OUTPUTS — Regional Certificate Validation Options
-# ----------------------------------------------------------------
+output "alb_dns_name" {
+  description = "DNS name of the public ALB."
+  value       = aws_lb.rds_app_public_alb.dns_name
+}
 
-output "rds_app_cert_domain_validation_options" {
-  description = "Domain validation options for the regional ACM certificate."
-  value       = aws_acm_certificate.rds_app_cert.domain_validation_options
+output "alb_zone_id" {
+  description = "Hosted zone ID of the public ALB."
+  value       = aws_lb.rds_app_public_alb.zone_id
 }
 
 # ----------------------------------------------------------------

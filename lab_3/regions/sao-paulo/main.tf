@@ -58,6 +58,9 @@ module "security" {
 
   waf_log_mode            = local.waf_log_mode
   waf_log_destination_arn = module.observability.waf_log_destination_arn
+
+  waf_logs_bucket_arn = module.observability.waf_logs_bucket_arn
+  waf_logs_bucket_id  = module.observability.waf_logs_bucket_id
 }
 
 # ----------------------------------------------------------------
@@ -67,9 +70,9 @@ module "security" {
 module "iam" {
   source = "../../modules/iam"
 
-    providers = {
-    aws.regional = aws
-    }
+providers = {
+  aws.regional = aws
+}
 
   # Identity and Naming
   context     = local.context
@@ -98,9 +101,9 @@ module "iam" {
 module "compute" {
   source = "../../modules/compute"
 
-    providers = {
-    aws.regional = aws
-    }
+providers = {
+  aws.regional = aws
+}
 
   # Identity and Naming
   context     = local.context
@@ -109,6 +112,7 @@ module "compute" {
 
   # DNS Context
   dns_context = local.dns_context
+  zone_id = data.terraform_remote_state.tokyo.outputs.zone_id
 
   # VPC Context
   vpc_id = module.network.vpc_id
@@ -150,6 +154,35 @@ module "compute" {
   #rds_app_cert_validation_fqdns = module.compute.rds_app_cert_validation_fqdns
 }
 
+
+# ----------------------------------------------------------------
+# MODULE — DNS
+# ----------------------------------------------------------------
+
+module "dns" {
+  source = "../../modules/dns"
+
+providers = {
+  aws.regional = aws
+}
+
+  # Identity and Naming
+  context     = local.context
+  name_prefix = local.name_prefix
+  name_suffix = local.name_suffix
+
+  # DNS Context
+  dns_context = local.dns_context
+
+  # Route53 Configuration
+  manage_route53_in_terraform = false # Tokyo (Hub) will manage Rout53 decisions. Hardcode as false to avoid state drift. 
+  route53_private_zone        = var.route53_private_zone
+
+  # ALB (Origin)
+  rds_app_public_alb_dns_name = module.compute.alb_dns_name
+  rds_app_public_alb_zone_id  = module.compute.alb_zone_id
+}
+
 # ----------------------------------------------------------------
 # MODULE — OBSERVABILITY
 # ----------------------------------------------------------------
@@ -157,9 +190,9 @@ module "compute" {
 module "observability" {
   source = "../../modules/observability"
 
-    providers = {
-    aws.regional = aws
-    }
+providers = {
+  aws.regional = aws
+}
 
   # Identity and Naming
   context       = local.context
@@ -199,9 +232,9 @@ module "observability" {
 module "tgw" {
   source = "../../modules/tgw"
 
-    providers = {
-    aws.regional = aws
-    }
+providers = {
+  aws.regional = aws
+}
 
   # Identity and Naming
   context     = local.context

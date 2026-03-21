@@ -1,6 +1,7 @@
 # ----------------------------------------------------------------
-# EDGE — TLS Certificate (CloudFront)
+# EDGE — ACM Certificate (CloudFront)
 # ----------------------------------------------------------------
+# CloudFront TLS Certificate
 
 resource "aws_acm_certificate" "rds_app_cf_cert" {
   provider = aws.regional
@@ -10,7 +11,7 @@ resource "aws_acm_certificate" "rds_app_cf_cert" {
   validation_method         = "DNS"
 
   tags = {
-    Name = "${var.context.app}-cert"
+    Name = "${var.context.app}-cf-cert"
   }
 
   lifecycle {
@@ -18,13 +19,43 @@ resource "aws_acm_certificate" "rds_app_cf_cert" {
   }
 }
 
+
+# ----------------------------------------------------------------
+# EDGE — DNS Validation Records for CloudFront
+# ----------------------------------------------------------------
+resource "aws_route53_record" "rds_app_cf_cert_validation" {
+  provider = aws.regional
+
+  # ACM may return duplicate validation records (e.g., root + wildcard domains).
+  # Use grouping (...) to avoid duplicate key errors in for_each.
+  for_each = {
+    for dvo in aws_acm_certificate.rds_app_cf_cert.domain_validation_options :
+    dvo.resource_record_name => dvo...
+  }
+
+  allow_overwrite = true
+
+  # When grouping is used, each.value is a list. Reference the first element.
+  name    = each.value[0].resource_record_name
+  records = [each.value[0].resource_record_value]
+  ttl     = 60
+  type    = each.value[0].resource_record_type
+
+  zone_id = var.zone_id
+}
+
+
 # ----------------------------------------------------------------
 # EDGE — ACM Certificate Validation (CloudFront)
 # ----------------------------------------------------------------
-
+# DNS Validation
 resource "aws_acm_certificate_validation" "rds_app_cf_cert" {
   provider = aws.regional
-  
-  certificate_arn         = aws_acm_certificate.rds_app_cf_cert.arn
-  validation_record_fqdns = var.rds_app_cf_cert_validation_fqdns
+
+  certificate_arn = aws_acm_certificate.rds_app_cf_cert.arn
+
+  validation_record_fqdns = [
+    for record in aws_route53_record.rds_app_cf_cert_validation :
+    record.fqdn
+  ]
 }

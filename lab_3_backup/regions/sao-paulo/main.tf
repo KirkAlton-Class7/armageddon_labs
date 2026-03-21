@@ -23,9 +23,6 @@ module "network" {
   vpc_cidr = var.vpc_cidr
   azs      = local.azs
 
-  # Security Integration
-  vpc_endpoints_sg_id = module.security.vpc_endpoints_sg_id
-
   # Demo Metadata (Not used for deployment)
   demo_owner = var.demo_owner #DEMO: Root variable var.demo_owner is passed into module variable demo_owner
 }
