@@ -1,9 +1,9 @@
 # ----------------------------------------------------------------
-# GLOBAL — Transit Gateway Peering (Tokyo ↔ São Paulo)
+# GLOBAL — Transit Gateway Peering (Tokyo ↔ Sao Paulo)
 # ----------------------------------------------------------------
 
 module "tgw_peering" {
-  source = "../../modules/tgw-peering"
+  source = "../../modules/tgw_peering"
 
   providers = {
     aws.source = aws.tokyo
@@ -25,6 +25,6 @@ module "tgw_peering" {
   source_vpc_cidr = data.terraform_remote_state.tokyo.outputs.vpc_cidr
   peer_vpc_cidr   = data.terraform_remote_state.saopaulo.outputs.vpc_cidr
 
-  peer_region = data.terraform_remote_state.saopaulo.outputs.application_context.region
+  peer_region  = data.terraform_remote_state.saopaulo.outputs.application_context.region
   peering_name = local.peering_name
 }

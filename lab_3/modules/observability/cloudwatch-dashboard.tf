@@ -115,6 +115,15 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
               ]
             ]
 
+            annotations = {
+              horizontal = [
+                {
+                  label = "Alarm Threshold"
+                  value = 5
+                }
+              ]
+            }
+
             region = var.context.region
             period = 60
             view   = "timeSeries"
@@ -126,6 +135,136 @@ resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
     )
   })
 }
+
+
+# # ----------------------------------------------------------------
+# # OBSERVABILITY — CloudWatch Dashboard (RDS App Stack)
+# # ----------------------------------------------------------------
+
+# resource "aws_cloudwatch_dashboard" "rds_app_dashboard" {
+#   provider = aws.regional
+
+#   dashboard_name = "rds-app-dashboard"
+
+#   dashboard_body = jsonencode({
+#     start          = "-PT6H"
+#     periodOverride = "inherit"
+
+#     widgets = concat(
+
+#       [
+#         ## ========== APPLICATION ==========
+#         {
+#           type   = "metric"
+#           x      = 0
+#           y      = 0
+#           width  = 8
+#           height = 6
+
+#           properties = {
+#             title = "ALB Target Group Request Count"
+
+#             metrics = [
+#               [
+#                 "AWS/ApplicationELB",
+#                 "RequestCount",
+#                 "TargetGroup", var.rds_app_asg_tg_arn_suffix,
+#                 "LoadBalancer", var.rds_app_public_alb_arn_suffix
+#               ]
+#             ]
+
+#             region = var.context.region
+#             stat   = "Sum"
+#             period = 60
+#             view   = "timeSeries"
+#           }
+#         },
+
+#         {
+#           type   = "metric"
+#           x      = 8
+#           y      = 0
+#           width  = 8
+#           height = 6
+
+#           properties = {
+#             title = "ASG CPU Utilization"
+
+#             metrics = [
+#               [
+#                 "AWS/EC2",
+#                 "CPUUtilization",
+#                 "AutoScalingGroupName", var.rds_app_asg_name
+#               ]
+#             ]
+
+#             stat   = "Average"
+#             region = var.context.region
+#             period = 300
+#             view   = "timeSeries"
+#           }
+#         },
+
+#         {
+#           type   = "metric"
+#           x      = 16
+#           y      = 0
+#           width  = 8
+#           height = 6
+
+#           properties = {
+#             title = "RDS CPU & Freeable Memory"
+
+#             metrics = [
+#               [
+#                 "AWS/RDS",
+#                 "CPUUtilization",
+#                 "DBInstanceIdentifier", var.db_identifier
+#               ],
+#               [
+#                 ".",
+#                 "FreeableMemory",
+#                 ".", "."
+#               ]
+#             ]
+
+#             region = var.context.region
+#             period = 300
+#             view   = "timeSeries"
+#           }
+#         },
+
+#         ## ========== ALB ERRORS ==========
+#         {
+#           type   = "metric"
+#           x      = 8
+#           y      = 6
+#           width  = 8
+#           height = 6
+
+#           properties = {
+#             title = "ALB 5xx Errors"
+
+#             metrics = [
+#               [
+#                 "AWS/ApplicationELB",
+#                 "HTTPCode_Target_5XX_Count",
+#                 "LoadBalancer", var.rds_app_public_alb_arn_suffix,
+#                 "TargetGroup", var.rds_app_asg_tg_arn_suffix
+#               ]
+#             ]
+
+#             region = var.context.region
+#             period = 60
+#             view   = "timeSeries"
+#           }
+#         }
+#       ],
+
+#       local.waf_widget
+#     )
+#   })
+# }
 
 
 

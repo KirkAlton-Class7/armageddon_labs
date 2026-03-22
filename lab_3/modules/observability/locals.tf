@@ -1,13 +1,12 @@
 # ----------------------------------------------------------------
-# OBSERVABILITY — Locals
+# OBSERVABILITY — LOCALS
 # ----------------------------------------------------------------
 
 locals {
 
   # ----------------------------------------------------------------
-  # WAF Log Destination Resolution
+  # LOGGING — WAF Destination Resolution
   # ----------------------------------------------------------------
-
   # Resolve WAF log destination ARN.
   # Kept separate from waf_log_mode to avoid dependency cycles.
 
@@ -20,22 +19,12 @@ locals {
 
   # Ternary operator syntax:
   # condition ? value_if_true : value_if_false
-  #
-  # Everything inside the expression must evaluate to ONE value.
+  # Everything must evaluate to ONE value.
 
   # ----------------------------------------------------------------
-  # OBSERVABILITY — Conditional WAF Dashboard Widget (CloudFront)
+  # DASHBOARDS — Conditional WAF Widget (CloudFront)
   # ----------------------------------------------------------------
-  # This widget is only rendered when a WAF Web ACL name is provided.
-  # CloudWatch dashboards require valid string metric dimensions, and
-  # do not accept null or empty values. When WAF is disabled in the
-  # regional stack, var.rds_app_waf_name will be null, so the widget
-  # must be omitted entirely to avoid dashboard validation errors.
-  #
-  # Pattern:
-  #   If WAF exists  → include widget
-  #   If WAF absent  → return empty list
-  # ----------------------------------------------------------------
+  # Render only if WAF exists (CloudWatch rejects null dimensions)
 
   waf_widget = var.rds_app_waf_name != null ? [
     {
