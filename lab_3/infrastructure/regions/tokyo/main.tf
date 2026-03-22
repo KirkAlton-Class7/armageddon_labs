@@ -179,8 +179,8 @@ module "compute" {
   # ALB Logging
   alb_access_logs_prefix = var.alb_access_logs_prefix
   alb_log_s3             = var.alb_log_s3
-  alb_logs_bucket_id = data.aws_s3_bucket.alb_logs.id
-  
+  alb_logs_bucket_id     = module.observability.alb_logs_bucket_id
+
   # Edge Integration
   edge_auth_header_name = local.edge_auth_header_name
   edge_auth_value       = random_password.edge_auth_value.result

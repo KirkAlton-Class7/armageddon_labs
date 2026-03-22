@@ -1,9 +1,5 @@
 # ----------------------------------------------------------------
-# OBSERVABILITY — VARIABLES
-# ----------------------------------------------------------------
-
-# ----------------------------------------------------------------
-# GLOBAL — Identity & Networking
+# OBSERVABILITY VARIABLES — Account and Networking Inputs
 # ----------------------------------------------------------------
 
 variable "account_id" {
@@ -16,8 +12,12 @@ variable "vpc_id" {
   type        = string
 }
 
+# ----------------------------------------------------------------
+# OBSERVABILITY VARIABLES — Deployment Context
+# ----------------------------------------------------------------
+
 variable "context" {
-  description = "Deployment context (region, app, env, tags)."
+  description = "Deployment context containing region, application name, environment, and common tags."
   type = object({
     region = string
     app    = string
@@ -27,64 +27,63 @@ variable "context" {
 }
 
 # ----------------------------------------------------------------
-# NAMING — Resource Naming
+# OBSERVABILITY VARIABLES — Naming Configuration
 # ----------------------------------------------------------------
 
 variable "name_prefix" {
-  description = "Resource name prefix."
+  description = "Prefix for resource names."
   type        = string
 }
 
 variable "name_suffix" {
-  description = "Resource name suffix."
+  description = "Suffix for resource names."
   type        = string
 }
 
 variable "bucket_suffix" {
-  description = "S3 bucket name suffix."
+  description = "Suffix for S3 bucket names."
   type        = string
 }
 
 # ----------------------------------------------------------------
-# FEATURE FLAGS — Observability Scope
+# OBSERVABILITY VARIABLES — Enable DB Observability Resources
 # ----------------------------------------------------------------
-
 variable "enable_db_observability" {
-  description = "Enable DB-specific observability resources."
+  description = "Enable DB-specific observability resources in this region."
   type        = bool
   default     = false
 }
 
 # ----------------------------------------------------------------
-# LOGGING — ALB Access Logs
+# OBSERVABILITY VARIABLES — ALB Logging Configuration
 # ----------------------------------------------------------------
 
 variable "alb_log_s3" {
-  description = "Enable ALB access logs to S3."
+  description = "Enable ALB access logging to S3."
   type        = bool
 }
 
 variable "alb_access_logs_prefix" {
-  description = "S3 prefix for ALB logs."
+  description = "S3 key prefix for ALB access logs."
   type        = string
 }
 
-# ----------------------------------------------------------------
-# METRICS — CloudWatch Inputs
-# ----------------------------------------------------------------
+# -----------------------------------------------------------------------
+# OBSERVABILITY VARIABLES — CloudWatch Metric Inputs (ALB / Target Group)
+# -----------------------------------------------------------------------
 
 variable "rds_app_public_alb_arn_suffix" {
-  description = "ALB ARN suffix for metrics."
+  description = "ALB ARN suffix for CloudWatch metrics."
   type        = string
 }
 
 variable "rds_app_asg_tg_arn_suffix" {
-  description = "Target group ARN suffix for metrics."
+  description = "Target group ARN suffix for CloudWatch metrics."
   type        = string
 }
 
 # ----------------------------------------------------------------
-# LOGGING — WAF Mode
+# OBSERVABILITY VARIABLES — WAF Logging Mode Configuration
 # ----------------------------------------------------------------
 
 variable "waf_log_mode" {
@@ -97,7 +96,7 @@ variable "waf_log_mode" {
 }
 
 # ----------------------------------------------------------------
-# IAM — Logging Roles
+# OBSERVABILITY VARIABLES — Logging IAM Roles
 # ----------------------------------------------------------------
 
 variable "vpc_flow_log_role_arn" {
@@ -106,40 +105,40 @@ variable "vpc_flow_log_role_arn" {
 }
 
 variable "firehose_network_telemetry_role_arn" {
-  description = "IAM role ARN for Firehose telemetry."
+  description = "IAM role ARN for Firehose network telemetry."
   type        = string
   default     = null
 }
 
 # ----------------------------------------------------------------
-# DATABASE — Monitoring Inputs
+# OBSERVABILITY VARIABLES — Database Monitoring Inputs
 # ----------------------------------------------------------------
 
 variable "db_identifier" {
-  description = "RDS instance identifier."
+  description = "RDS database instance identifier."
   type        = string
 }
 
 # ----------------------------------------------------------------
-# COMPUTE — Monitoring Inputs
+# OBSERVABILITY VARIABLES — Compute Monitoring Inputs
 # ----------------------------------------------------------------
 
 variable "rds_app_asg_name" {
-  description = "Auto Scaling Group name."
+  description = "Name of the RDS app Auto Scaling Group."
   type        = string
 }
 
 # ----------------------------------------------------------------
-# WAF — Monitoring Inputs
+# OBSERVABILITY VARIABLES — WAF Monitoring Inputs
 # ----------------------------------------------------------------
 
 variable "rds_app_waf_name" {
-  description = "WAF Web ACL name."
+  description = "Name of the RDS app WAF web ACL."
   type        = string
   default     = null
 }
 
 variable "rds_app_waf_arn" {
-  description = "WAF Web ACL ARN."
+  description = "ARN of the RDS app WAF web ACL."
   type        = string
 }
