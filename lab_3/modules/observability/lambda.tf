@@ -41,8 +41,8 @@
 # Zip Archive - Lambda Firehose Processor
 # data "archive_file" "lambda_firehose_processor" {
 #   type        = "zip"
-#   source_file = "${path.module}/lambda-code/firehose-processor.py"
-#   output_path = "${path.module}/lambda-code/firehose-processor.zip"
+#   source_file = "${path.module}/lambda_code/firehose_processor.py"
+#   output_path = "${path.module}/lambda_code/firehose_processor.zip"
 # }
 
 # NOTE:

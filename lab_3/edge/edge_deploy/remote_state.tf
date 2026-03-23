@@ -24,7 +24,7 @@ data "terraform_remote_state" "saopaulo" {
 
   config = {
     bucket = "kirkdevsecops-terraform-state"
-    key    = "rds-app/dev/regions/saopaulo/terraform.tfstate"
+    key    = "rds-app/dev/regions/sao_paulo/terraform.tfstate"
     region = "us-west-2"
   }
 }

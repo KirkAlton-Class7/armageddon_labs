@@ -3,7 +3,7 @@
 # ----------------------------------------------------------------
 
 module "tgw_peering" {
-  source = "../../modules/tgw-peering"
+  source = "../../modules/tgw_peering"
 
   providers = {
     aws.source = aws.tokyo

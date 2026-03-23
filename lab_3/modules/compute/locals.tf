@@ -10,7 +10,7 @@ locals {
 
   # EC2 user data for app instances
   rds_app_user_data = templatefile(
-    "${path.module}/templates/1c-user-data.sh.tpl",
+    "${path.module}/templates/1c_user_data.sh.tpl",
     {
       region      = var.context.region,
       secret_id   = var.db_secret_arn,
@@ -20,7 +20,7 @@ locals {
 
   # CloudWatch agent configuration
   cloudwatch_agent_config = templatefile(
-    "${path.module}/templates/cloudwatch-agent-config.json.tpl",
+    "${path.module}/templates/cloudwatch_agent_config.json.tpl",
     {
       name_suffix = var.name_suffix
     }
