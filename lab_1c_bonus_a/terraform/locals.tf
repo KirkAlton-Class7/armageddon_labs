@@ -104,7 +104,7 @@ locals {
 
   # Template Files
   # EC2 User Data for RDS App Instances
-  rds_app_user_data = templatefile("${path.module}/templates/1c_user_data.sh.tpl",
+  rds_app_user_data = templatefile("${path.module}/templates/1c-user-data.sh.tpl",
     {
       region      = local.region,
       secret_id   = local.secret_id
